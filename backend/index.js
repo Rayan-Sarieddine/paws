@@ -24,7 +24,10 @@ const userRoutes = require("./routes/user.routes");
 app.use("/user", authMiddleware, userRoleMiddleware, userRoutes);
 
 const productRoutes = require("./routes/product.routes");
-app.use("/products", authMiddleware, adminRoleMiddleware, productRoutes);
+app.use("/products", authMiddleware, userRoleMiddleware, productRoutes);
+
+const petRoutes = require("./routes/pet.routes");
+app.use("/pets", authMiddleware, userRoleMiddleware, petRoutes);
 
 app.listen(8000, () => {
   console.log("listening");
