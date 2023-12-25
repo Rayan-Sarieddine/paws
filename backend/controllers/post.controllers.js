@@ -131,7 +131,17 @@ const editPost = async (req, res) => {
     return res.status(500).send({ message: "server error" });
   }
 };
-const getAllPosts = async (req, res) => {};
+const getAllPosts = async (req, res) => {
+  try {
+    const posts = await Post.find().populate(
+      "added_by",
+      "_id name phone email"
+    );
+    res.status(200).json({ posts: posts });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
 const getPost = async (req, res) => {};
 const deletePost = async (req, res) => {};
 
