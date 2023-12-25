@@ -216,7 +216,8 @@ const deleteProduct = async (req, res) => {
   }
 };
 const filterProducts = async (req, res) => {
-  const { filter, value } = req.body;
+  let { filter, value } = req.body;
+  //filter by category
   if (filter == "category") {
     const validCategories = [
       "DOG SUPPLIES",
@@ -244,6 +245,7 @@ const filterProducts = async (req, res) => {
       return res.status(500).send({ message: error.message });
     }
   }
+  //filter by price
   if (filter == "price") {
     if (value < 0) {
       return res.status(400).send({ message: "price cannot be negative" });
@@ -262,7 +264,30 @@ const filterProducts = async (req, res) => {
       return res.status(500).send({ message: error.message });
     }
   }
+  //filter by name
   if (filter == "name") {
+    if (value.length > 20) {
+      return res.status(400).send({ message: "name does not exist" });
+    }
+    try {
+      const filteredProducts = [];
+      const products = await Product.find();
+      products.map((product) => {
+        const trimmedName = value.trim();
+        const nameParts = trimmedName.split(" ");
+        const capitalizedNames = nameParts.map(
+          (part) => part.charAt(0).toUpperCase() + part.slice(1)
+        );
+        value = capitalizedNames.join(" ");
+        if (product.name == value) filteredProducts.push(product);
+      });
+      if (filteredProducts.length == 0) {
+        return res.status(204).send({ message: "no products found" });
+      }
+      return res.status(200).send({ filteredProducts: filteredProducts });
+    } catch (error) {
+      return res.status(500).send({ message: error.message });
+    }
   }
   return res.status(404).send({ message: "filter not found" });
 };
