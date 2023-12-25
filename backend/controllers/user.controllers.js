@@ -1,6 +1,6 @@
 const User = require("../models/user.model");
 const Product = require("../models/product.model");
-
+const bcrypt = require("bcrypt");
 const addProductToCart = async (req, res) => {
   const userID = req.user._id;
   const { productID, quantity, productImage } = req.body;
