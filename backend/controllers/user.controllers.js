@@ -175,7 +175,7 @@ const createChatSession = async (req, res) => {
     res.status(500).send({ message: "server error" });
   }
 };
-const getChatSession = async (req, res) => {
+const getAllChatSession = async (req, res) => {
   const userId = req.user._id;
 
   try {
@@ -196,8 +196,34 @@ const getChatSession = async (req, res) => {
     res.status(500).send({ message: "server error" });
   }
 };
-const editChatSession = async (req, res) => {};
-const deleteChatSession = async (req, res) => {};
+
+const deleteChatSession = async (req, res) => {
+  const userId = req.user._id;
+  const { chatId } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+
+    const chatSessionIndex = user.chatSessions.findIndex(
+      (session) => session.chatId === chatId
+    );
+
+    if (chatSessionIndex === -1) {
+      return res.status(404).send({ message: "Chat session not found" });
+    }
+
+    user.chatSessions.splice(chatSessionIndex, 1);
+    await user.save();
+
+    res.status(200).send({ message: "Chat session deleted" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "Server error" });
+  }
+};
 
 module.exports = {
   addProductToCart,
@@ -205,5 +231,6 @@ module.exports = {
   getCart,
   emptyCart,
   createChatSession,
-  getChatSession,
+  getAllChatSession,
+  deleteChatSession,
 };
