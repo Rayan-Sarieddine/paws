@@ -232,7 +232,49 @@ const deletePet = async (req, res) => {
     return res.status(500).send({ message: "pet not found" });
   }
 };
-const filterPet = async (req, res) => {};
+const filterPet = async (req, res) => {
+  let { filter, value } = req.body;
+  //filter by type
+  if (filter === "type") {
+    const validtypes = ["dogs", "cats", "fish", "rabbits", "others"];
+    if (!validtypes.includes(value)) {
+      return res.status(400).send({ message: "type does not exist" });
+    }
+    try {
+      const filteredPets = [];
+      const pets = await Pet.find();
+      pets.map((pet) => {
+        if (pet.type === value) filteredPets.push(pet);
+      });
+      if (filteredPets.length == 0) {
+        return res.status(204).send({ message: "no pets found" });
+      }
+      return res.status(200).send({ filteredPets: filteredPets });
+    } catch (error) {
+      return res.status(500).send({ message: error.message });
+    }
+  }
+  //filter by age
+  if (filter === "age") {
+    if (value < 0) {
+      return res.status(400).send({ message: "age cannot be negative" });
+    }
+    try {
+      const filteredPets = [];
+      const pets = await Pet.find();
+      pets.map((pet) => {
+        if (pet.age < value) filteredPets.push(pet);
+      });
+      if (filteredPets.length == 0) {
+        return res.status(204).send({ message: "no pets found" });
+      }
+      return res.status(200).send({ filteredPets: filteredPets });
+    } catch (error) {
+      return res.status(500).send({ message: error.message });
+    }
+  }
+  return res.status(404).send({ message: "filter not found" });
+};
 const petStats = async (req, res) => {};
 
 module.exports = {
