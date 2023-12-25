@@ -10,6 +10,6 @@ const router = express.Router();
 router.post("/", addProductToCart);
 router.put("/", updateUser);
 router.get("/", getCart);
-router.post("/emptyCart", emptyCart);
+router.get("/emptyCart", emptyCart);
 
 module.exports = router;

@@ -130,7 +130,22 @@ const getCart = async (req, res) => {
     res.status(500).send({ message: "server error" });
   }
 };
-const emptyCart = async (req, res) => {};
+const emptyCart = async (req, res) => {
+  const userID = req.user._id;
+  try {
+    const user = await User.findById(userID);
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+    await User.findByIdAndUpdate(userID, {
+      $set: { "cart.items": [] },
+    });
+    res.status(200).send({ message: "cart emptied successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: "internal server error", error });
+  }
+};
 
 module.exports = {
   addProductToCart,
