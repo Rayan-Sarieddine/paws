@@ -14,11 +14,11 @@ const postschema = new mongoose.Schema(
     location: {
       type: String,
       enum: ["BEIRUT", "SOUTH", "NORTH", "BEKAA", "MOUNT LEBANON", "OTHER"],
-      default: "OTHER",
+      required: true,
     },
     image: {
       type: String,
-      default: "defualt_pet_image.png",
+      required: true,
     },
     type: {
       type: String,
