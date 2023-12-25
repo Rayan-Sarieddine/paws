@@ -181,7 +181,7 @@ const editProduct = async (req, res) => {
 };
 const getAllproducts = async (req, res) => {
   try {
-    const products = await Product.find({});
+    const products = await Product.find();
     res.status(200).json({ products: products });
   } catch (error) {
     res.status(500).send({ message: error.message });
@@ -215,7 +215,41 @@ const deleteProduct = async (req, res) => {
     res.status(500).send({ message: "product not found" });
   }
 };
-const filterProducts = async (req, res) => {};
+const filterProducts = async (req, res) => {
+  const { filter, value } = req.body;
+  if (filter == "category") {
+    const validCategories = [
+      "DOG SUPPLIES",
+      "CAT SUPPLIES",
+      "BIRD SUPPLIES",
+      "FISH SUPPLIES",
+      "SMALL ANIMAL SUPPLIES",
+      "ACCESSORIES",
+      "OTHERS",
+    ];
+    if (!validCategories.includes(value)) {
+      return res.status(400).send({ message: "category does not exist" });
+    }
+    try {
+      const filteredProducts = [];
+      const products = await Product.find();
+      products.map((product) => {
+        if (product.category == value) filteredProducts.push(product);
+      });
+      if (filteredProducts.length == 0) {
+        return res.status(204).send({ message: "no products found" });
+      }
+      return res.status(200).send({ filteredProducts: filteredProducts });
+    } catch (error) {
+      return res.status(500).send({ message: error.message });
+    }
+  }
+  if (filter == "price") {
+  }
+  if (filter == "name") {
+  }
+  return res.status(404).send({ message: "filter not found" });
+};
 const productStats = async (req, res) => {};
 
 module.exports = {
