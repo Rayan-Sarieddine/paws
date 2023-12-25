@@ -38,7 +38,8 @@ const userschema = new mongoose.Schema({
     items: [
       {
         productID: {
-          type: String,
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
           required: true,
         },
         quantity: {
