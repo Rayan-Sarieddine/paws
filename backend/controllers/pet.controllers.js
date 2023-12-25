@@ -218,7 +218,20 @@ const getPet = async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 };
-const deletePet = async (req, res) => {};
+const deletePet = async (req, res) => {
+  try {
+    const petId = req.params.id;
+    const pet = await Pet.findByIdAndDelete(petId);
+
+    if (!pet) {
+      return res.status(404).send({ message: "pet not found" });
+    }
+
+    return res.status(200).send({ message: "pet deleted successfully" });
+  } catch (error) {
+    return res.status(500).send({ message: "pet not found" });
+  }
+};
 const filterPet = async (req, res) => {};
 const petStats = async (req, res) => {};
 
