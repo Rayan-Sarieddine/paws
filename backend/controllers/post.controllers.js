@@ -142,7 +142,24 @@ const getAllPosts = async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 };
-const getPost = async (req, res) => {};
+const getPost = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const post = await Post.findOne({ _id: id }).populate(
+      "added_by",
+      "_id name phone email"
+    );
+
+    if (!post) {
+      return res.status(404).send({ message: "post not found" });
+    }
+
+    res.status(200).json({ post: post });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
 const deletePost = async (req, res) => {};
 
 module.exports = {
