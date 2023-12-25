@@ -291,7 +291,36 @@ const filterProducts = async (req, res) => {
   }
   return res.status(404).send({ message: "filter not found" });
 };
-const productStats = async (req, res) => {};
+
+const productStats = async (req, res) => {
+  try {
+    const products = await Product.find();
+
+    const stats = {
+      totalNumberOfProducts: products.length,
+      numberOfProductsByCategory: {},
+      averagePrice: 0,
+    };
+    let totalSum = 0;
+
+    products.forEach((product) => {
+      totalSum += product.price;
+
+      if (stats.numberOfProductsByCategory[product.category]) {
+        stats.numberOfProductsByCategory[product.category]++;
+      } else {
+        stats.numberOfProductsByCategory[product.category] = 1;
+      }
+    });
+    if (products.length > 0) {
+      stats.averagePrice = totalSum / products.length;
+    }
+
+    return res.status(200).json(stats);
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 
 module.exports = {
   addProduct,
