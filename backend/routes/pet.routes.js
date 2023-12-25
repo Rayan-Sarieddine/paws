@@ -13,7 +13,7 @@ const router = express.Router();
 router.post("/", addPet);
 router.put("/", editPet);
 router.get("/", getAllPets);
-router.get("/:id", getPet);
+router.get("/:name", getPet);
 router.delete("/:id", deletePet);
 router.post("/filter", filterPet);
 router.post("/stats", petStats);

@@ -198,7 +198,26 @@ const getAllPets = async (req, res) => {
   }
 };
 
-const getPet = async (req, res) => {};
+const getPet = async (req, res) => {
+  try {
+    let name = req.params.name;
+    const trimmedName = name.trim();
+    const nameParts = trimmedName.split(" ");
+    const capitalizedNames = nameParts.map(
+      (part) => part.charAt(0).toUpperCase() + part.slice(1)
+    );
+    name = capitalizedNames.join(" ");
+    const pet = await Pet.findOne({ name });
+
+    if (!pet) {
+      return res.status(404).send({ message: "pet not found" });
+    }
+
+    res.status(200).json({ pet: pet });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
 const deletePet = async (req, res) => {};
 const filterPet = async (req, res) => {};
 const petStats = async (req, res) => {};
