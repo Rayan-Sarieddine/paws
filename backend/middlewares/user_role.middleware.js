@@ -5,7 +5,7 @@ const userRoleMiddleware = async (req, res, next) => {
     return res.status(401).send("Unauthorized");
   }
 
-  if (userType !== "USER") {
+  if (userType !== "USER" || userType !== "ADMIN") {
     return res.status(403).send("Forbidden: Insufficient permissions");
   }
   next();
