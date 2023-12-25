@@ -37,7 +37,7 @@ const petscheme = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: "default_pet_picture.png",
+      default: "default_pet_image.png",
     },
   },
   { timestamps: true }

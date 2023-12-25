@@ -18,7 +18,7 @@ const postschema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: "defualt_pet_picture.png",
+      default: "defualt_pet_image.png",
     },
     type: {
       type: String,
