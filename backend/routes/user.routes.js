@@ -5,6 +5,7 @@ const {
   getCart,
   emptyCart,
   createChatSession,
+  getChatSession,
 } = require("../controllers/user.controllers");
 const router = express.Router();
 
@@ -13,4 +14,5 @@ router.put("/", updateUser);
 router.get("/", getCart);
 router.get("/emptyCart", emptyCart);
 router.post("/chat", createChatSession);
+router.get("/chat", getChatSession);
 module.exports = router;
