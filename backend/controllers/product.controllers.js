@@ -245,6 +245,22 @@ const filterProducts = async (req, res) => {
     }
   }
   if (filter == "price") {
+    if (value < 0) {
+      return res.status(400).send({ message: "price cannot be negative" });
+    }
+    try {
+      const filteredProducts = [];
+      const products = await Product.find();
+      products.map((product) => {
+        if (product.price < value) filteredProducts.push(product);
+      });
+      if (filteredProducts.length == 0) {
+        return res.status(204).send({ message: "no products found" });
+      }
+      return res.status(200).send({ filteredProducts: filteredProducts });
+    } catch (error) {
+      return res.status(500).send({ message: error.message });
+    }
   }
   if (filter == "name") {
   }
