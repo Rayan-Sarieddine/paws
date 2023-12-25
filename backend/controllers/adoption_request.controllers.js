@@ -39,13 +39,21 @@ const editRequest = async (req, res) => {
 };
 
 const getAllRequests = async (req, res) => {
+  const { status } = req.body;
+  const statusOptions = ["PENDING", "APPROVED", "REJECTED"];
+  if (!statusOptions.includes(status)) {
+    return res.status(400).send({ message: "status does not exist" });
+  }
   try {
-    const requests = await Request.find()
+    const requests = await Request.find({ status: status })
       .populate("pet_id", "type breed age image")
       .populate("user_id", "name email image number");
-    res.status(200).send({ message: "success", requests: requests });
+    if (requests.length == 0) {
+      return res.status(204).send({ message: "no requests" });
+    }
+    return res.status(200).send({ message: "success", requests: requests });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 const getRequests = async (req, res) => {};
