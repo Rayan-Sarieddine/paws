@@ -1,0 +1,107 @@
+const Product = require("../models/product.model");
+const path = require("path");
+const addProduct = async (req, res) => {
+  let {
+    barcode,
+    name,
+    price,
+    category = "OTHERS",
+    description,
+    details,
+    stock,
+    image = "default_product_image.png",
+  } = req.body;
+  if (!barcode || !name || !price || !description || !details || !stock) {
+    return res.status(400).send({ message: "all fileds are required" });
+  }
+  try {
+    const existingProduct = await Product.findOne({ barcode });
+    if (existingProduct) {
+      return res.status(409).send({ message: "Product already exists" });
+    }
+    if (details.length < 5 || description.length < 5) {
+      return res.status(400).send({ message: "not enough information given" });
+    }
+    if (stock < 0 || price < 0) {
+      return res.status(400).send({ message: "numbers cannot be negative" });
+    }
+
+    //product name
+    const trimmedName = name.trim();
+    const nameParts = trimmedName.split(" ");
+    const capitalizedNames = nameParts.map(
+      (part) => part.charAt(0).toUpperCase() + part.slice(1)
+    );
+    name = capitalizedNames.join(" ");
+
+    //category
+    const validCategories = [
+      "DOG SUPPLIES",
+      "CAT SUPPLIES",
+      "BIRD SUPPLIES",
+      "FISH SUPPLIES",
+      "SMALL ANIMAL SUPPLIES",
+      "ACCESSORIES",
+      "OTHERS",
+    ];
+    if (!validCategories.includes(category)) {
+      return res.status(400).send({ message: "category does not exist" });
+    }
+
+    //image
+    if (req.files && req.files.image) {
+      if (Array.isArray(req.files.image)) {
+        return res
+          .status(400)
+          .send({ message: "Only one image can be uploaded at a time" });
+      }
+      const imageFile = req.files.image;
+
+      const imageExtension = path.extname(imageFile.name);
+      const imageName = `${barcode}${imageExtension}`;
+
+      const imageDir = path.join(
+        __dirname,
+        "../public/images/products",
+        imageName
+      );
+      await imageFile.mv(imageDir).catch((err) => {
+        console.error(err);
+        return res.status(500).send({ message: "Error uploading image" });
+      });
+
+      image = imageName;
+    }
+    const product = new Product({
+      barcode,
+      name,
+      price,
+      category,
+      description,
+      details,
+      stock,
+      image,
+    });
+    await product.save();
+    return res.status(200).send({ product, status: "success" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ error });
+  }
+};
+const editProduct = async (req, res) => {};
+const getAllproducts = async (req, res) => {};
+const getProduct = async (req, res) => {};
+const deleteProduct = async (req, res) => {};
+const filterProducts = async (req, res) => {};
+const productStats = async (req, res) => {};
+
+module.exports = {
+  addProduct,
+  editProduct,
+  getAllproducts,
+  getProduct,
+  deleteProduct,
+  filterProducts,
+  productStats,
+};
