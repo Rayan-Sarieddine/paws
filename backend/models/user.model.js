@@ -42,6 +42,10 @@ const userschema = new mongoose.Schema({
           ref: "Product",
           required: true,
         },
+        productImage: {
+          type: String,
+          required: true,
+        },
         quantity: {
           type: Number,
           required: true,

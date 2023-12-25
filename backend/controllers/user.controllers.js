@@ -3,7 +3,7 @@ const Product = require("../models/product.model");
 
 const addProductToCart = async (req, res) => {
   const userID = req.user._id;
-  const { productID, quantity } = req.body;
+  const { productID, quantity, productImage } = req.body;
 
   try {
     const user = await User.findById(userID);
@@ -28,6 +28,7 @@ const addProductToCart = async (req, res) => {
       user.cart.items.push({
         productID: product._id,
         quantity: quantity,
+        productImage: productImage,
         total: quantity * product.price,
       });
     }
@@ -109,7 +110,26 @@ const updateUser = async (req, res) => {
     res.status(500).send({ error });
   }
 };
-const getCart = async (req, res) => {};
+const getCart = async (req, res) => {
+  const userID = req.user._id;
+  try {
+    const user = await User.findById(userID);
+    if (!user) {
+      res.status(404).send({ message: "user notfound" });
+    }
+    if (user.cart.items.length == 0) {
+      res.status(204).send({ message: "user cart is empty" });
+    } else {
+      res.status(200).send({
+        message: "items retrieved successfully",
+        cartItems: user.cart.items,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "server error" });
+  }
+};
 const emptyCart = async (req, res) => {};
 
 module.exports = {
