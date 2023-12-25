@@ -147,9 +147,42 @@ const emptyCart = async (req, res) => {
   }
 };
 
+//chat
+const createChatSession = async (req, res) => {
+  const userId = req.user._id;
+  const { adminId, chatId } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+
+    const newChatSession = {
+      userId,
+      adminId,
+      chatId,
+    };
+
+    user.chatSessions.push(newChatSession);
+    await user.save();
+
+    res
+      .status(201)
+      .send({ message: "Chat session created", chatSession: newChatSession });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "server error" });
+  }
+};
+const getChatSession = async (req, res) => {};
+const editChatSession = async (req, res) => {};
+const deleteChatSession = async (req, res) => {};
+
 module.exports = {
   addProductToCart,
   updateUser,
   getCart,
   emptyCart,
+  createChatSession,
 };

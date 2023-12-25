@@ -59,11 +59,7 @@ const userschema = new mongoose.Schema({
   },
   chatSessions: [
     {
-      _id: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-      },
-      adminID: {
+      adminId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
       },
