@@ -275,7 +275,41 @@ const filterPet = async (req, res) => {
   }
   return res.status(404).send({ message: "filter not found" });
 };
-const petStats = async (req, res) => {};
+const petStats = async (req, res) => {
+  try {
+    const pets = await Pet.find();
+
+    const stats = {
+      totalNumberOfAdoptedPets: 0,
+      totalNumberOfAvailablePets: 0,
+      totalNumberOfLostPets: 0,
+      totalNumberOfFoundPets: 0,
+      totalNumberOfPetsByType: {},
+    };
+
+    pets.forEach((pet) => {
+      if (pet.status === "ADOPTED") {
+        stats.totalNumberOfAdoptedPets++;
+      } else if (pet.status === "AVAILABLE") {
+        stats.totalNumberOfAvailablePets++;
+      } else if (pet.status === "LOST") {
+        stats.totalNumberOfLostPets++;
+      } else if (pet.status === "FOUND") {
+        stats.totalNumberOfFoundPets++;
+      }
+
+      if (stats.totalNumberOfPetsByType[pet.type]) {
+        stats.totalNumberOfPetsByType[pet.type]++;
+      } else {
+        stats.totalNumberOfPetsByType[pet.type] = 1;
+      }
+    });
+
+    res.status(200).json(stats);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
 
 module.exports = {
   addPet,
