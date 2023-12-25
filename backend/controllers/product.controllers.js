@@ -187,7 +187,20 @@ const getAllproducts = async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 };
-const getProduct = async (req, res) => {};
+const getProduct = async (req, res) => {
+  try {
+    const barcode = req.params.barcode;
+    const product = await Product.findOne({ barcode: barcode });
+
+    if (!product) {
+      return res.status(404).send({ message: "Product not found" });
+    }
+
+    res.status(200).json({ product: product });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
 const deleteProduct = async (req, res) => {};
 const filterProducts = async (req, res) => {};
 const productStats = async (req, res) => {};
