@@ -79,16 +79,8 @@ const register = async (req, res) => {
     res.status(500).send({ error });
   }
 };
-const updateUser = async (req, res) => {};
-const getCart = async (req, res) => {};
-const emptyCart = async (req, res) => {};
-const addProductToCart = async (req, res) => {};
 
 module.exports = {
   login,
   register,
-  updateUser,
-  getCart,
-  emptyCart,
-  addProductToCart,
 };
