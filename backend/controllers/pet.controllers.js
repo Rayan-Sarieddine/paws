@@ -189,7 +189,15 @@ const editPet = async (req, res) => {
     return res.status(500).send({ error });
   }
 };
-const getAllPets = async (req, res) => {};
+const getAllPets = async (req, res) => {
+  try {
+    const pets = await Pet.find();
+    res.status(200).json({ pets: pets });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
 const getPet = async (req, res) => {};
 const deletePet = async (req, res) => {};
 const filterPet = async (req, res) => {};
