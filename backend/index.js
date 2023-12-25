@@ -35,6 +35,9 @@ app.use("/posts", authMiddleware, userRoleMiddleware, postRoutes);
 const adoptionRequestRoutes = require("./routes/adoption_request.routes");
 app.use("/requests", authMiddleware, userRoleMiddleware, adoptionRequestRoutes);
 
+const orderRoutes = require("./routes/order.routes");
+app.use("/orders", authMiddleware, userRoleMiddleware, orderRoutes);
+
 app.listen(8000, () => {
   console.log("listening");
   connectToMongoDb();
