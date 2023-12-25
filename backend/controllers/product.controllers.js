@@ -179,7 +179,14 @@ const editProduct = async (req, res) => {
     return res.status(500).send({ error });
   }
 };
-const getAllproducts = async (req, res) => {};
+const getAllproducts = async (req, res) => {
+  try {
+    const products = await Product.find({});
+    res.status(200).json({ products: products });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
 const getProduct = async (req, res) => {};
 const deleteProduct = async (req, res) => {};
 const filterProducts = async (req, res) => {};
