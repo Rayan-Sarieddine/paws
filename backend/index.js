@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const { authMiddleware } = require("./middlewares/auth.middleware");
+const { userRoleMiddleware } = require("./middlewares/user_role.middleware");
+const { adminRoleMiddleware } = require("./middlewares/admin_role.middleware");
 const { connectToMongoDb } = require("./configs/mongoDb.configs");
 app.use(express.json());
 require("dotenv").config();
