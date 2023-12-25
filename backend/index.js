@@ -29,6 +29,9 @@ app.use("/products", authMiddleware, userRoleMiddleware, productRoutes);
 const petRoutes = require("./routes/pet.routes");
 app.use("/pets", authMiddleware, userRoleMiddleware, petRoutes);
 
+const postRoutes = require("./routes/post.routes");
+app.use("/posts", authMiddleware, userRoleMiddleware, postRoutes);
+
 app.listen(8000, () => {
   console.log("listening");
   connectToMongoDb();
