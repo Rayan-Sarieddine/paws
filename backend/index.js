@@ -13,6 +13,9 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
+
+const userRoutes = require("./routes/user.routes");
+app.use("/user", userRoutes);
 app.listen(8000, () => {
   console.log("listening");
   connectToMongoDb();
