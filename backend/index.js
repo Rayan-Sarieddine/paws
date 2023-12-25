@@ -32,7 +32,7 @@ app.use("/pets", authMiddleware, userRoleMiddleware, petRoutes);
 const postRoutes = require("./routes/post.routes");
 app.use("/posts", authMiddleware, userRoleMiddleware, postRoutes);
 
-const adoptionRequestRoutes = require("./routes/adoption_requests.routes");
+const adoptionRequestRoutes = require("./routes/adoption_request.routes");
 app.use("/requests", authMiddleware, userRoleMiddleware, adoptionRequestRoutes);
 
 app.listen(8000, () => {
