@@ -38,7 +38,16 @@ const editRequest = async (req, res) => {
   }
 };
 
-const getAllRequests = async (req, res) => {};
+const getAllRequests = async (req, res) => {
+  try {
+    const requests = await Request.find()
+      .populate("pet_id", "type breed age image")
+      .populate("user_id", "name email image number");
+    res.status(200).send({ message: "success", requests: requests });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
 const getRequests = async (req, res) => {};
 
 module.exports = {
