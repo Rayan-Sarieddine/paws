@@ -3,12 +3,12 @@ const {
   addRequest,
   editRequest,
   getAllRequests,
-  getRequests,
+  getRequest,
 } = require("../controllers/adoption_request.controllers");
 const router = express.Router();
 
 router.post("/", addRequest);
 router.put("/:id", editRequest);
 router.post("/all", getAllRequests);
-router.get("/:id", getRequests);
+router.get("/:id", getRequest);
 module.exports = router;

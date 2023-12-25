@@ -56,11 +56,27 @@ const getAllRequests = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
-const getRequests = async (req, res) => {};
+const getRequest = async (req, res) => {
+  const requestId = req.params.id; // Should be req.params, not res.params
+
+  try {
+    const request = await Request.findById(requestId)
+      .populate("pet_id", "type breed age image")
+      .populate("user_id", "name email image number");
+
+    if (!request) {
+      return res.status(404).send({ message: "Request not found" });
+    }
+
+    return res.status(200).send({ message: "success", request: request });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 
 module.exports = {
   addRequest,
   editRequest,
   getAllRequests,
-  getRequests,
+  getRequest,
 };
