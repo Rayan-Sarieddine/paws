@@ -92,7 +92,6 @@ userschema.pre(
     timestamps: true,
   }
 );
-
 const User = mongoose.model("User", userschema);
 
 module.exports = User;
