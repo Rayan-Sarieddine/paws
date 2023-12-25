@@ -7,7 +7,7 @@ const {
   deletePet,
   filterPet,
   petStats,
-} = require("../controllers/product.controllers");
+} = require("../controllers/pet.controllers");
 const router = express.Router();
 
 router.post("/", addPet);
