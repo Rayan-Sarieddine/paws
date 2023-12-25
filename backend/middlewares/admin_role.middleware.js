@@ -8,6 +8,8 @@ const adminRoleMiddleware = async (req, res, next) => {
   if (userType !== "ADMIN") {
     return res.status(403).send("Forbidden: Insufficient permissions");
   }
+  const user = req.user;
+  req.user = user;
   next();
 };
 

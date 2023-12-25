@@ -1,14 +1,14 @@
 const express = require("express");
 const {
+  addProductToCart,
   updateUser,
   getCart,
   emptyCart,
-  addProductToCart,
-} = require("../controllers/auth.controllers");
+} = require("../controllers/user.controllers");
 const router = express.Router();
 
 router.post("/", addProductToCart);
-router.put("/:id", updateUser);
+router.put("/", updateUser);
 router.get("/", getCart);
 router.post("/emptyCart", emptyCart);
 
