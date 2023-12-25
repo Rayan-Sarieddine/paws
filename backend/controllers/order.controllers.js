@@ -3,6 +3,7 @@ const Order = require("../models/order.model");
 const coupons = [{ SUMMER21: 10 }, { WINTER21: 15 }];
 
 const addOrder = async (req, res) => {
+  //TODO
   // try {
   //   const { items, couponCode } = req.body;
   //   const userId = req.user._id;
@@ -168,12 +169,10 @@ const orderStats = async (req, res) => {
       .send({ message: "Order stats retrieved successfully", stats });
   } catch (error) {
     console.error(error);
-    res
-      .status(500)
-      .send({
-        message: "Failed to retrieve order stats",
-        error: error.message,
-      });
+    res.status(500).send({
+      message: "Failed to retrieve order stats",
+      error: error.message,
+    });
   }
 };
 module.exports = {
