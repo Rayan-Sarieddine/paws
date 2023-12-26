@@ -24,37 +24,43 @@ import Shop from "./domain/pages/Shop";
 import ShopItem from "./domain/pages/ShopItem";
 import SignUp from "./domain/pages/SignUp";
 //
-
+import { Provider } from "react-redux";
+import { store } from "./core/dataSource/localDataSource/store";
 function App() {
   return (
     <div className="app">
-      <Routes>
-        <Route path="/adopt" element={<Adopt />} />
-        <Route path="/adopt-all" element={<AdoptAll />} />
-        <Route path="/adopt:id" element={<AdoptPet />} />
-        <Route path="/adopt-request" element={<AdoptRequest />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/checkout-success" element={<CheckoutSuccess />} />
-        <Route path="/error" element={<Error />} />
-        <Route path="/forgot-pasword" element={<ForgotPassword />} />
-        <Route path="/found-reporting" element={<FoundReporting />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/lost-found-main" element={<LostFoundMain />} />
-        <Route path="/lost-found-manual" element={<LostFoundManual />} />
-        <Route
-          path="/lost-found-manual-claim"
-          element={<LostFoundManualClaim />}
-        />
-        <Route path="/lost-found-match" element={<LostFoundMatch />} />
-        <Route path="/lost-found-no-match" element={<LostFoundNoMatch />} />
-        <Route path="/lost-found-searching" element={<LostFoundSearching />} />
-        <Route path="/lost-found-reporting" element={<LostReporting />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/shop:id" element={<ShopItem />} />
-        <Route path="/sign-up" element={<SignUp />} />
-      </Routes>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/adopt" element={<Adopt />} />
+          <Route path="/adopt-all" element={<AdoptAll />} />
+          <Route path="/adopt:id" element={<AdoptPet />} />
+          <Route path="/adopt-request" element={<AdoptRequest />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout-success" element={<CheckoutSuccess />} />
+          <Route path="/error" element={<Error />} />
+          <Route path="/forgot-pasword" element={<ForgotPassword />} />
+          <Route path="/found-reporting" element={<FoundReporting />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/lost-found-main" element={<LostFoundMain />} />
+          <Route path="/lost-found-manual" element={<LostFoundManual />} />
+          <Route
+            path="/lost-found-manual-claim"
+            element={<LostFoundManualClaim />}
+          />
+          <Route path="/lost-found-match" element={<LostFoundMatch />} />
+          <Route path="/lost-found-no-match" element={<LostFoundNoMatch />} />
+          <Route
+            path="/lost-found-searching"
+            element={<LostFoundSearching />}
+          />
+          <Route path="/lost-found-reporting" element={<LostReporting />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop:id" element={<ShopItem />} />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Routes>
+      </Provider>
     </div>
   );
 }
