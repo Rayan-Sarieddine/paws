@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
-function lostFoundsearching() {
-  return <div>lostFoundsearching</div>;
+function LostFoundsearching() {
+  return <div>LostFoundsearching</div>;
 }
 
-export default lostFoundsearching;
+export default LostFoundsearching;
