@@ -1,0 +1,50 @@
+.hero-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo img {
+  height: 6rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-auth .btn.sign-up {
+  background-color: var(--secondary);
+}
+.nav-auth {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+.nav-auth .btn:hover {
+  opacity: 0.9;
+}
+.nav-links .nav-link {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.nav-links .nav-link:hover {
+  opacity: 0.8;
+}
+
+.nav-links .nav-link.active {
+  background-color: var(--primary);
+  color: #fff;
+}
+.nav-links .nav-link.active:hover {
+  opacity: 1;
+}

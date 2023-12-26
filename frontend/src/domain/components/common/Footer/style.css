@@ -46,7 +46,7 @@
   margin-top: 1rem;
   padding: 1rem 5rem;
 }
-/*section 2*/
+/*section 2 & 3*/
 .footer-main_section2,
 .footer-main_section3 {
   display: flex;
@@ -88,6 +88,7 @@
   font-size: 1.5rem;
   font-weight: 700;
 }
+/*queries*/
 @media (max-width: 1360px) {
   .footer-main_section2-p {
     width: 80%;
