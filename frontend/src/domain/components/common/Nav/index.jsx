@@ -3,7 +3,9 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "../Button";
+import { useLogin } from "../../../../core/hooks/login.hook";
 function Nav() {
+  const [isLoggedIn, token] = useLogin();
   //for the on click event of the nav elements
   const [activeLink, setActiveLink] = useState("Home");
   const handleClick = (name) => {
