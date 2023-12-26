@@ -5,6 +5,7 @@ import "./style.css"; // Assuming you have a CSS file for styles
 const LogIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, seterror] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,10 +21,14 @@ const LogIn = () => {
       <div className="signin">
         <div className="content">
           <img src="./favicon.png" alt="logo" />
+
           <h2>log in</h2>
+
           <div className="sign-up-part">
             <p>New Member?</p>
-            <h4>Signup</h4>
+            <Link to="/sign-up">
+              <h4>Signup</h4>
+            </Link>
           </div>
           <form className="form" onSubmit={handleSubmit}>
             <div className="inputBox">
@@ -46,7 +51,7 @@ const LogIn = () => {
             </div>
 
             <p className="forgot-password_link">Forgot Password</p>
-
+            {error && <p className="error">{error}</p>}
             <div className="inputBox">
               <input type="submit" value="Login" />
             </div>
