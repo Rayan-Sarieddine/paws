@@ -6,7 +6,7 @@ function Downloadbtn({ text, image }) {
       <img src={`/images/productIcons/${image}`} alt="product icon" />
       <div className="downloadBtn-text">
         <p className="downloadBtn-p1">Get it on</p>
-        <p className="downloadBtn-p1">{text}</p>
+        <p className="downloadBtn-p2">{text}</p>
       </div>
     </div>
   );
