@@ -1,21 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./style.css";
+
+//router dependencies
 import { Link } from "react-router-dom";
-import "./style.css"; // Assuming you have a CSS file for styles
+import { useNavigate } from "react-router-dom";
+
+//remote data storage dependencies
+import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
+
+//local data storage dependencies and helpers
+import { loggedIn } from "../../../core/dataSource/localDataSource/user";
+import { local } from "../../../core/helpers/localstorage";
+import { useDispatch } from "react-redux";
 
 const LogIn = () => {
-  const [username, setUsername] = useState("");
+  const dispatch = useDispatch();
+  const navigateTo = useNavigate();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, seterror] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    setTimeout(() => {
+      setError("");
+    }, 2000);
+  }, [error]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(username, password);
+    let data = { email: email, password: password };
+    try {
+      const response = await authDataSource.login(data);
+      local("token", response.token);
+      local("type", response.user.userType);
+
+      const { user } = response;
+
+      dispatch(
+        loggedIn({
+          email: user.email,
+          name: user.name,
+          address: user.address,
+          phone: user.phone,
+          userType: user.userType,
+          chatSessions: user.chatSessions,
+          cart: user.cart,
+          image: user.image,
+          token: response.token,
+        })
+      );
+      navigateTo("/");
+    } catch (error) {
+      setError(error.response.data.message);
+    }
   };
 
   return (
     <section className="login-section">
-      {Array.from({ length: 128 }, (_, i) => (
+      {Array.from({ length: 228 }, (_, i) => (
         <span key={i}></span>
       ))}
       <div className="signin">
@@ -33,12 +76,12 @@ const LogIn = () => {
           <form className="form" onSubmit={handleSubmit}>
             <div className="inputBox">
               <input
-                type="text"
+                type="email"
                 required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <i>Username</i>
+              <i>email</i>
             </div>
             <div className="inputBox">
               <input

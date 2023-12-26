@@ -5,8 +5,9 @@
 }
 .error {
   padding-left: 10px;
-  font-size: 12px;
+  font-size: 1.5rem;
   color: var(--red);
+  transition: 0.5s;
 }
 .btn {
   outline: none;
