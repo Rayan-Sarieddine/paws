@@ -13,10 +13,11 @@
   border: none;
   padding: 1.2rem;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 1.4rem;
-  width: 100%;
+  background-color: var(--primary);
+  color: var(--white);
 }
 .btn-primary {
   background-color: var(--primary);

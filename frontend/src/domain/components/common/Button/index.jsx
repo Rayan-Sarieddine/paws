@@ -17,3 +17,4 @@ const Button = ({ text, handleOnClick, classes, type }) => {
 };
 
 export default Button;
+//use <Button text="" handleOnClick={handleClick} classes={['', '']} type="button" />
