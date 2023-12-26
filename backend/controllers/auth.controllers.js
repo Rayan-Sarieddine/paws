@@ -4,34 +4,40 @@ const bcrypt = require("bcrypt");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  if (!user) res.status(400).send({ message: "invalid credentials" });
-  const isValidPassword = await bcrypt.compare(password, user.password);
-  if (!isValidPassword)
-    res.status(400).send({ message: "invalid credentials" });
+  try {
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).send({ message: "invalid credentials" });
+    const isValidPassword = await bcrypt.compare(password, user.password);
+    if (!isValidPassword)
+      return res.status(401).send({ message: "invalid credentials" });
 
-  const { password: hashedPassword, ...userDetails } = user.toJSON();
-  const token = jwt.sign(
-    {
-      ...userDetails,
-    },
-    process.env.JWT_SECRET,
-    { algorithm: "HS256", expiresIn: "2 days" }
-  );
-  res.status(200).send({ user: userDetails, token: token, status: "success" });
+    const { password: hashedPassword, ...userDetails } = user.toJSON();
+    const token = jwt.sign(
+      {
+        ...userDetails,
+      },
+      process.env.JWT_SECRET,
+      { algorithm: "HS256", expiresIn: "2 days" }
+    );
+    return res
+      .status(200)
+      .send({ user: userDetails, token: token, status: "success" });
+  } catch (error) {
+    return res.status(500).send({ message: "server error" });
+  }
 };
 const register = async (req, res) => {
   let { email, password, name, phone, address, userType = "USER" } = req.body;
 
   //missing parameters validation
   if (!email || !password || !name || !phone || !address) {
-    res.status(400).send({ message: "all fileds are required" });
+    return res.status(400).send({ message: "all fileds are required" });
   }
   try {
     //user already exists validation
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      res.status(409).send({ message: "email already exists" });
+      return res.status(409).send({ message: "email already exists" });
     }
 
     //passsword validation
@@ -73,10 +79,10 @@ const register = async (req, res) => {
       userType,
     });
     await user.save();
-    res.status(200).send({ user, status: "success" });
+    return res.status(200).send({ user, status: "success" });
   } catch (error) {
     console.log(error);
-    res.status(500).send({ error });
+    return res.status(500).send({ error });
   }
 };
 

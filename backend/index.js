@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+// app.use(express.static("public"));
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
+const cors = require("cors");
 const { authMiddleware } = require("./middlewares/auth.middleware");
 const { userRoleMiddleware } = require("./middlewares/user_role.middleware");
 const { adminRoleMiddleware } = require("./middlewares/admin_role.middleware");
@@ -8,8 +12,8 @@ app.use(express.json());
 require("dotenv").config();
 const fileUpload = require("express-fileupload");
 app.use(fileUpload());
-app.use(express.static("public"));
 
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
