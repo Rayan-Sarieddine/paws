@@ -1,0 +1,15 @@
+.downloadBtn img {
+  height: 4rem;
+  align-self: left;
+}
+.downloadBtn {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  justify-content: left;
+  width: 50%;
+  gap: 1rem;
+}

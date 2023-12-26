@@ -23,7 +23,9 @@ function Footer() {
         </div>
         <div className="footer-main_section2">
           <h4>Download Desktop App</h4>
-          <p>Make it easier for yourself to access all our services!</p>
+          <p className="footer-main_section2-p">
+            Make it easier for yourself to access all our services!
+          </p>
           <div className="footer-main_section2-downloadBtns">
             <Downloadbtn text="Mac" image="apple-icon.png" />
             <Downloadbtn text="windows" image="windows-icon.png" />
