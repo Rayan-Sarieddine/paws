@@ -27,6 +27,10 @@
 .header-cta-shop {
   padding: 2rem 5rem;
 }
+.header-cta-adopt:hover,
+.header-cta-shop:hover {
+  opacity: 0.9;
+}
 .header-cta-shop {
   background-color: var(--secondary);
 }
@@ -49,6 +53,9 @@
   align-items: center;
   gap: 1rem;
   cursor: pointer;
+  transition: 0.3s;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .header-table-item span {
@@ -56,6 +63,9 @@
   font-weight: 500;
   font-size: 2rem;
   text-transform: uppercase;
+}
+.header-table-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-table-item img {

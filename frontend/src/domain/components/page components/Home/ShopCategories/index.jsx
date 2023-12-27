@@ -18,8 +18,8 @@ function ShopCategories() {
       >
         <Category name="Dog Supplies" image="1.png" icon="dog.svg" />
         <Category name="Cat Supplies" image="2.png" icon="cat.svg" />
-        <Category name="Bird Supplies" image="3.png" icon="bird.svg" />
-        <Category name="Fish Supplies" image="4.png" icon="fish.svg" />
+        <Category name="Bird Supplies" image="4.png" icon="bird.svg" />
+        <Category name="Fish Supplies" image="3.png" icon="fish.svg" />
         <Category
           name=" Small Animal Supplies"
           image="5.png"
