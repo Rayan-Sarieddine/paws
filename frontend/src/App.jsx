@@ -27,6 +27,7 @@ import SignUp from "./domain/pages/SignUp";
 import { Provider } from "react-redux";
 import { store } from "./core/dataSource/localDataSource/store";
 import Terms from "./domain/pages/Terms";
+import Editprofile from "./domain/pages/EditProdile";
 function App() {
   return (
     <div className="app">
@@ -61,6 +62,7 @@ function App() {
           <Route path="/shop:id" element={<ShopItem />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/edit" element={<Editprofile />} />
         </Routes>
       </Provider>
     </div>
