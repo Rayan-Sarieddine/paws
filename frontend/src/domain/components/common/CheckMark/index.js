@@ -5,7 +5,7 @@ const CheckMark = () => {
   return (
     <div className="success-container">
       <img src="./favicon.png" alt="Success" className="success-image" />
-      <h2>Successful!</h2>
+      <h2 className="check-successfull">Successful!</h2>
     </div>
   );
 };
