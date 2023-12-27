@@ -9,6 +9,7 @@ import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
 //local data storage dependencies and helpers
 import { loggedIn } from "../../../core/dataSource/localDataSource/user";
 import { local } from "../../../core/helpers/localstorage";
+import CheckMark from "../../components/common/CheckMark";
 
 function SignUp() {
   const navigateTo = useNavigate();
@@ -36,7 +37,22 @@ function SignUp() {
   //handle login form submit
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    if (password !== confirmPassword) {
+      setError("Passwords does not match");
+      return;
+    }
+    if (password.length < 5) {
+      setError("Password too short");
+      return;
+    }
+    if (phone.length < 8) {
+      setError("Phone number not valid");
+      return;
+    }
+    if (address.length < 10) {
+      setError("address not detailed enough");
+      return;
+    }
     //data to be send of body of request
     let data = {
       name: name,
@@ -145,6 +161,7 @@ function SignUp() {
                 <input type="submit" value="Sign Up" />
               </div>
             </form>
+            <CheckMark />
           </div>
         </div>
       </section>
