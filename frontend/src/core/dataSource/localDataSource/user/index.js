@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  token: "",
   email: "",
   name: "",
-  phone: "",
   address: "",
-  usertype: "",
-  cart: [],
+  phone: "",
+  userType: "",
   chatSessions: [],
+  cart: {},
   image: "",
+  token: "",
 };
 
 export const userSliceName = "User";
@@ -21,26 +21,26 @@ export const userSlice = createSlice({
     loggedIn: (state, { payload }) => {
       const {
         email,
-        token,
         name,
-        phone,
         address,
-        usertype,
-        cart,
+        phone,
+        userType,
         chatSessions,
+        cart,
         image,
+        token,
       } = payload;
 
       return {
         email,
-        token,
         name,
-        phone,
         address,
-        usertype,
-        cart,
+        phone,
+        userType,
         chatSessions,
+        cart,
         image,
+        token,
       };
     },
     cleanData: (state, action) => {

@@ -10,6 +10,7 @@ section {
   overflow: hidden;
   background-color: #000;
 }
+/*The backgoround -blue animator*/
 section::before {
   content: "";
   position: absolute;
@@ -26,6 +27,7 @@ section::before {
     transform: translateY(100%);
   }
 }
+/*Boxes of the screen*/
 section span {
   position: relative;
   display: block;
@@ -43,6 +45,8 @@ section span:hover {
   background-size: contain;
   opacity: 1;
 }
+
+/*Form*/
 .sign-up-part {
   display: flex;
   gap: 1.5rem;
@@ -94,6 +98,7 @@ section .signin .content .form {
   flex-direction: column;
   gap: 2.5rem;
 }
+/*Form inputs*/
 section .signin .content .form .inputBox {
   position: relative;
   width: 100%;
@@ -149,6 +154,7 @@ section .signin .content .form .inputBox i {
   opacity: 0.8;
 }
 
+/*Responsive*/
 @media (max-width: 900px) {
   section span {
     width: calc(10vw - 2px);

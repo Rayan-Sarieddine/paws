@@ -48,3 +48,16 @@
 .nav-links .nav-link.active:hover {
   opacity: 1;
 }
+.pfp-pic {
+  cursor: pointer;
+  height: 40px;
+  aspect-ratio: 1;
+  background-color: grey;
+  border-radius: 50%;
+}
+.pfp-pic > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
