@@ -1,6 +1,7 @@
 .terms {
   display: flex;
   gap: 1rem;
+  font-size: 1.5rem;
   align-items: center;
 }
 .terms-text {

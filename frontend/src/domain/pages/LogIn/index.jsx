@@ -80,7 +80,7 @@ const LogIn = () => {
         <div className="content">
           <img src="./favicon.png" alt="logo" />
 
-          <h2>log in</h2>
+          <h2 className="log-cart-title">log in</h2>
 
           <div className="sign-up-part">
             <p>New Member?</p>

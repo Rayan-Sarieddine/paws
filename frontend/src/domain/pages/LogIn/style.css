@@ -53,8 +53,11 @@ section span:hover {
   color: var(--white);
   font-size: 1.4rem;
 }
+.sign-up-part p {
+  font-size: 1.9rem;
+}
 .sign-up-part h4 {
-  font-size: 1.4rem;
+  font-size: 1.9rem;
   color: var(--primary);
   text-decoration: underline;
   cursor: pointer;
@@ -88,7 +91,7 @@ section .signin .content img {
   width: 8rem;
 }
 section .signin .content h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #1a96e3;
   text-transform: uppercase;
 }
