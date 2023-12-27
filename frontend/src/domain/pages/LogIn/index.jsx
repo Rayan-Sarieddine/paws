@@ -21,6 +21,7 @@ const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   //to show error for 2 seconds then reset error state
   useEffect(() => {
@@ -34,7 +35,12 @@ const LogIn = () => {
         setError("");
       }, 2000);
     }
-  }, [error]);
+    if (message) {
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    }
+  }, [error, message]);
 
   //handle login form submit
   const handleSubmit = async (event) => {
@@ -69,7 +75,13 @@ const LogIn = () => {
       setError(error.response.data.message);
     }
   };
-
+  const forgotPassword = () => {
+    if (!email) {
+      setError("please eter your email first");
+      return;
+    }
+    setMessage("Password Reset link is sent");
+  };
   return (
     <section className="login-section">
       {/* Each item of array represents a span box, 128 is needed, 100 extra to take account for bigger screens and resizing */}
@@ -108,8 +120,11 @@ const LogIn = () => {
               <i>Password</i>
             </div>
 
-            <p className="forgot-password_link">Forgot Password</p>
+            <p className="forgot-password_link" onClick={forgotPassword}>
+              Forgot Password
+            </p>
             {error && <p className="error">{error}</p>}
+            {message && <p className="message">{message}</p>}
             <div className="inputBox">
               <input type="submit" value="Login" />
             </div>

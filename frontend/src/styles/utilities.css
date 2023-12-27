@@ -9,6 +9,12 @@
   color: var(--red);
   transition: 0.5s;
 }
+.message {
+  padding-left: 10px;
+  font-size: 1.5rem;
+  color: var(--green);
+  transition: 0.5s;
+}
 .btn {
   outline: none;
   border: none;

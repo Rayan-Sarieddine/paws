@@ -40,7 +40,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/error" element={<Error />} />
-          <Route path="/forgot-pasword" element={<ForgotPassword />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/found-reporting" element={<FoundReporting />} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
