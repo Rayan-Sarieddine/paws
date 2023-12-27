@@ -1,9 +1,8 @@
 import { sendRequest } from "../../helpers/request";
 
-export const authDataSource = {
-  getCart: async (data) => {
+export const userDataSource = {
+  getCart: async () => {
     const response = await sendRequest({
-      body: data,
       route: "/user/",
       method: "GET",
     });
