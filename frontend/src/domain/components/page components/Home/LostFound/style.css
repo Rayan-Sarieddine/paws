@@ -1,0 +1,52 @@
+.swiper {
+  width: 240px;
+  height: 320px;
+  margin-bottom: 5rem;
+}
+
+.swiper-slide {
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.swiper-slide:nth-child(odd) {
+  background-color: var(--primary);
+}
+
+.swiper-slide:nth-child(even) {
+  background-color: var(--secondary);
+}
+.post-details {
+  margin-left: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  gap: 1rem;
+}
+.post-detail {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-post-img {
+  height: 70%;
+  width: 100%;
+
+  margin-bottom: 1rem;
+}
+.no-pets-found {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 5rem;
+}
+.lost-found-navigation {
+  display: block;
+  margin: 10 auto;
+}
