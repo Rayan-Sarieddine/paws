@@ -1,0 +1,28 @@
+.cart-drop-down {
+  border-radius: 5px;
+  position: absolute;
+  right: 16rem;
+  top: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 100;
+  min-width: 20rem;
+  min-height: 20rem;
+  opacity: 0;
+  visibility: none;
+  transition: 0.5s ease;
+  background-color: var(--white);
+}
+.cart-show {
+  transform: translateX(0%) translateY(0%);
+  opacity: 1;
+  visibility: visible;
+}
+.cart-drop-down-item {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: var(--white);
+  font-weight: 600;
+}

@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "../Button";
 import { useLogin } from "../../../../core/hooks/login.hook";
 import UserProfileBtn from "./UserProfileBtn";
+import CartButton from "./CartButton";
 import { useSelector } from "react-redux";
+
 function Nav() {
+  //user data from user slice ofredux
   const userData = useSelector((state) => state.User);
-  const [isLoggedIn, token] = useLogin();
-  //for the profileimage click to show the menu
+
+  //loggen in hook and its trigger
+  const [logoutTrigger, setLogoutTrigger] = useState(0);
+  const [isLoggedIn, token] = useLogin(logoutTrigger);
+
+  //to show profile menu when user clicks on his image(menu to log out and edit profile)
   const [isProfileMenuHidden, setIsProfileMenuHidden] = useState(true);
-  console.log(userData);
-  //for the on click event of the nav elements
+  const [isCartMenuHidden, setIsCartMenuHidden] = useState(true);
+
+  //nav navigation
   const [activeLink, setActiveLink] = useState("Home");
   const handleClick = (name) => {
     setActiveLink(name);
@@ -35,19 +43,26 @@ function Nav() {
       default:
     }
   };
+
   //log in navigation
   let navigate = useNavigate();
   const logIn = () => {
     navigate("/login");
   };
+
   //sign-up navigation
   const signUp = () => {
     navigate("/sign-up");
   };
 
+  //control state of profileMenu on click of user image
   const handleOnClickProfile = () => {
     setIsProfileMenuHidden((prev) => !prev);
   };
+  const handleOnClickCart = () => {
+    setIsCartMenuHidden((prev) => !prev);
+  };
+
   return (
     <nav className="hero-nav">
       <div className="nav-logo">
@@ -88,15 +103,30 @@ function Nav() {
           />
         </div>
       ) : (
-        <li>
-          <div className="pfp-pic" onClick={handleOnClickProfile}>
-            <img
-              src={`http://127.0.0.1:8000/images/users/${userData.image}`}
-              alt=""
+        <ul className="user-nav-buttons">
+          <li>
+            <div className="cart-pic" onClick={handleOnClickCart}>
+              <img src={"./images/icons/cart.png"} alt="" />
+            </div>
+            <CartButton
+              isCartMenuHidden={isCartMenuHidden}
+              setIsCartMenuHidden={setIsCartMenuHidden}
             />
-          </div>
-          <UserProfileBtn isProfileMenuHidden={isProfileMenuHidden} />
-        </li>
+          </li>
+          <li>
+            <div className="pfp-pic" onClick={handleOnClickProfile}>
+              <img
+                src={`http://127.0.0.1:8000/images/users/${userData.image}`}
+                alt=""
+              />
+            </div>
+            <UserProfileBtn
+              isProfileMenuHidden={isProfileMenuHidden}
+              setIsProfileMenuHidden={setIsProfileMenuHidden}
+              setLogoutTrigger={setLogoutTrigger}
+            />
+          </li>
+        </ul>
       )}
     </nav>
   );
