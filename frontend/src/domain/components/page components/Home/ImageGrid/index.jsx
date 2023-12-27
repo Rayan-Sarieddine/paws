@@ -1,8 +1,15 @@
 import React from "react";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 function ImageGrid() {
+  const navigate = useNavigate();
   return (
-    <div className="grid-gallery">
+    <div
+      className="grid-gallery"
+      onClick={() => {
+        navigate("/lost-found-main");
+      }}
+    >
       <div className="grid-header">
         <img src="./favicon.png" alt="logo"></img>
         <h3>Adopt your pet</h3>

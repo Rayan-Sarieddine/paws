@@ -91,3 +91,6 @@
   object-fit: cover;
   display: block;
 }
+.gallery__item {
+  cursor: pointer;
+}

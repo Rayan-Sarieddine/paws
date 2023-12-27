@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
-import { Link, useNavigate } from "react-router-dom";
-import { local } from "../../../../../core/helpers/localstorage";
-import { useDispatch, useSelector } from "react-redux";
-import { cleanData } from "../../../../../core/dataSource/localDataSource/user";
-import { useLogin } from "../../../../../core/hooks/login.hook";
+
 import { userDataSource } from "../../../../../core/dataSource/remoteDataSource/users";
-import Button from "../../Button";
+import { useNavigate } from "react-router-dom";
 
 const CartButton = ({ isCartMenuHidden, setIsCartMenuHidden }) => {
+  const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   let cartTotal = 0;
   // const userData = useSelector((state) => state.User);
@@ -63,7 +60,14 @@ const CartButton = ({ isCartMenuHidden, setIsCartMenuHidden }) => {
                 <span>TOTAL:</span>
                 <p>${cartTotal}</p>
               </div>
-              <button className="view-cart-button">view cart</button>
+              <button
+                className="view-cart-button"
+                onClick={() => {
+                  navigate("/checkout");
+                }}
+              >
+                view cart
+              </button>
             </div>
           </>
         )}

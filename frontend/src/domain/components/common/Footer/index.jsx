@@ -2,12 +2,16 @@ import React from "react";
 import "./style.css";
 import Button from "../Button";
 import Downloadbtn from "../DownloadBtn";
+import { useNavigate } from "react-router-dom";
 function Footer() {
+  const navigate = useNavigate();
   //year for copyrights
   const year = new Date().getFullYear();
 
   //button click handler
-  const handleclick = () => {};
+  const handleclick = () => {
+    navigate("/adopt");
+  };
   return (
     <div className="footer">
       <div className="footer-wrapper">
