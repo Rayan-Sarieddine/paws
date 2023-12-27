@@ -1,0 +1,25 @@
+.terms {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.terms-text {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--white);
+}
+.terms-text-link {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.terms-text-link:hover {
+  opacity: 0.8;
+}
+.sign-up_password {
+  display: flex;
+  gap: 1rem;
+}
+section .signin {
+  width: 50rem;
+}

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
+//router dependencies
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 //remote data storage dependencies
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
@@ -11,7 +13,7 @@ import { local } from "../../../core/helpers/localstorage";
 function SignUp() {
   const navigateTo = useNavigate();
   //state to store form related data
-  const [name, setname] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConformPassword] = useState("");
@@ -36,7 +38,13 @@ function SignUp() {
     event.preventDefault();
 
     //data to be send of body of request
-    let data = { email: email, password: password };
+    let data = {
+      name: name,
+      email: email,
+      password: password,
+      phone: phone,
+      address: address,
+    };
     try {
       //acios request
       const response = await authDataSource.register(data);
@@ -46,7 +54,102 @@ function SignUp() {
       setError(error.response.data.message);
     }
   };
-  return <div>SignUp</div>;
+  return (
+    <div>
+      <section className="Sign-in-section">
+        {/* Each item of array represents a span box, 128 is needed, 100 extra to take account for bigger screens and resizing */}
+        {Array.from({ length: 228 }, (_, i) => (
+          <span key={i}></span>
+        ))}
+        <div className="signin">
+          <div className="content">
+            <img src="./favicon.png" alt="logo" />
+
+            <h2>sign up</h2>
+
+            <div className="sign-up-part">
+              <p>Already have an account?</p>
+              <Link to="/login">
+                <h4>login Here</h4>
+              </Link>
+            </div>
+            <form className="form" onSubmit={handleSubmit}>
+              <div className="inputBox">
+                <input
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <i>Full Name</i>
+              </div>
+              <div className="inputBox">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <i>email</i>
+              </div>
+              <div className="sign-up_password">
+                <div className="inputBox">
+                  <input
+                    type="password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <i>Password</i>
+                </div>
+
+                <div className="inputBox">
+                  <input
+                    type="password"
+                    required
+                    value={confirmPassword}
+                    onChange={(e) => setConformPassword(e.target.value)}
+                  />
+                  <i>Confirm Password</i>
+                </div>
+              </div>
+              <div className="inputBox">
+                <input
+                  type="text"
+                  required
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+                <i>Address</i>
+              </div>
+              <div className="inputBox">
+                <input
+                  type="text"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <i>Phone</i>
+              </div>
+              <div className="terms">
+                <input type="checkbox" className="terms-box" required />
+                <div className="terms-text">
+                  <p className="terms-text-starter">I agree to the</p>
+                  <Link to="/terms&conditions">
+                    <p className="terms-text-link">terms and conditions</p>
+                  </Link>
+                </div>
+              </div>
+              {error && <p className="error">{error}</p>}
+              <div className="inputBox">
+                <input type="submit" value="Sign Up" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default SignUp;
