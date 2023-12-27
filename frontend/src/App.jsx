@@ -26,6 +26,7 @@ import SignUp from "./domain/pages/SignUp";
 //
 import { Provider } from "react-redux";
 import { store } from "./core/dataSource/localDataSource/store";
+import Terms from "./domain/pages/Terms";
 function App() {
   return (
     <div className="app">
@@ -59,6 +60,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/shop:id" element={<ShopItem />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </Provider>
     </div>

@@ -155,7 +155,7 @@ function SignUp() {
                   <input type="checkbox" className="terms-box" required />
                   <div className="terms-text">
                     <p className="terms-text-starter">I agree to the</p>
-                    <Link to="/terms&conditions">
+                    <Link to="/terms">
                       <p className="terms-text-link">terms and conditions</p>
                     </Link>
                   </div>
