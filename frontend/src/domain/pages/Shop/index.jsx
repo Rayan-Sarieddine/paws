@@ -7,6 +7,7 @@ import ShopItems from "../../components/page components/Shop/ShopItems";
 import { useDispatch } from "react-redux";
 import { productDataSource } from "../../../core/dataSource/remoteDataSource/products";
 import { loadProducts } from "../../../core/dataSource/localDataSource/product";
+import RelatedItems from "../../components/page components/ShopItem/RelatedItems";
 function Shop() {
   const dispatch = useDispatch();
 
@@ -27,6 +28,7 @@ function Shop() {
       <Nav />
       <HeaderImg img_link="shop-hero.png" />
       <ShopItems />
+
       <Footer />
     </div>
   );

@@ -17,7 +17,7 @@ function Productinfo() {
 
   const addToCart = () => {
     console.log(selectedProduct);
-    // Implement the logic to add the product to the cart here
+
     if (quantity > selectedProduct.stock) {
       setError(
         `you can order a max of ${selectedProduct.stock} of this product`
