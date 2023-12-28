@@ -60,7 +60,7 @@ function ShopItems() {
   const filterData = () => {};
   useEffect(() => {}, [currentProducts]);
   return (
-    <div className="pets-show-container">
+    <div className="products-show-container">
       <div className="filters">
         <div className="filter-category">
           <h3>Category</h3>
@@ -155,79 +155,82 @@ function ShopItems() {
           Filter
         </button>
       </div>
-      <div className="pet-pagination-main">
-        <div className="pet-pagination-header">
-          <p>SHOP</p>
-        </div>
-        <div className="pet-pagination-controls">
-          <button
-            className="btn btn-pagination-left"
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            &lt;
-          </button>
-          <span>{currentPage}</span>
-          <button
-            className="btn btn-pagination-right"
-            onClick={() => paginate(currentPage + 1)}
-            disabled={
-              currentPage ===
-              Math.ceil(productData?.products?.length / productsPerPage)
-            }
-          >
-            &gt;
-          </button>
-        </div>
+      <div className="product-pagination-main">
         {currentProducts?.length === 0 ? (
-          <div className="no-pets-to-show">
+          <div className="no-products-to-show">
             <p>No Products Found</p>
           </div>
         ) : (
-          <div className="pet-pagination-petCards">
-            {currentProducts?.map((product, index) => (
-              <div key={index} className="pet-pagination-card">
-                <img
-                  src={`http://localhost:8000/images/products/${product.image}`}
-                  alt={product.name}
-                />
-                <div className="pet-details">
-                  <h3>{product.name}</h3>
-                  <p>
-                    {product.details} | {product.price}
-                  </p>
-                  <button
-                    className="btn btn-adopt"
-                    onClick={() => handleViewClick(product)}
-                  >
-                    VIEW
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+          <>
+            <div className="product-pagination-header">
+              <p>SHOP</p>
+            </div>
+            <div className="product-pagination-controls">
+              <button
+                className="btn btn-pagination-left"
+                onClick={() => paginate(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                &lt;
+              </button>
+              <span>{currentPage}</span>
+              <button
+                className="btn btn-pagination-right"
+                onClick={() => paginate(currentPage + 1)}
+                disabled={
+                  currentPage ===
+                  Math.ceil(productData?.products?.length / productsPerPage)
+                }
+              >
+                &gt;
+              </button>
+            </div>
 
-        <div className="pet-pagination-controls">
-          <button
-            className="btn btn-pagination-left"
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            &lt;
-          </button>
-          <span>{currentPage}</span>
-          <button
-            className="btn btn-pagination-right"
-            onClick={() => paginate(currentPage + 1)}
-            disabled={
-              currentPage ===
-              Math.ceil(productData?.products?.length / productsPerPage)
-            }
-          >
-            &gt;
-          </button>
-        </div>
+            <div className="product-pagination-productCards">
+              {currentProducts?.map((product, index) => (
+                <div key={index} className="product-pagination-card">
+                  <img
+                    src={`http://localhost:8000/images/products/${product.image}`}
+                    alt={product.name}
+                  />
+                  <div className="product-details">
+                    <h3>{product.name}</h3>
+                    <p>
+                      {product.details} | {product.price}
+                    </p>
+                    <button
+                      className="btn btn-adopt"
+                      onClick={() => handleViewClick(product)}
+                    >
+                      VIEW
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="product-pagination-controls">
+              <button
+                className="btn btn-pagination-left"
+                onClick={() => paginate(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                &lt;
+              </button>
+              <span>{currentPage}</span>
+              <button
+                className="btn btn-pagination-right"
+                onClick={() => paginate(currentPage + 1)}
+                disabled={
+                  currentPage ===
+                  Math.ceil(productData?.products?.length / productsPerPage)
+                }
+              >
+                &gt;
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
