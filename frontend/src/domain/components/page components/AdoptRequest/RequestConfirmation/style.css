@@ -1,0 +1,35 @@
+.request-confirmation {
+  width: 50%;
+  margin: 0 auto;
+  min-height: 25rem;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  text-align: center;
+}
+.request-confirmation_btns {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.request-confirmation_backBtn {
+  background-color: var(--secondary);
+}
+.request-confirmation_shopBtn {
+  background-color: var(--primary);
+}
+.request-confirmation_content h3 {
+  font-size: 5rem;
+  color: var(--primary);
+}
+.request-confirmation_content p {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
