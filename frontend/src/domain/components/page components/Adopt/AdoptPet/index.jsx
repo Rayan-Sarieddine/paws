@@ -15,18 +15,21 @@ function AdoptPet() {
           </h3>
           <ul>
             <li>
-              <img src="" alt="check-mark" />
+              <img src="./images/Adopt-Page/check-mark.png" alt="check-mark" />
               <p>All pets Vaccinated</p>
             </li>
             <li>
-              <img src="" alt="check-mark" />
+              <img src="./images/Adopt-Page/check-mark.png" alt="check-mark" />
               <p>All Trained to love</p>
             </li>
           </ul>
         </div>
         <div className="adopt-pet-main-right">
           <div className="adopt-pet-main-right-img">
-            <img src="" alt="picture_of_pets_looking_up" />
+            <img
+              src="./images/Adopt-Page/adopt-page.png"
+              alt="picture_of_pets_looking_up"
+            />
           </div>
           <div className="adopt-pet-main-right_content">
             <p>| Pet Adoption</p>
@@ -36,7 +39,7 @@ function AdoptPet() {
               you!
             </h3>
             <button
-              className="btn"
+              className="btn adopt-pet-main-right_content_btn"
               onClick={() => {
                 navigate("/adopt-all");
               }}
