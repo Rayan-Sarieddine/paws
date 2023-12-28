@@ -59,7 +59,7 @@ function App() {
           />
           <Route path="/lost-found-reporting" element={<LostReporting />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/shop:id" element={<ShopItem />} />
+          <Route path="/product-details" element={<ShopItem />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/edit" element={<Editprofile />} />
