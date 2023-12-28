@@ -1,5 +1,6 @@
 .adopt-pet {
   margin-top: 20rem;
+  margin-bottom: 10rem;
 }
 .adopt-pet-main {
   display: flex;
@@ -93,4 +94,27 @@
 }
 .adopt-pet-main-right_content_btn {
   background-color: var(--secondary);
+}
+.adopt-pet-footer {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  font-size: 3rem;
+}
+.pet-type-card {
+  min-width: 20rem;
+  max-width: 20rem;
+  text-align: center;
+  background-color: var(--primary);
+  padding: 2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+.adopt-pet-footer_value {
+  color: var(--secondary);
 }

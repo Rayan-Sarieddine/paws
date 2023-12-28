@@ -11,7 +11,7 @@ export const petSlice = createSlice({
     loadPets: (state, { payload }) => {
       return {
         ...state,
-        posts: payload,
+        pets: payload,
       };
     },
     selectPet: (state, { payload }) => {

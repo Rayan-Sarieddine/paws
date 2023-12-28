@@ -1,6 +1,6 @@
 import { sendRequest } from "../../helpers/request";
 
-export const postsDataSource = {
+export const petsDataSource = {
   getPets: async () => {
     const response = await sendRequest({
       route: "/pets/",
