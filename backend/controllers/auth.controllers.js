@@ -86,7 +86,36 @@ const register = async (req, res) => {
   }
 };
 
+const updatePassword = async (req, res) => {
+  const { userId, newPassword } = req.body;
+
+  // New password validation
+  if (newPassword.length < 5) {
+    return res
+      .status(400)
+      .send({ message: "Password must be at least 5 characters long" });
+  }
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    // Update user's password
+    user.password = hashedPassword;
+    await user.save();
+
+    return res.status(200).send({ message: "Password successfully updated" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({ message: "Server error" });
+  }
+};
 module.exports = {
   login,
   register,
+  updatePassword,
 };

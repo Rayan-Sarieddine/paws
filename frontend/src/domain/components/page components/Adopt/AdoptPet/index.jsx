@@ -1,33 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { petsDataSource } from "../../../../../core/dataSource/remoteDataSource/pets";
-import { loadPets } from "../../../../../core/dataSource/localDataSource/pet";
+import { useSelector } from "react-redux";
+
 function AdoptPet() {
   const navigate = useNavigate();
-  const [petStats, sePetStats] = useState([]);
+
   const petsData = useSelector((state) => state.Pet);
-  console.log("swjbw", petsData);
+
   const stats = {
-    totalNumberOfAdoptedPets: 0,
-    totalNumberOfAvailablePets: 0,
-    totalNumberOfLostPets: 0,
-    totalNumberOfFoundPets: 0,
     totalNumberOfPetsByType: {},
   };
 
   petsData.pets?.forEach((pet) => {
-    if (pet.status === "ADOPTED") {
-      stats.totalNumberOfAdoptedPets++;
-    } else if (pet.status === "AVAILABLE") {
-      stats.totalNumberOfAvailablePets++;
-    } else if (pet.status === "LOST") {
-      stats.totalNumberOfLostPets++;
-    } else if (pet.status === "FOUND") {
-      stats.totalNumberOfFoundPets++;
-    }
-
     if (stats.totalNumberOfPetsByType[pet.type]) {
       stats.totalNumberOfPetsByType[pet.type]++;
     } else {

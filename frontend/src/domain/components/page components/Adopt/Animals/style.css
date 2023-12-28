@@ -1,0 +1,43 @@
+.animals-section {
+  width: 100%;
+}
+
+.animals-section_header {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.animals-section_header_img {
+  width: 4rem;
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.animals-section_header_img img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.animals-section_header p {
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.animals-section_header h2 {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 3.2rem;
+  margin-top: 1rem;
+}
+.animals-section_body {
+  display: flex;
+}
+.animals-section_petCard_img img {
+  border-radius: 50%;
+}
+.animals-section_petCard_img {
+  max-width: 30rem;
+  min-width: 30rem;
+}

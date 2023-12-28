@@ -48,7 +48,6 @@ const updateUser = async (req, res) => {
     address = req.user.address,
     userType = req.user.userType,
     image = req.user.image,
-    password = "",
   } = req.body;
   const userID = req.user._id;
   try {
@@ -114,21 +113,41 @@ const updateUser = async (req, res) => {
 const getCart = async (req, res) => {
   const userID = req.user._id;
   try {
-    const user = await User.findById(userID);
+    const user = await User.findById(userID).populate(
+      "cart.items.productID",
+      "name barcode"
+    );
+
     if (!user) {
-      res.status(404).send({ message: "user notfound" });
+      return res.status(404).send({ message: "User not found" });
     }
-    if (user.cart.items.length == 0) {
-      res.status(204).send({ message: "user cart is empty" });
+
+    if (user.cart.items.length === 0) {
+      return res.status(204).send({ message: "User cart is empty" });
     } else {
-      res.status(200).send({
-        message: "items retrieved successfully",
-        cartItems: user.cart.items,
+      const tempGrouping = {};
+
+      user.cart.items.forEach((item) => {
+        const id = item.productID._id.toString();
+        if (!tempGrouping[id]) {
+          tempGrouping[id] = { ...item.toObject(), quantity: 0, total: 0 };
+        }
+        tempGrouping[id].quantity += item.quantity;
+        tempGrouping[id].total += item.total;
+      });
+
+      const groupedCartItems = Object.keys(tempGrouping).map(
+        (key) => tempGrouping[key]
+      );
+
+      return res.status(200).send({
+        message: "Items retrieved successfully",
+        cartItems: groupedCartItems,
       });
     }
   } catch (error) {
     console.error(error);
-    res.status(500).send({ message: "server error" });
+    res.status(500).send({ message: "Server error" });
   }
 };
 const emptyCart = async (req, res) => {
