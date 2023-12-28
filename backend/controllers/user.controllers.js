@@ -22,7 +22,7 @@ const addProductToCart = async (req, res) => {
     );
 
     if (cartItemIndex > -1) {
-      user.cart.items[cartItemIndex].quantity += quantity;
+      user.cart.items[cartItemIndex].quantity += parseInt(quantity);
       user.cart.items[cartItemIndex].total =
         user.cart.items[cartItemIndex].quantity * product.price;
     } else {

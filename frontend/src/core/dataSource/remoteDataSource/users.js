@@ -9,4 +9,13 @@ export const userDataSource = {
 
     return response;
   },
+  addToCart: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      route: "/user/",
+      method: "POST",
+    });
+
+    return response;
+  },
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useSelector } from "react-redux";
 import { selectProduct } from "../../../../../core/dataSource/localDataSource/product";
+import { userDataSource } from "../../../../../core/dataSource/remoteDataSource/users";
 
 function Productinfo() {
   const selectedProduct = useSelector((state) => {
@@ -10,26 +11,38 @@ function Productinfo() {
 
   const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleQuantityChange = (newQuantity) => {
     setQuantity(newQuantity);
   };
 
-  const addToCart = () => {
-    console.log(selectedProduct);
-
+  const addToCart = async () => {
     if (quantity > selectedProduct.stock) {
       setError(
         `you can order a max of ${selectedProduct.stock} of this product`
       );
       return;
     }
+    try {
+      await userDataSource.addToCart({
+        productID: selectedProduct._id,
+        quantity: parseInt(quantity),
+        productImage: selectedProduct.image,
+      });
+      setMessage("Added to cart");
+    } catch (error) {
+      setError(error);
+    }
   };
   useEffect(() => {
     setTimeout(() => {
       setError("");
     }, 2000);
-  }, [error]);
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
+  }, [error, message]);
   return (
     <div className="product-info">
       {!Object.keys(selectedProduct)?.length === 0 ? (
@@ -77,6 +90,7 @@ function Productinfo() {
               Add to Cart
             </button>
             <p className="error">{error}</p>
+            <p className="message">{message}</p>
           </div>
         </div>
       )}
