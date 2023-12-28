@@ -6,11 +6,14 @@ import Button from "../Button";
 import { useLogin } from "../../../../core/hooks/login.hook";
 import UserProfileBtn from "./UserProfileBtn";
 import CartButton from "./CartButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeLocation } from "../../../../core/dataSource/localDataSource/active_nav";
 
 function Nav() {
   //user data from user slice ofredux
   const userData = useSelector((state) => state.User);
+  const navData = useSelector((state) => state.active_nav);
+  console.log(navData);
 
   //loggen in hook and its trigger
   const [logoutTrigger, setLogoutTrigger] = useState(0);
@@ -21,9 +24,10 @@ function Nav() {
   const [isCartMenuHidden, setIsCartMenuHidden] = useState(true);
 
   //nav navigation
-  const [activeLink, setActiveLink] = useState("Home");
+
+  const dispatch = useDispatch();
   const handleClick = (name) => {
-    setActiveLink(name);
+    dispatch(changeLocation({ page: name }));
     switch (name) {
       case "Adopt":
         navigate("/adopt");
@@ -78,7 +82,7 @@ function Nav() {
           (name) => (
             <li key={name}>
               <button
-                className={`nav-link ${activeLink === name ? "active" : ""}`}
+                className={`nav-link ${navData.page === name ? "active" : ""}`}
                 onClick={() => handleClick(name)}
               >
                 {name}
