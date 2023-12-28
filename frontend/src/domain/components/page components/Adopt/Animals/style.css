@@ -33,6 +33,10 @@
 }
 .animals-section_body {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
 }
 .animals-section_petCard_img img {
   border-radius: 50%;
@@ -40,4 +44,26 @@
 .animals-section_petCard_img {
   max-width: 30rem;
   min-width: 30rem;
+}
+.petCard-birthInfo,
+.petCard-BreedInfo,
+.petCard-StoryInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.petCard-BreedInfo {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+.petCard-StoryInfo {
+  font-size: 2rem;
+}
+.petCard-btn {
+  margin-top: 2rem;
+  font-size: 1rem;
 }

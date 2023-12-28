@@ -1,0 +1,69 @@
+.faq-container {
+  display: flex;
+  max-width: 100rem;
+  max-height: 50rem;
+  margin: auto;
+  background: #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 10rem;
+  margin-top: 10rem;
+}
+
+.faq-left,
+.faq-right {
+  flex: 1;
+}
+.faq-pets-image {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.faq-right {
+  padding: 20px;
+  background-color: var(--primary);
+}
+
+.faq-title {
+  color: white;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.faq-header {
+  font-size: 2.5rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.faq-item {
+  background: #fff;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.faq-question {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-answer {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.faq-question img {
+  width: 2rem;
+}
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.rotated {
+  transform: rotate(90deg);
+}

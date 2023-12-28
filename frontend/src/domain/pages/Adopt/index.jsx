@@ -11,7 +11,7 @@ import { petsDataSource } from "../../../core/dataSource/remoteDataSource/pets";
 import { loadPets } from "../../../core/dataSource/localDataSource/pet";
 function Adopt() {
   const dispatch = useDispatch();
-  const [stats, setStats] = useState([]);
+
   const loadpets = async () => {
     try {
       const response = await petsDataSource.getPets();

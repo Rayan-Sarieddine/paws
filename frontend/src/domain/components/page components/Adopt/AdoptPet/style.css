@@ -4,7 +4,7 @@
 }
 .adopt-pet-main {
   display: flex;
-  border-radius: 8px;
+
   max-width: 70%;
   margin: auto;
   gap: 5rem;
@@ -64,7 +64,8 @@
 .adopt-pet-main-right-img img {
   height: 100%;
   width: 100%;
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .adopt-pet-main-right_content {
@@ -73,7 +74,8 @@
   color: #fff;
   text-align: left;
   padding: 20px;
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .adopt-pet-main-right_content p {

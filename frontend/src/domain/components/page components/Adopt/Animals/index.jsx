@@ -7,7 +7,7 @@ function Animals() {
   const petsData = useSelector((state) => {
     return state.Pet;
   });
-  const length = petsData.pets.length > 3 ? 4 : petsData.pets.length;
+  const length = 4;
   console.log(petsData, "wsjiwjs");
   return (
     <div className="animals-section">
@@ -29,7 +29,7 @@ function Animals() {
                 />
               </div>
               <div className="petCard-birthInfo">
-                <p>Age</p>
+                <p>Age: </p>
                 <p>{pet.age}</p>
               </div>
               <div className="petCard-BreedInfo">
@@ -38,19 +38,30 @@ function Animals() {
               <div className="petCard-StoryInfo">
                 <p>{pet.story}</p>
               </div>
-              <button className="btn petCard-btn">LEARN MORE</button>
+              <div className="center-div">
+                <button
+                  className="btn petCard-btn"
+                  onClick={() => {
+                    navigate("/adopt-all");
+                  }}
+                >
+                  LEARN MORE
+                </button>
+              </div>
             </div>
           );
         })}
       </div>
-      <button
-        className="btn"
-        onClick={() => {
-          navigate("/adopt");
-        }}
-      >
-        BROWSE ALL PETS
-      </button>
+      <div className="center-div">
+        <button
+          className="btn"
+          onClick={() => {
+            navigate("/adopt-all");
+          }}
+        >
+          BROWSE ALL PETS
+        </button>
+      </div>
     </div>
   );
 }
