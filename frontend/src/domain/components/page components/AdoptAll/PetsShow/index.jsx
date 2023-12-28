@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectPet } from "../../../../../core/dataSource/localDataSource/pet";
+import { useNavigate } from "react-router-dom";
 
 function PetsShow() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleViewClick = (pet) => {
+    dispatch(selectPet(pet));
+    navigate("/adopt-details");
+  };
   const petData = useSelector((state) => state.Pet);
   const [age, setAge] = useState(5);
 
@@ -170,7 +178,12 @@ function PetsShow() {
                   <p>
                     {pet.description} | {pet.breed}
                   </p>
-                  <button className="btn btn-adopt">VIEW</button>
+                  <button
+                    className="btn btn-adopt"
+                    onClick={() => handleViewClick(pet)}
+                  >
+                    VIEW
+                  </button>
                 </div>
               </div>
             ))}

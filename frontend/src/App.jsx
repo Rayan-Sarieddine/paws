@@ -35,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/adopt" element={<Adopt />} />
           <Route path="/adopt-all" element={<AdoptAll />} />
-          <Route path="/adopt:id" element={<AdoptPet />} />
+          <Route path="/adopt-details" element={<AdoptPet />} />
           <Route path="/adopt-request" element={<AdoptRequest />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/checkout" element={<Checkout />} />
