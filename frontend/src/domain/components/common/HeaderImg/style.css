@@ -4,6 +4,7 @@
   justify-content: center;
   margin-bottom: 10rem;
   min-height: 90vh;
+  z-index: -5;
   max-height: 90vh;
 }
 .section-header-img img {
