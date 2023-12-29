@@ -32,3 +32,9 @@
 .btn-primary:hover {
   background-color: var(--primary-shade);
 }
+.center-div {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

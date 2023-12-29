@@ -18,4 +18,13 @@ export const userDataSource = {
 
     return response;
   },
+  updateCart: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      route: "/user/editCart",
+      method: "POST",
+    });
+
+    return response;
+  },
 };

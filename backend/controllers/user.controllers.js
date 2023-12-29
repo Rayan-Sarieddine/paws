@@ -41,6 +41,27 @@ const addProductToCart = async (req, res) => {
     res.status(500).send({ message: "server error" });
   }
 };
+const editCart = async (req, res) => {
+  const userID = req.user._id;
+  const { cartItems } = req.body;
+
+  try {
+    const user = await User.findById(userID);
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+
+    user.cart.items = cartItems;
+
+    await user.save();
+    res
+      .status(200)
+      .send({ message: "Cart updated successfully", cart: user.cart });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "Server error" });
+  }
+};
 const updateUser = async (req, res) => {
   let {
     name = req.user.name,
@@ -115,7 +136,7 @@ const getCart = async (req, res) => {
   try {
     const user = await User.findById(userID).populate(
       "cart.items.productID",
-      "name barcode"
+      "name barcode price"
     );
 
     if (!user) {
@@ -253,4 +274,5 @@ module.exports = {
   createChatSession,
   getAllChatSession,
   deleteChatSession,
+  editCart,
 };

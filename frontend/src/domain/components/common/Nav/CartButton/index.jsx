@@ -8,7 +8,6 @@ const CartButton = ({ isCartMenuHidden, setIsCartMenuHidden }) => {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   let cartTotal = 0;
-  // const userData = useSelector((state) => state.User);
 
   const getCartData = async () => {
     try {

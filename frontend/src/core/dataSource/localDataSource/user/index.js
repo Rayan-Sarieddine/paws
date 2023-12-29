@@ -46,6 +46,10 @@ export const userSlice = createSlice({
     cleanData: (state, action) => {
       return { ...initialState };
     },
+    updateCart: (state, { payload }) => {
+      const { cart } = payload;
+      return { ...state, cart };
+    },
   },
 });
 
