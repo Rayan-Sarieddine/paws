@@ -8,7 +8,7 @@ function FoundReporting() {
   return (
     <div>
       <Nav />
-      <HeaderImg img_link="lost-hero" />
+      <HeaderImg img_link="lost-hero.png" />
       <FoundReport />
       <Footer />
     </div>

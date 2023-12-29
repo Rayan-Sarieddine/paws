@@ -1,0 +1,87 @@
+.lost-report {
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.lost-report h4 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: var(--primary);
+}
+.lost-report-title {
+  margin-bottom: 0;
+  color: var(--secondary);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.lost-report-prompt {
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.input-group {
+  margin-bottom: 2rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.input-group input[type="file"] {
+  border: 1px solid #ddd;
+  display: block;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.input-group input[type="text"],
+.input-group textarea,
+.input-group select {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.8rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.input-group textarea {
+  min-height: 10rem;
+}
+
+.lost-submit-btn {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.lost-submit-btn:hover {
+  opacity: 0.9;
+}
+.lost-manual-search {
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 3rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--primary);
+  display: inline-block;
+}
+.lost-manual-search:hover {
+  opacity: 0.9;
+}
