@@ -1,7 +1,19 @@
 import React from "react";
 import "./style.css";
+import Nav from "../../components/common/Nav";
+
+import Footer from "../../components/common/Footer";
+import NoMatch from "../../components/page components/LostFoundNoMatch/NoMatch";
+import HeaderImg from "../../components/common/HeaderImg";
 function LostFoundNoMatch() {
-  return <div>LostFoundNoMatch</div>;
+  return (
+    <div>
+      <Nav />
+      <HeaderImg img_link="found-hero.png" />
+      <NoMatch />
+      <Footer />
+    </div>
+  );
 }
 
 export default LostFoundNoMatch;
