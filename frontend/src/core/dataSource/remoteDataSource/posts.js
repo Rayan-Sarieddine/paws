@@ -9,4 +9,12 @@ export const postsDataSource = {
 
     return response;
   },
+  submitPost: async () => {
+    const response = await sendRequest({
+      route: "/posts/",
+      method: "POST",
+    });
+
+    return response;
+  },
 };
