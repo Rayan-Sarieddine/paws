@@ -73,3 +73,7 @@
 .submit-btn:hover {
   opacity: 0.9;
 }
+.found-report .message {
+  font-size: 2rem;
+  margin-top: 3rem;
+}

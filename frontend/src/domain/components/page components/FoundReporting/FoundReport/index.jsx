@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
-import { postsDataSource } from "../../../../../core/dataSource/remoteDataSource/posts";
+// import { postsDataSource } from "../../../../../core/dataSource/remoteDataSource/posts";
+import { local } from "../../../../../core/helpers/localstorage";
 
 function FoundReport() {
   const [description, setDescription] = useState("");
   const [region, setRegion] = useState("OTHER");
   const [file, setFile] = useState(null);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -13,19 +16,39 @@ function FoundReport() {
 
   const onFormSubmit = async (e) => {
     e.preventDefault();
-
+    const type = local("type");
+    const token = local("token");
+    const headers = {
+      Authorization: `${type} ${token}`,
+    };
     try {
       const formData = new FormData();
       formData.append("description", description);
-      formData.append("region", region);
+      formData.append("location", region);
       formData.append("image", file);
-
-      const response = await postsDataSource.submitPost(formData);
-    } catch (error) {
-      console.log(error);
+      console.log(formData);
+      const response = await fetch("http://127.0.0.1:8000/posts", {
+        method: "POST",
+        body: formData,
+        headers: {
+          ...headers,
+        },
+      });
+      setRegion("OTHER");
+      setFile(null);
+      setDescription("");
+      setMessage("Post added");
+    } catch (err) {
+      console.log(err);
+      setError(err);
     }
   };
-
+  useEffect(() => {
+    setTimeout(() => {
+      setError("");
+      setMessage("");
+    }, 2000);
+  }, [error, message]);
   return (
     <div className="found-report">
       <p className="found-report-title">LOST & FOUND</p>
@@ -67,6 +90,8 @@ function FoundReport() {
           Submit
         </button>
       </form>
+      {/* <p className="error">{error}</p> */}
+      <p className="message">{message}</p>
     </div>
   );
 }

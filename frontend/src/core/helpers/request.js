@@ -7,16 +7,20 @@ export const sendRequest = async ({ route, method = "GET", body }) => {
   const type = local("type");
   const token = local("token");
 
-  const authorizationHeader = `${type} ${token}`;
+  const headers = {
+    Authorization: `${type} ${token}`,
+  };
 
-  const response = await axios.request({
-    url: route,
+  // so that if the  body is an instance of FormData, don't set the Content-Type header
+  if (!(body instanceof FormData)) {
+    headers["Content-Type"] = "application/json";
+  }
+
+  const response = await axios({
     method,
+    url: route,
     data: body,
-    headers: {
-      Authorization: authorizationHeader,
-      "Content-Type": "application/json",
-    },
+    headers,
   });
 
   return response.data;

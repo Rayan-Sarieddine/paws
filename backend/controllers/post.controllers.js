@@ -5,6 +5,7 @@ const addPost = async (req, res) => {
   const added_by = req.user._id;
   let { description, location, type = "FOUND", image } = req.body;
   if (!description || !location || !req.files || !req.files.image) {
+    console.log(req.body);
     return res.status(400).send({ message: "all fileds are required" });
   }
   try {
