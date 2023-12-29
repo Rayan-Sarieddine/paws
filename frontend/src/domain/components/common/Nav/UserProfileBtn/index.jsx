@@ -34,7 +34,7 @@ const UserProfileBtn = ({
         isProfileMenuHidden ? "pfp-drop-down" : "pfp-drop-down pfp-show"
       }
     >
-      <Link to={"/edit-profile"} className="pfp-drop-down-item">
+      <Link to={"/edit"} className="pfp-drop-down-item">
         Edit Profile
       </Link>
       <Link className="pfp-drop-down-item" onClick={handleOnClick}>

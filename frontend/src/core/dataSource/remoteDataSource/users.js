@@ -27,4 +27,13 @@ export const userDataSource = {
 
     return response;
   },
+  updateUser: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      route: "/user/",
+      method: "PUT",
+    });
+
+    return response;
+  },
 };
