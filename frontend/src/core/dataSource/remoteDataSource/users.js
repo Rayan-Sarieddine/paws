@@ -22,7 +22,7 @@ export const userDataSource = {
     const response = await sendRequest({
       body: data,
       route: "/user/editCart",
-      method: "POST",
+      method: "PUT",
     });
 
     return response;

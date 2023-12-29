@@ -2,11 +2,25 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { userDataSource } from "../../../../../core/dataSource/remoteDataSource/users";
 import { useDispatch } from "react-redux";
+import { orderDataSource } from "../../../../../core/dataSource/remoteDataSource/orders";
+import { useNavigate } from "react-router-dom";
 // import { useDispatch } from "react-redux";
 
 function CheckoutDetails() {
   const [cartItems, setCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
+  const [message, setMessage] = useState("");
+  const [coupon, setCoupon] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCheckoutClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   const dispatch = useDispatch();
 
   const getCartData = async () => {
@@ -22,6 +36,11 @@ function CheckoutDetails() {
   useEffect(() => {
     getCartData();
   }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
+  }, [message]);
 
   useEffect(() => {
     setCartTotal(cartItems.reduce((total, item) => total + item.total, 0));
@@ -40,10 +59,57 @@ function CheckoutDetails() {
       )
     );
   };
+  const handleCouponChange = (e) => {
+    setCoupon(e.target.value);
+  };
   //save to cart
   const savetoNewCart = async () => {
-    await userDataSource.updateCart();
+    try {
+      const formattedCartItems = cartItems.map((item) => ({
+        productID: item.productID._id,
+        productImage: item.productImage,
+        quantity: item.quantity,
+        total: item.total,
+      }));
+      console.log("formatedCarticons", formattedCartItems);
+      const response = await userDataSource.updateCart({
+        cartItems: formattedCartItems,
+      });
+      setMessage("cart saved");
+      console.log("Cart updated:", response);
+    } catch (error) {}
   };
+  //checkout
+  const checkout = async () => {
+    try {
+      const orderItems = cartItems.map((item) => ({
+        product_id: item.productID._id,
+        name: item.productID.name,
+        image: item.productImage,
+        quantity: item.quantity,
+        total: item.total,
+      }));
+
+      console.log("orderedItems", orderItems);
+      const response = await orderDataSource.placeOrder({
+        items: orderItems,
+        couponCode: coupon,
+      });
+      const response2 = await userDataSource.updateCart({
+        cartItems: [],
+      });
+
+      console.log(response);
+      setMessage("checkout success");
+      setTimeout(() => {
+        setShowModal(false);
+        navigate("/shop");
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div className="checkout-cart-all-content">
@@ -68,7 +134,7 @@ function CheckoutDetails() {
                     />
                     <div className="checkout-product-main-info">
                       <h4>{item.productID.name}</h4>
-                      <p>${item.total}</p>
+                      <p>${item.total.toFixed(2)}</p>
                     </div>
                   </div>
                   <div className="quantity">
@@ -112,12 +178,20 @@ function CheckoutDetails() {
               <hr></hr>
               <div className="checkout-cart-total-value">
                 <span>TOTAL:</span>
-                <p>${cartTotal}</p>
+                <p>${cartTotal.toFixed(2)}</p>
               </div>
               <hr></hr>
               <div className="checkout-actions">
                 <div className="checkout-actions-coupon">
-                  <input type="text" placeholder="Enter Coupon" />
+                  <input
+                    type="text"
+                    placeholder="Enter Coupon"
+                    value={coupon}
+                    on
+                    onChange={(e) => {
+                      handleCouponChange();
+                    }}
+                  />
                 </div>
                 <div className="checkout-action_btns">
                   <button
@@ -128,9 +202,36 @@ function CheckoutDetails() {
                   >
                     Save
                   </button>
-                  <button className="btn checkout-btn">Checkout</button>
+                  <button
+                    className="btn checkout-btn"
+                    onClick={() => {
+                      handleCheckoutClick();
+                    }}
+                  >
+                    Checkout
+                  </button>
                 </div>
+                {showModal && (
+                  <div className="modal">
+                    <div className="modal-content">
+                      <div>
+                        <p>Are you sure you want to place order?</p>
+                        <button
+                          className="btn confirm-adoption-btn"
+                          onClick={checkout}
+                        >
+                          Confirm
+                        </button>
+                        <p className="message">{message}</p>
+                      </div>
+                      <span className="close-btn" onClick={handleCloseModal}>
+                        &times;
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
+              <p className="message">{message}</p>
             </div>
           </>
         )}

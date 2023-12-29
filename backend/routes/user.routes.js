@@ -18,5 +18,5 @@ router.get("/emptyCart", emptyCart);
 router.post("/chat", createChatSession);
 router.get("/chats", getAllChatSession);
 router.post("/deleteChat", deleteChatSession);
-router.post("/editCart", editCart);
+router.put("/editCart", editCart);
 module.exports = router;

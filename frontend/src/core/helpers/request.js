@@ -15,7 +15,7 @@ export const sendRequest = async ({ route, method = "GET", body }) => {
     data: body,
     headers: {
       Authorization: authorizationHeader,
-      "Content-Type": "multipart/form-data",
+      "Content-Type": "application/json",
     },
   });
 

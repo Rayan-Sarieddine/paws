@@ -45,7 +45,7 @@ const CartButton = ({ isCartMenuHidden, setIsCartMenuHidden }) => {
                       />
                       <div className="product-main-info">
                         <h4>{item.productID.name}</h4>
-                        <p>${item.total}</p>
+                        <p>${item.total.toFixed(2)}</p>
                       </div>
                     </div>
                     <p className="cart-items-quantity">{item.quantity}</p>
@@ -57,7 +57,7 @@ const CartButton = ({ isCartMenuHidden, setIsCartMenuHidden }) => {
               <hr></hr>
               <div className="cart-total-value">
                 <span>TOTAL:</span>
-                <p>${cartTotal}</p>
+                <p>${cartTotal.toFixed(2)}</p>
               </div>
               <button
                 className="view-cart-button"
