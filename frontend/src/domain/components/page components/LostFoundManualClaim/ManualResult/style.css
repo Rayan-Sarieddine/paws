@@ -1,0 +1,43 @@
+.manual-result {
+  padding: 3rem;
+  width: 70%;
+  margin: 0 auto;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.manual-result-comparison {
+  max-width: 30%;
+  margin: 0 auto;
+}
+
+.manual-result-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+.manual-result-actions p {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.manual-result-no {
+  background-color: var(--secondary);
+}
+.manual-yes-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  font-size: 2rem;
+}
+.manual-yes-modal-phone {
+  font-weight: 600;
+}
+.manual-no-modal {
+  margin-top: 3rem;
+}
