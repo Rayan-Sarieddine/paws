@@ -8,6 +8,7 @@ import UserProfileBtn from "./UserProfileBtn";
 import CartButton from "./CartButton";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLocation } from "../../../../core/dataSource/localDataSource/active_nav";
+import PawsLoader from "../PawsLoader";
 
 function Nav() {
   //user data from user slice ofredux

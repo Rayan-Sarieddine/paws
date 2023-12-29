@@ -1,0 +1,94 @@
+.paws-loader {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  z-index: 10000000;
+}
+.paws-loader-img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+.paws-loader-img img {
+  width: 25rem;
+}
+
+.ajax-loader {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform-origin: 50% 50%;
+  transform: rotate(90deg) translate(-50%, 0%);
+  font-size: 50px;
+  width: 1em;
+  height: 3em;
+  color: #d31145;
+}
+
+.paw {
+  width: 1em;
+  height: 1em;
+  animation: 2050ms pawAnimation ease-in-out infinite;
+  opacity: 0;
+}
+
+.paw svg {
+  width: 100%;
+  height: 100%;
+}
+
+.paw .icon {
+  fill: currentColor;
+}
+
+.paw:nth-child(odd) {
+  transform: rotate(-10deg);
+}
+
+.paw:nth-child(even) {
+  transform: rotate(10deg) translate(125%, 0);
+}
+
+.paw:nth-child(1) {
+  animation-delay: 1.25s;
+}
+
+.paw:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.paw:nth-child(3) {
+  animation-delay: 0.75s;
+}
+
+.paw:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.paw:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.paw:nth-child(6) {
+  animation-delay: 0s;
+}
+
+.no-cssanimations .paw {
+  opacity: 1;
+}
+
+@keyframes pawAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
