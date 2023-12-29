@@ -1,42 +1,54 @@
 const Order = require("../models/order.model");
+const Product = require("../models/product.model");
 
 const coupons = [{ SUMMER21: 10 }, { WINTER21: 15 }];
 
 const addOrder = async (req, res) => {
-  //TODO
-  // try {
-  //   const { items, couponCode } = req.body;
-  //   const userId = req.user._id;
-  //   let discountAmount = 0;
-  //   if (couponCode) {
-  //     const coupon = coupons.find((coup) => coup.hasOwnProperty(couponCode));
-  //     if (coupon) {
-  //       discountAmount = coupon[couponCode];
-  //     }
-  //   }
-  //   let totalAmount = items.reduce((sum, item) => sum + item.total, 0);
-  //   totalAmount = Math.max(totalAmount - discountAmount, 0);
-  //   const orderDate = new Date();
-  //   orderDate.setDate(orderDate.getDate() + 2);
-  //   const deliveryDate = orderDate.toISOString().split("T")[0];
-  //   const newOrder = new Order({
-  //     user_id: userId,
-  //     delivery_date: deliveryDate,
-  //     items,
-  //     ...(couponCode && { couponCode }),
-  //     discountAmount,
-  //     totalAmount,
-  //   });
-  //   await newOrder.save();
-  //   res
-  //     .status(201)
-  //     .send({ message: "Order created successfully", order: newOrder });
-  // } catch (error) {
-  //   console.error(error);
-  //   res
-  //     .status(500)
-  //     .send({ message: "Failed to create order", error: error.message });
-  // }
+  try {
+    const { items, couponCode } = req.body;
+    const userId = req.user._id;
+    let discountAmount = 0;
+    if (couponCode) {
+      const coupon = coupons.find((coup) => coup.hasOwnProperty(couponCode));
+      if (coupon) {
+        discountAmount = coupon[couponCode];
+      } else {
+        return res.status(404).send({ message: "coupon is not valid" });
+      }
+    }
+    let totalAmount = items.reduce((sum, item) => sum + item.total, 0);
+    totalAmount = Math.max(totalAmount - discountAmount, 0);
+    const orderDate = new Date();
+    orderDate.setDate(orderDate.getDate() + 2);
+    const deliveryDate = orderDate.toISOString().split("T")[0];
+    const newOrder = new Order({
+      user_id: userId,
+      delivery_date: deliveryDate,
+      items,
+      ...(couponCode && { couponCode }),
+      discountAmount,
+      totalAmount,
+    });
+    await Promise.all(
+      items.map(async (item) => {
+        const product = await Product.findById(item.product_id);
+        if (!product) {
+          throw new Error(`Product with ID ${item.product_id} not found`);
+        }
+        product.stock = Math.max(0, product.stock - item.quantity);
+        await product.save();
+      })
+    );
+    await newOrder.save();
+    res
+      .status(201)
+      .send({ message: "Order created successfully", order: newOrder });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .send({ message: "Failed to create order", error: error.message });
+  }
 };
 const editOrder = async (req, res) => {
   try {
