@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { userDataSource } from "../../../../../core/dataSource/remoteDataSource/users";
-import { useDispatch } from "react-redux";
+
 import { orderDataSource } from "../../../../../core/dataSource/remoteDataSource/orders";
 import { useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
 
 function CheckoutDetails() {
   const [cartItems, setCartItems] = useState([]);
@@ -21,13 +20,11 @@ function CheckoutDetails() {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  const dispatch = useDispatch();
 
   const getCartData = async () => {
     try {
       const response = await userDataSource.getCart();
       setCartItems(response.cartItems || []);
-      console.log("cart items", cartItems);
     } catch (error) {
       console.log(error);
     }
@@ -71,12 +68,11 @@ function CheckoutDetails() {
         quantity: item.quantity,
         total: item.total,
       }));
-      console.log("formatedCarticons", formattedCartItems);
-      const response = await userDataSource.updateCart({
+
+      await userDataSource.updateCart({
         cartItems: formattedCartItems,
       });
       setMessage("cart saved");
-      console.log("Cart updated:", response);
     } catch (error) {}
   };
   //checkout
@@ -90,20 +86,18 @@ function CheckoutDetails() {
         total: item.total,
       }));
 
-      console.log("orderedItems", orderItems);
-      const response = await orderDataSource.placeOrder({
+      await orderDataSource.placeOrder({
         items: orderItems,
         couponCode: coupon,
       });
-      const response2 = await userDataSource.updateCart({
+      await userDataSource.updateCart({
         cartItems: [],
       });
 
-      console.log(response);
       setMessage("checkout success");
       setTimeout(() => {
         setShowModal(false);
-        navigate("/shop");
+        navigate("/checkout-success");
       }, 2000);
     } catch (error) {
       console.log(error);
