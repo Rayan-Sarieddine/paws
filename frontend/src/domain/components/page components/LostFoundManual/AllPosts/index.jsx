@@ -15,9 +15,28 @@ function AllPosts() {
   const postsPerPage = 9;
   const [filter, setFilter] = useState({
     location: "all",
-    age: "",
-    status: "",
   });
+  const [dateFilter, setDateFilter] = useState("all");
+  const isWithinDateRange = (postDate, range) => {
+    const today = new Date();
+    const postCreationDate = new Date(postDate);
+
+    switch (range) {
+      case "today":
+        return postCreationDate.toDateString() === today.toDateString();
+      case "thisWeek":
+        let weekStart = new Date(today);
+        weekStart.setDate(weekStart.getDate() - weekStart.getDay());
+        return postCreationDate >= weekStart && postCreationDate <= today;
+      case "thisMonth":
+        return (
+          postCreationDate.getMonth() === today.getMonth() &&
+          postCreationDate.getFullYear() === today.getFullYear()
+        );
+      default:
+        return true;
+    }
+  };
   const [filteredPosts, setFilteredPosts] = useState(postsData.posts);
 
   useEffect(() => {
@@ -28,9 +47,13 @@ function AllPosts() {
         (post) => post.location === filter.location
       );
     }
-
+    if (dateFilter !== "all") {
+      newFilteredPosts = newFilteredPosts.filter((post) =>
+        isWithinDateRange(post.createdAt, dateFilter)
+      );
+    }
     setFilteredPosts(newFilteredPosts);
-  }, [filter, postsData.posts]);
+  }, [filter, dateFilter, postsData.posts]);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -39,7 +62,9 @@ function AllPosts() {
   const handleLocationChange = (e) => {
     setFilter({ ...filter, location: e.target.value });
   };
-
+  const handleDateFilterChange = (e) => {
+    setDateFilter(e.target.value);
+  };
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const filterData = () => {};
   useEffect(() => {}, [currentPosts]);
@@ -122,10 +147,50 @@ function AllPosts() {
             OTHER
           </label>
         </div>
-
-        <button className="btn btn-filter" onClick={filterData()}>
-          Filter
-        </button>
+        <div className="filter-category">
+          <h3>Date</h3>
+          <hr />
+          <label>
+            <input
+              type="radio"
+              name="dateFilter"
+              value="all"
+              checked={dateFilter === "all"}
+              onChange={handleDateFilterChange}
+            />
+            All
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="dateFilter"
+              value="today"
+              checked={dateFilter === "today"}
+              onChange={handleDateFilterChange}
+            />
+            Today
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="dateFilter"
+              value="thisWeek"
+              checked={dateFilter === "thisWeek"}
+              onChange={handleDateFilterChange}
+            />
+            This Week
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="dateFilter"
+              value="thisMonth"
+              checked={dateFilter === "thisMonth"}
+              onChange={handleDateFilterChange}
+            />
+            This Month
+          </label>
+        </div>
       </div>
       <div className="post-pagination-main">
         <div className="post-pagination-header">
