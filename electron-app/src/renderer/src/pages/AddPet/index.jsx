@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
+import { petsDataSource } from "../../core/dataSource/remoteDataSource/pets";
+import { local } from "../../core/helpers/localstorage";
 function AddPet() {
   const [petData, setPetData] = useState({
     petName: "",
@@ -11,22 +13,21 @@ function AddPet() {
     breedDescription: "",
     status: "AVAILABLE"
   });
-
+  const [petImage, setPetImage] = useState(null);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    setTimeout(() => {
+      setError("");
+      setMessage("");
+    }, 2000);
+  }, [error, message]);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPetData((prevData) => ({
       ...prevData,
       [name]: value
     }));
-  };
-
-  const handleFileChange = (event) => {
-    if (event.target.files.length > 0) {
-      setPetData((prevData) => ({
-        ...prevData,
-        petPicture: event.target.files[0]
-      }));
-    }
   };
 
   const handleStatusChange = (event) => {
@@ -36,17 +37,50 @@ function AddPet() {
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const type = local("type");
+    const token = local("token");
+    const headers = {
+      Authorization: `${type} ${token}`
+    };
+    console.log(headers);
+    try {
+      const formData = new FormData();
 
-    console.log(petData);
+      formData.append("image", petImage);
+      formData.append("name", petData.petName);
+      formData.append("breed", petData.petBreed);
+      formData.append("description", petData.petDescription);
+      formData.append("age", petData.petAge);
+      formData.append("type", petData.petType);
+      formData.append("story", petData.petStory);
+      formData.append("STATUS", petData.status);
+      formData.append("breed_description", petData.breedDescription);
+      console.log(formData);
+      const response = await fetch("http://127.0.0.1:8000/pets/", {
+        method: "POST",
+        body: formData,
+        headers: headers
+      });
+      if (response.status === 200) {
+        setMessage("Success");
+      }
+      if (response.status === 409) {
+        setError("Pet Name already exists");
+      } else {
+        setError(response.message);
+      }
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="add-pet-form">
       {Object.keys(petData).map((key) => {
         if (key === "status" || key === "petPicture") {
-          // Skip status and petPicture since they are handled separately
           return null;
         }
         return (
@@ -115,12 +149,21 @@ function AddPet() {
 
       <div className="file-upload-container">
         <label htmlFor="upload-button">Upload Pet Picture:</label>
-        <input id="upload-button" type="file" onChange={handleFileChange} required />
+        <input
+          id="upload-button"
+          type="file"
+          onChange={(e) => {
+            setPetImage(e.target.files[0]);
+          }}
+          required
+        />
       </div>
 
       <button type="submit" className="btn">
         Add Pet
       </button>
+      <p className="error">{error}</p>
+      <p className="message">{message}</p>
     </form>
   );
 }

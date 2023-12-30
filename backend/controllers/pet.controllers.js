@@ -26,7 +26,9 @@ const addPet = async (req, res) => {
   }
   try {
     const existingPet = await Pet.findOne({ name });
-    if (existingPet) {
+
+    if (existingPet === null) {
+      console.log("hello");
       return res.status(409).send({ message: "pet name already exists" });
     }
     if (
@@ -89,7 +91,7 @@ const addPet = async (req, res) => {
     return res.status(200).send({ pet, status: "success" });
   } catch (error) {
     console.log(error);
-    return res.status(500).send({ error });
+    return res.status(500).send({ error: error });
   }
 };
 const editPet = async (req, res) => {
