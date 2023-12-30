@@ -1,7 +1,7 @@
-import './style.css'
+import "./style.css";
 
 function AddPet() {
-  return <div>index</div>
+  return <div>index</div>;
 }
 
-export default AddPet
+export default AddPet;
