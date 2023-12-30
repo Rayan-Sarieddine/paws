@@ -19,7 +19,13 @@
   "dependencies": {
     "@electron-toolkit/preload": "^2.0.0",
     "@electron-toolkit/utils": "^2.0.0",
-    "electron-updater": "^6.1.1"
+    "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.3",
+    "electron-updater": "^6.1.1",
+    "react-redux": "^9.0.4",
+    "react-router": "^6.21.1",
+    "react-router-dom": "^6.21.1",
+    "redux": "^5.0.1"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.1",
