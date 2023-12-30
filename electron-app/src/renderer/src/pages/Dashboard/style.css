@@ -1,3 +1,36 @@
 .dashboard-stat {
   width: 100%;
+  margin-left: 5rem;
+  margin-top: 7rem;
+}
+.dashboard-stat h3 {
+  color: var(--primary);
+  font-size: 3rem;
+  font-weight: 600;
+}
+.dashboard-stat-cards {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.dashboard-stat-card {
+  padding: 1.5rem;
+  background-color: var(--primary);
+  border-radius: 8px;
+  color: white;
+  min-width: 15rem;
+  text-align: center;
+}
+.dashboard-stat-card h4 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.dashboard-stat-card p {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
