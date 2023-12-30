@@ -52,8 +52,8 @@ const LogIn = () => {
       //acios request
       const response = await authDataSource.login(data);
       //setting local storage data
-      // local("token", response.token);
-      // local("type", response.user.userType);
+      local("token", response.token);
+      local("type", response.user.userType);
       if (response.user.userType !== "ADMIN") {
         setError("Unauthorized");
         return;
@@ -88,7 +88,7 @@ const LogIn = () => {
       ))}
       <div className="signin">
         <div className="content">
-          <img src="./assets/images/favicon.png" alt="logo" />
+          <img src="./src/assets/images/favicon.png" alt="logo" />
 
           <h2 className="log-cart-title">log in</h2>
 

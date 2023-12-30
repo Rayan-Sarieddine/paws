@@ -5,8 +5,16 @@ export const orderDataSource = {
     const response = await sendRequest({
       body: data,
       method: "POST",
-      route: "/orders/",
+      route: "/orders/"
     });
     return response;
   },
+  orderStats: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      method: "GET",
+      route: "/orders/"
+    });
+    return response;
+  }
 };
