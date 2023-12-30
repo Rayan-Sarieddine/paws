@@ -5,27 +5,9 @@ export const authDataSource = {
     const response = await sendRequest({
       body: data,
       route: "/auth/login",
-      method: "POST",
+      method: "POST"
     });
 
     return response;
-  },
-  register: async (data) => {
-    const response = await sendRequest({
-      body: data,
-      route: "/auth/register",
-      method: "POST",
-    });
-
-    return response;
-  },
-  // forgotPassword: async (data) => {
-  //   const response = await sendRequest({
-  //     body: data,
-  //     route: "/auth/register",
-  //     method: "POST",
-  //   });
-
-  //   return response;
-  // },
+  }
 };

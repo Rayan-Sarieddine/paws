@@ -8,7 +8,7 @@ export const sendRequest = async ({ route, method = "GET", body }) => {
   const token = local("token");
 
   const headers = {
-    Authorization: `${type} ${token}`,
+    Authorization: `${type} ${token}`
   };
 
   // so that if the  body is an instance of FormData, don't set the Content-Type header
@@ -20,7 +20,7 @@ export const sendRequest = async ({ route, method = "GET", body }) => {
     method,
     url: route,
     data: body,
-    headers,
+    headers
   });
 
   return response.data;

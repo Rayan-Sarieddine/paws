@@ -1,7 +1,7 @@
-import './style.css'
+import "./style.css";
 
 function Dashboard() {
-  return <div>index</div>
+  return <div>wdqdqwdqwd</div>;
 }
 
-export default Dashboard
+export default Dashboard;
