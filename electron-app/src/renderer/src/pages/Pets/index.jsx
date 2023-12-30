@@ -62,11 +62,19 @@ function Pets() {
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const filterData = () => {};
+
   useEffect(() => {}, [currentPets]);
   return (
     <div className="pets-show-container">
       <div className="filters">
+        <button
+          className="btn btn-add"
+          onClick={() => {
+            navigate("/add-pet");
+          }}
+        >
+          ADD PET
+        </button>
         <div className="filter-category">
           <h3>Type</h3>
           <hr></hr>
@@ -146,9 +154,6 @@ function Pets() {
           />
           <p>Age to be less than {age}</p>
         </div>
-        <button className="btn btn-filter" onClick={filterData()}>
-          Filter
-        </button>
       </div>
       <div className="pet-pagination-main">
         <div className="pet-pagination-header">
@@ -185,8 +190,8 @@ function Pets() {
                   <p>
                     {pet.description} | {pet.breed}
                   </p>
-                  <button className="btn btn-adopt" onClick={() => handleViewClick(pet)}>
-                    VIEW
+                  <button className="btn-edit" onClick={() => handleViewClick(pet)}>
+                    EDIT
                   </button>
                 </div>
               </div>

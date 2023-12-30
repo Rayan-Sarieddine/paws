@@ -71,14 +71,6 @@
   margin-bottom: 2rem;
 }
 
-.btn-adopt {
-  background-color: var(--secondary);
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  margin-top: 1rem;
-}
 .pet-pagination-controls {
   display: flex;
   justify-content: center;
@@ -167,4 +159,19 @@
   font-size: 2rem;
   font-weight: 600;
   margin-top: 0.5rem;
+}
+.btn-add {
+  margin-bottom: 3rem;
+}
+.btn-edit {
+  background-color: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.btn-edit:hover {
+  opacity: 0.9;
 }
