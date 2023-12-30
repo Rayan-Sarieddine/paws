@@ -1,0 +1,7 @@
+import './style.css'
+
+function Dashboard() {
+  return <div>index</div>
+}
+
+export default Dashboard
