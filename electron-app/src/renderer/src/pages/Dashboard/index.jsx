@@ -12,7 +12,6 @@ function Dashboard() {
     try {
       const response = await petsDataSource.petStats();
       setPetStats(response);
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -20,6 +19,7 @@ function Dashboard() {
   const getProductStats = async () => {
     try {
       const response = await productDataSource.productStats();
+
       setProductStats(response);
     } catch (err) {
       console.log(err);
@@ -28,7 +28,8 @@ function Dashboard() {
   const getOrderStats = async () => {
     try {
       const response = await orderDataSource.orderStats();
-      setOrderStats(response);
+      console.log(response.stats);
+      setOrderStats(response.stats);
     } catch (err) {
       console.log(err);
     }
@@ -67,6 +68,52 @@ function Dashboard() {
           <div className="dashboard-stat-card">
             <h4>{petStats?.totalNumberOfLostPets}</h4>
             <p>Lost Pets</p>
+          </div>
+        </div>
+      </div>
+      <div className="dashboard-stat">
+        <h3>Product Stats</h3>
+        <div className="dashboard-stat-cards">
+          <div className="dashboard-stat-card">
+            <h4>{productStats?.totalNumberOfProducts}</h4>
+            <p>Products</p>
+          </div>
+          <div className="dashboard-stat-card">
+            <h4>{productStats?.averagePrice?.toFixed(2)}</h4>
+            <p>Average product price</p>
+          </div>
+        </div>
+      </div>
+      <div className="dashboard-stat">
+        <h3>Order Stats</h3>
+        <div className="dashboard-stat-cards">
+          <div className="dashboard-stat-card">
+            <h4>{orderStats?.averageOrderTotal || 0}</h4>
+            <p>Average order total</p>
+          </div>
+          <div className="dashboard-stat-card">
+            <h4>{orderStats?.totalOrdersToday || 0}</h4>
+            <p>Total Orders Today</p>
+          </div>
+          <div className="dashboard-stat-card">
+            <h4>{orderStats?.totalOrdersThisWeek || 0}</h4>
+            <p>Total Orders this Week</p>
+          </div>
+          <div className="dashboard-stat-card">
+            <h4>{orderStats?.totalOrdersThisMonth || 0}</h4>
+            <p>Total Orders this Month</p>
+          </div>
+          <div className="dashboard-stat-card">
+            <h4>{orderStats?.totalRevenueToday || 0}</h4>
+            <p>Total Revenue Today</p>
+          </div>
+          <div className="dashboard-stat-card">
+            <h4>{orderStats?.totalRevenueThisWeek || 0}</h4>
+            <p>Total Revenue this Week</p>
+          </div>
+          <div className="dashboard-stat-card">
+            <h4>{orderStats?.totalRevenueThisMonth || 0}</h4>
+            <p>Total Revenue this Month</p>
           </div>
         </div>
       </div>
