@@ -54,7 +54,10 @@ const LogIn = () => {
       //setting local storage data
       // local("token", response.token);
       // local("type", response.user.userType);
-      console.log(response);
+      if (response.user.userType !== "ADMIN") {
+        setError("Unauthorized");
+        return;
+      }
       //setting user slice
       dispatch(
         loggedIn({
