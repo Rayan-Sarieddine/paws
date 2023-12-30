@@ -73,7 +73,7 @@ const LogIn = () => {
         })
       );
       console.log("logged in");
-      navigateTo("/dashboard");
+      navigateTo("/pets");
     } catch (error) {
       setError(error);
       console.log(error);
