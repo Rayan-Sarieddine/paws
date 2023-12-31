@@ -27,10 +27,11 @@ const addPet = async (req, res) => {
   try {
     const existingPet = await Pet.findOne({ name });
 
-    if (existingPet === null) {
+    if (existingPet !== null) {
       console.log("hello");
       return res.status(409).send({ message: "pet name already exists" });
     }
+
     if (
       breed_description.length < 5 ||
       description.length < 5 ||
@@ -90,8 +91,13 @@ const addPet = async (req, res) => {
     await pet.save();
     return res.status(200).send({ pet, status: "success" });
   } catch (error) {
-    console.log(error);
-    return res.status(500).send({ error: error });
+    // Catch and handle the MongoDB duplicate key error
+    if (error.code === 11000) {
+      return res.status(409).send({ message: "Pet name already exists" });
+    } else {
+      console.error("Error occurred:", error);
+      return res.status(500).send({ error: "Internal Server Error" });
+    }
   }
 };
 const editPet = async (req, res) => {

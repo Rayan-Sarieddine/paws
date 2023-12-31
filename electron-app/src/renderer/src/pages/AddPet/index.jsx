@@ -16,12 +16,7 @@ function AddPet() {
   const [petImage, setPetImage] = useState(null);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  useEffect(() => {
-    setTimeout(() => {
-      setError("");
-      setMessage("");
-    }, 2000);
-  }, [error, message]);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPetData((prevData) => ({
@@ -58,6 +53,18 @@ function AddPet() {
       formData.append("STATUS", petData.status);
       formData.append("breed_description", petData.breedDescription);
       console.log(formData);
+      if (
+        petData.breedDescription.length < 5 ||
+        petData.petDescription.length < 5 ||
+        petData.petStory.length < 5
+      ) {
+        setError("Not enough information given");
+        return;
+      }
+      if (petData.petAge < 0) {
+        setError("age cannot be negative");
+        return;
+      }
       const response = await fetch("http://127.0.0.1:8000/pets/", {
         method: "POST",
         body: formData,
@@ -76,7 +83,12 @@ function AddPet() {
       setError(err);
     }
   };
-
+  useEffect(() => {
+    setTimeout(() => {
+      setError("");
+      setMessage("");
+    }, 5000);
+  }, [error, message]);
   return (
     <form onSubmit={handleSubmit} className="add-pet-form">
       {Object.keys(petData).map((key) => {
