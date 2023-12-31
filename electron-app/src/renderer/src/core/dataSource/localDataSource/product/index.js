@@ -11,21 +11,25 @@ export const productSlice = createSlice({
     loadProducts: (state, { payload }) => {
       return {
         ...state,
-        products: payload,
+        products: payload
       };
     },
     selectProduct: (state, { payload }) => {
       return {
         ...state,
-        curerntSelected: payload,
+        curerntSelected: payload
       };
     },
     cleanData: (state, action) => {
       return { ...initialState };
     },
-  },
+    updateSelectedProduct: (state, action) => {
+      state.curerntSelected = { ...state.curerntSelected, ...action.payload }; // Mutate the state directly
+    }
+  }
 });
 
-export const { loadProducts, cleanData, selectProduct } = productSlice.actions;
+export const { loadProducts, cleanData, selectProduct, updateSelectedProduct } =
+  productSlice.actions;
 
 export default productSlice.reducer;

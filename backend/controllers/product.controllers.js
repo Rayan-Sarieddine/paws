@@ -182,7 +182,10 @@ const editProduct = async (req, res) => {
       updatedValues.image = imageName;
     }
     await Product.findByIdAndUpdate(product._id, updatedValues);
-    return res.status(200).send({ message: "product updated" });
+    const updatedProduct = await Product.findById(product._id);
+    return res
+      .status(200)
+      .send({ message: "product updated", product: updatedProduct });
   } catch (error) {
     console.log(error);
     return res.status(500).send({ error });

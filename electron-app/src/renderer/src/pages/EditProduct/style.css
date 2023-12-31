@@ -1,0 +1,20 @@
+.status-group-category {
+  gap: 10rem;
+}
+.category-labels {
+  display: flex;
+  gap: 2rem;
+}
+.file-upload-container img {
+  max-width: 10rem;
+  border-radius: 50%;
+}
+.edit-product-header {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.edit-product-header .product-name {
+  color: var(--primary);
+}
