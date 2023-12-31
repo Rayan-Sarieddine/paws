@@ -59,7 +59,7 @@ function AdoptionRequests() {
                     <button
                       className="btn"
                       onClick={() => {
-                        navigate("/");
+                        navigate("/chat");
                       }}
                     >
                       Chat
