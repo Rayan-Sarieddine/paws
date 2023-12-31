@@ -2,3 +2,9 @@
   max-width: 10rem;
   border-radius: 50%;
 }
+.edit-pet-header {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}

@@ -8,6 +8,7 @@ function EditPet() {
   //get the selected pet details from redux
   const selectedPet = useSelector((state) => state.Pet.curerntSelected);
 
+  //state to hold new pet attributes
   const [petAttributes, setPetAttributes] = useState({
     breed: "",
     type: "",
@@ -18,6 +19,8 @@ function EditPet() {
     status: selectedPet.status
   });
   const [newImage, setNewImage] = useState(null);
+
+  //for giving the user remarks
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
@@ -104,13 +107,12 @@ function EditPet() {
 
   return (
     <>
-      <p className="error">{error}</p>
-      <p className="message">{message}</p>
+      <div className="edit-pet-header">
+        <p className="error">{error}</p>
+        <p className="message">{message}</p>
+        <p>{selectedPet.name}</p>
+      </div>
       <div className="add-pet-form">
-        <div className="input-group">
-          <p>{selectedPet.name}</p>
-        </div>
-
         {Object.entries(petAttributes).map(
           ([key, value]) =>
             key !== "status" && (
