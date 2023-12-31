@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { requestsDataSource } from "../../core/dataSource/remoteDataSource/requests";
+import Nav from "../../components/common/Nav";
 import "./style.css";
 
 function AdoptionRequests() {
@@ -16,7 +17,8 @@ function AdoptionRequests() {
     getRequests();
   }, []);
   return (
-    <div>
+    <div className="get-requests">
+      <Nav />
       <table className="requests-table">
         <thead>
           <tr>
