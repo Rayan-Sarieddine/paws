@@ -1,7 +1,18 @@
-import './style.css'
+import { useState } from "react";
+import "./style.css";
+import { orderDataSource } from "../../core/dataSource/remoteDataSource/orders";
 
 function Orders() {
-  return <div>index</div>
+  const [orders, setOrders] = useState([]);
+  const getOrders = async () => {
+    try {
+      const response = await orderDataSource.loadOrders({ status: "PENDING" });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  return <div>index</div>;
 }
 
-export default Orders
+export default Orders;

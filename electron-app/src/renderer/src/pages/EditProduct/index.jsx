@@ -124,7 +124,7 @@ function EditProduct() {
       <div className="edit-product-header">
         <p className="error">{error}</p>
         <p className="message">{message}</p>
-        <p className="product-name">{selectedProduct.name}</p>
+        <p className="product-name">{selectedProduct.barcode}</p>
       </div>
       <div className="add-product-form">
         {Object.entries(productAttributes).map(

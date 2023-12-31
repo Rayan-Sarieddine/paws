@@ -16,5 +16,13 @@ export const orderDataSource = {
       route: "/orders/"
     });
     return response;
+  },
+  loadOrders: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      method: "POST",
+      route: "/orders/all"
+    });
+    return response;
   }
 };
