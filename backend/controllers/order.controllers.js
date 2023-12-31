@@ -52,8 +52,7 @@ const addOrder = async (req, res) => {
 };
 const editOrder = async (req, res) => {
   try {
-    const orderId = req.params.id;
-    const { status } = req.body;
+    const { orderId, status } = req.body;
 
     const validStatuses = ["PENDING", "ACCEPTED", "DELIVERED", "REJECTED"];
     if (!validStatuses.includes(status)) {
@@ -62,7 +61,7 @@ const editOrder = async (req, res) => {
 
     const updatedOrder = await Order.findByIdAndUpdate(
       orderId,
-      { status },
+      { status: status },
       { new: true }
     );
 
@@ -83,12 +82,14 @@ const editOrder = async (req, res) => {
 const getAllOrders = async (req, res) => {
   try {
     const { status } = req.body;
-
     const validStatuses = ["PENDING", "ACCEPTED", "DELIVERED", "REJECTED"];
     if (!validStatuses.includes(status)) {
       return res.status(400).send({ message: "Invalid order status" });
     }
-    const orders = await Order.find({ status });
+    const orders = await Order.find({ status }).populate({
+      path: "user_id",
+      select: "name image",
+    });
     if (orders.length === 0) {
       return res
         .status(404)

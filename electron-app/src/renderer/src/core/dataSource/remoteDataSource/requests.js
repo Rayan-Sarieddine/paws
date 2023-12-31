@@ -5,9 +5,18 @@ export const requestsDataSource = {
     const response = await sendRequest({
       body: data,
       route: "requests/",
-      method: "POST",
+      method: "POST"
     });
 
     return response;
   },
+  loadRequests: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      route: "requests/all",
+      method: "POST"
+    });
+
+    return response;
+  }
 };

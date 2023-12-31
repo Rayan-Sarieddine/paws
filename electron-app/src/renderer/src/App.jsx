@@ -5,7 +5,7 @@ import Chat from "./pages/Chat";
 import Dashboard from "./pages/Dashboard";
 import EditPet from "./pages/EditPet";
 import EditProduct from "./pages/EditProduct";
-import FoundRequests from "./pages/FoundRequests";
+
 import OrderDetails from "./pages/OrderDetails";
 import Orders from "./pages/Orders";
 import Pets from "./pages/Pets";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/edit-pet" element={<EditPet />} />
         <Route path="/edit-product" element={<EditProduct />} />
-        <Route path="/found-requests" element={<FoundRequests />} />
+
         <Route path="/order-details" element={<OrderDetails />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/pets" element={<Pets />} />

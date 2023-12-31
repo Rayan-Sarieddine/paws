@@ -53,7 +53,9 @@ function Orders() {
                         src={`http://localhost:8000/images/users/${order.user_id.image}`}
                         alt="order-user-img"
                       />
-                      <p>{order.user_id.name}</p>
+                      <p>
+                        {order.user_id.name} ({order.status})
+                      </p>
                     </div>
                   </td>
                   <td>{date.toLocaleString()}</td>

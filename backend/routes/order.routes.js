@@ -10,7 +10,7 @@ const {
 const router = express.Router();
 
 router.post("/", addOrder);
-router.put("/:id", editOrder);
+router.put("/", editOrder);
 router.post("/all", getAllOrders);
 router.post("/:id", getAllOrdersOfUser);
 router.get("/:id", getOrder);

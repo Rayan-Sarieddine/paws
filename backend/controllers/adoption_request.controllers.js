@@ -46,7 +46,7 @@ const getAllRequests = async (req, res) => {
   }
   try {
     const requests = await Request.find({ status: status })
-      .populate("pet_id", "type breed age image")
+      .populate("pet_id", "type breed age image name")
       .populate("user_id", "name email image number");
     if (requests.length == 0) {
       return res.status(204).send({ message: "no requests" });
