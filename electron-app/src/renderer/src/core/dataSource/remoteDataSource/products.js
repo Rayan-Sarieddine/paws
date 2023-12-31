@@ -16,5 +16,14 @@ export const productDataSource = {
     });
 
     return response;
+  },
+  addProduct: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      route: "/products/",
+      method: "POST"
+    });
+
+    return response;
   }
 };

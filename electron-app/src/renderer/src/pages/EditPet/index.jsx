@@ -127,7 +127,7 @@ function EditPet() {
       <div className="edit-pet-header">
         <p className="error">{error}</p>
         <p className="message">{message}</p>
-        <p>{selectedPet.name}</p>
+        <p className="pet-name">{selectedPet.name}</p>
       </div>
       <div className="add-pet-form">
         {Object.entries(petAttributes).map(

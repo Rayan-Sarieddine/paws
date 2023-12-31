@@ -16,8 +16,10 @@ const addProduct = async (req, res) => {
   }
   try {
     const existingProduct = await Product.findOne({ barcode });
-    if (existingProduct) {
-      return res.status(409).send({ message: "Product already exists" });
+    if (existingProduct !== null) {
+      return res
+        .status(409)
+        .send({ message: "product barcode already exists" });
     }
     if (details.length < 5 || description.length < 5) {
       return res.status(400).send({ message: "not enough information given" });
@@ -85,8 +87,15 @@ const addProduct = async (req, res) => {
     await product.save();
     return res.status(200).send({ product, status: "success" });
   } catch (error) {
-    console.log(error);
-    return res.status(500).send({ error });
+    // Catch and handle the MongoDB duplicate key error
+    if (error.code === 11000) {
+      return res
+        .status(409)
+        .send({ message: "Product barcode already exists" });
+    } else {
+      console.error("Error occurred:", error);
+      return res.status(500).send({ error: "Internal Server Error" });
+    }
   }
 };
 const editProduct = async (req, res) => {

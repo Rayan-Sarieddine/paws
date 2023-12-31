@@ -8,3 +8,6 @@
   font-size: 2.5rem;
   font-weight: 600;
 }
+.edit-pet-header .pet-name {
+  color: var(--primary);
+}

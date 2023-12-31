@@ -73,7 +73,7 @@ const LogIn = () => {
         })
       );
       console.log("logged in");
-      navigateTo("/pets");
+      navigateTo("/products");
     } catch (error) {
       setError(error);
       console.log(error);
