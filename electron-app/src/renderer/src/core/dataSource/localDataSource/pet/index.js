@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  pets: [], // Make sure it matches the structure of your initial state
-  curerntSelected: null // Ensure this matches your intended structure
+  pets: [],
+  curerntSelected: null
 };
 
 export const petSliceName = "Pet";

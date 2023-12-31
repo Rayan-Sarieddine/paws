@@ -24,5 +24,13 @@ export const orderDataSource = {
       route: "/orders/all"
     });
     return response;
+  },
+  editOrder: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      method: "PUT",
+      route: "/orders/"
+    });
+    return response;
   }
 };
