@@ -112,10 +112,12 @@ const editPet = async (req, res) => {
     status,
     image,
   } = req.body;
+
   if (!name) {
     return res.status(404).send({ message: "field required" });
   }
   let updatedValues = {};
+
   const trimmedName = name.trim();
   const nameParts = trimmedName.split(" ");
   const capitalizedNames = nameParts.map(

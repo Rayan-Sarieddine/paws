@@ -25,5 +25,14 @@ export const petsDataSource = {
     });
 
     return response;
+  },
+  updatePet: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      route: "/pets/",
+      method: "PUT"
+    });
+
+    return response;
   }
 };

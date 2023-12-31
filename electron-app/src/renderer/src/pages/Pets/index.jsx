@@ -11,7 +11,7 @@ function Pets() {
   const [petData, setpetData] = useState();
   const handleViewClick = (pet) => {
     dispatch(selectPet(pet));
-    navigate("/adopt-details");
+    navigate("/edit-pet");
   };
   const getPetData = async () => {
     try {
