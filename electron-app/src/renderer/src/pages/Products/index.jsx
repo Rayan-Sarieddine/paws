@@ -166,7 +166,7 @@ function Products() {
               id="priceSlider"
               name="priceSlider"
               min={1}
-              max={14}
+              max={100}
               value={price}
               onChange={handlePriceChange}
             />

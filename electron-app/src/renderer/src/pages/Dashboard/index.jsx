@@ -40,6 +40,7 @@ function Dashboard() {
     getPetStats();
     getProductStats();
     getOrderStats();
+    console.log(petStats);
   }, []);
   return (
     <div className="dashboard">
@@ -49,11 +50,11 @@ function Dashboard() {
           <h3>Pet Stats</h3>
           <div className="dashboard-stat-cards">
             <div className="dashboard-stat-card">
-              <h4>{petStats?.totalNumberOfPetsByType?.dogs}</h4>
+              <h4>{petStats?.totalNumberOfPetsByType?.DOGS}</h4>
               <p>Dogs</p>
             </div>
             <div className="dashboard-stat-card">
-              <h4>{petStats?.totalNumberOfPetsByType?.cats}</h4>
+              <h4>{petStats?.totalNumberOfPetsByType?.CATS}</h4>
               <p>Cats</p>
             </div>
             <div className="dashboard-stat-card">

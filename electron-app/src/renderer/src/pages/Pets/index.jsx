@@ -95,8 +95,8 @@ function Pets() {
               <input
                 type="radio"
                 name="type"
-                value="dogs"
-                checked={filter.type === "dogs"}
+                value="DOGS"
+                checked={filter.type === "DOGS"}
                 onChange={handleTypeChange}
               />
               Dogs
@@ -105,8 +105,8 @@ function Pets() {
               <input
                 type="radio"
                 name="type"
-                value="cats"
-                checked={filter.type === "cats"}
+                value="CATS"
+                checked={filter.type === "CATS"}
                 onChange={handleTypeChange}
               />
               Cats
@@ -115,8 +115,8 @@ function Pets() {
               <input
                 type="radio"
                 name="type"
-                value="fish"
-                checked={filter.type === "fish"}
+                value="FISH"
+                checked={filter.type === "FISH"}
                 onChange={handleTypeChange}
               />
               Fish
@@ -126,8 +126,8 @@ function Pets() {
               <input
                 type="radio"
                 name="type"
-                value="rabbits"
-                checked={filter.type === "rabbits"}
+                value="RABBITS"
+                checked={filter.type === "RABBITS"}
                 onChange={handleTypeChange}
               />
               Rabbits
@@ -136,8 +136,8 @@ function Pets() {
               <input
                 type="radio"
                 name="type"
-                value="others"
-                checked={filter.type === "others"}
+                value="OTHERS"
+                checked={filter.type === "OTHERS"}
                 onChange={handleTypeChange}
               />
               Others
