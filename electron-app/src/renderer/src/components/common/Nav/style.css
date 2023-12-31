@@ -1,6 +1,8 @@
 .sidebar {
   background-color: var(--primary);
   height: 100vh;
+  max-width: 25rem;
+  min-width: 22rem;
   padding-top: 4rem;
 }
 

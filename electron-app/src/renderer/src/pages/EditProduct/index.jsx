@@ -4,6 +4,7 @@ import { productDataSource } from "../../core/dataSource/remoteDataSource/produc
 import { useDispatch, useSelector } from "react-redux";
 import { local } from "../../core/helpers/localstorage";
 import { updateSelectedProduct } from "../../core/dataSource/localDataSource/product";
+import Nav from "../../components/common/Nav";
 
 function EditProduct() {
   const dispatch = useDispatch();
@@ -120,138 +121,141 @@ function EditProduct() {
   };
 
   return (
-    <>
-      <div className="edit-product-header">
-        <p className="error">{error}</p>
-        <p className="message">{message}</p>
-        <p className="product-name">{selectedProduct.barcode}</p>
-      </div>
-      <div className="add-product-form">
-        {Object.entries(productAttributes).map(
-          ([key, value]) =>
-            key !== "category" && (
-              <div className="input-group" key={key}>
-                <label htmlFor={key}>Edit {key.charAt(0).toUpperCase() + key.slice(1)}</label>
+    <div className="edit-product">
+      <Nav />
+      <div className="edit-producr-content">
+        <div className="edit-product-header">
+          <p className="error">{error}</p>
+          <p className="message">{message}</p>
+          <p className="product-name">{selectedProduct.barcode}</p>
+        </div>
+        <div className="add-product-form">
+          {Object.entries(productAttributes).map(
+            ([key, value]) =>
+              key !== "category" && (
+                <div className="input-group" key={key}>
+                  <label htmlFor={key}>Edit {key.charAt(0).toUpperCase() + key.slice(1)}</label>
+                  <input
+                    type="text"
+                    id={key}
+                    name={key}
+                    placeholder={selectedProduct[key] || ""}
+                    value={productAttributes[key]}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <button onClick={() => updateProductAttribute(key)} className="btn">
+                    Submit {key.charAt(0).toUpperCase() + key.slice(1)}
+                  </button>
+                </div>
+              )
+          )}
+
+          <div className="status-group status-group-category">
+            <p>Category:</p>
+            <div className="category-labels">
+              <label>
                 <input
-                  type="text"
-                  id={key}
-                  name={key}
-                  placeholder={selectedProduct[key] || ""}
-                  value={productAttributes[key]}
+                  type="radio"
+                  name="category"
+                  value="DOG SUPPLIES"
+                  checked={productAttributes.category === "DOG SUPPLIES"}
                   onChange={handleInputChange}
                   required
                 />
-                <button onClick={() => updateProductAttribute(key)} className="btn">
-                  Submit {key.charAt(0).toUpperCase() + key.slice(1)}
-                </button>
-              </div>
-            )
-        )}
-
-        <div className="status-group status-group-category">
-          <p>Category:</p>
-          <div className="category-labels">
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="DOG SUPPLIES"
-                checked={productAttributes.category === "DOG SUPPLIES"}
-                onChange={handleInputChange}
-                required
-              />
-              DOG SUPPLIES
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="CAT SUPPLIES"
-                checked={productAttributes.category === "CAT SUPPLIES"}
-                onChange={handleInputChange}
-                required
-              />
-              CAT SUPPLIES
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="BIRD SUPPLIES"
-                checked={productAttributes.category === "BIRD SUPPLIES"}
-                onChange={handleInputChange}
-                required
-              />
-              BIRD SUPPLIES
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="FISH SUPPLIES"
-                checked={productAttributes.category === "FISH SUPPLIES"}
-                onChange={handleInputChange}
-                required
-              />
-              FISH SUPPLIES
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="SMALL ANIMAL SUPPLIES"
-                checked={productAttributes.category === "SMALL ANIMAL SUPPLIES"}
-                onChange={handleInputChange}
-                required
-              />
-              SMALL ANIMAL SUPPLIES
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="ACCESSORIES"
-                checked={productAttributes.category === "ACCESSORIES"}
-                onChange={handleInputChange}
-                required
-              />
-              ACCESSORIES
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                value="OTHERS"
-                checked={productAttributes.category === "OTHERS"}
-                onChange={handleInputChange}
-                required
-              />
-              OTHERS
-            </label>
+                DOG SUPPLIES
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="category"
+                  value="CAT SUPPLIES"
+                  checked={productAttributes.category === "CAT SUPPLIES"}
+                  onChange={handleInputChange}
+                  required
+                />
+                CAT SUPPLIES
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="category"
+                  value="BIRD SUPPLIES"
+                  checked={productAttributes.category === "BIRD SUPPLIES"}
+                  onChange={handleInputChange}
+                  required
+                />
+                BIRD SUPPLIES
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="category"
+                  value="FISH SUPPLIES"
+                  checked={productAttributes.category === "FISH SUPPLIES"}
+                  onChange={handleInputChange}
+                  required
+                />
+                FISH SUPPLIES
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="category"
+                  value="SMALL ANIMAL SUPPLIES"
+                  checked={productAttributes.category === "SMALL ANIMAL SUPPLIES"}
+                  onChange={handleInputChange}
+                  required
+                />
+                SMALL ANIMAL SUPPLIES
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="category"
+                  value="ACCESSORIES"
+                  checked={productAttributes.category === "ACCESSORIES"}
+                  onChange={handleInputChange}
+                  required
+                />
+                ACCESSORIES
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="category"
+                  value="OTHERS"
+                  checked={productAttributes.category === "OTHERS"}
+                  onChange={handleInputChange}
+                  required
+                />
+                OTHERS
+              </label>
+            </div>
+            <button onClick={() => updateProductAttribute("category")} className="btn">
+              Change category
+            </button>
           </div>
-          <button onClick={() => updateProductAttribute("category")} className="btn">
-            Change category
-          </button>
-        </div>
 
-        <div className="file-upload-container">
-          <label htmlFor="upload-button">Change product Picture:</label>
-          <input
-            id="upload-button"
-            type="file"
-            onChange={(e) => setNewImage(e.target.files[0])}
-            required
-          />
-          <button onClick={updatePicture} className="btn">
-            Update
-          </button>
-          <img
-            src={`http://127.0.0.1:8000/images/products/${selectedProduct.image}`}
-            alt={selectedProduct.name}
-          />
+          <div className="file-upload-container">
+            <label htmlFor="upload-button">Change product Picture:</label>
+            <input
+              id="upload-button"
+              type="file"
+              onChange={(e) => setNewImage(e.target.files[0])}
+              required
+            />
+            <button onClick={updatePicture} className="btn">
+              Update
+            </button>
+            <img
+              src={`http://127.0.0.1:8000/images/products/${selectedProduct.image}`}
+              alt={selectedProduct.name}
+            />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

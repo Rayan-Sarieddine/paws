@@ -2,8 +2,10 @@ import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router";
 import { cleanData } from "../../../core/dataSource/localDataSource/user";
+import { useDispatch } from "react-redux";
 function Nav() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const logout = () => {
     dispatch(cleanData());
     localStorage.removeItem("token");
@@ -13,7 +15,13 @@ function Nav() {
   return (
     <div className="sidebar">
       <div className="logo-main">
-        <img src="./src/assets/images/favicon.png" alt="logo" />
+        <img
+          src="./src/assets/images/favicon.png"
+          alt="logo"
+          onClick={() => {
+            navigate("/dashboard");
+          }}
+        />
       </div>
       <ul className="main-list">
         <ul className="list">

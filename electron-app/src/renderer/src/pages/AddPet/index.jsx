@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { petsDataSource } from "../../core/dataSource/remoteDataSource/pets";
 import { local } from "../../core/helpers/localstorage";
+import Nav from "../../components/common/Nav";
 function AddPet() {
   const [petData, setPetData] = useState({
     petName: "",
@@ -90,93 +91,96 @@ function AddPet() {
     }, 5000);
   }, [error, message]);
   return (
-    <form onSubmit={handleSubmit} className="add-pet-form">
-      {Object.keys(petData).map((key) => {
-        if (key === "status" || key === "petPicture") {
-          return null;
-        }
-        return (
-          <div key={key} className="input-group">
-            <label htmlFor={key}>{`Enter ${key}`}</label>
+    <div className="add-pet">
+      <Nav />
+      <form onSubmit={handleSubmit} className="add-pet-form">
+        {Object.keys(petData).map((key) => {
+          if (key === "status" || key === "petPicture") {
+            return null;
+          }
+          return (
+            <div key={key} className="input-group">
+              <label htmlFor={key}>{`Enter ${key}`}</label>
+              <input
+                type="text"
+                id={key}
+                name={key}
+                placeholder={`Enter ${key}`}
+                value={petData[`${key}`]}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+          );
+        })}
+
+        <div className="status-group">
+          <p>Status:</p>
+          <label>
             <input
-              type="text"
-              id={key}
-              name={key}
-              placeholder={`Enter ${key}`}
-              value={petData[`${key}`]}
-              onChange={handleInputChange}
+              type="radio"
+              name="status"
+              value="AVAILABLE"
+              checked={petData.status === "AVAILABLE"}
+              onChange={handleStatusChange}
               required
-            />
-          </div>
-        );
-      })}
+            />{" "}
+            AVAILABLE
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="status"
+              value="ADOPTED"
+              checked={petData.status === "ADOPTED"}
+              onChange={handleStatusChange}
+              required
+            />{" "}
+            ADOPTED
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="status"
+              value="LOST"
+              checked={petData.status === "LOST"}
+              onChange={handleStatusChange}
+              required
+            />{" "}
+            LOST
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="status"
+              value="FOUND"
+              checked={petData.status === "FOUND"}
+              onChange={handleStatusChange}
+              required
+            />{" "}
+            FOUND
+          </label>
+        </div>
 
-      <div className="status-group">
-        <p>Status:</p>
-        <label>
+        <div className="file-upload-container">
+          <label htmlFor="upload-button">Upload Pet Picture:</label>
           <input
-            type="radio"
-            name="status"
-            value="AVAILABLE"
-            checked={petData.status === "AVAILABLE"}
-            onChange={handleStatusChange}
+            id="upload-button"
+            type="file"
+            onChange={(e) => {
+              setPetImage(e.target.files[0]);
+            }}
             required
-          />{" "}
-          AVAILABLE
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="status"
-            value="ADOPTED"
-            checked={petData.status === "ADOPTED"}
-            onChange={handleStatusChange}
-            required
-          />{" "}
-          ADOPTED
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="status"
-            value="LOST"
-            checked={petData.status === "LOST"}
-            onChange={handleStatusChange}
-            required
-          />{" "}
-          LOST
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="status"
-            value="FOUND"
-            checked={petData.status === "FOUND"}
-            onChange={handleStatusChange}
-            required
-          />{" "}
-          FOUND
-        </label>
-      </div>
+          />
+        </div>
 
-      <div className="file-upload-container">
-        <label htmlFor="upload-button">Upload Pet Picture:</label>
-        <input
-          id="upload-button"
-          type="file"
-          onChange={(e) => {
-            setPetImage(e.target.files[0]);
-          }}
-          required
-        />
-      </div>
-
-      <button type="submit" className="btn">
-        Add Pet
-      </button>
-      <p className="error">{error}</p>
-      <p className="message">{message}</p>
-    </form>
+        <button type="submit" className="btn">
+          Add Pet
+        </button>
+        <p className="error">{error}</p>
+        <p className="message">{message}</p>
+      </form>
+    </div>
   );
 }
 

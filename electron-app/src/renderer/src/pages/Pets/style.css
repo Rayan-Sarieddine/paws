@@ -1,3 +1,6 @@
+.pets {
+  display: flex;
+}
 .pets-show-container {
   display: flex;
 

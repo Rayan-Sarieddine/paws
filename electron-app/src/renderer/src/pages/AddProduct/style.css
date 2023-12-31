@@ -1,3 +1,6 @@
+.add-product {
+  display: flex;
+}
 .add-product-form {
   display: flex;
 

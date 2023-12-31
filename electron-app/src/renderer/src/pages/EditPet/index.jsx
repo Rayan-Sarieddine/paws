@@ -4,6 +4,7 @@ import { petsDataSource } from "../../core/dataSource/remoteDataSource/pets";
 import { useDispatch, useSelector } from "react-redux";
 import { local } from "../../core/helpers/localstorage";
 import { updateSelectedPet } from "../../core/dataSource/localDataSource/pet";
+import Nav from "../../components/common/Nav";
 
 function EditPet() {
   const dispatch = useDispatch();
@@ -123,104 +124,107 @@ function EditPet() {
   };
 
   return (
-    <>
-      <div className="edit-pet-header">
-        <p className="error">{error}</p>
-        <p className="message">{message}</p>
-        <p className="pet-name">{selectedPet.name}</p>
-      </div>
-      <div className="add-pet-form">
-        {Object.entries(petAttributes).map(
-          ([key, value]) =>
-            key !== "status" && (
-              <div className="input-group" key={key}>
-                <label htmlFor={key}>Edit {key.charAt(0).toUpperCase() + key.slice(1)}</label>
-                <input
-                  type="text"
-                  id={key}
-                  name={key}
-                  placeholder={selectedPet[key] || ""}
-                  value={petAttributes[key]}
-                  onChange={handleInputChange}
-                  required
-                />
-                <button onClick={() => updatePetAttribute(key)} className="btn">
-                  Submit {key.charAt(0).toUpperCase() + key.slice(1)}
-                </button>
-              </div>
-            )
-        )}
-
-        <div className="status-group">
-          <p>Status:</p>
-          <label>
-            <input
-              type="radio"
-              name="status"
-              value="AVAILABLE"
-              checked={petAttributes.status === "AVAILABLE"}
-              onChange={handleInputChange}
-              required
-            />
-            AVAILABLE
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="status"
-              value="FOUND"
-              checked={petAttributes.status === "FOUND"}
-              onChange={handleInputChange}
-              required
-            />
-            FOUND
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="status"
-              value="ADOPTED"
-              checked={petAttributes.status === "ADOPTED"}
-              onChange={handleInputChange}
-              required
-            />
-            ADOPTED
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="status"
-              value="LOST"
-              checked={petAttributes.status === "LOST"}
-              onChange={handleInputChange}
-              required
-            />
-            LOST
-          </label>
-
-          <button onClick={() => updatePetAttribute("status")} className="btn">
-            Change Status
-          </button>
+    <div className="edit-pet">
+      <Nav />
+      <div className="edit-pet-content">
+        <div className="edit-pet-header">
+          <p className="error">{error}</p>
+          <p className="message">{message}</p>
+          <p className="pet-name">{selectedPet.name}</p>
         </div>
+        <div className="add-pet-form">
+          {Object.entries(petAttributes).map(
+            ([key, value]) =>
+              key !== "status" && (
+                <div className="input-group" key={key}>
+                  <label htmlFor={key}>Edit {key.charAt(0).toUpperCase() + key.slice(1)}</label>
+                  <input
+                    type="text"
+                    id={key}
+                    name={key}
+                    placeholder={selectedPet[key] || ""}
+                    value={petAttributes[key]}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <button onClick={() => updatePetAttribute(key)} className="btn">
+                    Submit {key.charAt(0).toUpperCase() + key.slice(1)}
+                  </button>
+                </div>
+              )
+          )}
 
-        <div className="file-upload-container">
-          <label htmlFor="upload-button">Change Pet Picture:</label>
-          <input
-            id="upload-button"
-            type="file"
-            onChange={(e) => setNewImage(e.target.files[0])}
-            required
-          />
-          <button onClick={updatePicture} className="btn">
-            Update
-          </button>
-          <img
-            src={`http://127.0.0.1:8000/images/pets/${selectedPet.image}`}
-            alt={selectedPet.name}
-          />
+          <div className="status-group">
+            <p>Status:</p>
+            <label>
+              <input
+                type="radio"
+                name="status"
+                value="AVAILABLE"
+                checked={petAttributes.status === "AVAILABLE"}
+                onChange={handleInputChange}
+                required
+              />
+              AVAILABLE
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="status"
+                value="FOUND"
+                checked={petAttributes.status === "FOUND"}
+                onChange={handleInputChange}
+                required
+              />
+              FOUND
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="status"
+                value="ADOPTED"
+                checked={petAttributes.status === "ADOPTED"}
+                onChange={handleInputChange}
+                required
+              />
+              ADOPTED
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="status"
+                value="LOST"
+                checked={petAttributes.status === "LOST"}
+                onChange={handleInputChange}
+                required
+              />
+              LOST
+            </label>
+
+            <button onClick={() => updatePetAttribute("status")} className="btn">
+              Change Status
+            </button>
+          </div>
+
+          <div className="file-upload-container">
+            <label htmlFor="upload-button">Change Pet Picture:</label>
+            <input
+              id="upload-button"
+              type="file"
+              onChange={(e) => setNewImage(e.target.files[0])}
+              required
+            />
+            <button onClick={updatePicture} className="btn">
+              Update
+            </button>
+            <img
+              src={`http://127.0.0.1:8000/images/pets/${selectedPet.image}`}
+              alt={selectedPet.name}
+            />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { productDataSource } from "../../core/dataSource/remoteDataSource/products";
 import { local } from "../../core/helpers/localstorage";
+import Nav from "../../components/common/Nav";
 function AddProduct() {
   const [productData, setproductData] = useState({
     barcode: "",
@@ -93,126 +94,129 @@ function AddProduct() {
     }, 5000);
   }, [error, message]);
   return (
-    <form onSubmit={handleSubmit} className="add-product-form">
-      {Object.keys(productData).map((key) => {
-        if (key === "category" || key === "productPicture") {
-          return null;
-        }
-        return (
-          <div key={key} className="input-group">
-            <label htmlFor={key}>{`Enter ${key}`}</label>
+    <div className="add-product">
+      <Nav />
+      <form onSubmit={handleSubmit} className="add-product-form">
+        {Object.keys(productData).map((key) => {
+          if (key === "category" || key === "productPicture") {
+            return null;
+          }
+          return (
+            <div key={key} className="input-group">
+              <label htmlFor={key}>{`Enter ${key}`}</label>
+              <input
+                type="text"
+                id={key}
+                name={key}
+                placeholder={`Enter ${key}`}
+                value={productData[`${key}`]}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+          );
+        })}
+
+        <div className="status-group">
+          <p>Category:</p>
+          <label>
             <input
-              type="text"
-              id={key}
-              name={key}
-              placeholder={`Enter ${key}`}
-              value={productData[`${key}`]}
-              onChange={handleInputChange}
+              type="radio"
+              name="category"
+              value="DOG SUPPLIES"
+              checked={productData.category === "DOG SUPPLIES"}
+              onChange={handleCategoryChange}
               required
-            />
-          </div>
-        );
-      })}
+            />{" "}
+            DOG SUPPLIES
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="category"
+              value="CAT SUPPLIES"
+              checked={productData.category === "CAT SUPPLIES"}
+              onChange={handleCategoryChange}
+              required
+            />{" "}
+            CAT SUPPLIES
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="category"
+              value="BIRD SUPPLIES"
+              checked={productData.category === "BIRD SUPPLIES"}
+              onChange={handleCategoryChange}
+              required
+            />{" "}
+            BIRD SUPPLIES
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="category"
+              value="FISH SUPPLIES"
+              checked={productData.category === "FISH SUPPLIES"}
+              onChange={handleCategoryChange}
+              required
+            />{" "}
+            FISH SUPPLIES
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="category"
+              value="SMALL ANIMAL SUPPLIES"
+              checked={productData.category === "SMALL ANIMAL SUPPLIES"}
+              onChange={handleCategoryChange}
+              required
+            />{" "}
+            SMALL ANIMAL SUPPLIES
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="category"
+              value="ACCESSORIES"
+              checked={productData.category === "ACCESSORIES"}
+              onChange={handleCategoryChange}
+              required
+            />{" "}
+            ACCESSORIES
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="category"
+              value="OTHERS"
+              checked={productData.category === "OTHERS"}
+              onChange={handleCategoryChange}
+              required
+            />{" "}
+            OTHERS
+          </label>
+        </div>
 
-      <div className="status-group">
-        <p>Category:</p>
-        <label>
+        <div className="file-upload-container">
+          <label htmlFor="upload-button">Upload product Picture:</label>
           <input
-            type="radio"
-            name="category"
-            value="DOG SUPPLIES"
-            checked={productData.category === "DOG SUPPLIES"}
-            onChange={handleCategoryChange}
+            id="upload-button"
+            type="file"
+            onChange={(e) => {
+              setproductImage(e.target.files[0]);
+            }}
             required
-          />{" "}
-          DOG SUPPLIES
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="category"
-            value="CAT SUPPLIES"
-            checked={productData.category === "CAT SUPPLIES"}
-            onChange={handleCategoryChange}
-            required
-          />{" "}
-          CAT SUPPLIES
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="category"
-            value="BIRD SUPPLIES"
-            checked={productData.category === "BIRD SUPPLIES"}
-            onChange={handleCategoryChange}
-            required
-          />{" "}
-          BIRD SUPPLIES
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="category"
-            value="FISH SUPPLIES"
-            checked={productData.category === "FISH SUPPLIES"}
-            onChange={handleCategoryChange}
-            required
-          />{" "}
-          FISH SUPPLIES
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="category"
-            value="SMALL ANIMAL SUPPLIES"
-            checked={productData.category === "SMALL ANIMAL SUPPLIES"}
-            onChange={handleCategoryChange}
-            required
-          />{" "}
-          SMALL ANIMAL SUPPLIES
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="category"
-            value="ACCESSORIES"
-            checked={productData.category === "ACCESSORIES"}
-            onChange={handleCategoryChange}
-            required
-          />{" "}
-          ACCESSORIES
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="category"
-            value="OTHERS"
-            checked={productData.category === "OTHERS"}
-            onChange={handleCategoryChange}
-            required
-          />{" "}
-          OTHERS
-        </label>
-      </div>
+          />
+        </div>
 
-      <div className="file-upload-container">
-        <label htmlFor="upload-button">Upload product Picture:</label>
-        <input
-          id="upload-button"
-          type="file"
-          onChange={(e) => {
-            setproductImage(e.target.files[0]);
-          }}
-          required
-        />
-      </div>
-
-      <button type="submit" className="btn">
-        Add product
-      </button>
-      <p className="error">{error}</p>
-      <p className="message">{message}</p>
-    </form>
+        <button type="submit" className="btn">
+          Add product
+        </button>
+        <p className="error">{error}</p>
+        <p className="message">{message}</p>
+      </form>
+    </div>
   );
 }
 

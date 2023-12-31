@@ -1,3 +1,6 @@
+.products {
+  display: flex;
+}
 .products-show-container {
   display: flex;
 

@@ -1,7 +1,13 @@
-import './style.css'
+import Nav from "../../components/common/Nav";
+import "./style.css";
 
 function Chat() {
-  return <div>index</div>
+  return (
+    <div className="chat">
+      <Nav />
+      <div className="chat-content"></div>
+    </div>
+  );
 }
 
-export default Chat
+export default Chat;
