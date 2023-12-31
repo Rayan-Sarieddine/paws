@@ -193,7 +193,8 @@ const editPet = async (req, res) => {
       updatedValues.image = imageName;
     }
     await Pet.findByIdAndUpdate(pet._id, updatedValues);
-    return res.status(200).send({ message: "pet updated" });
+    const updatedPet = await Pet.findById(pet._id);
+    return res.status(200).send({ message: "pet updated", pet: updatedPet });
   } catch (error) {
     console.log(error);
     return res.status(500).send({ error });

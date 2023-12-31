@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { petsDataSource } from "../../core/dataSource/remoteDataSource/pets";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { local } from "../../core/helpers/localstorage";
+import { updateSelectedPet } from "../../core/dataSource/localDataSource/pet";
 
 function EditPet() {
+  const dispatch = useDispatch();
   //get the selected pet details from redux
   const selectedPet = useSelector((state) => state.Pet.curerntSelected);
 
@@ -71,6 +73,7 @@ function EditPet() {
     try {
       const updateData = { name: selectedPet.name, [attributeName]: value };
       await petsDataSource.updatePet(updateData);
+      dispatch(updateSelectedPet({ [attributeName]: value }));
       setMessage(`${attributeName} updated`);
       setPetAttributes((prev) => ({ ...prev, [attributeName]: "" }));
     } catch (err) {
@@ -84,21 +87,35 @@ function EditPet() {
     const headers = {
       Authorization: `${type} ${token}`
     };
+
     try {
       if (!newImage) {
         setError("Please upload an image");
         return;
       }
+
       const formData = new FormData();
       formData.append("image", newImage);
       formData.append("name", selectedPet.name);
 
-      await fetch("http://127.0.0.1:8000/pets/", {
+      const response = await fetch("http://127.0.0.1:8000/pets/", {
         method: "PUT",
         body: formData,
         headers: headers
       });
-      setMessage("Picture updated");
+
+      if (!response.ok) {
+        throw new Error("Failed to update the image");
+      }
+      //response includes the updated pet
+      const updatedPetData = await response.json();
+      if (updatedPetData && updatedPetData.pet) {
+        dispatch(updateSelectedPet(updatedPetData.pet));
+        setMessage("Picture updated");
+      } else {
+        throw new Error("Invalid response data");
+      }
+
       setNewImage(null);
     } catch (err) {
       setError(err.message || err.toString());
@@ -122,8 +139,8 @@ function EditPet() {
                   type="text"
                   id={key}
                   name={key}
-                  placeholder={selectedPet[key]}
-                  value={value}
+                  placeholder={selectedPet[key] || ""}
+                  value={petAttributes[key]}
                   onChange={handleInputChange}
                   required
                 />
