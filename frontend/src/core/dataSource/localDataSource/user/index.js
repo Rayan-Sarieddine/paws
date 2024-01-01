@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   email: "",
+  user_id: "",
   name: "",
   address: "",
   phone: "",
@@ -21,6 +22,7 @@ export const userSlice = createSlice({
     loggedIn: (state, { payload }) => {
       const {
         email,
+        user_id,
         name,
         address,
         phone,
@@ -33,6 +35,7 @@ export const userSlice = createSlice({
 
       return {
         email,
+        user_id,
         name,
         address,
         phone,

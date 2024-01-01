@@ -12,8 +12,8 @@ import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
 import { loggedIn } from "../../../core/dataSource/localDataSource/user";
 import { local } from "../../../core/helpers/localstorage";
 import { useDispatch } from "react-redux";
-const GOOGLE_CLIENT_ID =
-  "80417416444-mc1emnb4r8o1eph2f3note9p7vubvlen.apps.googleusercontent.com";
+// const GOOGLE_CLIENT_ID =
+//   "80417416444-mc1emnb4r8o1eph2f3note9p7vubvlen.apps.googleusercontent.com";
 const LogIn = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
@@ -60,6 +60,7 @@ const LogIn = () => {
       dispatch(
         loggedIn({
           email: response.user.email,
+          user_id: response.user._id,
           name: response.user.name,
           address: response.user.address,
           phone: response.user.phone,
@@ -83,23 +84,29 @@ const LogIn = () => {
     }
     setMessage("Password Reset link is sent");
   };
-  useEffect(() => {
-    // Initialize Google sign-in client
-    window.gapi.load("auth2", () => {
-      window.gapi.auth2.init({ client_id: GOOGLE_CLIENT_ID });
-    });
-  }, []);
-  const handleGoogleLogin = () => {
-    const auth2 = window.gapi.auth2.getAuthInstance();
-    auth2
-      .signIn()
-      .then((googleUser) => {
-        const id_token = googleUser.getAuthResponse().id_token;
-      })
-      .catch((error) => {
-        console.error("Google Sign-In error:", error);
-      });
-  };
+  // useEffect(() => {
+  //   // Initialize Google sign-in client
+  //   window.gapi.load("auth2", () => {
+  //     window.gapi.auth2.init({ client_id: GOOGLE_CLIENT_ID });
+  //   });
+  // }, []);
+  // const handleGoogleLogin = async () => {
+  //   try {
+  //     const auth2 = window.gapi.auth2.getAuthInstance();
+  //     const googleUser = await auth2.signIn();
+
+  //     const id_token = googleUser.getAuthResponse().id_token;
+  //     // to send this token to your backend for verification and further processing
+  //     try {
+  //       const response = await authDataSource.googleAuth({ token: id_token });
+  //       console.log(response);
+  //     } catch (innerError) {
+  //       console.error("Error in sending token to backend:", innerError);
+  //     }
+  //   } catch (error) {
+  //     console.error("Google Sign-In error:", error);
+  //   }
+  // };
   return (
     <section className="login-section">
       {/* Each item of array represents a span box, 128 is needed, 100 extra to take account for bigger screens and resizing */}
@@ -141,6 +148,9 @@ const LogIn = () => {
             <p className="forgot-password_link" onClick={forgotPassword}>
               Forgot Password
             </p>
+            {/* <div className="inputBox">
+              <button onClick={handleGoogleLogin}>Sign in with Google</button>
+            </div> */}
             {error && <p className="error">{error}</p>}
             {message && <p className="message">{message}</p>}
             <div className="inputBox">
