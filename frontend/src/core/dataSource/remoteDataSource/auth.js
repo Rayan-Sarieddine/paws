@@ -19,6 +19,15 @@ export const authDataSource = {
 
     return response;
   },
+  googleAuth: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      route: "/auth/google",
+      method: "POST",
+    });
+
+    return response;
+  },
   // forgotPassword: async (data) => {
   //   const response = await sendRequest({
   //     body: data,
