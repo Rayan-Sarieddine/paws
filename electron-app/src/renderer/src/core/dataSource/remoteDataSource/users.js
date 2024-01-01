@@ -36,9 +36,8 @@ export const userDataSource = {
 
     return response;
   },
-  getAllUsers: async (data) => {
+  getAllUsers: async () => {
     const response = await sendRequest({
-      body: data,
       route: "/user/all-users",
       method: "GET"
     });
