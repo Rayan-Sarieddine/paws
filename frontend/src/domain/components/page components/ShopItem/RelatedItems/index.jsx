@@ -32,18 +32,22 @@ function RelatedItems() {
       <div className="related-items-grid">
         {relatedProducts.map((product, index) => (
           <div key={index} className="related-item-card">
-            <img
-              src={`http://localhost:8000/images/products/${product.image}`}
-              alt={product.name}
-            />
-            <p className="related-item-name">{product.name.toUpperCase()}</p>
-            <p className="related-item-price">${product.price.toFixed(2)}</p>
-            <button
-              className="btn related-item-btn"
-              onClick={() => handleViewClick(product)}
-            >
-              View
-            </button>
+            <div className="related-items-img">
+              <img
+                src={`http://localhost:8000/images/products/${product.image}`}
+                alt={product.name}
+              />
+            </div>
+            <div className="related-items-content">
+              <p className="related-item-name">{product.name.toUpperCase()}</p>
+              <p className="related-item-price">${product.price.toFixed(2)}</p>
+              <button
+                className="btn related-item-btn"
+                onClick={() => handleViewClick(product)}
+              >
+                View
+              </button>
+            </div>
           </div>
         ))}
       </div>

@@ -17,6 +17,9 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 20rem;
   text-align: center;
   padding: 1rem;

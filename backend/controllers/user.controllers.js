@@ -71,6 +71,7 @@ const updateUser = async (req, res) => {
     image = req.user.image,
   } = req.body;
   const userID = req.user._id;
+
   try {
     //phone validation
     if (phone.length < 8) {
@@ -88,6 +89,7 @@ const updateUser = async (req, res) => {
     if (!hasValidName) {
       return res.status(400).send({ message: "incomplete name" });
     }
+
     const nameParts = trimmedName.split(" ");
     const capitalizedNames = nameParts.map(
       (part) => part.charAt(0).toUpperCase() + part.slice(1)

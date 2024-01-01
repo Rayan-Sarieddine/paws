@@ -1,8 +1,11 @@
-.checkout-cart-all-content {
-  overflow: auto;
-  width: 70%;
+.order-details {
+  display: flex;
+}
+.order-details-content {
+  width: 80%;
   margin: 5rem auto;
 }
+
 .checkout-cart-item {
   display: flex;
   align-items: center;

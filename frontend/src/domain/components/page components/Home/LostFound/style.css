@@ -1,6 +1,6 @@
 .swiper {
   width: 240px;
-  height: 320px;
+  height: 40rem;
   margin-bottom: 5rem;
 }
 
@@ -19,11 +19,12 @@
   background-color: var(--secondary);
 }
 .post-details {
-  margin-left: 2rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+
   flex-wrap: wrap;
   font-size: 1rem;
   gap: 1rem;

@@ -1,4 +1,5 @@
 const Pet = require("../models/pet.model");
+const Post = require("../models/post.model");
 const path = require("path");
 
 const addPet = async (req, res) => {
@@ -289,7 +290,7 @@ const filterPet = async (req, res) => {
 const petStats = async (req, res) => {
   try {
     const pets = await Pet.find();
-
+    const posts = await Post.find();
     const stats = {
       totalNumberOfAdoptedPets: 0,
       totalNumberOfAvailablePets: 0,
@@ -303,16 +304,19 @@ const petStats = async (req, res) => {
         stats.totalNumberOfAdoptedPets++;
       } else if (pet.status === "AVAILABLE") {
         stats.totalNumberOfAvailablePets++;
-      } else if (pet.status === "LOST") {
-        stats.totalNumberOfLostPets++;
-      } else if (pet.status === "FOUND") {
-        stats.totalNumberOfFoundPets++;
       }
 
       if (stats.totalNumberOfPetsByType[pet.type]) {
         stats.totalNumberOfPetsByType[pet.type]++;
       } else {
         stats.totalNumberOfPetsByType[pet.type] = 1;
+      }
+    });
+    posts.forEach((post) => {
+      if (post.type === "LOST") {
+        stats.totalNumberOfLostPets++;
+      } else if (post.type === "FOUND") {
+        stats.totalNumberOfFoundPets++;
       }
     });
 

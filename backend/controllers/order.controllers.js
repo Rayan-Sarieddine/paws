@@ -153,7 +153,7 @@ const orderStats = async (req, res) => {
     const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
     const sumOrders = (orders) => {
-      return orders.reduce((sum, order) => sum + order.total, 0);
+      return orders.reduce((sum, order) => sum + order.totalAmount, 0);
     };
 
     const orders = await Order.find({

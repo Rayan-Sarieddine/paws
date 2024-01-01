@@ -189,10 +189,12 @@ function ShopItems() {
             <div className="product-pagination-productCards">
               {currentProducts?.map((product, index) => (
                 <div key={index} className="product-pagination-card">
-                  <img
-                    src={`http://localhost:8000/images/products/${product.image}`}
-                    alt={product.name}
-                  />
+                  <div className="product-img-container">
+                    <img
+                      src={`http://localhost:8000/images/products/${product.image}`}
+                      alt={product.name}
+                    />
+                  </div>
                   <div className="product-details">
                     <h3>{product.name}</h3>
                     <p>

@@ -40,7 +40,6 @@ function Dashboard() {
     getPetStats();
     getProductStats();
     getOrderStats();
-    console.log(petStats);
   }, []);
   return (
     <div className="dashboard">
@@ -92,7 +91,7 @@ function Dashboard() {
           <h3>Order Stats</h3>
           <div className="dashboard-stat-cards">
             <div className="dashboard-stat-card">
-              <h4>{orderStats?.averageOrderTotal || 0}</h4>
+              <h4>{orderStats?.averageOrderTotal?.toFixed(2) || 0}</h4>
               <p>Average order total</p>
             </div>
             <div className="dashboard-stat-card">
@@ -108,11 +107,11 @@ function Dashboard() {
               <p>Total Orders this Month</p>
             </div>
             <div className="dashboard-stat-card">
-              <h4>{orderStats?.totalRevenueToday || 0}</h4>
+              <h4>{orderStats?.totalRevenueToday?.toFixed(2) || 0}</h4>
               <p>Total Revenue Today</p>
             </div>
             <div className="dashboard-stat-card">
-              <h4>{orderStats?.totalRevenueThisWeek || 0}</h4>
+              <h4>{orderStats?.totalRevenueThisWeek?.toFixed(2) || 0}</h4>
               <p>Total Revenue this Week</p>
             </div>
             <div className="dashboard-stat-card">

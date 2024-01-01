@@ -50,7 +50,7 @@ function Nav() {
             Chat
           </li>
           <li onClick={() => logout()}>
-            <img src="./src/assets/icons/logout.svg" alt="signout_icon" />
+            <img src="./src/assets/icons/sign-out-fill.svg" alt="signout_icon" />
             Log Out
           </li>
         </ul>

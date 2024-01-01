@@ -38,31 +38,31 @@ function Orders() {
           </tr>
         </thead>
         <tbody>
-          {orders.length === 0 ? (
+          {orders?.length === 0 ? (
             <tr>
               <td colSpan="5" className="no-orders">
                 No orders found
               </td>
             </tr>
           ) : (
-            orders.map((order) => {
-              const date = new Date(order.createdAt);
+            orders?.map((order) => {
+              const date = new Date(order?.createdAt);
               return (
-                <tr key={order._id}>
+                <tr key={order?._id}>
                   <td>
                     <div className="order-user_details">
                       <img
-                        src={`http://localhost:8000/images/users/${order.user_id.image}`}
+                        src={`http://localhost:8000/images/users/${order?.user_id?.image}`}
                         alt="order-user-img"
                       />
                       <p>
-                        {order.user_id.name} ({order.status})
+                        {order?.user_id?.name} ({order?.status})
                       </p>
                     </div>
                   </td>
                   <td>{date.toLocaleString()}</td>
-                  <td>{order.items.length}</td>
-                  <td>${order.totalAmount.toFixed(2)}</td>
+                  <td>{order?.items?.length}</td>
+                  <td>${order?.totalAmount?.toFixed(2)}</td>
                   <td>
                     <button
                       className="btn"

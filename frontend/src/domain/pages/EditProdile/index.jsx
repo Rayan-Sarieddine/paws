@@ -49,7 +49,7 @@ function Editprofile() {
         },
       });
       setMessage("Picture updated");
-      dispatch(loggedIn({ ...user, image: newPicture }));
+      // dispatch(loggedIn({ ...user, image: newPicture }));
       setNewPicture("");
     } catch (err) {
       console.log(err);

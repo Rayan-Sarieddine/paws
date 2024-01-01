@@ -30,31 +30,31 @@ function AdoptionRequests() {
           </tr>
         </thead>
         <tbody>
-          {requests.length === 0 ? (
+          {requests?.length === 0 ? (
             <tr>
               <td colSpan="5" className="no-requests">
                 No requests found
               </td>
             </tr>
           ) : (
-            requests.map((request) => {
-              const date = new Date(request.createdAt);
+            requests?.map((request) => {
+              const date = new Date(request?.createdAt);
               return (
-                <tr key={request._id}>
+                <tr key={request?._id}>
                   <td>
                     <div className="request-user_details">
                       <img
-                        src={`http://localhost:8000/images/users/${request.user_id.image}`}
+                        src={`http://localhost:8000/images/users/${request?.user_id?.image}`}
                         alt="request-user-img"
                       />
                       <p>
-                        {request.user_id.name} ({request.status})
+                        {request?.user_id?.name} ({request?.status})
                       </p>
                     </div>
                   </td>
-                  <td>{date.toLocaleString()}</td>
-                  <td>{request.pet_id.name}</td>
-                  <td>${request.user_id.email}</td>
+                  <td>{date?.toLocaleString()}</td>
+                  <td>{request?.pet_id?.name}</td>
+                  <td>{request?.user_id?.email}</td>
                   <td>
                     <button
                       className="btn"

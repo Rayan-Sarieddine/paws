@@ -183,7 +183,7 @@ function CheckoutDetails() {
                     value={coupon}
                     on
                     onChange={(e) => {
-                      handleCouponChange();
+                      handleCouponChange(e);
                     }}
                   />
                 </div>
