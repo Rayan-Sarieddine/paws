@@ -12,7 +12,8 @@ import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
 import { loggedIn } from "../../../core/dataSource/localDataSource/user";
 import { local } from "../../../core/helpers/localstorage";
 import { useDispatch } from "react-redux";
-
+const GOOGLE_CLIENT_ID =
+  "80417416444-mc1emnb4r8o1eph2f3note9p7vubvlen.apps.googleusercontent.com";
 const LogIn = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
@@ -81,6 +82,23 @@ const LogIn = () => {
       return;
     }
     setMessage("Password Reset link is sent");
+  };
+  useEffect(() => {
+    // Initialize Google sign-in client
+    window.gapi.load("auth2", () => {
+      window.gapi.auth2.init({ client_id: GOOGLE_CLIENT_ID });
+    });
+  }, []);
+  const handleGoogleLogin = () => {
+    const auth2 = window.gapi.auth2.getAuthInstance();
+    auth2
+      .signIn()
+      .then((googleUser) => {
+        const id_token = googleUser.getAuthResponse().id_token;
+      })
+      .catch((error) => {
+        console.error("Google Sign-In error:", error);
+      });
   };
   return (
     <section className="login-section">

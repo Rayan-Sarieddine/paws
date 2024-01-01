@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import "./style.css";
 //router dependencies
 import { Link } from "react-router-dom";
@@ -73,6 +74,7 @@ function SignUp() {
       setError(error.response.data.message);
     }
   };
+
   return (
     <div>
       <section className="Sign-in-section">
@@ -160,6 +162,7 @@ function SignUp() {
                     </Link>
                   </div>
                 </div>
+
                 {error && <p className="error">{error}</p>}
                 <div className="inputBox">
                   <input type="submit" value="Sign Up" />

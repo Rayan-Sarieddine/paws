@@ -1,4 +1,4 @@
-section {
+.login-section {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -11,7 +11,7 @@ section {
   background-color: #000;
 }
 /*The backgoround -blue animator*/
-section::before {
+.login-section::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -28,7 +28,7 @@ section::before {
   }
 }
 /*Boxes of the screen*/
-section span {
+.login-section span {
   position: relative;
   display: block;
   width: calc(6.25vw - 2px);
@@ -38,7 +38,7 @@ section span {
   transition: 1.5s;
 }
 
-section span:hover {
+.login-section span:hover {
   background: #1a96e3 url("../../../../public/images/paw.png") no-repeat center
     center;
   transition: 0s;
@@ -66,7 +66,7 @@ section span:hover {
   opacity: 0.8;
 }
 
-section .signin {
+.login-section .signin {
   position: absolute;
   width: 40rem;
   background: #222;
@@ -78,7 +78,7 @@ section .signin {
   border-radius: 10px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
 }
-section .signin .content {
+.login-section .signin .content {
   position: relative;
   width: 100%;
   display: flex;
@@ -87,26 +87,26 @@ section .signin .content {
   flex-direction: column;
   gap: 2rem;
 }
-section .signin .content img {
+.login-section .signin .content img {
   width: 8rem;
 }
-section .signin .content h2 {
+.login-section .signin .content h2 {
   font-size: 2.5rem;
   color: #1a96e3;
   text-transform: uppercase;
 }
-section .signin .content .form {
+.login-section .signin .content .form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
 }
 /*Form inputs*/
-section .signin .content .form .inputBox {
+.login-section .signin .content .form .inputBox {
   position: relative;
   width: 100%;
 }
-section .signin .content .form .inputBox input {
+.login-section .signin .content .form .inputBox input {
   position: relative;
   width: 100%;
   background: #333;
@@ -118,7 +118,7 @@ section .signin .content .form .inputBox input {
   font-weight: 500;
   font-size: 1.5rem;
 }
-section .signin .content .form .inputBox i {
+.login-section .signin .content .form .inputBox i {
   position: absolute;
   left: 0;
   padding: 1.5rem 1rem;
@@ -159,13 +159,13 @@ section .signin .content .form .inputBox i {
 
 /*Responsive*/
 @media (max-width: 900px) {
-  section span {
+  .login-section span {
     width: calc(10vw - 2px);
     height: calc(10vw - 2px);
   }
 }
 @media (max-width: 600px) {
-  section span {
+  .login-section span {
     width: calc(20vw - 2px);
     height: calc(20vw - 2px);
   }
