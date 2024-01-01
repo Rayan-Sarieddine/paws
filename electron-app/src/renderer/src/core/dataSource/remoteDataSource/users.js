@@ -4,7 +4,7 @@ export const userDataSource = {
   getCart: async () => {
     const response = await sendRequest({
       route: "/user/",
-      method: "GET",
+      method: "GET"
     });
 
     return response;
@@ -13,7 +13,7 @@ export const userDataSource = {
     const response = await sendRequest({
       body: data,
       route: "/user/",
-      method: "POST",
+      method: "POST"
     });
 
     return response;
@@ -22,7 +22,7 @@ export const userDataSource = {
     const response = await sendRequest({
       body: data,
       route: "/user/editCart",
-      method: "PUT",
+      method: "PUT"
     });
 
     return response;
@@ -31,9 +31,18 @@ export const userDataSource = {
     const response = await sendRequest({
       body: data,
       route: "/user/",
-      method: "PUT",
+      method: "PUT"
     });
 
     return response;
   },
+  getAllUsers: async (data) => {
+    const response = await sendRequest({
+      body: data,
+      route: "/user/all-users",
+      method: "GET"
+    });
+
+    return response;
+  }
 };

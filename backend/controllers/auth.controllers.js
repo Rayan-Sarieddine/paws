@@ -2,6 +2,10 @@ const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
+const { OAuth2Client } = require("google-auth-library");
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -114,8 +118,50 @@ const updatePassword = async (req, res) => {
     return res.status(500).send({ message: "Server error" });
   }
 };
+const googleAuth = async (req, res) => {
+  try {
+    const { token } = req.body;
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+    const payload = ticket.getPayload();
+
+    let user = await User.findOne({ email: payload.email });
+
+    if (!user) {
+      user = new User({
+        email: payload.email,
+        name: payload.name,
+        phone: "0000000000",
+        address: "Not provided",
+        password: "12345",
+      });
+      await user.save();
+    }
+
+    const { password: hashedPassword, ...userDetails } = user.toJSON();
+
+    const userToken = jwt.sign(
+      {
+        ...userDetails,
+      },
+      process.env.JWT_SECRET,
+      { algorithm: "HS256", expiresIn: "2 days" }
+    );
+    res.status(200).json({
+      token: userToken,
+      user: userDetails,
+      status: "success",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error verifying Google token");
+  }
+};
 module.exports = {
   login,
   register,
   updatePassword,
+  googleAuth,
 };

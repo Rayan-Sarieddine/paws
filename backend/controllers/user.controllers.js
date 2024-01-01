@@ -267,7 +267,17 @@ const deleteChatSession = async (req, res) => {
     res.status(500).send({ message: "Server error" });
   }
 };
-
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    if (users?.length == 0) {
+      return res.status(404).send({ message: "No users found" });
+    }
+    return res.status(200).send({ users: users });
+  } catch (error) {
+    return res.status(500).send({ error: error });
+  }
+};
 module.exports = {
   addProductToCart,
   updateUser,
@@ -277,4 +287,5 @@ module.exports = {
   getAllChatSession,
   deleteChatSession,
   editCart,
+  getAllUsers,
 };
