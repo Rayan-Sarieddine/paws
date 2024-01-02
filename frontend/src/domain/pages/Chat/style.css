@@ -30,7 +30,7 @@
   background-color: var(--primary);
   color: white;
   margin-left: auto;
-  text-align: right;
+  text-align: left;
 }
 
 /* Received Message */
@@ -103,4 +103,9 @@
   font-size: 2rem;
   font-weight: 600;
   color: var(--primary);
+}
+.time-message {
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: right;
 }
