@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.css";
 import { initializeApp } from "firebase/app";
+import Nav from "../../components/common/Nav";
 import {
   getFirestore,
   collection,
@@ -90,18 +91,27 @@ const AdminChat = () => {
 
   return (
     <div className="admin-chat">
+      <Nav />
       <div className="user-selector">
+        <p className="chats-intro">chats</p>
+
         {users.map((user) => (
-          <button key={user._id} onClick={() => selectUser(user._id, user)}>
-            {user.name}
-          </button>
+          <div
+            key={user._id}
+            onClick={() => selectUser(user._id, user)}
+            className="user-selector-item"
+          >
+            <img src={`http://localhost:8000/images/users/${user.image}`} alt="user_img" />
+            <p>{user.name}</p>
+          </div>
         ))}
       </div>
 
       <div className="chat">
         {selectedUser && (
           <div className="selected-user">
-            <h3>Chatting with: {selectedUser.name}</h3>
+            <img src={`http://localhost:8000/images/users/${selectedUser.image}`} alt="user_img" />
+            <p>{selectedUser.name}</p>
           </div>
         )}
 

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { requestsDataSource } from "../../core/dataSource/remoteDataSource/requests";
 import Nav from "../../components/common/Nav";
 import "./style.css";
+import { useNavigate } from "react-router";
 
 function AdoptionRequests() {
+  const navigate = useNavigate();
   const [requests, setRequests] = useState([]);
   const getRequests = async () => {
     try {
