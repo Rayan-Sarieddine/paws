@@ -89,6 +89,22 @@ const AdminChat = () => {
     setSelectedUser(user);
   };
 
+  const formatTimestamp = (timestamp) => {
+    if (!timestamp) return "";
+    const date = timestamp.toDate();
+
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    const minutesPadded = minutes < 10 ? "0" + minutes : minutes;
+
+    return `${hours}:${minutesPadded} ${ampm}  ${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()}`;
+  };
+
   return (
     <div className="admin-chat">
       <Nav />
@@ -119,6 +135,7 @@ const AdminChat = () => {
           {messages.map((msg) => (
             <div key={msg.id} className={`message ${msg.userId === adminId ? "sent" : "received"}`}>
               <p>{msg.text}</p>
+              <p className="time-message">{formatTimestamp(msg.createdAt)}</p>
             </div>
           ))}
           <span ref={dummy}></span>
