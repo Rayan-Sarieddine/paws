@@ -29,17 +29,23 @@ function Nav() {
 
   // Function to map pathnames to page names
   const getPageName = (pathname) => {
-    switch (pathname) {
-      case "/adopt":
-        return "Adopt";
-      case "/shop":
-        return "Shop";
-      case "/chat":
-        return "Chat with Us";
-      case "/lost-found-main":
-        return "Lost & Found";
-      default:
-        return "Home";
+    if (pathname.startsWith("/adopt")) {
+      return "Adopt";
+    } else if (
+      pathname.startsWith("/shop") ||
+      pathname.startsWith("/checkout") ||
+      pathname.startsWith("/product")
+    ) {
+      return "Shop";
+    } else if (pathname.startsWith("/chat")) {
+      return "Chat with Us";
+    } else if (
+      pathname.startsWith("/lost-found") ||
+      pathname.startsWith("/found")
+    ) {
+      return "Lost & Found";
+    } else {
+      return "Home";
     }
   };
 
