@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "../Button";
 import { useLogin } from "../../../../core/hooks/login.hook";
@@ -11,6 +11,8 @@ import { changeLocation } from "../../../../core/dataSource/localDataSource/acti
 import PawsLoader from "../PawsLoader";
 
 function Nav() {
+  const navigate = useNavigate();
+  const location = useLocation();
   //user data from user slice ofredux
   const userData = useSelector((state) => state.User);
   const navData = useSelector((state) => state.active_nav);
@@ -20,6 +22,11 @@ function Nav() {
   const [logoutTrigger, setLogoutTrigger] = useState(0);
   const [isLoggedIn, token] = useLogin(logoutTrigger);
 
+  if (!isLoggedIn) {
+    if (location.pathname !== "/") {
+      navigate("/login");
+    }
+  }
   //to show profile menu when user clicks on his image(menu to log out and edit profile)
   const [isProfileMenuHidden, setIsProfileMenuHidden] = useState(true);
   const [isCartMenuHidden, setIsCartMenuHidden] = useState(true);
@@ -50,7 +57,7 @@ function Nav() {
   };
 
   //log in navigation
-  let navigate = useNavigate();
+
   const logIn = () => {
     navigate("/login");
   };
