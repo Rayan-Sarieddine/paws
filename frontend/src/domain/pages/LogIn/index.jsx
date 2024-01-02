@@ -1,62 +1,89 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-
-//router dependencies
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
-//remote data storage dependencies
+import { Link, useNavigate } from "react-router-dom";
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
-
-//local data storage dependencies and helpers
 import { loggedIn } from "../../../core/dataSource/localDataSource/user";
 import { local } from "../../../core/helpers/localstorage";
 import { useDispatch } from "react-redux";
-// const GOOGLE_CLIENT_ID =
-//   "80417416444-mc1emnb4r8o1eph2f3note9p7vubvlen.apps.googleusercontent.com";
+import { gapi } from "gapi-script";
+
+const GOOGLE_CLIENT_ID =
+  "80417416444-mc1emnb4r8o1eph2f3note9p7vubvlen.apps.googleusercontent.com";
+
 const LogIn = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
-  //state to store form related data
+  // State to store form-related data
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
-  //to show error for 2 seconds then reset error state
   useEffect(() => {
-    //check if user is already logged in
+    // Initialize Google sign-in client
+    gapi.load("auth2", () => {
+      gapi.auth2.init({ client_id: GOOGLE_CLIENT_ID });
+    });
+
+    // Check if user is already logged in
     const token = local("token");
     if (token) {
       navigateTo("/");
     }
+  }, [navigateTo]);
+
+  useEffect(() => {
     if (error) {
-      setTimeout(() => {
-        setError("");
-      }, 2000);
+      setTimeout(() => setError(""), 2000);
     }
     if (message) {
-      setTimeout(() => {
-        setMessage("");
-      }, 2000);
+      setTimeout(() => setMessage(""), 2000);
     }
   }, [error, message]);
 
-  //handle login form submit
+  const handleGoogleLogin = async () => {
+    try {
+      const auth2 = gapi.auth2.getAuthInstance();
+      const googleUser = await auth2.signIn();
+      const id_token = googleUser.getAuthResponse().id_token;
+
+      // Send the token to your backend for verification and further processing
+      const response = await authDataSource.googleAuth({ token: id_token });
+      if (response.status === "success") {
+        local("token", response.token);
+        local("type", response.user.userType);
+
+        dispatch(
+          loggedIn({
+            email: response.user.email,
+            user_id: response.user._id,
+            name: response.user.name,
+            address: response.user.address,
+            phone: response.user.phone,
+            userType: response.user.userType,
+            chatSessions: response.user.chatSessions,
+            cart: response.user.cart,
+            image: response.user.image,
+            token: response.token,
+          })
+        );
+
+        navigateTo("/");
+      }
+    } catch (error) {
+      console.error("Error during Google Sign-In:", error);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    //data to be send of body of request
-    let data = { email: email, password: password };
+    let data = { email, password };
     try {
-      //acios request
       const response = await authDataSource.login(data);
-      //setting local storage data
       local("token", response.token);
       local("type", response.user.userType);
 
-      //setting user slice
       dispatch(
         loggedIn({
           email: response.user.email,
@@ -77,46 +104,23 @@ const LogIn = () => {
       setError(error.response.data.message);
     }
   };
+
   const forgotPassword = () => {
     if (!email) {
-      setError("please eter your email first");
+      setError("Please enter your email first");
       return;
     }
     setMessage("Password Reset link is sent");
   };
-  // useEffect(() => {
-  //   // Initialize Google sign-in client
-  //   window.gapi.load("auth2", () => {
-  //     window.gapi.auth2.init({ client_id: GOOGLE_CLIENT_ID });
-  //   });
-  // }, []);
-  // const handleGoogleLogin = async () => {
-  //   try {
-  //     const auth2 = window.gapi.auth2.getAuthInstance();
-  //     const googleUser = await auth2.signIn();
 
-  //     const id_token = googleUser.getAuthResponse().id_token;
-  //     // to send this token to your backend for verification and further processing
-  //     try {
-  //       const response = await authDataSource.googleAuth({ token: id_token });
-  //       console.log(response);
-  //     } catch (innerError) {
-  //       console.error("Error in sending token to backend:", innerError);
-  //     }
-  //   } catch (error) {
-  //     console.error("Google Sign-In error:", error);
-  //   }
-  // };
   return (
     <section className="login-section">
-      {/* Each item of array represents a span box, 128 is needed, 100 extra to take account for bigger screens and resizing */}
       {Array.from({ length: 228 }, (_, i) => (
         <span key={i}></span>
       ))}
       <div className="signin">
         <div className="content">
           <img src="./favicon.png" alt="logo" />
-
           <h2 className="log-cart-title">log in</h2>
 
           <div className="sign-up-part">
@@ -125,6 +129,7 @@ const LogIn = () => {
               <h4>Signup</h4>
             </Link>
           </div>
+
           <form className="form" onSubmit={handleSubmit}>
             <div className="inputBox">
               <input
@@ -148,9 +153,16 @@ const LogIn = () => {
             <p className="forgot-password_link" onClick={forgotPassword}>
               Forgot Password
             </p>
-            {/* <div className="inputBox">
-              <button onClick={handleGoogleLogin}>Sign in with Google</button>
-            </div> */}
+            <div className="inputBox google-sign-in">
+              <p>-------- or sign in with --------</p>
+              <div className="google-button" onClick={handleGoogleLogin}>
+                <img
+                  src="./images/productIcons/google-icon.png"
+                  alt="google_logo"
+                />
+                <p>Google</p>
+              </div>
+            </div>
             {error && <p className="error">{error}</p>}
             {message && <p className="message">{message}</p>}
             <div className="inputBox">
