@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./style.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -6,36 +6,53 @@ import Button from "../Button";
 import { useLogin } from "../../../../core/hooks/login.hook";
 import UserProfileBtn from "./UserProfileBtn";
 import CartButton from "./CartButton";
-import { useDispatch, useSelector } from "react-redux";
-import { changeLocation } from "../../../../core/dataSource/localDataSource/active_nav";
-import PawsLoader from "../PawsLoader";
+import { useSelector } from "react-redux";
 
 function Nav() {
   const navigate = useNavigate();
   const location = useLocation();
-  //user data from user slice ofredux
   const userData = useSelector((state) => state.User);
-  const navData = useSelector((state) => state.active_nav);
-  console.log(navData);
-
-  //loggen in hook and its trigger
   const [logoutTrigger, setLogoutTrigger] = useState(0);
   const [isLoggedIn, token] = useLogin(logoutTrigger);
+  const [activePage, setActivePage] = useState("Home");
+  const prevIsLoggedIn = useRef(isLoggedIn);
 
-  if (!isLoggedIn) {
-    if (location.pathname !== "/") {
+  useEffect(() => {
+    if (prevIsLoggedIn.current && !isLoggedIn) {
       navigate("/login");
+      if (location.pathname !== "/") {
+        setActivePage("Home");
+      }
     }
-  }
-  //to show profile menu when user clicks on his image(menu to log out and edit profile)
+    prevIsLoggedIn.current = isLoggedIn;
+  }, [isLoggedIn, location.pathname, navigate]);
+
+  // Function to map pathnames to page names
+  const getPageName = (pathname) => {
+    switch (pathname) {
+      case "/adopt":
+        return "Adopt";
+      case "/shop":
+        return "Shop";
+      case "/chat":
+        return "Chat with Us";
+      case "/lost-found-main":
+        return "Lost & Found";
+      default:
+        return "Home";
+    }
+  };
+
+  // Update activePage based on the current path
+  useEffect(() => {
+    setActivePage(getPageName(location.pathname));
+  }, [location.pathname]);
+
   const [isProfileMenuHidden, setIsProfileMenuHidden] = useState(true);
   const [isCartMenuHidden, setIsCartMenuHidden] = useState(true);
 
-  //nav navigation
-
-  const dispatch = useDispatch();
   const handleClick = (name) => {
-    dispatch(changeLocation({ page: name }));
+    setActivePage(name);
     switch (name) {
       case "Adopt":
         navigate("/adopt");
@@ -53,24 +70,22 @@ function Nav() {
         navigate("/lost-found-main");
         break;
       default:
+        break;
     }
   };
-
-  //log in navigation
 
   const logIn = () => {
     navigate("/login");
   };
 
-  //sign-up navigation
   const signUp = () => {
     navigate("/sign-up");
   };
 
-  //control state of profileMenu on click of user image
   const handleOnClickProfile = () => {
     setIsProfileMenuHidden((prev) => !prev);
   };
+
   const handleOnClickCart = () => {
     setIsCartMenuHidden((prev) => !prev);
   };
@@ -78,7 +93,7 @@ function Nav() {
   return (
     <nav className="hero-nav">
       <div className="nav-logo">
-        <Link to="/">
+        <Link to="/" onClick={() => setActivePage("Home")}>
           <img
             src="./images/logo/logo-icon-transparent.png"
             alt="Home of Pets"
@@ -90,7 +105,7 @@ function Nav() {
           (name) => (
             <li key={name}>
               <button
-                className={`nav-link ${navData.page === name ? "active" : ""}`}
+                className={`nav-link ${activePage === name ? "active" : ""}`}
                 onClick={() => handleClick(name)}
               >
                 {name}

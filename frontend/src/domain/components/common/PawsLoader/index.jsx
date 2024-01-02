@@ -5,7 +5,9 @@ function PawsLoader() {
   useEffect(() => {
     setTimeout(() => {
       setShow(false);
+      document.body.style.overflow = "auto"; // Re-enable scrolling after hiding the loader
     }, 3000);
+    document.body.style.overflow = "hidden"; // Disable scrolling when the loader is shown
   }, []);
   return (
     <>

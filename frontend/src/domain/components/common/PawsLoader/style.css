@@ -4,7 +4,7 @@
   width: 100vw;
   top: 0;
   left: 0;
-  background-color: var(--white);
+  background-color: var(--primary);
   z-index: 10000000;
 }
 .paws-loader-img {
@@ -19,7 +19,7 @@
 
 .ajax-loader {
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 55%;
   transform-origin: 50% 50%;
   transform: rotate(90deg) translate(-50%, 0%);
