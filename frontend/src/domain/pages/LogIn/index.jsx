@@ -14,14 +14,12 @@ const LogIn = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
-  // State to store form-related data
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // Initialize Google sign-in client
     gapi.load("auth2", () => {
       gapi.auth2.init({ client_id: GOOGLE_CLIENT_ID });
     });
@@ -48,7 +46,6 @@ const LogIn = () => {
       const googleUser = await auth2.signIn();
       const id_token = googleUser.getAuthResponse().id_token;
 
-      // Send the token to your backend for verification and further processing
       const response = await authDataSource.googleAuth({ token: id_token });
       if (response.status === "success") {
         local("token", response.token);

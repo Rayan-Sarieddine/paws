@@ -145,11 +145,11 @@ function ShopItems() {
             id="priceSlider"
             name="priceSlider"
             min={1}
-            max={14}
+            max={100}
             value={price}
             onChange={handlePriceChange}
           />
-          <p>Price to be less than {price}</p>
+          <p>Price to be less than ${price}</p>
         </div>
         <button className="btn btn-filter" onClick={filterData()}>
           Filter
