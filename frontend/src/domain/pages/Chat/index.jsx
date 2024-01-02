@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./style.css";
+import Nav from "../../components/common/Nav";
+import Footer from "../../components/common/Footer";
 import { useSelector } from "react-redux";
 import { initializeApp } from "firebase/app";
 import {
@@ -75,29 +77,42 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
-      <main>
-        {messages.map((msg) => (
-          <div
-            key={msg.id}
-            className={`message ${msg.userId === userId ? "sent" : "received"}`}
-          >
-            <p>{msg.text}</p>
-          </div>
-        ))}
-        <span ref={dummy} className="dummy"></span>
-      </main>
+    <div className="chat-section">
+      <Nav />
+      <div className="chat">
+        <div className="admin-info">
+          <img
+            src="http://localhost:8000/images/users/default_profile_image.png"
+            alt="admin_def_image"
+          />
+          <p>Customer Support</p>
+        </div>
+        <main>
+          {messages.map((msg) => (
+            <div
+              key={msg.id}
+              className={`message ${
+                msg.userId === userId ? "sent" : "received"
+              }`}
+            >
+              <p>{msg.text}</p>
+            </div>
+          ))}
+          <span ref={dummy} className="dummy"></span>
+        </main>
 
-      <form onSubmit={sendMessage}>
-        <input
-          value={formValue}
-          onChange={(e) => setFormValue(e.target.value)}
-          placeholder="Type your message"
-        />
-        <button type="submit" disabled={!formValue.trim()}>
-          Send
-        </button>
-      </form>
+        <form onSubmit={sendMessage}>
+          <input
+            value={formValue}
+            onChange={(e) => setFormValue(e.target.value)}
+            placeholder="Type your message"
+          />
+          <button type="submit" disabled={!formValue.trim()}>
+            Send
+          </button>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 };

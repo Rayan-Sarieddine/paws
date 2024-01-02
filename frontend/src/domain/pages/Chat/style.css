@@ -1,7 +1,7 @@
 /* Chat Container */
 .chat {
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 40%;
+  margin: 10rem auto;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -10,33 +10,33 @@
 
 /* Main Chat Window */
 .chat main {
-  height: 300px;
+  height: 35rem;
   overflow-y: auto;
-  padding: 10px;
+  padding: 2rem;
   background: #f9f9f9;
 }
 
 /* Messages */
 .message {
-  margin-bottom: 12px;
-  padding: 8px 10px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
   border-radius: 18px;
-  max-width: 70%;
+  max-width: 40%;
   word-wrap: break-word;
 }
 
 /* Sent Message */
 .sent {
-  background-color: #d1e7dd;
-  color: #0f5132;
+  background-color: var(--primary);
+  color: white;
   margin-left: auto;
   text-align: right;
 }
 
 /* Received Message */
 .received {
-  background-color: #f8d7da;
-  color: #842029;
+  background-color: var(--secondary);
+  color: white;
   text-align: left;
 }
 
@@ -57,7 +57,7 @@
 
 /* Send Button */
 .chat button {
-  background: #0d6efd;
+  background-color: var(--primary-shade);
   color: white;
   border: none;
   padding: 10px 15px;
@@ -66,6 +66,11 @@
 
 .chat button:disabled {
   background: #6c757d;
+  cursor: not-allowed;
+}
+
+.chat button:hover {
+  opacity: 0.9;
 }
 
 /* Scroll Dummy for Auto-scrolling */
@@ -73,8 +78,6 @@
   float: left;
   clear: both;
 }
-
-/* Scrollbar Styling (Optional) */
 .chat main::-webkit-scrollbar {
   width: 5px;
 }
@@ -82,4 +85,22 @@
 .chat main::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 10px;
+}
+.admin-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+.admin-info img {
+  border-radius: 50%;
+  width: 5rem;
+}
+.admin-info p {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
 }
