@@ -12,6 +12,7 @@
 .chat main {
   height: 35rem;
   overflow-y: auto;
+  width: 100%;
   padding: 2rem;
   background: #f9f9f9;
 }
