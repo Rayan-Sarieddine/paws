@@ -24,7 +24,7 @@ export const productSlice = createSlice({
       return { ...initialState };
     },
     updateSelectedProduct: (state, action) => {
-      state.curerntSelected = { ...state.curerntSelected, ...action.payload }; // Mutate the state directly
+      state.curerntSelected = { ...state.curerntSelected, ...action.payload };
     }
   }
 });

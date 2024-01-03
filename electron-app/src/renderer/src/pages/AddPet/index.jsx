@@ -4,6 +4,7 @@ import { petsDataSource } from "../../core/dataSource/remoteDataSource/pets";
 import { local } from "../../core/helpers/localstorage";
 import Nav from "../../components/common/Nav";
 function AddPet() {
+  //Pet data from inputs
   const [petData, setPetData] = useState({
     petName: "",
     petBreed: "",
@@ -15,9 +16,11 @@ function AddPet() {
     status: "AVAILABLE"
   });
   const [petImage, setPetImage] = useState(null);
+
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
+  //Function to handle data change in inputs
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPetData((prevData) => ({
@@ -26,6 +29,7 @@ function AddPet() {
     }));
   };
 
+  //Function to handle status radio button click
   const handleStatusChange = (event) => {
     setPetData((prevData) => ({
       ...prevData,
@@ -33,6 +37,7 @@ function AddPet() {
     }));
   };
 
+  //Function to handle form submit of adding a new pet
   const handleSubmit = async (e) => {
     e.preventDefault();
     const type = local("type");
@@ -40,10 +45,10 @@ function AddPet() {
     const headers = {
       Authorization: `${type} ${token}`
     };
-    console.log(headers);
+
     try {
       const formData = new FormData();
-
+      //Set Form data
       formData.append("image", petImage);
       formData.append("name", petData.petName);
       formData.append("breed", petData.petBreed);
@@ -53,7 +58,8 @@ function AddPet() {
       formData.append("story", petData.petStory);
       formData.append("STATUS", petData.status);
       formData.append("breed_description", petData.breedDescription);
-      console.log(formData);
+
+      //Inputs validation
       if (
         petData.breedDescription.length < 5 ||
         petData.petDescription.length < 5 ||
@@ -66,11 +72,13 @@ function AddPet() {
         setError("age cannot be negative");
         return;
       }
+      //Fetch response
       const response = await fetch("http://127.0.0.1:8000/pets/", {
         method: "POST",
         body: formData,
         headers: headers
       });
+
       if (response.status === 200) {
         setMessage("Success");
       }
@@ -80,16 +88,18 @@ function AddPet() {
         setError(response.message);
       }
     } catch (err) {
-      console.log(err);
       setError(err);
     }
   };
+
+  //Reset for message and error
   useEffect(() => {
     setTimeout(() => {
       setError("");
       setMessage("");
     }, 5000);
   }, [error, message]);
+
   return (
     <div className="add-pet">
       <Nav />

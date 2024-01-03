@@ -12,10 +12,10 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     loadOrders: (state, action) => {
-      state.orders = action.payload; // Mutate the state directly
+      state.orders = action.payload;
     },
     selectOrder: (state, action) => {
-      state.curerntSelected = action.payload; // Mutate the state directly
+      state.curerntSelected = action.payload;
     },
     cleanData: (state, action) => {
       return { ...initialState };

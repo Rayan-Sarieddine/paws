@@ -12,16 +12,16 @@ export const petSlice = createSlice({
   initialState,
   reducers: {
     loadPets: (state, action) => {
-      state.pets = action.payload; // Mutate the state directly
+      state.pets = action.payload;
     },
     selectPet: (state, action) => {
-      state.curerntSelected = action.payload; // Mutate the state directly
+      state.curerntSelected = action.payload;
     },
     cleanData: (state) => {
-      return initialState; // Return the initial state to reset
+      return initialState;
     },
     updateSelectedPet: (state, action) => {
-      state.curerntSelected = { ...state.curerntSelected, ...action.payload }; // Mutate the state directly
+      state.curerntSelected = { ...state.curerntSelected, ...action.payload };
     }
   }
 });

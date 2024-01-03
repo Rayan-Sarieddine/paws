@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 function Nav() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  //Function to logout user
   const logout = () => {
     dispatch(cleanData());
     localStorage.removeItem("token");
