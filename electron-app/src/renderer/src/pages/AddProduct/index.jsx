@@ -4,6 +4,7 @@ import { productDataSource } from "../../core/dataSource/remoteDataSource/produc
 import { local } from "../../core/helpers/localstorage";
 import Nav from "../../components/common/Nav";
 function AddProduct() {
+  //Product Data
   const [productData, setproductData] = useState({
     barcode: "",
     name: "",
@@ -14,9 +15,11 @@ function AddProduct() {
     category: "OTHERS"
   });
   const [productImage, setproductImage] = useState(null);
+
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
+  //Function to handle input change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setproductData((prevData) => ({
@@ -25,6 +28,7 @@ function AddProduct() {
     }));
   };
 
+  //Function to handle radio button click
   const handleCategoryChange = (event) => {
     setproductData((prevData) => ({
       ...prevData,
@@ -32,17 +36,20 @@ function AddProduct() {
     }));
   };
 
+  //Function to handle form submt to add a new product
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //Get header data
     const type = local("type");
     const token = local("token");
+    //Set headers
     const headers = {
       Authorization: `${type} ${token}`
     };
-    console.log(headers);
+
     try {
       const formData = new FormData();
-
+      //Set form data
       formData.append("image", productImage);
       formData.append("name", productData.name);
       formData.append("barcode", productData.barcode);
@@ -51,7 +58,8 @@ function AddProduct() {
       formData.append("price", productData.price);
       formData.append("details", productData.details);
       formData.append("category", productData.category);
-      console.log(formData);
+
+      //Data Validation
       if (productData.description.length < 5 || productData.details.length < 5) {
         setError("Not enough information given");
         return;
@@ -60,6 +68,7 @@ function AddProduct() {
         setError("numbers cannot be negative");
         return;
       }
+      //Fetch response
       const response = await fetch("http://127.0.0.1:8000/products/", {
         method: "POST",
         body: formData,
@@ -67,6 +76,7 @@ function AddProduct() {
       });
       if (response.status === 200) {
         setMessage("Success");
+        //Reset data
         setproductData({
           barcode: "",
           name: "",
@@ -83,16 +93,17 @@ function AddProduct() {
         setError(response.message);
       }
     } catch (err) {
-      console.log(err);
       setError(err);
     }
   };
+  //Reset for error and message
   useEffect(() => {
     setTimeout(() => {
       setError("");
       setMessage("");
     }, 5000);
   }, [error, message]);
+
   return (
     <div className="add-product">
       <Nav />
