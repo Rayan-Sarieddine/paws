@@ -1,7 +1,7 @@
 const Order = require("../models/order.model");
 const Product = require("../models/product.model");
 
-//Change coupons as needed
+//Change coupons as needed ( couponName : discount $amount )
 const coupons = [{ SUMMER21: 10 }, { WINTER21: 15 }];
 
 //Function to add an order by a user
@@ -58,6 +58,7 @@ const addOrder = async (req, res) => {
   }
 };
 
+//Function to change order status by admin
 const editOrder = async (req, res) => {
   try {
     const { orderId, status } = req.body;
@@ -81,12 +82,11 @@ const editOrder = async (req, res) => {
       .status(200)
       .send({ message: "Order updated successfully", order: updatedOrder });
   } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .send({ message: "Failed to update order", error: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to get all orders to be displayed to admin
 const getAllOrders = async (req, res) => {
   try {
     const { status } = req.body;
@@ -94,10 +94,12 @@ const getAllOrders = async (req, res) => {
     if (!validStatuses.includes(status)) {
       return res.status(400).send({ message: "Invalid order status" });
     }
+
     const orders = await Order.find({ status }).populate({
       path: "user_id",
       select: "name image",
     });
+
     if (orders.length === 0) {
       return res
         .status(404)
@@ -106,12 +108,11 @@ const getAllOrders = async (req, res) => {
 
     res.status(200).send({ message: "Orders retrieved successfully", orders });
   } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .send({ message: "Failed to retrieve orders", error: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function for a user to check all of his current and previous orders
 const getAllOrdersOfUser = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -126,12 +127,11 @@ const getAllOrdersOfUser = async (req, res) => {
 
     res.status(200).send({ message: "Orders retrieved successfully", orders });
   } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .send({ message: "Failed to retrieve orders", error: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to get a specific order by id of the order
 const getOrder = async (req, res) => {
   try {
     const orderId = req.params.id;
@@ -144,14 +144,14 @@ const getOrder = async (req, res) => {
 
     res.status(200).send({ message: "Order retrieved successfully", order });
   } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .send({ message: "Failed to retrieve order", error: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to display order stats for the admin
 const orderStats = async (req, res) => {
   try {
+    //Setting the date variables to be used with orders
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -160,6 +160,7 @@ const orderStats = async (req, res) => {
 
     const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
+    //Total of orders calculation
     const sumOrders = (orders) => {
       return orders.reduce((sum, order) => sum + order.totalAmount, 0);
     };
@@ -189,13 +190,10 @@ const orderStats = async (req, res) => {
       .status(200)
       .send({ message: "Order stats retrieved successfully", stats });
   } catch (error) {
-    console.error(error);
-    res.status(500).send({
-      message: "Failed to retrieve order stats",
-      error: error.message,
-    });
+    return res.status(500).send({ message: error.message });
   }
 };
+
 module.exports = {
   addOrder,
   editOrder,
