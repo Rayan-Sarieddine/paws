@@ -17,6 +17,8 @@ function Editprofile() {
   const [newPicture, setNewPicture] = useState(null);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
+
+  //Check if user is logged in
   useEffect(() => {
     const token = local("token");
 
@@ -24,12 +26,16 @@ function Editprofile() {
       navigate("/login");
     }
   }, [user]);
+
+  //reset message and error
   useEffect(() => {
     setTimeout(() => {
       setMessage("");
       setError("");
     }, 2000);
   }, [message, error]);
+
+  //Function to update picture
   const updatePicture = async () => {
     const type = local("type");
     const token = local("token");
@@ -40,7 +46,7 @@ function Editprofile() {
       const formData = new FormData();
 
       formData.append("image", newPicture);
-      console.log(formData);
+    
       const response = await fetch("http://127.0.0.1:8000/users/", {
         method: "PUT",
         body: formData,
@@ -56,6 +62,7 @@ function Editprofile() {
       setError(err);
     }
   };
+
   const updateName = async () => {
     const trimmedName = newName.trim();
     const hasValidName = /^\S(.*\s+.*)*\S$/.test(trimmedName);
@@ -78,6 +85,8 @@ function Editprofile() {
       }
     }
   };
+
+
   const updateaddress = async () => {
     if (newAddress.length < 10) {
       setError("Address must be more detailed");
@@ -95,6 +104,8 @@ function Editprofile() {
       }
     }
   };
+
+
   const updatephone = async () => {
     if (newPhone.length < 8) {
       setError("Please Enter a valid phone number");

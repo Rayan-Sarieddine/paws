@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import "./style.css";
+import React, { useEffect } from "react";
 import HeaderImg from "../../components/common/HeaderImg";
 import Nav from "../../components/common/Nav";
 import AdoptPet from "../../components/page components/Adopt/AdoptPet";
@@ -12,6 +11,7 @@ import { loadPets } from "../../../core/dataSource/localDataSource/pet";
 function Adopt() {
   const dispatch = useDispatch();
 
+  //Function to load all pets from backend
   const loadpets = async () => {
     try {
       const response = await petsDataSource.getPets();
@@ -21,9 +21,11 @@ function Adopt() {
       console.log(error);
     }
   };
+
   useEffect(() => {
     loadpets();
   }, []);
+
   return (
     <div>
       <Nav />

@@ -35,7 +35,6 @@ const Chat = () => {
     return state.User;
   });
   const userId = user.user_id;
-  console.log(userId);
   const adminId = "65925d9872539764b4d1af31";
   const [formValue, setFormValue] = useState("");
   const [messages, setMessages] = useState([]);

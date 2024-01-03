@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 //router dependencies
 import { Link } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 //remote data storage dependencies
 import { authDataSource } from "../../../core/dataSource/remoteDataSource/auth";
 
 //local data storage dependencies and helpers
-
 import { local } from "../../../core/helpers/localstorage";
 import CheckMark from "../../components/common/CheckMark";
 

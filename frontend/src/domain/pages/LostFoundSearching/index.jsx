@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import Nav from "../../components/common/Nav";
 import HeaderImg from "../../components/common/HeaderImg";
 import Searching from "../../components/page components/LostFoundSearching/Searching";

@@ -1,4 +1,4 @@
-import "./style.css";
+import React from "react";
 import Footer from "../../components/common/Footer";
 import Nav from "../../components/common/Nav";
 import ShopCategories from "../../components/page components/Home/ShopCategories";

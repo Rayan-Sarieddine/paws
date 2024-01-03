@@ -52,7 +52,7 @@
 .chat input {
   flex-grow: 1;
   border: none;
-  padding: 10px;
+  padding: 1rem;
   border-radius: 0;
 }
 
@@ -61,7 +61,7 @@
   background-color: var(--primary-shade);
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 1rem 1.5rem;
   cursor: pointer;
 }
 

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./style.css";
 import { useDispatch } from "react-redux";
 import { postsDataSource } from "../../../core/dataSource/remoteDataSource/posts";
 import Nav from "../../components/common/Nav";
