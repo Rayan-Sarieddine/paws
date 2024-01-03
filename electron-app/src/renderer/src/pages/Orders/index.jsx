@@ -8,22 +8,23 @@ import Nav from "../../components/common/Nav";
 function Orders() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  //Get orders from redux
   const orders = useSelector((state) => {
     return state.Order.orders;
   });
+  //Get orders from backend
   const getOrders = async () => {
     try {
       const response = await orderDataSource.loadOrders({ status: "PENDING" });
       dispatch(loadOrders(response.orders));
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
   };
   useEffect(() => {
     getOrders();
-    console.log("hello");
   }, []);
+
   return (
     <div className="orders">
       <Nav />
