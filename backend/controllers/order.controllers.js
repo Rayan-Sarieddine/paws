@@ -1,13 +1,16 @@
 const Order = require("../models/order.model");
 const Product = require("../models/product.model");
 
+//Change coupons as needed
 const coupons = [{ SUMMER21: 10 }, { WINTER21: 15 }];
 
+//Function to add an order by a user
 const addOrder = async (req, res) => {
   try {
     const { items, couponCode } = req.body;
     const userId = req.user._id;
     let discountAmount = 0;
+    //Coupon check
     if (couponCode) {
       const coupon = coupons.find((coup) => coup.hasOwnProperty(couponCode));
       if (coupon) {
@@ -16,11 +19,15 @@ const addOrder = async (req, res) => {
         return res.status(404).send({ message: "coupon is not valid" });
       }
     }
+    //Total amount calculations
     let totalAmount = items.reduce((sum, item) => sum + item.total, 0);
     totalAmount = Math.max(totalAmount - discountAmount, 0);
+
+    //Date calculations
     const orderDate = new Date();
     orderDate.setDate(orderDate.getDate() + 2);
     const deliveryDate = orderDate.toISOString().split("T")[0];
+
     const newOrder = new Order({
       user_id: userId,
       delivery_date: deliveryDate,
@@ -29,6 +36,8 @@ const addOrder = async (req, res) => {
       discountAmount,
       totalAmount,
     });
+
+    //Product check, if all products in order are valid
     await Promise.all(
       items.map(async (item) => {
         const product = await Product.findById(item.product_id);
@@ -39,17 +48,16 @@ const addOrder = async (req, res) => {
         await product.save();
       })
     );
+
     await newOrder.save();
-    res
+    return res
       .status(201)
       .send({ message: "Order created successfully", order: newOrder });
   } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .send({ message: "Failed to create order", error: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
+
 const editOrder = async (req, res) => {
   try {
     const { orderId, status } = req.body;
