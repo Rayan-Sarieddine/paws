@@ -17,6 +17,7 @@ function Nav() {
   const [activePage, setActivePage] = useState("Home");
   const prevIsLoggedIn = useRef(isLoggedIn);
 
+  //Check is user is already logged in or not and handle accordingly
   useEffect(() => {
     if (prevIsLoggedIn.current && !isLoggedIn) {
       navigate("/login");
@@ -57,6 +58,7 @@ function Nav() {
   const [isProfileMenuHidden, setIsProfileMenuHidden] = useState(true);
   const [isCartMenuHidden, setIsCartMenuHidden] = useState(true);
 
+  //Function to swtich nav links
   const handleClick = (name) => {
     setActivePage(name);
     switch (name) {

@@ -2,13 +2,13 @@
   background-color: rgba(150, 150, 150, 1);
   border-radius: 5px;
   position: absolute;
-  right: 30px;
+  right: 3rem;
   top: 7rem;
   display: flex;
   flex-direction: column;
   gap: 5px;
   z-index: 100;
-  min-width: 120px;
+  min-width: 12rem;
   opacity: 0;
   visibility: none;
   transition: 0.5s ease;
@@ -21,8 +21,8 @@
 }
 .pfp-drop-down-item {
   width: 100%;
-  padding: 5px 10px;
-  font-size: 14px;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
   color: var(--white);
   font-weight: 600;
 }
@@ -30,10 +30,10 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 .pfp-drop-down-item:first-child {
-  padding-top: 10px;
+  padding-top: 1rem;
   border-radius: 5px 5px 0 0;
 }
 .pfp-drop-down-item:last-child {
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
   border-radius: 0 0 5px 5px;
 }

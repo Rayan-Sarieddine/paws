@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+
 import "./styles.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { local } from "../../../../../core/helpers/localstorage";
 import { useDispatch } from "react-redux";
 import { cleanData } from "../../../../../core/dataSource/localDataSource/user";
-import { useLogin } from "../../../../../core/hooks/login.hook";
+
 
 const UserProfileBtn = ({
   isProfileMenuHidden,

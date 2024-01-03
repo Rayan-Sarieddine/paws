@@ -1,5 +1,6 @@
 import "./styles/index.css";
 import { Route, Routes } from "react-router-dom";
+
 //Page imports
 import Checkout from "./domain/pages/Checkout";
 import AdoptAll from "./domain/pages/AdoptAll";
@@ -23,11 +24,14 @@ import LostReporting from "./domain/pages/LostReporting";
 import Shop from "./domain/pages/Shop";
 import ShopItem from "./domain/pages/ShopItem";
 import SignUp from "./domain/pages/SignUp";
-//
+import Editprofile from "./domain/pages/EditProdile";
+import Terms from "./domain/pages/Terms";
+
+//Redux
 import { Provider } from "react-redux";
 import { store } from "./core/dataSource/localDataSource/store";
-import Terms from "./domain/pages/Terms";
-import Editprofile from "./domain/pages/EditProdile";
+
+
 function App() {
   return (
     <div className="app">

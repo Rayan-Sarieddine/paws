@@ -1,10 +1,10 @@
 .success-container {
   text-align: center;
-  padding: 20px;
+  padding: 2rem;
 }
 
 .success-image {
-  width: 100px;
+  width: 10rem;
   height: auto;
   transform: scale(0);
   animation: stamp-effect 0.5s ease forwards;
