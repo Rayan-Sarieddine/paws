@@ -2,6 +2,7 @@ const Pet = require("../models/pet.model");
 const Post = require("../models/post.model");
 const path = require("path");
 
+//Function to create a new pet
 const addPet = async (req, res) => {
   let {
     name,
@@ -14,6 +15,8 @@ const addPet = async (req, res) => {
     status = "AVAILABLE",
     image = "default_pet_image.png",
   } = req.body;
+
+  //Paremeter exist validation
   if (
     !name ||
     !age ||
@@ -25,7 +28,9 @@ const addPet = async (req, res) => {
   ) {
     return res.status(400).send({ message: "all fileds are required" });
   }
+
   try {
+    //Pet already exists validation
     const existingPet = await Pet.findOne({ name });
 
     if (existingPet !== null) {
@@ -33,6 +38,7 @@ const addPet = async (req, res) => {
       return res.status(409).send({ message: "pet name already exists" });
     }
 
+    //Description validation
     if (
       breed_description.length < 5 ||
       description.length < 5 ||
@@ -40,6 +46,7 @@ const addPet = async (req, res) => {
     ) {
       return res.status(400).send({ message: "not enough information given" });
     }
+    //Age validation
     if (age < 0) {
       return res.status(400).send({ message: "age cannot be negative" });
     }
@@ -78,6 +85,7 @@ const addPet = async (req, res) => {
 
       image = imageName;
     }
+
     const pet = new Pet({
       name,
       age,
@@ -101,6 +109,8 @@ const addPet = async (req, res) => {
     }
   }
 };
+
+//Function to edit pet information
 const editPet = async (req, res) => {
   let {
     name,
@@ -197,10 +207,11 @@ const editPet = async (req, res) => {
     const updatedPet = await Pet.findById(pet._id);
     return res.status(200).send({ message: "pet updated", pet: updatedPet });
   } catch (error) {
-    console.log(error);
-    return res.status(500).send({ error });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to get all pets to display them
 const getAllPets = async (req, res) => {
   try {
     const pets = await Pet.find();
@@ -210,6 +221,7 @@ const getAllPets = async (req, res) => {
   }
 };
 
+//Function to get a specific pet by its name(unique)
 const getPet = async (req, res) => {
   try {
     let name = req.params.name;
@@ -230,6 +242,8 @@ const getPet = async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 };
+
+//Function to delete a pet if needed
 const deletePet = async (req, res) => {
   try {
     const petId = req.params.id;
@@ -244,8 +258,11 @@ const deletePet = async (req, res) => {
     return res.status(500).send({ message: "pet not found" });
   }
 };
+
+//Function to filter pets by type or age
 const filterPet = async (req, res) => {
   let { filter, value } = req.body;
+
   //filter by type
   if (filter === "type") {
     const validtypes = ["dogs", "cats", "fish", "rabbits", "others"];
@@ -266,6 +283,7 @@ const filterPet = async (req, res) => {
       return res.status(500).send({ message: error.message });
     }
   }
+
   //filter by age
   if (filter === "age") {
     if (value < 0) {
@@ -287,6 +305,8 @@ const filterPet = async (req, res) => {
   }
   return res.status(404).send({ message: "filter not found" });
 };
+
+//Function to get pet stats to display for admin
 const petStats = async (req, res) => {
   try {
     const pets = await Pet.find();
@@ -320,9 +340,9 @@ const petStats = async (req, res) => {
       }
     });
 
-    res.status(200).json(stats);
+    return res.status(200).json(stats);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
