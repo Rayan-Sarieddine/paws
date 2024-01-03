@@ -5,7 +5,7 @@
   display: flex;
 
   align-items: flex-start;
-  padding: 20px;
+  padding: 2rem;
   width: 80%;
 
   margin: 5rem auto;
@@ -18,7 +18,7 @@
 
 .pet-pagination-main {
   width: 100%;
-  max-width: 1200px;
+  max-width: 120rem;
 }
 
 .pet-pagination-header {
@@ -29,7 +29,7 @@
   border-radius: 10px;
   color: white;
   padding: 1rem;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .pet-pagination-header p {
@@ -40,7 +40,7 @@
 .pet-pagination-petCards {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 2rem;
   justify-content: center;
 }
 

@@ -10,16 +10,18 @@ function Pets() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [petData, setpetData] = useState();
+  //Set selected pet in redux on click of a pet card
   const handleViewClick = (pet) => {
     dispatch(selectPet(pet));
     navigate("/edit-pet");
   };
+
+  //Load pets from backend
   const getPetData = async () => {
     try {
       const response = await petsDataSource.getPets();
       setpetData(response.pets);
       dispatch(loadPets(petData));
-      console.log(response.pets);
     } catch (err) {
       console.log(err);
     }
@@ -29,8 +31,10 @@ function Pets() {
   }, []);
   const [age, setAge] = useState(5);
 
+  //Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const petsPerPage = 9;
+  //Filters
   const [filter, setFilter] = useState({ type: "all", age: "", status: "" });
   const [filteredPets, setFilteredPets] = useState(petData);
 
