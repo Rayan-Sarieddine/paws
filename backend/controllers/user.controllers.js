@@ -2,30 +2,34 @@ const User = require("../models/user.model");
 const Product = require("../models/product.model");
 const bcrypt = require("bcrypt");
 const path = require("path");
+
+//Function to add individual product to user cart
 const addProductToCart = async (req, res) => {
   const userID = req.user._id;
   const { productID, quantity, productImage } = req.body;
 
   try {
     const user = await User.findById(userID);
+    //User validation
     if (!user) {
       return res.status(404).send({ message: "User not found" });
     }
-
+    //product validation
     const product = await Product.findById(productID);
     if (!product) {
       return res.status(404).send({ message: "Product not found" });
     }
-
+    //check if item is already in cart
     const cartItemIndex = user.cart.items.findIndex((item) =>
       item.productID.equals(productID)
     );
-
+    //if item already exists in cart increase it's quantity without adding a new item
     if (cartItemIndex > -1) {
       user.cart.items[cartItemIndex].quantity += parseInt(quantity);
       user.cart.items[cartItemIndex].total =
         user.cart.items[cartItemIndex].quantity * product.price;
     } else {
+      //if item does not exist add item as new to cart items array
       user.cart.items.push({
         productID: product._id,
         quantity: quantity,
@@ -35,12 +39,15 @@ const addProductToCart = async (req, res) => {
     }
 
     await user.save();
-    res.status(200).send({ message: "Product added to cart", cart: user.cart });
+    return res
+      .status(200)
+      .send({ message: "Product added to cart", cart: user.cart });
   } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "server error" });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to edit cart of a user
 const editCart = async (req, res) => {
   const userID = req.user._id;
   const { cartItems } = req.body;
@@ -58,10 +65,11 @@ const editCart = async (req, res) => {
       .status(200)
       .send({ message: "Cart updated successfully", cart: user.cart });
   } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "Server error" });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to update user information
 const updateUser = async (req, res) => {
   let {
     name = req.user.name,
@@ -70,6 +78,7 @@ const updateUser = async (req, res) => {
     userType = req.user.userType,
     image = req.user.image,
   } = req.body;
+
   const userID = req.user._id;
 
   try {
@@ -127,12 +136,13 @@ const updateUser = async (req, res) => {
       userType,
       image,
     });
-    res.status(200).send({ message: "user updated" });
+    return res.status(200).send({ message: "user updated" });
   } catch (error) {
-    console.log(error);
-    res.status(500).send({ error });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to get cart of a user
 const getCart = async (req, res) => {
   const userID = req.user._id;
   try {
@@ -169,10 +179,11 @@ const getCart = async (req, res) => {
       });
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "Server error" });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to empty the cart of a user
 const emptyCart = async (req, res) => {
   const userID = req.user._id;
   try {
@@ -183,14 +194,13 @@ const emptyCart = async (req, res) => {
     await User.findByIdAndUpdate(userID, {
       $set: { "cart.items": [] },
     });
-    res.status(200).send({ message: "cart emptied successfully" });
+    return res.status(200).send({ message: "cart emptied successfully" });
   } catch (error) {
-    console.log(error);
-    res.status(500).send({ message: "internal server error", error });
+    return res.status(500).send({ message: error.message });
   }
 };
 
-//chat
+//Function to create a chat session for the user
 const createChatSession = async (req, res) => {
   const userId = req.user._id;
   const { adminId, chatId } = req.body;
@@ -214,10 +224,11 @@ const createChatSession = async (req, res) => {
       .status(201)
       .send({ message: "Chat session created", chatSession: newChatSession });
   } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "server error" });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to get all chat sessions of a user
 const getAllChatSession = async (req, res) => {
   const userId = req.user._id;
 
@@ -229,17 +240,17 @@ const getAllChatSession = async (req, res) => {
     if (user.chatSessions.length == 0) {
       return res.status(204).send({ message: "user has no chat sessions" });
     } else {
-      res.status(200).send({
+      return res.status(200).send({
         message: "chat sessions retreived",
         chatsession: user.chatSessions,
       });
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "server error" });
+    return res.status(500).send({ message: error.message });
   }
 };
 
+//Function to delete chat session of a user
 const deleteChatSession = async (req, res) => {
   const userId = req.user._id;
   const { chatId } = req.body;
@@ -261,12 +272,13 @@ const deleteChatSession = async (req, res) => {
     user.chatSessions.splice(chatSessionIndex, 1);
     await user.save();
 
-    res.status(200).send({ message: "Chat session deleted" });
+    return res.status(200).send({ message: "Chat session deleted" });
   } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: "Server error" });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to get all users
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -275,9 +287,10 @@ const getAllUsers = async (req, res) => {
     }
     return res.status(200).send({ users: users });
   } catch (error) {
-    return res.status(500).send({ error: error });
+    return res.status(500).send({ message: error.message });
   }
 };
+
 module.exports = {
   addProductToCart,
   updateUser,
