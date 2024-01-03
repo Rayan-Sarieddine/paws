@@ -7,10 +7,13 @@ import Nav from "../../components/common/Nav";
 function OrderDetails() {
   const [message, setMessage] = useState();
   const [error, setError] = useState();
+
+  //Get selected order from redux
   const order = useSelector((state) => {
     return state.Order.curerntSelected;
   });
 
+  //Function to change order status to cancelled
   const cancelOrder = async () => {
     try {
       const response = await orderDataSource.editOrder({ orderId: order._id, status: "REJECTED" });
@@ -24,6 +27,8 @@ function OrderDetails() {
       setError("Failed to cancel the order");
     }
   };
+
+  //Function to change order status to accepted
   const acceptOrder = async () => {
     try {
       const response = await orderDataSource.editOrder({ orderId: order._id, status: "ACCEPTED" });
@@ -37,6 +42,8 @@ function OrderDetails() {
       setError("Failed to accept the order");
     }
   };
+
+  //Function to change order status to finished
   const finishOrder = async () => {
     try {
       const response = await orderDataSource.editOrder({ orderId: order._id, status: "DELIVERED" });
@@ -50,13 +57,15 @@ function OrderDetails() {
       setError("Failed to finish the order");
     }
   };
+
+  //Reset for error and message
   useEffect(() => {
     setTimeout(() => {
       setError("");
       setMessage("");
     }, 2000);
   }, [error, message]);
-  console.log(order);
+
   return (
     <div className="order-details">
       <Nav />
