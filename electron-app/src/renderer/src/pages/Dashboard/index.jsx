@@ -9,6 +9,7 @@ function Dashboard() {
   const [petStats, setPetStats] = useState({});
   const [productStats, setProductStats] = useState({});
   const [orderStats, setOrderStats] = useState({});
+
   const getPetStats = async () => {
     try {
       const response = await petsDataSource.petStats();
@@ -17,6 +18,7 @@ function Dashboard() {
       console.log(err);
     }
   };
+
   const getProductStats = async () => {
     try {
       const response = await productDataSource.productStats();
@@ -26,10 +28,11 @@ function Dashboard() {
       console.log(err);
     }
   };
+
   const getOrderStats = async () => {
     try {
       const response = await orderDataSource.orderStats();
-      console.log(response.stats);
+
       setOrderStats(response.stats);
     } catch (err) {
       console.log(err);
@@ -41,6 +44,7 @@ function Dashboard() {
     getProductStats();
     getOrderStats();
   }, []);
+
   return (
     <div className="dashboard">
       <Nav />
