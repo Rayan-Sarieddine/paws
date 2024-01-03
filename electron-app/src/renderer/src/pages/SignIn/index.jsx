@@ -23,7 +23,6 @@ const LogIn = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
-  //to show error for 2 seconds then reset error state
   useEffect(() => {
     //check if user is already logged in
     const token = local("token");
@@ -58,6 +57,7 @@ const LogIn = () => {
         setError("Unauthorized");
         return;
       }
+
       //setting user slice
       dispatch(
         loggedIn({
@@ -72,7 +72,7 @@ const LogIn = () => {
           token: response.token
         })
       );
-      console.log("logged in");
+
       navigateTo("/dashboard");
     } catch (error) {
       setError(error);
