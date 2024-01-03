@@ -36,7 +36,7 @@ const editRequest = async (req, res) => {
     if (!updatedRequest) {
       return res.status(404).send({ message: "Request not found" });
     }
-    res.status(200).send({ message: "updated successfully" });
+    return res.status(200).send({ message: "updated successfully" });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }

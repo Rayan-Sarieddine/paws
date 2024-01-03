@@ -215,9 +215,9 @@ const editPet = async (req, res) => {
 const getAllPets = async (req, res) => {
   try {
     const pets = await Pet.find();
-    res.status(200).json({ pets: pets });
+    return res.status(200).json({ pets: pets });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 
@@ -239,7 +239,7 @@ const getPet = async (req, res) => {
 
     res.status(200).json({ pet: pet });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 

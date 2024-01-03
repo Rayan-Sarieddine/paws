@@ -106,7 +106,9 @@ const getAllOrders = async (req, res) => {
         .send({ message: "No orders found with the given status" });
     }
 
-    res.status(200).send({ message: "Orders retrieved successfully", orders });
+    return res
+      .status(200)
+      .send({ message: "Orders retrieved successfully", orders });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
@@ -125,7 +127,9 @@ const getAllOrdersOfUser = async (req, res) => {
         .send({ message: "No orders found for the given user" });
     }
 
-    res.status(200).send({ message: "Orders retrieved successfully", orders });
+    return res
+      .status(200)
+      .send({ message: "Orders retrieved successfully", orders });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
@@ -142,7 +146,9 @@ const getOrder = async (req, res) => {
       return res.status(404).send({ message: "Order not found" });
     }
 
-    res.status(200).send({ message: "Order retrieved successfully", order });
+    return res
+      .status(200)
+      .send({ message: "Order retrieved successfully", order });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }

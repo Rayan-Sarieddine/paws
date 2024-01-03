@@ -161,14 +161,14 @@ const googleAuth = async (req, res) => {
       process.env.JWT_SECRET,
       { algorithm: "HS256", expiresIn: "2 days" }
     );
-    res.status(200).json({
+    return res.status(200).json({
       token: userToken,
       user: userDetails,
       status: "success",
     });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error verifying Google token");
+    return res.status(500).send("Error verifying Google token");
   }
 };
 module.exports = {
