@@ -52,7 +52,7 @@
 .message {
   max-width: 30%;
   margin-bottom: 1.5rem;
-  padding: 10px;
+  padding: 1rem;
   border-radius: 20px;
   color: white !important;
   word-wrap: break-word;
@@ -70,21 +70,21 @@
 /* Message Form */
 .chat form {
   display: flex;
-  padding: 20px;
+  padding: 2rem;
   background-color: white;
   border-top: 1px solid #ddd;
 }
 
 .chat input {
   flex-grow: 1;
-  padding: 10px;
-  margin-right: 10px;
+  padding: 1rem;
+  margin-right: 1rem;
   border: 1px solid #ddd;
   border-radius: 20px;
 }
 
 .chat button {
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   border: none;
   border-radius: 20px;
   background-color: var(--primary);
@@ -109,7 +109,7 @@
   font-size: 2rem;
   font-weight: 600;
 
-  padding: 10px;
+  padding: 1rem;
   background-color: white;
   border-bottom: 1px solid #ddd;
 }

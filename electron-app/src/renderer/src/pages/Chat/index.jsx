@@ -45,7 +45,6 @@ const AdminChat = () => {
         const response = await userDataSource.getAllUsers();
         const filteredUsers = response.users.filter((user) => user.userType === "USER");
         setUsers(filteredUsers);
-        console.log(users);
       } catch (error) {
         console.log("Error fetching users:", error);
       }
@@ -54,6 +53,7 @@ const AdminChat = () => {
   }, []);
 
   useEffect(() => {
+    //Get chat session and messages of a user
     if (currentUserId) {
       const chatSessionRef = doc(firestore, `chats/${currentUserId}_${adminId}`);
       const messagesRef = collection(chatSessionRef, "messages");
@@ -70,10 +70,10 @@ const AdminChat = () => {
     }
   }, [currentUserId, adminId]);
 
+  //Function to handle sending the message to firebase
   const sendMessage = async (e) => {
     e.preventDefault();
-    console.log(currentUserId);
-    console.log("hello");
+
     const chatSessionRef = doc(firestore, `chats/${currentUserId}_${adminId}`);
     const messagesRef = collection(chatSessionRef, "messages");
     await addDoc(messagesRef, {
@@ -84,11 +84,13 @@ const AdminChat = () => {
     setFormValue("");
   };
 
+  //Function to handle selecting a user from the available list of users
   const selectUser = (userId, user) => {
     setCurrentUserId(userId);
     setSelectedUser(user);
   };
 
+  //Function to handle creating the required timestamp for each message
   const formatTimestamp = (timestamp) => {
     if (!timestamp) return "";
     const date = timestamp.toDate();
