@@ -33,6 +33,7 @@ function EditProduct() {
     }));
   }, [selectedProduct]);
 
+  //Reset for error and message
   useEffect(() => {
     const timer = setTimeout(() => {
       setError("");
@@ -41,6 +42,7 @@ function EditProduct() {
     return () => clearTimeout(timer);
   }, [error, message]);
 
+  //Function to handle change in inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setproductAttributes((prevAttributes) => ({
@@ -49,6 +51,7 @@ function EditProduct() {
     }));
   };
 
+  //Function to handle update of any selected attribute
   const updateProductAttribute = async (attributeName) => {
     const value = productAttributes[attributeName];
     const minLength = 5;
@@ -79,6 +82,7 @@ function EditProduct() {
     }
   };
 
+  //Function to handle updating product picture
   const updatePicture = async () => {
     const type = local("type");
     const token = local("token");

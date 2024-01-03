@@ -27,6 +27,7 @@ function EditPet() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
+  //To set the status of the pet at load
   useEffect(() => {
     setPetAttributes((prevAttributes) => ({
       ...prevAttributes,
@@ -34,6 +35,7 @@ function EditPet() {
     }));
   }, [selectedPet]);
 
+  //Reset for error and message
   useEffect(() => {
     const timer = setTimeout(() => {
       setError("");
@@ -42,6 +44,7 @@ function EditPet() {
     return () => clearTimeout(timer);
   }, [error, message]);
 
+  //Function to handle change in inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setPetAttributes((prevAttributes) => ({
@@ -50,6 +53,7 @@ function EditPet() {
     }));
   };
 
+  //Function to handle update of any selected attribute
   const updatePetAttribute = async (attributeName) => {
     const value = petAttributes[attributeName];
     const minLength = 5;
@@ -82,6 +86,7 @@ function EditPet() {
     }
   };
 
+  //Function to handle updating pet picture
   const updatePicture = async () => {
     const type = local("type");
     const token = local("token");
