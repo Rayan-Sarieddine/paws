@@ -1,23 +1,27 @@
 const Request = require("../models/adoption_request.model");
 const Pet = require("../models/pet.model");
 
+//Function to create a new adoption request by user for a pet
 const addRequest = async (req, res) => {
   const user_id = req.user._id;
   try {
     const { pet_id } = req.body;
     const pet = await Pet.findById(pet_id);
     if (!pet) {
+      return res.status(404).send({ message: "Pet not found" });
     }
     if (pet.status !== "AVAILABLE") {
       return res.status(404).send({ message: "pet is not available" });
     }
     const newRequest = new Request({ pet_id, user_id });
     await newRequest.save();
-    res.status(201).json(newRequest);
+    return res.status(201).json(newRequest);
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to change the status of the adoption request by the admin
 const editRequest = async (req, res) => {
   try {
     const requestId = req.params.id;
@@ -34,7 +38,7 @@ const editRequest = async (req, res) => {
     }
     res.status(200).send({ message: "updated successfully" });
   } catch (error) {
-    res.status(500).send({ message: error.message });
+    return res.status(500).send({ message: error.message });
   }
 };
 

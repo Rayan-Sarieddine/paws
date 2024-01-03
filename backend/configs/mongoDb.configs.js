@@ -1,5 +1,6 @@
 const { default: mongoose } = require("mongoose");
 
+//Function to invoke connection to MongoDB
 const connectToMongoDb = () => {
   mongoose.connect(process.env.MONGODB_URL);
   const connection = mongoose.connection;
@@ -7,7 +8,7 @@ const connectToMongoDb = () => {
     console.log("error", error);
   });
   connection.once("open", () => {
-    console.log("connected to mongodb");
+    console.log("connected to db");
   });
 };
 module.exports = { connectToMongoDb };
