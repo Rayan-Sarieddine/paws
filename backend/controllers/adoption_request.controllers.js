@@ -42,6 +42,7 @@ const editRequest = async (req, res) => {
   }
 };
 
+//Function to get all the adoption requests to be displayed for review by the admin
 const getAllRequests = async (req, res) => {
   const { status } = req.body;
   const statusOptions = ["PENDING", "APPROVED", "REJECTED"];
@@ -53,7 +54,7 @@ const getAllRequests = async (req, res) => {
       .populate("pet_id", "type breed age image name")
       .populate("user_id", "name email image number");
     if (requests.length == 0) {
-      return res.status(204).send({ message: "no requests" });
+      return res.status(204).send({ message: "no requests found" });
     }
     return res.status(200).send({ message: "success", requests: requests });
   } catch (error) {
@@ -61,7 +62,7 @@ const getAllRequests = async (req, res) => {
   }
 };
 const getRequest = async (req, res) => {
-  const requestId = req.params.id; // Should be req.params, not res.params
+  const requestId = req.params.id;
 
   try {
     const request = await Request.findById(requestId)
