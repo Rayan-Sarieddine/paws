@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 function AdoptionRequests() {
   const navigate = useNavigate();
   const [requests, setRequests] = useState([]);
+  //Function to load all adoption requests
   const getRequests = async () => {
     try {
       const response = await requestsDataSource.loadRequests({ status: "PENDING" });
@@ -18,6 +19,7 @@ function AdoptionRequests() {
   useEffect(() => {
     getRequests();
   }, []);
+  
   return (
     <div className="get-requests">
       <Nav />
