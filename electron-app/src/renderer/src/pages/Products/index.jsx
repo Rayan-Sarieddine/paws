@@ -17,11 +17,13 @@ function Products() {
   const productsPerPage = 9;
   const [filter, setFilter] = useState({ category: "all", price: "" });
 
+  //Set selected product in redux on product card click
   const handleEditClick = (product) => {
     dispatch(selectProduct(product));
     navigate("/edit-product");
   };
 
+  //Load products from backend
   const getProductData = async () => {
     try {
       const response = await productDataSource.getProducts();
