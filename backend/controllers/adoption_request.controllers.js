@@ -61,6 +61,9 @@ const getAllRequests = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+
+//Function to get the details of a specific adoption request
 const getRequest = async (req, res) => {
   const requestId = req.params.id;
 

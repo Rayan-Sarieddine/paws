@@ -1,20 +1,26 @@
 const User = require("../models/user.model");
+
+//JWT dependencies
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
+//Google Auth dependencies
 const { OAuth2Client } = require("google-auth-library");
-
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
+//Function to login user with token if credentials are correct
 const login = async (req, res) => {
   const { email, password } = req.body;
+
   try {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).send({ message: "invalid credentials" });
+
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword)
       return res.status(401).send({ message: "invalid credentials" });
 
+    //No need to include the password in sent data to frontend
     const { password: hashedPassword, ...userDetails } = user.toJSON();
     const token = jwt.sign(
       {
@@ -27,9 +33,11 @@ const login = async (req, res) => {
       .status(200)
       .send({ user: userDetails, token: token, status: "success" });
   } catch (error) {
-    return res.status(500).send({ message: "server error" });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to register user
 const register = async (req, res) => {
   let { email, password, name, phone, address, userType = "USER" } = req.body;
 
@@ -37,6 +45,7 @@ const register = async (req, res) => {
   if (!email || !password || !name || !phone || !address) {
     return res.status(400).send({ message: "all fileds are required" });
   }
+
   try {
     //user already exists validation
     const existingUser = await User.findOne({ email });
@@ -63,13 +72,13 @@ const register = async (req, res) => {
 
     //name validation and correction
     const trimmedName = name.trim();
-    const hasValidName = /^\S(.*\s+.*)*\S$/.test(trimmedName);
+    const hasValidName = /^\S(.*\s+.*)*\S$/.test(trimmedName); // Name to be having at least one space in middle (first name and last name)
     if (!hasValidName) {
       return res.status(400).send({ message: "incomplete name" });
     }
     const nameParts = trimmedName.split(" ");
     const capitalizedNames = nameParts.map(
-      (part) => part.charAt(0).toUpperCase() + part.slice(1)
+      (part) => part.charAt(0).toUpperCase() + part.slice(1) //Capitalize name parts
     );
     name = capitalizedNames.join(" ");
 
@@ -86,10 +95,11 @@ const register = async (req, res) => {
     return res.status(200).send({ user, status: "success" });
   } catch (error) {
     console.log(error);
-    return res.status(500).send({ error });
+    return res.status(500).send({ message: error.message });
   }
 };
 
+//Functio to update user password
 const updatePassword = async (req, res) => {
   const { userId, newPassword } = req.body;
 
@@ -115,9 +125,11 @@ const updatePassword = async (req, res) => {
     return res.status(200).send({ message: "Password successfully updated" });
   } catch (error) {
     console.error(error);
-    return res.status(500).send({ message: "Server error" });
+    return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to register user using Google services
 const googleAuth = async (req, res) => {
   try {
     const { token } = req.body;
