@@ -187,3 +187,6 @@ result[1] = pred2
 result[2] = numbers
 result.columns = ['Filename','Class','Numbers']
 print(result)
+
+#save the model
+model.save('/content/paws-model')
