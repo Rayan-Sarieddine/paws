@@ -18,3 +18,11 @@ drive.mount('/content/drive', force_remount=True)
 #importing test and train files from drive
 directory = '/content/drive/MyDrive/paws-dataset/Cats-and-Dogs-Breed-Dataset-main/TRAIN'
 directory2 = '/content/drive/MyDrive/paws-dataset/Cats-and-Dogs-Breed-Dataset-main/TEST'
+
+#Getting the pet breed labels from the files
+Name=[]
+for file in os.listdir(directory):
+    Name+=[file]
+print(Name)
+print(len(Name))
+
