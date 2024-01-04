@@ -133,3 +133,10 @@ plt.title('Training vs validation loss')
 plt.legend(loc=0)
 plt.figure()
 plt.show()
+
+#test1
+image=load_img("/content/drive/MyDrive/paws-dataset/Cats-and-Dogs-Breed-Dataset-main/TEST/1006.jpg",target_size=(180,180))
+image=img_to_array(image)
+image=image/255.0
+prediction_image=np.array(image)
+prediction_image= np.expand_dims(image, axis=0)
