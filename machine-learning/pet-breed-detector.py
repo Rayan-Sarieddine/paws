@@ -67,3 +67,7 @@ for file in os.listdir(directory2):
 #transforming your categorical labels into a format that's more suitable for use in training classification models, especially neural networks.
 labels1=to_categorical(labels0)
 labels=np.array(labels1)
+
+#converting the lists data and test into NumPy arrays which helps in effeciency, functionality (NumPy provides a wide array of mathematical functions) and framework compatibility (Machine learning frameworks like TensorFlow and Keras typically expect data in the form of NumPy arrays)
+data=np.array(data)
+test=np.array(test)
