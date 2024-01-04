@@ -85,3 +85,7 @@ print(trainx.shape)
 print(testx.shape)
 print(trainy.shape)
 print(testy.shape)
+
+# initializing an ImageDataGenerator in TensorFlow's Keras API.
+datagen = ImageDataGenerator(horizontal_flip=True,vertical_flip=True,rotation_range=20,zoom_range=0.2,
+                        width_shift_range=0.2,height_shift_range=0.2,shear_range=0.1,fill_mode="nearest")
