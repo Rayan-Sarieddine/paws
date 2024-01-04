@@ -62,3 +62,8 @@ for file in os.listdir(directory2):
 
 # getting the dataset in the format of dataset = [[image1, label1], [image2, label2], [image3, label3]]
     data,labels0=zip(*dataset)
+
+
+#transforming your categorical labels into a format that's more suitable for use in training classification models, especially neural networks.
+labels1=to_categorical(labels0)
+labels=np.array(labels1)
