@@ -86,6 +86,7 @@ print(testx.shape)
 print(trainy.shape)
 print(testy.shape)
 
+
 # initializing an ImageDataGenerator in TensorFlow's Keras API.
 datagen = ImageDataGenerator(horizontal_flip=True,vertical_flip=True,rotation_range=20,zoom_range=0.2,
                         width_shift_range=0.2,height_shift_range=0.2,shear_range=0.1,fill_mode="nearest")
@@ -96,3 +97,7 @@ inputs3 = pretrained_model3.input
 x3 = tf.keras.layers.Dense(128, activation='relu')(pretrained_model3.output)
 outputs3 = tf.keras.layers.Dense(37, activation='softmax')(x3)
 model = tf.keras.Model(inputs=inputs3, outputs=outputs3)
+
+
+#model is compiled in TensorFlow's Keras API, which is an essential step in preparing the model for training
+model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
