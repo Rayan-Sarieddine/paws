@@ -104,3 +104,9 @@ model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accurac
 
 #training model
 his=model.fit(datagen.flow(trainx,trainy,batch_size=32),validation_data=(testx,testy),epochs=30)
+
+#model results
+y_pred=model.predict(testx)
+pred=np.argmax(y_pred,axis=1)
+ground = np.argmax(testy,axis=1)
+print(classification_report(ground,pred))
