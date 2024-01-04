@@ -101,3 +101,6 @@ model = tf.keras.Model(inputs=inputs3, outputs=outputs3)
 
 #model is compiled in TensorFlow's Keras API, which is an essential step in preparing the model for training
 model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
+
+#training model
+his=model.fit(datagen.flow(trainx,trainy,batch_size=32),validation_data=(testx,testy),epochs=30)
