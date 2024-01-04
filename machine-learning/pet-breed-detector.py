@@ -59,3 +59,6 @@ for file in os.listdir(directory2):
     image=image/255.0
     test+=[image]
     testfile+=[file]
+
+# getting the dataset in the format of dataset = [[image1, label1], [image2, label2], [image3, label3]]
+    data,labels0=zip(*dataset)
