@@ -110,3 +110,18 @@ y_pred=model.predict(testx)
 pred=np.argmax(y_pred,axis=1)
 ground = np.argmax(testy,axis=1)
 print(classification_report(ground,pred))
+
+
+#Training vs validation accuracy graph
+get_acc = his.history['accuracy']
+value_acc = his.history['val_accuracy']
+get_loss = his.history['loss']
+validation_loss = his.history['val_loss']
+
+epochs = range(len(get_acc))
+plt.plot(epochs, get_acc, 'r', label='Accuracy of Training data')
+plt.plot(epochs, value_acc, 'b', label='Accuracy of Validation data')
+plt.title('Training vs validation accuracy')
+plt.legend(loc=0)
+plt.figure()
+plt.show()
