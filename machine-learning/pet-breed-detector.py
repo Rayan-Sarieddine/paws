@@ -79,3 +79,9 @@ test2=test.reshape(-1,180,180,3)
 
 # to split a dataset into training and testing subsets
 trainx,testx,trainy,testy=train_test_split(data,labels,test_size=0.2,random_state=44)
+
+#(number of training samples, image height, image width, number of color channels).
+print(trainx.shape)
+print(testx.shape)
+print(trainy.shape)
+print(testy.shape)
