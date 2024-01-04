@@ -180,3 +180,10 @@ numbers=[]
 for item in testfile:
     s=item[0:-4]
     numbers+=[int(s)]
+
+    #print results for all test folder
+    result = pd.DataFrame(testfile)
+result[1] = pred2
+result[2] = numbers
+result.columns = ['Filename','Class','Numbers']
+print(result)
