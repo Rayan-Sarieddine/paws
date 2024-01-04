@@ -158,3 +158,13 @@ prediction=model.predict(prediction_image)
 value=np.argmax(prediction)#np.argmax is used to find the index of the maximum value in the prediction array, which corresponds to the most likely class label.
 move_name=mapper(value)
 print("Prediction is {}.".format(move_name))
+
+#test2
+print(test.shape)
+prediction2=model.predict(test)
+print(prediction2.shape)
+pred2=[]
+for item in prediction2:
+    value2=np.argmax(item)
+    move_name2=mapper(value2)
+    pred2+=[move_name2]
