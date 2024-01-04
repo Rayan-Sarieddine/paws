@@ -14,3 +14,7 @@ from sklearn.model_selection import train_test_split
 
 from google.colab import drive
 drive.mount('/content/drive', force_remount=True)
+
+#importing test and train files from drive
+directory = '/content/drive/MyDrive/paws-dataset/Cats-and-Dogs-Breed-Dataset-main/TRAIN'
+directory2 = '/content/drive/MyDrive/paws-dataset/Cats-and-Dogs-Breed-Dataset-main/TEST'
