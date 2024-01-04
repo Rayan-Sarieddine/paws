@@ -35,3 +35,15 @@ mapping={ 'basset_hound':0, 'beagle':1, 'russian_blue':2, 'pomeranian':3, 'ragdo
          'american_bulldog':23, 'abyssinian':24, 'boxer':25, 'yorkshire_terrier':26, 'miniature_pinscher':27,
          'sphynx':28, 'samoyed':29, 'leonberger':30, 'bombay':31, 'english_setter':32, 'persian':33,
          'great_pyrenees':34, 'egyptian_mau':35, 'saint_bernard':36 }
+
+#loading and preprocessing the images from  dataset, and organizing them into a format suitable for training a machine learning model.
+dataset=[]
+count=0 
+for file in os.listdir(directory): 
+    path=os.path.join(directory,file) 
+    for im in os.listdir(path):
+        image=load_img(os.path.join(path,im), grayscale=False, color_mode='rgb', target_size=(180,180)) 
+        image=img_to_array(image) 
+        image=image/255.0 
+        dataset.append([image,count])
+    count=count+1
