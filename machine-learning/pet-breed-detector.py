@@ -174,3 +174,9 @@ for item in prediction2:
 print(pred2[0:3])
 print(len(testfile))
 print(len(pred2))
+
+#number extraction for each image
+numbers=[]
+for item in testfile:
+    s=item[0:-4]
+    numbers+=[int(s)]
