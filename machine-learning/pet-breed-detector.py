@@ -71,3 +71,7 @@ labels=np.array(labels1)
 #converting the lists data and test into NumPy arrays which helps in effeciency, functionality (NumPy provides a wide array of mathematical functions) and framework compatibility (Machine learning frameworks like TensorFlow and Keras typically expect data in the form of NumPy arrays)
 data=np.array(data)
 test=np.array(test)
+
+#reshaping the data to a 4 dimensional array because CNNs expect input in that form
+data2=data.reshape(-1,180,180,3)
+test2=test.reshape(-1,180,180,3)
