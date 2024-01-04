@@ -117,11 +117,19 @@ get_acc = his.history['accuracy']
 value_acc = his.history['val_accuracy']
 get_loss = his.history['loss']
 validation_loss = his.history['val_loss']
-
 epochs = range(len(get_acc))
 plt.plot(epochs, get_acc, 'r', label='Accuracy of Training data')
 plt.plot(epochs, value_acc, 'b', label='Accuracy of Validation data')
 plt.title('Training vs validation accuracy')
+plt.legend(loc=0)
+plt.figure()
+plt.show()
+
+#Training vs validation loss graph
+epochs = range(len(get_loss))
+plt.plot(epochs, get_loss, 'r', label='Loss of Training data')
+plt.plot(epochs, validation_loss, 'b', label='Loss of Validation data')
+plt.title('Training vs validation loss')
 plt.legend(loc=0)
 plt.figure()
 plt.show()
