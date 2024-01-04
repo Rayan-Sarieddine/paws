@@ -89,3 +89,10 @@ print(testy.shape)
 # initializing an ImageDataGenerator in TensorFlow's Keras API.
 datagen = ImageDataGenerator(horizontal_flip=True,vertical_flip=True,rotation_range=20,zoom_range=0.2,
                         width_shift_range=0.2,height_shift_range=0.2,shear_range=0.1,fill_mode="nearest")
+pretrained_model3 = tf.keras.applications.DenseNet121(input_shape=(180,180,3),include_top=False,weights='imagenet',pooling='avg')
+pretrained_model3.trainable = False
+#continuation of setting up a convolutional neural network for image classification using transfer learning with TensorFlow's Keras API.
+inputs3 = pretrained_model3.input
+x3 = tf.keras.layers.Dense(128, activation='relu')(pretrained_model3.output)
+outputs3 = tf.keras.layers.Dense(37, activation='softmax')(x3)
+model = tf.keras.Model(inputs=inputs3, outputs=outputs3)
