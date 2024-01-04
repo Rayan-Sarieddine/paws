@@ -1,3 +1,12 @@
+#Dataset:
+#Dataset consists of 37 different breeds of dogs and cats divied between training an testing, in the train, each folder is a breed(37 folders) and each breed folder contains 160 images of the specified breed (the label in the training is the folder name of the folder).
+#In the testing it is a  total of random breeds divied to 1500 images with ofcource no labels given.
+
+#ML Paradign:
+#My model uses supervised learning, where you train a model on a labeled dataset. In this case, the dataset consists of images of various cat and dog breeds, each labeled with its corresponding breed. The model learns to associate images with these labels.
+
+#Purpose:The specific task here is classification, where the model is trained to categorize each image into one of several predefined classes (the different breeds)
+
 #imports needed
 import numpy as np
 import pandas as pd
@@ -169,8 +178,8 @@ for item in prediction2:
     move_name2=mapper(value2)
     pred2+=[move_name2]
 
-    #test2 results
-    print(testfile[0:3])
+#test2 results
+print(testfile[0:3])
 print(pred2[0:3])
 print(len(testfile))
 print(len(pred2))
@@ -181,8 +190,8 @@ for item in testfile:
     s=item[0:-4]
     numbers+=[int(s)]
 
-    #print results for all test folder
-    result = pd.DataFrame(testfile)
+#print results for all test folder
+result = pd.DataFrame(testfile)
 result[1] = pred2
 result[2] = numbers
 result.columns = ['Filename','Class','Numbers']
