@@ -168,3 +168,9 @@ for item in prediction2:
     value2=np.argmax(item)
     move_name2=mapper(value2)
     pred2+=[move_name2]
+
+    #test2 results
+    print(testfile[0:3])
+print(pred2[0:3])
+print(len(testfile))
+print(len(pred2))
