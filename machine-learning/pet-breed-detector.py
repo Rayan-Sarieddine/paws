@@ -75,3 +75,7 @@ test=np.array(test)
 #reshaping the data to a 4 dimensional array because CNNs expect input in that form
 data2=data.reshape(-1,180,180,3)
 test2=test.reshape(-1,180,180,3)
+
+
+# to split a dataset into training and testing subsets
+trainx,testx,trainy,testy=train_test_split(data,labels,test_size=0.2,random_state=44)
