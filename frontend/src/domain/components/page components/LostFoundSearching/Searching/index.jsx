@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 function Searching() {
+  const navigate = useNavigate();
+  const result = useSelector((state) => {
+    return state.Post.selectPost;
+  });
+  console.log(result);
+  useEffect(() => {
+    setTimeout(() => {
+      if (result.length === 1) {
+        navigate("/lost-found-match");
+      }
+      if (result.length === 0) {
+        navigate("/lost-found-no-match");
+      }
+      if (result.length > 1) {
+        navigate("/lost-found-manual");
+      }
+    }, 5000);
+  }, []);
   return (
     <div className="searching">
       <div class="loader"></div>

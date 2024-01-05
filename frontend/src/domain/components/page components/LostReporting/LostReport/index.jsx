@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { local } from "../../../../../core/helpers/localstorage";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import "./style.css";
+import { selectPost } from "../../../../../core/dataSource/localDataSource/post";
 function LostReport() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [region, setRegion] = useState("OTHER");
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
@@ -22,23 +25,27 @@ function LostReport() {
     };
     try {
       const formData = new FormData();
-      formData.append("type", "LOST");
+      formData.append("description", description);
       formData.append("location", region);
       formData.append("image", file);
 
       console.log(formData);
-      const response = await fetch("http://127.0.0.1:8000/posts", {
+      const response = await fetch("http://127.0.0.1:8000/posts/find", {
         method: "POST",
         body: formData,
-        headers: {
-          ...headers,
-        },
+        headers: headers,
       });
-      setRegion("OTHER");
-      setFile(null);
-      setDescription("");
-      console.log(response);
-      navigate("/lost-found-searching");
+      const data = await response.json();
+       // setRegion("OTHER");
+      // setFile(null);
+      // setDescription("");
+      if (data.message === "match found") {
+        dispatch(selectPost(data.result));
+        navigate("/lost-found-searching")
+      }
+     
+      console.log(data);
+      // navigate("/lost-found-searching");
     } catch (err) {
       console.log(err);
       setError(err);

@@ -272,12 +272,16 @@ const findPets = async (req, res) => {
 
     // Extract breed from Flask response
     const breed = flaskResponse.data.breed;
-    const filterByBreed = await Post.find({ breed: breed });
+    const filterByBreed = await Post.find({ breed: breed }).populate(
+      "added_by",
+      "_id name phone email"
+    );
     if (filterByBreed.length == 0) {
       return res
         .status(200)
         .send({ message: "no animals found in our Database" });
     }
+
     filterByLocation = [];
     filterByBreed.forEach((post) => {
       if (post.location === location) {
@@ -311,9 +315,10 @@ const findPets = async (req, res) => {
         result: filterByLocation,
       });
     }
+
     return res.status(200).send({
       message: "match found",
-      result: mostSimilar,
+      result: [mostSimilar],
     });
   } catch (err) {
     return res.status(500).send(err.message);
