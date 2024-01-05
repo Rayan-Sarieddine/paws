@@ -36,7 +36,7 @@ def predict():
         predictions = model.predict(image)
         predicted_class = np.argmax(predictions[0])
         predicted_class_name = imagenet_labels[predicted_class]
-        return jsonify({'prediction': int(predicted_class), 'class_name': predicted_class_name})
+        return jsonify({'breed': predicted_class_name})
     else:
         return jsonify({'error': 'Invalid image'}), 400
 

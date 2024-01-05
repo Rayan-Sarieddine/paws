@@ -20,6 +20,10 @@ const postschema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    breed: {
+      type: String,
+      required: true,
+    },
     type: {
       type: String,
       enum: ["LOST", "FOUND"],
