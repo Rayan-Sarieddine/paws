@@ -4,7 +4,7 @@
   width: 100vw;
   top: 0;
   left: 0;
-  background-color: var(--primary);
+  background-color: var(--white);
   z-index: 10000000;
 }
 .paws-loader-img {
