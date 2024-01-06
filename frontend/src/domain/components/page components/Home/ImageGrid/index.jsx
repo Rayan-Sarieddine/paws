@@ -12,7 +12,7 @@ function ImageGrid() {
     >
       <div className="grid-header">
         <img src="./favicon.png" alt="logo"></img>
-        <h3>Adopt your pet</h3>
+        <h3>Adopt Your Pet</h3>
       </div>
       <div class="gallery">
         <div class="gallery__item gallery__item--1">
