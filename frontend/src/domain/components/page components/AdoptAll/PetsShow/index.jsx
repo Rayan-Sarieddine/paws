@@ -50,7 +50,6 @@ function PetsShow() {
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const filterData = () => {};
   useEffect(() => {}, [currentPets]);
   return (
     <div className="pets-show-container">
@@ -72,8 +71,8 @@ function PetsShow() {
             <input
               type="radio"
               name="type"
-              value="dogs"
-              checked={filter.type === "dogs"}
+              value="DOGS"
+              checked={filter.type === "DOGS"}
               onChange={handleTypeChange}
             />
             Dogs
@@ -82,8 +81,8 @@ function PetsShow() {
             <input
               type="radio"
               name="type"
-              value="cats"
-              checked={filter.type === "cats"}
+              value="CATS"
+              checked={filter.type === "CATS"}
               onChange={handleTypeChange}
             />
             Cats
@@ -92,8 +91,8 @@ function PetsShow() {
             <input
               type="radio"
               name="type"
-              value="fish"
-              checked={filter.type === "fish"}
+              value="FISH"
+              checked={filter.type === "FISH"}
               onChange={handleTypeChange}
             />
             Fish
@@ -103,8 +102,8 @@ function PetsShow() {
             <input
               type="radio"
               name="type"
-              value="rabbits"
-              checked={filter.type === "rabbits"}
+              value="RABBITS"
+              checked={filter.type === "RABBITS"}
               onChange={handleTypeChange}
             />
             Rabbits
@@ -113,8 +112,8 @@ function PetsShow() {
             <input
               type="radio"
               name="type"
-              value="others"
-              checked={filter.type === "others"}
+              value="OTHERS"
+              checked={filter.type === "OTHERS"}
               onChange={handleTypeChange}
             />
             Others
@@ -134,9 +133,6 @@ function PetsShow() {
           />
           <p>Age to be less than {age}</p>
         </div>
-        <button className="btn btn-filter" onClick={filterData()}>
-          Filter
-        </button>
       </div>
       <div className="pet-pagination-main">
         <div className="pet-pagination-header">
