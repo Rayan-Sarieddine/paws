@@ -10,14 +10,12 @@ function Searching() {
   console.log(result);
   useEffect(() => {
     setTimeout(() => {
-      if (result.length === 1) {
+      if (result?.length === 1) {
         navigate("/lost-found-match");
-      }
-      if (result.length === 0) {
-        navigate("/lost-found-no-match");
-      }
-      if (result.length > 1) {
+      } else if (result?.length > 1) {
         navigate("/lost-found-manual");
+      } else {
+        navigate("/lost-found-no-match");
       }
     }, 5000);
   }, []);

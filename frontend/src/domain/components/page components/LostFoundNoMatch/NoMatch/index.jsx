@@ -11,18 +11,10 @@ function NoMatch() {
         <button
           className="btn tryagain-btn"
           onClick={() => {
-            tryagain();
+            navigate("/lost-found-reporting");
           }}
         >
           Try Again
-        </button>
-        <button
-          className="btn manualsearch-btn"
-          onClick={() => {
-            navigate("/lost-found-manual");
-          }}
-        >
-          Manually search in lost & Found
         </button>
       </div>
     </div>

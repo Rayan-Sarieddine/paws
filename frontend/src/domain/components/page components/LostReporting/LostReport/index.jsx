@@ -13,7 +13,16 @@ function LostReport() {
   const [error, setError] = useState("");
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const file = e.target.files[0];
+    const fileType = file?.type;
+
+    if (fileType === "image/jpeg" || fileType === "image/jpg") {
+      setFile(file);
+    } else {
+      e.target.value = null;
+      setFile(null);
+      setError("Only JPEG or JPG files are allowed");
+    }
   };
 
   const onFormSubmit = async (e) => {
@@ -95,7 +104,7 @@ function LostReport() {
           Submit
         </button>
       </form>
-      {/* <p className="error">{error}</p> */}
+      <p className="error">{error}</p>
     </div>
   );
 }
