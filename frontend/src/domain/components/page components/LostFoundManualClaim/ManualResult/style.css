@@ -41,3 +41,15 @@
 .manual-no-modal {
   margin-top: 3rem;
 }
+.match-result-pet-info p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+.match-result-pet-info span {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: lowercase;
+  margin-top: 1rem;
+}

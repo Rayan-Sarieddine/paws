@@ -21,6 +21,14 @@ function ManualResult() {
           alt="pet_img"
         />
       </div>
+      <div className="match-result-pet-info">
+        <p>
+          Found At: <span>{selectedPost?.location}</span>
+        </p>
+        <p>
+          Description: <span>{selectedPost?.description}</span>
+        </p>
+      </div>
       <div className="manual-result-actions">
         <p>Is this your Pet?</p>
         <button
