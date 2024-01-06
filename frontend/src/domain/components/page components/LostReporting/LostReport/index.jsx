@@ -45,15 +45,14 @@ function LostReport() {
         headers: headers,
       });
       const data = await response.json();
-      // setRegion("OTHER");
-      // setFile(null);
-      // setDescription("");
+      setRegion("OTHER");
+      setFile(null);
+      setDescription("");
 
       dispatch(resultPosts(data.result));
       navigate("/lost-found-searching");
 
       console.log(data);
-      // navigate("/lost-found-searching");
     } catch (err) {
       console.log(err);
       setError(err);

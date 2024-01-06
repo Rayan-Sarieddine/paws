@@ -99,7 +99,7 @@ function LostFound() {
           className="btn lost-found-navigation"
           onClick={navigatoTolostPage}
         >
-          View All Posts
+          REPORT
         </button>
       </div>
     </>
