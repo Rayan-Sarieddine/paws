@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Searching() {
   const navigate = useNavigate();
   const result = useSelector((state) => {
-    return state.Post.selectPost;
+    return state.Post.resultPosts;
   });
   console.log(result);
   useEffect(() => {

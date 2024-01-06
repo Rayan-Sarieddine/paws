@@ -3,7 +3,7 @@ import { local } from "../../../../../core/helpers/localstorage";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./style.css";
-import { selectPost } from "../../../../../core/dataSource/localDataSource/post";
+import { resultPosts } from "../../../../../core/dataSource/localDataSource/post";
 function LostReport() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -36,14 +36,13 @@ function LostReport() {
         headers: headers,
       });
       const data = await response.json();
-       // setRegion("OTHER");
+      // setRegion("OTHER");
       // setFile(null);
       // setDescription("");
-      if (data.message === "match found") {
-        dispatch(selectPost(data.result));
-        navigate("/lost-found-searching")
-      }
-     
+
+      dispatch(resultPosts(data.result));
+      navigate("/lost-found-searching");
+
       console.log(data);
       // navigate("/lost-found-searching");
     } catch (err) {

@@ -20,12 +20,19 @@ export const postSlice = createSlice({
         curerntSelected: payload,
       };
     },
+    resultPosts: (state, { payload }) => {
+      return {
+        ...state,
+        resultPosts: payload,
+      };
+    },
     cleanData: (state, action) => {
       return { ...initialState };
     },
   },
 });
 
-export const { loadPosts, cleanData, selectPost } = postSlice.actions;
+export const { loadPosts, cleanData, selectPost, resultPosts } =
+  postSlice.actions;
 
 export default postSlice.reducer;

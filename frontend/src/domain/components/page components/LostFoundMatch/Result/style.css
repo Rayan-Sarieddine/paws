@@ -13,22 +13,30 @@
   color: var(--primary);
   margin-bottom: 3rem;
 }
-.result-comparison {
+.result-pet {
   display: flex;
   align-items: center;
+  max-width: 100%;
   justify-content: center;
   gap: 5rem;
 }
-.result-comparison-1 p {
-  color: var(--primary);
+.result-pet-img {
+  max-width: 30rem;
+}
+.result-pet-info {
+  max-width: 30rem;
+}
+
+.result-pet-info p {
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 1rem;
+  text-transform: uppercase;
 }
-.result-comparison-2 p {
-  color: var(--secondary);
+.result-pet-info span {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
+  text-transform: lowercase;
   margin-top: 1rem;
 }
 .result-actions {
@@ -59,7 +67,7 @@
 .no-modal {
   margin-top: 3rem;
 }
-.result-comparison-2 img,
-.result-comparison-1 img {
+.result-pet-info img,
+.result-pet-1 img {
   max-width: 100%;
 }
