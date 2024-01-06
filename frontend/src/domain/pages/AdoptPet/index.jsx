@@ -8,7 +8,7 @@ function AdoptPet() {
   return (
     <div>
       <Nav />
-      <HeaderImg img_link="adopt-hero.png" />
+
       <PetInfo />
       <Footer />
     </div>

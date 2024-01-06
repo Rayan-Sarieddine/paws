@@ -9,7 +9,6 @@ function ShopItem() {
   return (
     <div>
       <Nav />
-      <HeaderImg img_link="shop-hero.png" />
       <Productinfo />
       <RelatedItems />
       <Footer />
