@@ -96,14 +96,6 @@ function LostReport() {
         </button>
       </form>
       {/* <p className="error">{error}</p> */}
-      <p
-        className="lost-manual-search"
-        onClick={() => {
-          navigate("/lost-found-manual");
-        }}
-      >
-        or Manually search in lost & Found
-      </p>
     </div>
   );
 }
