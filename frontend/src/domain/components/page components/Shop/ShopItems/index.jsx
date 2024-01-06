@@ -57,7 +57,6 @@ function ShopItems() {
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const filterData = () => {};
   useEffect(() => {}, [currentProducts]);
   return (
     <div className="products-show-container">
@@ -151,9 +150,6 @@ function ShopItems() {
           />
           <p>Price to be less than ${price}</p>
         </div>
-        <button className="btn btn-filter" onClick={filterData()}>
-          Filter
-        </button>
       </div>
       <div className="product-pagination-main">
         {currentProducts?.length === 0 ? (
