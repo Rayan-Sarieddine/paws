@@ -26,10 +26,6 @@ app.use((req, res, next) => {
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
-//User Routes
-const userRoutes = require("./routes/user.routes");
-app.use("/user", userRoutes);
-
 //Tracker Routes
 const trackerRoutes = require("./routes/tracker.routes");
 app.use("/tracker", trackerRoutes);
