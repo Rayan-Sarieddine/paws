@@ -13,7 +13,7 @@ const Appointment = sequelize.define("appointment", {
     allowNull: false,
   },
   date: {
-    type: Sequelize.DATE,
+    type: Sequelize.DATEONLY,
     allowNull: false,
   },
   status: {
