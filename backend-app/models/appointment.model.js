@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../configs/db.configs");
 
-const Tracker = sequelize.define("tracker", {
+const Appointment = sequelize.define("tracker", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -12,12 +12,14 @@ const Tracker = sequelize.define("tracker", {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  long: {
-    type: Sequelize.DECIMAL,
+  date: {
+    type: Sequelize.DATE,
+    allowNull: false,
   },
-  lat: {
-    type: Sequelize.DECIMAL,
+  status: {
+    type: Sequelize.ENUM("PENDING", "FINISHED", "CANCELED"),
+    allowNull: false,
   },
 });
 
-module.exports = Tracker;
+module.exports = Appointment;
