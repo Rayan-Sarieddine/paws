@@ -26,7 +26,7 @@ const Pet = sequelize.define("pet", {
   },
   image: {
     type: Sequelize.STRING,
-    allowNull: false,
+    defaultValue: "default_pet_image.png",
   },
 });
 
