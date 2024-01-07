@@ -4,7 +4,7 @@ const {
   editPet,
   deletePet,
   getPetofUser,
-} = require("../controllers/auth.controllers");
+} = require("../controllers/pet.controllers");
 const router = express.Router();
 
 router.post("/", addPet);
