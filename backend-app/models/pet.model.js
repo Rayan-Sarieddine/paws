@@ -8,6 +8,10 @@ const Pet = sequelize.define("pet", {
     allowNull: false,
     primaryKey: true,
   },
+  belongs_to: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   name: {
     type: Sequelize.STRING,
     allowNull: false,
