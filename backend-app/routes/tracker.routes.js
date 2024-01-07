@@ -4,7 +4,7 @@ const {
   setLocation,
   deleteTracker,
   getLocation,
-} = require("../controllers/auth.controllers");
+} = require("../controllers/tracker.controllers");
 const router = express.Router();
 
 router.post("/", addTracker);
