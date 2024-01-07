@@ -23,6 +23,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen(8000, () => {
-  console.log("LIVE");
+const sequelize = require("./configs/db.configs");
+sequelize.sync().then(() => {
+  app.listen(8000, () => {
+    console.log("LIVE");
+  });
 });
