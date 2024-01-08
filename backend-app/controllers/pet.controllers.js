@@ -102,7 +102,19 @@ const editPet = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
-const deletePet = async (req, res) => {};
+const deletePet = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const pet = await Pet.findOne({ where: { id: id } });
+    if (pet === null) {
+      return res.status(404).send({ message: "pet not found" });
+    }
+    await pet.destroy();
+    return res.status(200).send({ message: "pet deleted" });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 const getPetofUser = async (req, res) => {};
 
 module.exports = {

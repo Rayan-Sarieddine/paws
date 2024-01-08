@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.post("/", addPet);
 router.put("/", editPet);
-router.delete("/", deletePet);
+router.post("/delete", deletePet);
 router.get("/", getPetofUser);
 module.exports = router;
