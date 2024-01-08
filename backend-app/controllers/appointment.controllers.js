@@ -57,17 +57,38 @@ const changeAppoitmentStatus = async (req, res) => {
     appointment.status = status;
     await appointment.save();
 
-    return res
-      .status(200)
-      .send({
-        message: "Appointment status updated successfully",
-        appointment,
-      });
+    return res.status(200).send({
+      message: "Appointment status updated successfully",
+      appointment,
+    });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
 };
-const getAppointments = async (req, res) => {};
+const getAppointments = async (req, res) => {
+  const { pet_id } = req.body;
+
+  if (!pet_id) {
+    return res.status(400).send({ message: "Pet id is required." });
+  }
+  try {
+    const pet = await Pet.findOne({ where: { id: pet_id } });
+    if (pet === null) {
+      return res.status(404).send({ message: "pet not found" });
+    }
+    const appointments = await Appointment.findAll({
+      where: { pet_id: pet_id },
+    });
+
+    if (appointments.length === 0) {
+      return res.status(404).send({ message: "No appointments found." });
+    }
+
+    return res.status(200).send(appointments);
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 
 module.exports = {
   addAppointment,

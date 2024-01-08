@@ -7,6 +7,6 @@ const {
 const router = express.Router();
 
 router.post("/", addAppointment);
-router.get("/", getAppointments);
+router.post("/all", getAppointments);
 router.put("/", changeAppoitmentStatus);
 module.exports = router;
