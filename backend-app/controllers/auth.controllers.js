@@ -60,6 +60,14 @@ const register = async (req, res) => {
       (part) => part.charAt(0).toUpperCase() + part.slice(1) //Capitalize name parts
     );
     name = capitalizedNames.join(" ");
+
+    //registration
+    const user = await User.create({
+      email: email,
+      password: password,
+      name: name,
+    });
+    return res.status(200).send({ user, status: "success" });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
