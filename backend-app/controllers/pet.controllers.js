@@ -1,8 +1,10 @@
 const Pet = require("../models/pet.model");
+const User = require("../models/user.model");
 const path = require("path");
 const axios = require("axios");
 const FormData = require("form-data");
 const fs = require("fs");
+const { response } = require("express");
 
 const addPet = async (req, res) => {
   const belongs_to = req.user.id;
@@ -115,7 +117,31 @@ const deletePet = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
-const getPetofUser = async (req, res) => {};
+const getPetofUser = async (req, res) => {
+  const user_id = req.params.id;
+  try {
+    const user = await User.findOne({ where: { id: user_id } });
+    if (user === null) {
+      return res.status(404).send({ message: "user not found" });
+    }
+    const pets = await Pet.findAll({
+      where: { belongs_to: user_id },
+      include: [
+        {
+          model: User,
+          as: "user",
+          attributes: ["name"],
+        },
+      ],
+    });
+    if (pets === null) {
+      return res.status(404).send({ message: "user has no pets" });
+    }
+    return res.status(200).send({ message: "success", pets: pets });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 
 module.exports = {
   addPet,

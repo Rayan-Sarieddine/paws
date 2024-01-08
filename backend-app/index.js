@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const relationships = require("./models/relationships.models");
 const { authMiddleware } = require("./middlewares/auth.middleware");
 //To receive JSON
 app.use(express.json());

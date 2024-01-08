@@ -10,5 +10,5 @@ const router = express.Router();
 router.post("/", addPet);
 router.put("/", editPet);
 router.post("/delete", deletePet);
-router.get("/", getPetofUser);
+router.get("/:id", getPetofUser);
 module.exports = router;
