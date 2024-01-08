@@ -4,7 +4,7 @@ const axios = require("axios");
 const FormData = require("form-data");
 
 const addPet = async (req, res) => {
-  log(req.user);
+  console.log(req.user);
 };
 const editPet = async (req, res) => {};
 const deletePet = async (req, res) => {};
