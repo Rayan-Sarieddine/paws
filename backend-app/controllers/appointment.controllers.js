@@ -35,7 +35,38 @@ const addAppointment = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
-const changeAppoitmentStatus = async (req, res) => {};
+const changeAppoitmentStatus = async (req, res) => {
+  const { appointment_id, status } = req.body;
+
+  if (!appointment_id || !status) {
+    return res
+      .status(400)
+      .send({ message: "Appointment ID and status are required." });
+  }
+
+  if (!["PENDING", "FINISHED", "CANCELED"].includes(status)) {
+    return res.status(400).send({ message: "Invalid status value." });
+  }
+
+  try {
+    const appointment = await Appointment.findByPk(appointment_id);
+    if (!appointment) {
+      return res.status(404).send({ message: "Appointment not found." });
+    }
+
+    appointment.status = status;
+    await appointment.save();
+
+    return res
+      .status(200)
+      .send({
+        message: "Appointment status updated successfully",
+        appointment,
+      });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 const getAppointments = async (req, res) => {};
 
 module.exports = {
