@@ -12,6 +12,10 @@ const Pet = sequelize.define("pet", {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
+  age: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   name: {
     type: Sequelize.STRING,
     allowNull: false,
