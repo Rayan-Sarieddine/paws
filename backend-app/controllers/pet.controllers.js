@@ -129,7 +129,6 @@ const getPetofUser = async (req, res) => {
       include: [
         {
           model: User,
-          as: "user",
           attributes: ["name"],
         },
       ],
