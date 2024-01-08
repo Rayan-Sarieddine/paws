@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+const { authMiddleware } = require("./middlewares/auth.middleware");
 //To receive JSON
 app.use(express.json());
 
@@ -28,15 +28,15 @@ app.use("/auth", authRoutes);
 
 //Tracker Routes
 const trackerRoutes = require("./routes/tracker.routes");
-app.use("/tracker", trackerRoutes);
+app.use("/tracker", authMiddleware, trackerRoutes);
 
 //Pet Routes
 const petRoutes = require("./routes/pet.routes");
-app.use("/pets", petRoutes);
+app.use("/pets", authMiddleware, petRoutes);
 
 //Appointment Routes
 const appointmentRoutes = require("./routes/appointment.routes");
-app.use("/appointment", appointmentRoutes);
+app.use("/appointment", authMiddleware, appointmentRoutes);
 
 const sequelize = require("./configs/db.configs");
 sequelize.sync().then(() => {
