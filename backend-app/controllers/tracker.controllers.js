@@ -16,7 +16,24 @@ const addTracker = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
-const setLocation = async (req, res) => {};
+const setLocation = async (req, res) => {
+  const { tracker_id, long, lat } = req.body;
+  if (!tracker_id || !long || !lat) {
+    return res.status(400).send({ message: "all field are required" });
+  }
+  try {
+    const tracker = await Tracker.findByPk(tracker_id);
+    if (!tracker) {
+      return res.status(404).send({ message: "Tracker not found" });
+    }
+    tracker.long = long;
+    tracker.lat = lat;
+    await tracker.save();
+    return res.status(200).send({ tracker: tracker });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 const deleteTracker = async (req, res) => {};
 const getLocation = async (req, res) => {};
 
