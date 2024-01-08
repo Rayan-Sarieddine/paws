@@ -8,7 +8,7 @@ const {
 const router = express.Router();
 
 router.post("/", addTracker);
-router.delete("/", deleteTracker);
+router.post("/delete", deleteTracker);
 router.get("/", getLocation);
 router.put("/", setLocation);
 module.exports = router;

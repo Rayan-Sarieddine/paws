@@ -34,7 +34,19 @@ const setLocation = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
-const deleteTracker = async (req, res) => {};
+const deleteTracker = async (req, res) => {
+  const { tracker_id } = req.body;
+  try {
+    const tracker = await Tracker.findByPk(tracker_id);
+    if (!tracker) {
+      return res.status(404).send({ message: "Tracker not found" });
+    }
+    await tracker.destroy();
+    return res.status(200).send({ message: "Tracker deleted successfully" });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 const getLocation = async (req, res) => {};
 
 module.exports = {
