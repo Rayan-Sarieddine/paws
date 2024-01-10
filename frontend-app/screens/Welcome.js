@@ -4,8 +4,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import PageContainer from "../components/PageContainer";
 import { COLORS, FONTS, SIZES, images } from "../constants";
+import Button from "../components/Button";
 const screenWidth = Dimensions.get("window").width;
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
@@ -14,7 +15,29 @@ const Welcome = () => {
           <Image source={images.screen2} style={styles.imgHeader} />
           <Image source={images.logo} style={styles.imgLogo} />
           <Text style={[FONTS.h4, styles.textIntro]}>Hey! Welcome</Text>
-          <Text style={FONTS.body4}>To the home of pets!</Text>
+          <Text style={[FONTS.body4, styles.textSlogan]}>
+            To the home of pets!
+          </Text>
+          <Button
+            title="Log in"
+            filled
+            onPress={() => navigation.navigate("Login")}
+            style={{
+              width: SIZES.width - 44,
+              marginBottom: SIZES.padding,
+            }}
+          />
+
+          <Button
+            title="Register"
+            onPress={() => navigation.navigate("Register")}
+            style={{
+              width: SIZES.width - 44,
+              marginBottom: SIZES.padding,
+              backgroundColor: "transparent",
+              borderColor: COLORS.primary,
+            }}
+          />
         </View>
       </PageContainer>
     </SafeAreaView>
@@ -37,13 +60,21 @@ const styles = StyleSheet.create({
     marginBottom: 22,
   },
   imgHeader: {
-    height: 420,
+    height: 320,
     width: screenWidth,
     marginBottom: 22,
   },
   textIntro: {
     marginBottom: 10,
     color: COLORS.black,
+  },
+  textSlogan: {
+    marginBottom: 15,
+    color: COLORS.black,
+  },
+  btn: {
+    width: 300,
+    marginTop: 20,
   },
 });
 export default Welcome;

@@ -31,7 +31,7 @@ const Button = (props) => {
       ) : (
         <Text
           style={{
-            ...FONTS.body2,
+            ...FONTS.body4,
             ...{ color: textColor },
           }}
         >
