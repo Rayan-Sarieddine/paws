@@ -37,7 +37,7 @@ const register = async (req, res) => {
     return res.status(400).send({ message: "all fileds are required" });
   }
   try {
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ where: { email: email } });
     if (existingUser) {
       return res.status(409).send({ message: "email already exists" });
     }

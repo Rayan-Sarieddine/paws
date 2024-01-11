@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import { COLORS, images, FONTS, SIZES } from "../constants";
 import PageContainer from "../components/PageContainer";
 import Button from "../components/Button";
+import { authDataSource } from "../core/dataSource/remoteDataSource/auth";
 
 const Register = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -26,7 +27,7 @@ const Register = ({ navigation }) => {
       setPassworde(value);
     }
   };
-  const registerHandle = () => {
+  const registerHandle = async () => {
     if (name === "" || email === "" || password === "") {
       setError("All field are required");
       return;
@@ -34,6 +35,25 @@ const Register = ({ navigation }) => {
     if (password < 5) {
       setError("Password must be at least 5 characters long");
       return;
+    }
+    const trimmedName = name.trim();
+    const hasValidName = /^\S(.*\s+.*)*\S$/.test(trimmedName); // Name to be having at least one space in middle (first name and last name)
+    if (!hasValidName) {
+      setError("Please enter full name");
+      return;
+    }
+    setIsLoading(true);
+    let data = {
+      name: name,
+      email: email,
+      password: password,
+    };
+    try {
+      const response = await authDataSource.register(data);
+      console.log(response);
+      setIsLoading(false);
+    } catch (err) {
+      setError(err.message || "An error occurred");
     }
   };
   useEffect(() => {

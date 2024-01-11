@@ -28,5 +28,4 @@ export const authDataSource = {
 
     return response;
   },
- 
 };

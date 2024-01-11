@@ -1,5 +1,5 @@
 import axios from "axios";
-import { local } from "./localstorage";
+import { local } from "../helpers/localstorage";
 
 axios.defaults.baseURL = "http://localhost:8000";
 
