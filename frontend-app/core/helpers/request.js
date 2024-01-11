@@ -4,11 +4,10 @@ import { local } from "../helpers/localstorage";
 axios.defaults.baseURL = "http://192.168.0.104:8000";
 
 export const sendRequest = async ({ route, method = "GET", body }) => {
-  const type = await local("type");
   const token = await local("token");
 
   const headers = {
-    Authorization: `${type} ${token}`,
+    Authorization: `${token}`,
   };
 
   // so that if the  body is an instance of FormData, don't set the Content-Type header
