@@ -1,7 +1,7 @@
 import axios from "axios";
 import { local } from "../helpers/localstorage";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "http://192.168.0.104:8000";
 
 export const sendRequest = async ({ route, method = "GET", body }) => {
   const type = await local("type");

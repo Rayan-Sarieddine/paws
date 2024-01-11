@@ -17,6 +17,7 @@ const Register = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassworde] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const handleInputChange = (name, value) => {
     if (name === "name") {
@@ -32,7 +33,7 @@ const Register = ({ navigation }) => {
       setError("All field are required");
       return;
     }
-    if (password < 5) {
+    if (password.length < 5) {
       setError("Password must be at least 5 characters long");
       return;
     }
@@ -50,22 +51,35 @@ const Register = ({ navigation }) => {
     };
     try {
       const response = await authDataSource.register(data);
-      console.log(response);
-      setIsLoading(false);
+
+      if (response.status === "success") {
+        setName("");
+        setEmail("");
+        setPassworde("");
+        setIsLoading(false);
+        setMessage("Success");
+        setTimeout(() => {
+          navigation.navigate("Login");
+        }, 3000);
+      }
     } catch (err) {
-      setError(err.message || "An error occurred");
+      setIsLoading(false);
+
+      setError(err.response.data.message || "An error occurred");
     }
   };
   useEffect(() => {
     setTimeout(() => {
       setError("");
+      setMessage("");
     }, 3000);
-  }, [error]);
+  }, [error, message]);
   return (
     <SafeAreaView style={styles.register}>
       <PageContainer>
         <View style={styles.registerMain}>
           <Image source={images.logo} style={styles.registerLogo} />
+          {message && <Text style={styles.message}>{message}</Text>}
           <Text style={[FONTS.body4, styles.welcome]}>Welcome!</Text>
           <TextInput
             placeholder="Enter your full name"
@@ -103,7 +117,7 @@ const Register = ({ navigation }) => {
             <Text style={styles.alreadyText}>Already have an account?</Text>
             <Text
               style={styles.loginCta}
-              onPress={() => navigation.navigate("Logon")}
+              onPress={() => navigation.navigate("Login")}
             >
               Login
             </Text>
@@ -152,6 +166,11 @@ const styles = StyleSheet.create({
   },
   error: {
     color: COLORS.red,
+    fontSize: 10,
+    marginTop: 10,
+  },
+  message: {
+    color: COLORS.green,
     fontSize: 10,
     marginTop: 10,
   },
