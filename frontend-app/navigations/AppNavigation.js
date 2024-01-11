@@ -1,5 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Welcome, Login, Register, Home } from "../screens";
+import {
+  Welcome,
+  Login,
+  Register,
+  Home,
+  Profile,
+  Chat,
+  Tracker,
+} from "../screens";
 import { NavigationContainer } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
@@ -32,6 +40,27 @@ const AppNavigation = () => {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={Chat}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Tracker"
+          component={Tracker}
           options={{
             headerShown: false,
           }}
