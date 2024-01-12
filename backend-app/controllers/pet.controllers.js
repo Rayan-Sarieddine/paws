@@ -133,9 +133,9 @@ const getPetofUser = async (req, res) => {
         },
       ],
     });
-    if (pets === null) {
-      return res.status(404).send({ message: "user has no pets" });
-    }
+    // if (pets.length === 0) {
+    //   return res.status(404).send({ message: "user has no pets" });
+    // }
     return res.status(200).send({ message: "success", pets: pets });
   } catch (error) {
     return res.status(500).send({ message: error.message });

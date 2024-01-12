@@ -7,7 +7,7 @@ export const sendRequest = async ({ route, method = "GET", body }) => {
   const token = await local("token");
 
   const headers = {
-    Authorization: `${token}`,
+    Authorization: `Bearer ${token}`,
   };
 
   // so that if the  body is an instance of FormData, don't set the Content-Type header
