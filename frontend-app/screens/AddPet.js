@@ -5,26 +5,32 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import PageContainer from "../components/PageContainer";
 import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
+import * as ImagePicker from "expo-image-picker";
+
 const AddPet = () => {
   const navigation = useNavigation();
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
   const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [type, setType] = useState("");
-  const [lastdate, setLastDate] = useState("");
   const [image, setimage] = useState("");
   const [tracker, setTracker] = useState("");
+
   const [isLoading, setisLoading] = useState(false);
+
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [date, setDate] = useState("");
+
   const handleInputChange = (name, value) => {
     if (name === "name") {
       setName(value);
-    } else if (name === "age") {
-      setAge(value);
+    } else if (name === "date_of_birth") {
+      setDateOfBirth(value);
     } else if (name === "type") {
       setType(value);
+    } else if (name === "tracker") {
+      setTracker(value);
     }
   };
   const addHandle = async () => {
@@ -39,30 +45,32 @@ const AddPet = () => {
         <View style={styles.addPetMain}>
           <Image source={images.logo} style={styles.addPetLogo} />
           {message && <Text style={styles.message}>{message}</Text>}
-          <Text style={[FONTS.body4, styles.welcome]}>Add Your Pet</Text>
+          <Text style={[FONTS.body4, styles.welcome]}>Add Pet's Info</Text>
           <TextInput
-            placeholder="Enter pet's name:"
+            placeholder="Name:"
             style={styles.input}
             value={name}
             onChangeText={(value) => handleInputChange("name", value)}
           ></TextInput>
-
           <TextInput
-            placeholder="Enter pet's age:"
+            placeholder="Birthday(YYYY-MM-DD):"
             style={styles.input}
-            value={age.toString()}
-            onChangeText={(value) =>
-              handleInputChange("age", parseInt(value, 10))
-            }
-            keyboardType="numeric"
+            value={dateOfBirth}
+            onChangeText={(value) => handleInputChange("date_of_birth", value)}
           ></TextInput>
 
           <TextInput
-            secureTextEntry={true}
-            placeholder="Enter pet's species:"
+            placeholder="Species:"
             style={styles.input}
             value={type}
             onChangeText={(value) => handleInputChange("type", value)}
+          ></TextInput>
+          <TextInput
+            placeholder="Tracker #:"
+            style={styles.input}
+            value={tracker}
+            onChangeText={(value) => handleInputChange("tracker", value)}
+            keyboardType="numeric"
           ></TextInput>
           <Button
             title="Add Pet"
@@ -119,6 +127,9 @@ const styles = StyleSheet.create({
     color: COLORS.green,
     fontSize: 10,
     marginTop: 10,
+  },
+  datePicker: {
+    width: 300,
   },
 });
 
