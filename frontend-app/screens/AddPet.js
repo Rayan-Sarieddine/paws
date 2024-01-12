@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image, TextInput } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { COLORS, FONTS, SIZES, images } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PageContainer from "../components/PageContainer";
@@ -19,8 +19,6 @@ const AddPet = () => {
   const [tracker, setTracker] = useState("");
 
   const [isLoading, setisLoading] = useState(false);
-
-  const [showDatePicker, setShowDatePicker] = useState(false);
 
   const handleInputChange = (name, value) => {
     if (name === "name") {
@@ -44,6 +42,19 @@ const AddPet = () => {
       setError("All field are required");
       return;
     }
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+    if (!dateRegex.test(dateOfBirth)) {
+      setError("Invalid date format. Please use YYYY-MM-DD.");
+      return;
+    }
+    const dOB = new Date(dateOfBirth);
+    const currentDate = new Date();
+
+    if (dOB > currentDate) {
+      setError("Date cannot be in the future");
+      return;
+    }
   };
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -55,6 +66,12 @@ const AddPet = () => {
       setImage(result.assets[0].uri);
     }
   };
+  useEffect(() => {
+    setTimeout(() => {
+      setError("");
+      setMessage("");
+    }, 3000);
+  }, [error, message]);
   return (
     <SafeAreaView style={styles.addPet}>
       <PageContainer>
@@ -79,6 +96,7 @@ const AddPet = () => {
             style={styles.input}
             value={dateOfBirth}
             onChangeText={(value) => handleInputChange("date_of_birth", value)}
+            keyboardType="numeric"
           ></TextInput>
 
           <TextInput
