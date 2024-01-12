@@ -12,8 +12,11 @@ import PageContainer from "../components/PageContainer";
 import Button from "../components/Button";
 import { authDataSource } from "../core/dataSource/remoteDataSource/auth";
 import { local } from "../core/helpers/localstorage";
+import { useDispatch } from "react-redux";
+import { loggedIn } from "../core/dataSource/localDataSource/user";
 
 const Login = ({ navigation }) => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassworde] = useState("");
   const [error, setError] = useState("");
@@ -42,6 +45,14 @@ const Login = ({ navigation }) => {
 
       if (response.status === "success") {
         local("token", response.token);
+        dispatch(
+          loggedIn({
+            email: response.user.email,
+            user_id: response.user.id,
+            name: response.user.name,
+            token: response.token,
+          })
+        );
         setEmail("");
         setPassworde("");
         setIsLoading(false);
