@@ -13,9 +13,9 @@ const AddPet = () => {
   const [error, setError] = useState("");
 
   const [name, setName] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState(new Date());
+  const [dateOfBirth, setDateOfBirth] = useState("");
   const [type, setType] = useState("");
-  const [image, setimage] = useState("");
+  const [image, setImage] = useState("");
   const [tracker, setTracker] = useState("");
 
   const [isLoading, setisLoading] = useState(false);
@@ -34,9 +34,25 @@ const AddPet = () => {
     }
   };
   const addHandle = async () => {
-    if (email === "" || password === "") {
+    if (
+      name === "" ||
+      dateOfBirth === "" ||
+      type === "" ||
+      image === "" ||
+      tracker === ""
+    ) {
       setError("All field are required");
       return;
+    }
+  };
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 1,
+    });
+
+    if (!result.canceled && result.assets) {
+      setImage(result.assets[0].uri);
     }
   };
   return (
@@ -46,6 +62,12 @@ const AddPet = () => {
           <Image source={images.logo} style={styles.addPetLogo} />
           {message && <Text style={styles.message}>{message}</Text>}
           <Text style={[FONTS.body4, styles.welcome]}>Add Pet's Info</Text>
+          <Button
+            title="Add image"
+            onPress={pickImage}
+            style={styles.imageBtn}
+          />
+          {image && <Text style={styles.imageAdded}>Image added</Text>}
           <TextInput
             placeholder="Name:"
             style={styles.input}
@@ -130,6 +152,14 @@ const styles = StyleSheet.create({
   },
   datePicker: {
     width: 300,
+  },
+  imageBtn: {
+    marginVertical: 10,
+  },
+  imageAdded: {
+    color: COLORS.green,
+    fontSize: 8,
+    textTransform: "uppercase",
   },
 });
 
