@@ -12,8 +12,11 @@ const Home = () => {
     try {
       const response = await petDataSource.getPet(user.user_id);
       console.log("====================================");
-      console.log(response, "fh");
-      console.log("====================================");
+      if (response.pets.length === 0) {
+        console.log("User has no pets");
+      } else {
+        console.log(response, "fh");
+      }
     } catch (err) {
       console.log(err);
     }

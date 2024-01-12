@@ -7,8 +7,10 @@ import {
   Profile,
   Chat,
   Tracker,
+  AddPet
 } from "../screens";
 import { NavigationContainer } from "@react-navigation/native";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +63,13 @@ const AppNavigation = () => {
         <Stack.Screen
           name="Tracker"
           component={Tracker}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="AddPet"
+          component={AddPet}
           options={{
             headerShown: false,
           }}
