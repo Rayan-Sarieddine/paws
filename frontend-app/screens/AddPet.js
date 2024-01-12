@@ -16,6 +16,8 @@ const AddPet = () => {
   const [image, setimage] = useState("");
   const [tracker, setTracker] = useState("");
   const [isLoading, setisLoading] = useState(false);
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [date, setDate] = useState("");
   const handleInputChange = (name, value) => {
     if (name === "name") {
       setName(value);

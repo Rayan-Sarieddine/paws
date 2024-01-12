@@ -8,13 +8,25 @@ const { response } = require("express");
 
 const addPet = async (req, res) => {
   const belongs_to = req.user.id;
-  let { name, type, age } = req.body;
-  if (!name || !type || !age || !req.files || !req.files.image) {
+  let { name, type, date_of_birth } = req.body;
+  if (!name || !type || !date_of_birth || !req.files || !req.files.image) {
     console.log(req.body);
     return res.status(400).send({ message: "all fields are required" });
   }
-  if (age < 0 || age > 50) {
-    return res.status(400).send({ message: "age is not valid" });
+  const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+  if (!dateRegex.test(date_of_birth)) {
+    return res
+      .status(400)
+      .send({ message: "Invalid date format. Please use YYYY-MM-DD." });
+  }
+  const dOB = new Date(date);
+  const currentDate = new Date();
+
+  if (dOB > currentDate) {
+    return res
+      .status(400)
+      .send({ message: "Date of birth cannot be in the future" });
   }
   // Validate image
   if (Array.isArray(req.files.image)) {
@@ -49,7 +61,7 @@ const addPet = async (req, res) => {
     // Create a new pet with the breed
     const pet = await Pet.create({
       belongs_to: belongs_to,
-      age: age,
+      date_of_birth: date_of_birth,
       name: name,
       type: type,
       breed: breed,
@@ -61,7 +73,7 @@ const addPet = async (req, res) => {
   }
 };
 const editPet = async (req, res) => {
-  const { name, age, image, id } = req.body;
+  const { name, date_of_birth, image, id } = req.body;
   if (!id) {
     return res.status(404).send({ message: "id field required" });
   }
@@ -74,11 +86,23 @@ const editPet = async (req, res) => {
     if (name) {
       updatedValues.name = name;
     }
-    if (age) {
-      if (age > 50 || age < 0) {
-        return res.status(400).send({ message: "age is not valid" });
+    if (date_of_birth) {
+      const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+      if (!dateRegex.test(date_of_birth)) {
+        return res
+          .status(400)
+          .send({ message: "Invalid date format. Please use YYYY-MM-DD." });
       }
-      updatedValues.age = age;
+      const dOB = new Date(date);
+      const currentDate = new Date();
+
+      if (dOB > currentDate) {
+        return res
+          .status(400)
+          .send({ message: "Date of birth cannot be in the future" });
+      }
+      updatedValues.date_of_birth = date_of_birth;
     }
     if (req.files && req.files.image) {
       if (Array.isArray(req.files.image)) {
