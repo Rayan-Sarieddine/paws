@@ -1,21 +1,23 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useEffect } from "react";
 import Nav from "../components/Nav";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { petDataSource } from "../core/dataSource/remoteDataSource/pet";
-
+import { useNavigation } from "@react-navigation/native";
+import { loadPet } from "../core/dataSource/localDataSource/pet";
 const Home = () => {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
   const user = useSelector((state) => {
     return state.User;
   });
   const getUserPet = async () => {
     try {
       const response = await petDataSource.getPet(user.user_id);
-      console.log("====================================");
       if (response.pets.length === 0) {
-        console.log("User has no pets");
+        navigation.navigate("AddPet");
       } else {
-        console.log(response, "fh");
+        dispatch(loadPet(response.pets[0]));
       }
     } catch (err) {
       console.log(err);

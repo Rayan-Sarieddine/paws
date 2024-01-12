@@ -8,7 +8,7 @@ export const petSlice = createSlice({
   name: petSliceName,
   initialState,
   reducers: {
-    loadPets: (state, { payload }) => {
+    loadPet: (state, { payload }) => {
       return {
         ...state,
         pets: payload,
@@ -20,6 +20,6 @@ export const petSlice = createSlice({
   },
 });
 
-export const { loadPets, cleanData } = petSlice.actions;
+export const { loadPet, cleanData } = petSlice.actions;
 
 export default petSlice.reducer;
