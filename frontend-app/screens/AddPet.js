@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import * as ImagePicker from "expo-image-picker";
 import { trackerDataSource } from "../core/dataSource/remoteDataSource/tracker";
 import { petDataSource } from "../core/dataSource/remoteDataSource/pet";
+import { local } from "../core/helpers/localstorage";
 
 const AddPet = () => {
   const navigation = useNavigation();
@@ -21,7 +22,9 @@ const AddPet = () => {
   const [tracker, setTracker] = useState("");
 
   const [isLoading, setisLoading] = useState(false);
-
+  let localUri;
+  let filename;
+  let typeImg;
   const handleInputChange = (name, value) => {
     if (name === "name") {
       setName(value);
@@ -67,11 +70,38 @@ const AddPet = () => {
           name: name,
           image: image,
           type: type,
+          date_of_birth: dateOfBirth,
         };
-        const response = await petDataSourceDataSource.getTracker(data);
+        const token = await local("token");
+        const headers = {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        };
+
+        const formData = new FormData();
+
+        formData.append("image", {
+          uri: localUri,
+          name: filename,
+          type: typeImg,
+        });
+        formData.append("date_of_birth", dateOfBirth);
+        formData.append("type", type);
+        formData.append("name", name);
+
+        const response = await fetch("http://192.168.0.104:8000/pets/", {
+          method: "POST",
+          body: formData,
+          headers: { ...headers },
+        });
       }
     } catch (err) {
-      setError(err.response.data.message);
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else {
+        console.error(err);
+        setError("An error occurred while adding the pet.");
+      }
     }
   };
   const pickImage = async () => {
@@ -80,9 +110,15 @@ const AddPet = () => {
       quality: 1,
     });
 
-    if (!result.canceled && result.assets) {
-      setImage(result.assets[0].uri);
+    if (result.canceled || !result.assets) {
+      setError("Image selection was cancelled or no image was selected.");
+      return;
     }
+    setImage("w");
+    localUri = result.assets[0].uri;
+    filename = localUri.split("/").pop();
+    let match = /\.(\w+)$/.exec(filename);
+    typeImg = match ? `image/${match[1]}` : `image`;
   };
   useEffect(() => {
     setTimeout(() => {
