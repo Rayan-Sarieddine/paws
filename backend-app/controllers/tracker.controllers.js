@@ -58,7 +58,10 @@ const getLocation = async (req, res) => {
     }
     return res
       .status(200)
-      .send({ location: { long: tracker.long, lat: tracker.lat } });
+      .send({
+        message: "success",
+        location: { long: tracker.long, lat: tracker.lat },
+      });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }

@@ -20,7 +20,7 @@ const addPet = async (req, res) => {
       .status(400)
       .send({ message: "Invalid date format. Please use YYYY-MM-DD." });
   }
-  const dOB = new Date(date);
+  const dOB = new Date(date_of_birth);
   const currentDate = new Date();
 
   if (dOB > currentDate) {

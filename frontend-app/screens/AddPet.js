@@ -6,6 +6,8 @@ import PageContainer from "../components/PageContainer";
 import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import * as ImagePicker from "expo-image-picker";
+import { trackerDataSource } from "../core/dataSource/remoteDataSource/tracker";
+import { petDataSource } from "../core/dataSource/remoteDataSource/pet";
 
 const AddPet = () => {
   const navigation = useNavigation();
@@ -54,6 +56,22 @@ const AddPet = () => {
     if (dOB > currentDate) {
       setError("Date cannot be in the future");
       return;
+    }
+    try {
+      let data = {
+        tracker_id: tracker,
+      };
+      const response = await trackerDataSource.getTracker(data);
+      if (response.message === "success") {
+        let data = {
+          name: name,
+          image: image,
+          type: type,
+        };
+        const response = await petDataSourceDataSource.getTracker(data);
+      }
+    } catch (err) {
+      setError(err.response.data.message);
     }
   };
   const pickImage = async () => {
@@ -106,7 +124,7 @@ const AddPet = () => {
             onChangeText={(value) => handleInputChange("type", value)}
           ></TextInput>
           <TextInput
-            placeholder="Tracker #:"
+            placeholder="Tracker nb:"
             style={styles.input}
             value={tracker}
             onChangeText={(value) => handleInputChange("tracker", value)}
