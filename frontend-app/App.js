@@ -5,6 +5,9 @@ import { useCallback } from "react";
 import { FONTS } from "./constants/fonts";
 import AppNavigation from "./navigations/AppNavigation";
 
+import { Provider } from "react-redux";
+import { store } from "./core/dataSource/localDataSource/store";
+
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -21,8 +24,10 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider onLayout={onLayoutRootView}>
-      <AppNavigation />
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider onLayout={onLayoutRootView}>
+        <AppNavigation />
+      </SafeAreaProvider>
+    </Provider>
   );
 }
