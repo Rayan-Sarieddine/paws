@@ -2,16 +2,31 @@ const Tracker = require("../models/tracker.model");
 const Pet = require("../models/pet.model");
 
 const addTracker = async (req, res) => {
-  const { pet_id } = req.body;
+  const { secret } = req.body;
+  try {
+    const tracker = await Tracker.create({
+      secret: secret,
+    });
+    return res.status(200).send({ tracker: tracker });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
+const addPetToTracker = async (req, res) => {
+  const { pet_id, tracker_id } = req.body;
   try {
     const pet = await Pet.findOne({ where: { id: pet_id } });
     if (pet === null) {
       return res.status(404).send({ message: "pet not found" });
     }
-    const tracker = await Tracker.create({
-      pet_id: pet_id,
-    });
-    return res.status(200).send({ tracker: tracker });
+    const tracker = await Tracker.findOne({ where: { id: tracker_id } });
+    if (tracker === null) {
+      return res.status(404).send({ message: "tracker not found" });
+    }
+    const updatetracker = await Tracker.findByPk(tracker_id);
+    updatetracker.pet_id = pet_id;
+    await tracker.save();
+    return res.status(200).send({ tracker: updatetracker });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
@@ -56,12 +71,10 @@ const getLocation = async (req, res) => {
     if (!tracker) {
       return res.status(404).send({ message: "Tracker not found" });
     }
-    return res
-      .status(200)
-      .send({
-        message: "success",
-        location: { long: tracker.long, lat: tracker.lat },
-      });
+    return res.status(200).send({
+      message: "success",
+      location: { long: tracker.long, lat: tracker.lat },
+    });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
@@ -72,4 +85,5 @@ module.exports = {
   setLocation,
   deleteTracker,
   getLocation,
+  addPetToTracker,
 };

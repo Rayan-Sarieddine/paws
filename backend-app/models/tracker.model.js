@@ -10,6 +10,9 @@ const Tracker = sequelize.define("tracker", {
   },
   pet_id: {
     type: Sequelize.INTEGER,
+  },
+  secret: {
+    type: Sequelize.STRING,
     allowNull: false,
   },
   long: {
