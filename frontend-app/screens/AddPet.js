@@ -64,7 +64,7 @@ const AddPet = () => {
     }
     try {
       let data = {
-        tracker_id: tracker,
+        secret: tracker,
       };
       const response = await trackerDataSource.getTracker(data);
       if (response.message === "success") {
@@ -169,7 +169,7 @@ const AddPet = () => {
             onChangeText={(value) => handleInputChange("type", value)}
           ></TextInput>
           <TextInput
-            placeholder="Tracker nb:"
+            placeholder="Tracker Code:"
             style={styles.input}
             value={tracker}
             onChangeText={(value) => handleInputChange("tracker", value)}
