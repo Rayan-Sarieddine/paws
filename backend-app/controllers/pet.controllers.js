@@ -9,9 +9,6 @@ const { response } = require("express");
 const addPet = async (req, res) => {
   const belongs_to = req.user.id;
   let { name, type, date_of_birth } = req.body;
-  console.log("====================================");
-  console.log(req.files);
-  console.log("====================================");
   if (!name || !type || !date_of_birth || !req.files || !req.files.image) {
     console.log(req.body);
     return res.status(400).send({ message: "all fields are required" });

@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React, { useEffect } from "react";
 import Nav from "../components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { petDataSource } from "../core/dataSource/remoteDataSource/pet";
 import { useNavigation } from "@react-navigation/native";
 import { loadPet } from "../core/dataSource/localDataSource/pet";
+import Button from "../components/Button";
+import { images } from "../constants";
 const Home = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -26,7 +28,41 @@ const Home = () => {
   useEffect(() => {}, [getUserPet()]);
   return (
     <View style={styles.home}>
-      <Text>Home</Text>
+      <View style={styles.cards}>
+        <View style={styles.card}>
+          <Image source={images.pet} style={styles.cardImg} />
+          <Button
+            title="View Pet"
+            onPress={() => {
+              navigation.navigate("Profile");
+            }}
+            filled
+            style={styles.cardBtn}
+          />
+        </View>
+        <View style={styles.card}>
+          <Image source={images.track} style={styles.cardImg} />
+          <Button
+            title="Track Pet"
+            onPress={() => {
+              navigation.navigate("Tracker");
+            }}
+            filled
+            style={styles.cardBtn}
+          />
+        </View>
+        <View style={styles.card}>
+          <Image source={images.doctor} style={styles.cardImg} />
+          <Button
+            title="AI Doctor"
+            onPress={() => {
+              navigation.navigate("Chat");
+            }}
+            filled
+            style={styles.cardBtn}
+          />
+        </View>
+      </View>
       <Nav />
     </View>
   );
@@ -34,6 +70,31 @@ const Home = () => {
 const styles = StyleSheet.create({
   home: {
     flex: 1,
+  },
+  cards: {},
+  card: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 20,
+    padding: 20,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  cardImg: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
   },
 });
 export default Home;

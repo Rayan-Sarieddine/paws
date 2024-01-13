@@ -7,10 +7,9 @@ import {
   Profile,
   Chat,
   Tracker,
-  AddPet
+  AddPet,
 } from "../screens";
 import { NavigationContainer } from "@react-navigation/native";
-
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +42,7 @@ const AppNavigation = () => {
           name="Home"
           component={Home}
           options={{
-            headerShown: false,
+            headerShown: true,
           }}
         />
         <Stack.Screen
