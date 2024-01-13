@@ -8,7 +8,8 @@ import requests
 
 app = Flask(__name__)
 
-model = tf.keras.Sequential([hub.KerasLayer("https://tfhub.dev/google/imagenet/resnet_v2_50/classification/4", trainable=False)])
+model = tf.keras.Sequential([
+    hub.KerasLayer("https://tfhub.dev/google/imagenet/resnet_v2_50/classification/4", trainable=False)])
 model.build([None, 224, 224, 3])
 
 # for labels

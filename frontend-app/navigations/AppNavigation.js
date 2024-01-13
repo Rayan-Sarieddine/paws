@@ -56,7 +56,7 @@ const AppNavigation = () => {
           name="Profile"
           component={Profile}
           options={{
-            headerShown: false,
+            headerShown: true,
           }}
         />
         <Stack.Screen

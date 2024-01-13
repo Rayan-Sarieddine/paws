@@ -9,8 +9,11 @@ import * as ImagePicker from "expo-image-picker";
 import { trackerDataSource } from "../core/dataSource/remoteDataSource/tracker";
 import { petDataSource } from "../core/dataSource/remoteDataSource/pet";
 import { local } from "../core/helpers/localstorage";
+import { useDispatch } from "react-redux";
+import { loadPet } from "../core/dataSource/localDataSource/pet";
 
 const AddPet = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -18,13 +21,12 @@ const AddPet = () => {
   const [name, setName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [type, setType] = useState("");
-  const [image, setImage] = useState("");
   const [tracker, setTracker] = useState("");
 
   const [isLoading, setisLoading] = useState(false);
-  let localUri;
-  let filename;
-  let typeImg;
+  const [localUri, setLocalUri] = useState("");
+  const [filename, setFilename] = useState("");
+  const [typeImg, setTypeImg] = useState("");
   const handleInputChange = (name, value) => {
     if (name === "name") {
       setName(value);
@@ -41,7 +43,7 @@ const AddPet = () => {
       name === "" ||
       dateOfBirth === "" ||
       type === "" ||
-      image === "" ||
+      localUri === "" ||
       tracker === ""
     ) {
       setError("All field are required");
@@ -66,16 +68,9 @@ const AddPet = () => {
       };
       const response = await trackerDataSource.getTracker(data);
       if (response.message === "success") {
-        let data = {
-          name: name,
-          image: image,
-          type: type,
-          date_of_birth: dateOfBirth,
-        };
         const token = await local("token");
         const headers = {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
         };
 
         const formData = new FormData();
@@ -94,6 +89,21 @@ const AddPet = () => {
           body: formData,
           headers: { ...headers },
         });
+        const responseData = await response.json();
+        if (responseData.status === "success") {
+          setName("");
+          setDateOfBirth("");
+          setType("");
+          setTracker("");
+          setLocalUri("");
+          setFilename("");
+          setTypeImg("");
+          // dispatch(loadPet(response.pet));
+          setMessage("Success");
+          setTimeout(() => {
+            navigation.navigate("Home");
+          }, 2000);
+        }
       }
     } catch (err) {
       if (err.response && err.response.data && err.response.data.message) {
@@ -114,11 +124,10 @@ const AddPet = () => {
       setError("Image selection was cancelled or no image was selected.");
       return;
     }
-    setImage("w");
-    localUri = result.assets[0].uri;
-    filename = localUri.split("/").pop();
-    let match = /\.(\w+)$/.exec(filename);
-    typeImg = match ? `image/${match[1]}` : `image`;
+    setLocalUri(result.assets[0].uri);
+    setFilename(result.assets[0].uri.split("/").pop());
+    let match = /\.(\w+)$/.exec(result.assets[0].uri);
+    setTypeImg(match ? `image/${match[1]}` : `image`);
   };
   useEffect(() => {
     setTimeout(() => {
@@ -138,7 +147,7 @@ const AddPet = () => {
             onPress={pickImage}
             style={styles.imageBtn}
           />
-          {image && <Text style={styles.imageAdded}>Image added</Text>}
+          {localUri && <Text style={styles.imageAdded}>Image added</Text>}
           <TextInput
             placeholder="Name:"
             style={styles.input}
