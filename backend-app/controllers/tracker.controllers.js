@@ -32,12 +32,14 @@ const addPetToTracker = async (req, res) => {
   }
 };
 const setLocation = async (req, res) => {
-  const { tracker_id, long, lat } = req.body;
-  if (!tracker_id || !long || !lat) {
+  const { secret, long, lat } = req.body;
+  if (!secret || !long || !lat) {
     return res.status(400).send({ message: "all field are required" });
   }
   try {
-    const tracker = await Tracker.findByPk(tracker_id);
+    const tracker = await Tracker.findOne({
+      where: { secret: secret },
+    });
     if (!tracker) {
       return res.status(404).send({ message: "Tracker not found" });
     }

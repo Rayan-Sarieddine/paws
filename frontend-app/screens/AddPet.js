@@ -11,6 +11,7 @@ import { petDataSource } from "../core/dataSource/remoteDataSource/pet";
 import { local } from "../core/helpers/localstorage";
 import { useDispatch } from "react-redux";
 import { loadPet } from "../core/dataSource/localDataSource/pet";
+import { loadTracker } from "../core/dataSource/localDataSource/tracker";
 
 const AddPet = () => {
   const dispatch = useDispatch();
@@ -96,6 +97,7 @@ const AddPet = () => {
             pet_id: responseData.pet.id,
             secret: tracker,
           });
+          dispatch(loadTracker({ secret: secret }));
           setName("");
           setDateOfBirth("");
           setType("");
@@ -103,7 +105,6 @@ const AddPet = () => {
           setLocalUri("");
           setFilename("");
           setTypeImg("");
-          // dispatch(loadPet(response.pet));
           setMessage("Success");
           setTimeout(() => {
             navigation.navigate("Home");
