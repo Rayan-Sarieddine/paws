@@ -14,6 +14,7 @@ const Tracker = sequelize.define("tracker", {
   secret: {
     type: Sequelize.STRING,
     allowNull: false,
+    unique: true,
   },
   long: {
     type: Sequelize.DECIMAL(10, 7),

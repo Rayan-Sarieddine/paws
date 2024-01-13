@@ -4,6 +4,12 @@ const Pet = require("../models/pet.model");
 const addTracker = async (req, res) => {
   const { secret } = req.body;
   try {
+    const existingTracker = await Tracker.findOne({
+      where: { secret: secret },
+    });
+    if (existingTracker) {
+      return res.status(409).send({ message: "tracker secret already exists" });
+    }
     const tracker = await Tracker.create({
       secret: secret,
     });
