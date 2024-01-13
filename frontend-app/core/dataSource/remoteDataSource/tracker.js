@@ -10,4 +10,13 @@ export const trackerDataSource = {
 
     return response;
   },
+  setTrackerPet: async (secret) => {
+    const response = await sendRequest({
+      body: secret,
+      route: "/tracker/pet",
+      method: "POST",
+    });
+
+    return response;
+  },
 };
