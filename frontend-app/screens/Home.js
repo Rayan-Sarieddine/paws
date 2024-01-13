@@ -25,7 +25,13 @@ const Home = () => {
       console.log(err);
     }
   };
-  useEffect(() => {}, [getUserPet()]);
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      getUserPet();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
   return (
     <View style={styles.home}>
       <View style={styles.cards}>

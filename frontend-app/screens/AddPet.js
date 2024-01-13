@@ -97,7 +97,7 @@ const AddPet = () => {
             pet_id: responseData.pet.id,
             secret: tracker,
           });
-          dispatch(loadTracker({ secret: secret }));
+          dispatch(loadTracker({ secret: tracker }));
           setName("");
           setDateOfBirth("");
           setType("");
