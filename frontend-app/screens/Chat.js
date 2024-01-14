@@ -12,6 +12,10 @@ import { FontAwesome } from "@expo/vector-icons";
 
 const Chat = () => {
   const [inputMessage, setInputMessage] = useState("");
+  const [outputMessage, setOutputMessage] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+
+  const [messages, setMessages] = useState([]);
   const handleInputText = (text) => {
     setInputMessage(text);
   };
