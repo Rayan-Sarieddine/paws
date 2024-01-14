@@ -6,6 +6,7 @@ import * as Location from "expo-location";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "../constants";
 import { useSelector } from "react-redux";
+import { trackerDataSource } from "../core/dataSource/remoteDataSource/tracker";
 
 const Tracker = () => {
   const navigation = useNavigation();
@@ -15,7 +16,7 @@ const Tracker = () => {
   const pet = useSelector((state) => {
     return state.Pet;
   });
-  console.log("here", user, pet);
+  console.log("here", pet);
   const [userLong, setuserLong] = useState(0);
   const [userLat, setuserLat] = useState(0);
   async function getLocationPermission() {
@@ -23,6 +24,13 @@ const Tracker = () => {
     if (status !== "granted") {
       navigation.navigate("Home");
       return;
+    }
+  }
+  async function getPetLocation() {
+    try {
+      const response = await trackerDataSource.getTracker();
+    } catch (err) {
+      console.log(err);
     }
   }
   async function getUserLocation() {
@@ -57,7 +65,7 @@ const Tracker = () => {
           pinColor={COLORS.primary}
         >
           <Callout style={styles.callout}>
-            <Text>Your Location</Text>
+            <Text>{user.name}</Text>
           </Callout>
         </Marker>
       </MapView>

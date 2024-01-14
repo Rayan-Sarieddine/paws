@@ -82,6 +82,24 @@ const getLocation = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+const getLocationById = async (req, res) => {
+  const { tracker_id } = req.body;
+  try {
+    const tracker = await Tracker.findByPk({
+      tracker_id,
+      attributes: ["long", "lat"],
+    });
+    if (!tracker) {
+      return res.status(404).send({ message: "Tracker not found" });
+    }
+    return res.status(200).send({
+      message: "success",
+      location: { long: tracker.long, lat: tracker.lat },
+    });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
 
 module.exports = {
   addTracker,
@@ -89,4 +107,5 @@ module.exports = {
   deleteTracker,
   getLocation,
   addPetToTracker,
+  getLocationById,
 };
