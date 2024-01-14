@@ -25,20 +25,10 @@ const Chat = () => {
             onChangeText={handleInputText}
             placeholder="Enter your question"
             placeholderTextColor={"#333"}
-            style={{
-              flex: 1,
-              paddingHorizontal: 10,
-            }}
+            style={styles.chatInput}
           />
 
-          <TouchableOpacity
-            onPress={submitHandler}
-            style={{
-              padding: 6,
-              borderRadius: 8,
-              marginHorizontal: 12,
-            }}
-          >
+          <TouchableOpacity onPress={submitHandler} style={styles.chatSendBtn}>
             <FontAwesome name="send-o" color={COLORS.primary} size={24} />
           </TouchableOpacity>
         </View>
@@ -68,6 +58,15 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderColor: "#333",
     borderWidth: 0.2,
+  },
+  chatInput: {
+    flex: 1,
+    paddingHorizontal: 10,
+  },
+  chatSendBtn: {
+    padding: 6,
+    borderRadius: 8,
+    marginHorizontal: 12,
   },
 });
 export default Chat;
