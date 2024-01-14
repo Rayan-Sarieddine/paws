@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, TextInput, Image } from "react-native";
+import { View, TouchableOpacity, TextInput, Image, Text } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, SIZES, images } from "../constants";
@@ -7,7 +7,7 @@ import { MaterialIcons, FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Bubble, GiftedChat } from "react-native-gifted-chat";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
+import { OPENAI_API_KEY } from "@env";
 const Chat = ({ navigation }) => {
   const user = useSelector((state) => {
     return state.User;
@@ -110,8 +110,7 @@ const Chat = ({ navigation }) => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "Bearer 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",
+            Authorization: `Bearer ${OPENAI_API_KEY}`,
           },
         }
       )
@@ -161,7 +160,7 @@ const Chat = ({ navigation }) => {
           top: 20,
           right: 0,
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "flex-start",
           flexDirection: "row",
           paddingHorizontal: 22,
           width: SIZES.width,
@@ -179,6 +178,16 @@ const Chat = ({ navigation }) => {
         >
           <MaterialIcons name="keyboard-arrow-left" size={30} color="#333" />
         </TouchableOpacity>
+        <Image
+          source={images.doctor}
+          style={{
+            height: 40,
+            width: 40,
+            borderRadius: 20,
+            marginLeft: 8,
+          }}
+        />
+        <Text style={{ marginLeft: 10 }}>AI Doctor</Text>
       </View>
 
       <View style={{ flex: 1, justifyContent: "center" }}>
