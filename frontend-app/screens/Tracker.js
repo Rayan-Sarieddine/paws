@@ -19,7 +19,6 @@ const Tracker = () => {
   const pet = useSelector((state) => {
     return state.Pet;
   });
-  console.log("here", pet);
   const [userLong, setuserLong] = useState(null);
   const [userLat, setuserLat] = useState(null);
   const [petLong, setpetLong] = useState(null);
@@ -61,7 +60,6 @@ const Tracker = () => {
       let location = await Location.getCurrentPositionAsync({});
       setuserLat(parseFloat(location.coords.latitude));
       setuserLong(parseFloat(location.coords.longitude));
-      console.log(location);
     } catch (error) {
       console.error(error);
     }

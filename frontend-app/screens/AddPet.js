@@ -92,7 +92,6 @@ const AddPet = () => {
         });
         const responseData = await response.json();
         if (responseData.status === "success") {
-          console.log(responseData);
           const response2 = await trackerDataSource.setTrackerPet({
             pet_id: responseData.pet.id,
             secret: tracker,

@@ -8,10 +8,6 @@ const Profile = () => {
   const pet = useSelector((state) => {
     return state.Pet;
   });
-  console.log();
-  console.log("====================================");
-  console.log(pet);
-  console.log("====================================");
   return (
     <View style={styles.profile}>
       <View style={styles.card}>
