@@ -29,8 +29,13 @@ const Tracker = () => {
   async function getPetLocation() {
     try {
       const response = await trackerDataSource.getTrackerById({
-        id: pet.pets.id,
+        pet_id: pet.pets.id,
       });
+      if (response.message === "success") {
+      }
+      console.log("====================================");
+      console.log(response);
+      console.log("===================================");
     } catch (err) {
       console.log(err);
     }
@@ -49,6 +54,7 @@ const Tracker = () => {
   }
   useEffect(() => {
     getUserLocation();
+    getPetLocation();
   }, []);
   return (
     <View style={styles.tracker}>
