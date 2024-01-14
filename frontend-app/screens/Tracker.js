@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
@@ -7,6 +7,8 @@ import { useNavigation } from "@react-navigation/native";
 
 const Tracker = () => {
   const navigation = useNavigation();
+  const [userLong, setuserLong] = useState(0);
+  const [userLat, setuserLat] = useState(0);
   async function getLocationPermission() {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -19,6 +21,8 @@ const Tracker = () => {
       await getLocationPermission();
 
       let location = await Location.getCurrentPositionAsync({});
+      setuserLat(location.coords.latitude);
+      setuserLong(location.coords.longitude);
       console.log(location);
     } catch (error) {
       console.error(error);
