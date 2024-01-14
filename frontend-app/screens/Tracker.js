@@ -28,7 +28,9 @@ const Tracker = () => {
   }
   async function getPetLocation() {
     try {
-      const response = await trackerDataSource.getTracker();
+      const response = await trackerDataSource.getTrackerById({
+        id: pet.pets.id,
+      });
     } catch (err) {
       console.log(err);
     }

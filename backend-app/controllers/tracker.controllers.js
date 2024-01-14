@@ -83,10 +83,10 @@ const getLocation = async (req, res) => {
   }
 };
 const getLocationById = async (req, res) => {
-  const { tracker_id } = req.body;
+  const { pet_id } = req.body;
   try {
-    const tracker = await Tracker.findByPk({
-      tracker_id,
+    const tracker = await Tracker.findOne({
+      where: { pet_id: pet_id },
       attributes: ["long", "lat"],
     });
     if (!tracker) {
