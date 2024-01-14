@@ -89,10 +89,10 @@ const Tracker = () => {
 
     const distanceInMeters = haversine(start, end, { unit: "meter" });
 
-    // If they are close (less than 1 km), show distance in meters, otherwise in kilometers
+    // if they are close (less than 1 km), show distance in meters, else in kilometers
     const distanceStr =
       distanceInMeters < 1000
-        ? `${distanceInMeters.toFixed(2)} meters`
+        ? `${(distanceInMeters * 1000).toFixed(2)} meters`
         : `${(distanceInMeters / 1000).toFixed(2)} km`;
 
     setDistance(distanceStr);
@@ -146,7 +146,13 @@ const Tracker = () => {
           </Marker>
         )}
       </MapView>
-      {distance && <Text>{distance}</Text>}
+      {distance !== "Location data not available" ? (
+        <Text style={styles.distance}>
+          {pet.pets.name} is {distance} away from you
+        </Text>
+      ) : (
+        <text style={styles.distance}>{distance}</text>
+      )}
       <View style={styles.actions}>
         <Button
           title="Refresh"
@@ -183,6 +189,10 @@ const styles = StyleSheet.create({
   },
   refreshBtn: {
     width: 150,
+  },
+  distance: {
+    textAlign: "center",
+    marginTop: 10,
   },
 });
 export default Tracker;
