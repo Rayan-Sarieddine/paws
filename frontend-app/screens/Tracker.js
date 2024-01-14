@@ -92,7 +92,7 @@ const Tracker = () => {
     // if they are close (less than 1 km), show distance in meters, else in kilometers
     const distanceStr =
       distanceInMeters < 1000
-        ? `${(distanceInMeters * 1000).toFixed(2)} meters`
+        ? `${distanceInMeters.toFixed(2)} meters`
         : `${(distanceInMeters / 1000).toFixed(2)} km`;
 
     setDistance(distanceStr);
