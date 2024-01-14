@@ -8,6 +8,7 @@ import { COLORS } from "../constants";
 import { useSelector } from "react-redux";
 import { trackerDataSource } from "../core/dataSource/remoteDataSource/tracker";
 import Button from "../components/Button";
+import haversine from "haversine";
 
 const Tracker = () => {
   const navigation = useNavigation();
@@ -23,6 +24,7 @@ const Tracker = () => {
   const [userLat, setuserLat] = useState(null);
   const [petLong, setpetLong] = useState(null);
   const [petLat, setpetLat] = useState(null);
+  const [distance, setDistance] = useState(null);
   async function getLocationPermission() {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -64,11 +66,52 @@ const Tracker = () => {
       console.error(error);
     }
   }
-  function getDistance() {}
+  function getDistance() {
+    const start = {
+      latitude: userLat,
+      longitude: userLong,
+    };
+
+    const end = {
+      latitude: petLat,
+      longitude: petLong,
+    };
+
+    if (
+      !start.latitude ||
+      !start.longitude ||
+      !end.latitude ||
+      !end.longitude
+    ) {
+      setDistance("Location data not available");
+      return;
+    }
+
+    const distanceInMeters = haversine(start, end, { unit: "meter" });
+
+    // If they are close (less than 1 km), show distance in meters, otherwise in kilometers
+    const distanceStr =
+      distanceInMeters < 1000
+        ? `${distanceInMeters.toFixed(2)} meters`
+        : `${(distanceInMeters / 1000).toFixed(2)} km`;
+
+    setDistance(distanceStr);
+  }
+
   useEffect(() => {
     getUserLocation();
     getPetLocation();
   }, []);
+  useEffect(() => {
+    if (
+      userLat !== null &&
+      userLong !== null &&
+      petLat !== null &&
+      petLong !== null
+    ) {
+      getDistance();
+    }
+  }, [userLat, userLong, petLat, petLong]);
   return (
     <View style={styles.tracker}>
       <MapView
@@ -103,6 +146,7 @@ const Tracker = () => {
           </Marker>
         )}
       </MapView>
+      {distance && <Text>{distance}</Text>}
       <View style={styles.actions}>
         <Button
           title="Refresh"
@@ -111,9 +155,11 @@ const Tracker = () => {
           onPress={() => {
             getUserLocation();
             getPetLocation();
+            getDistance();
           }}
         />
       </View>
+
       <Nav />
     </View>
   );
@@ -124,7 +170,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height / 1.3,
+    height: Dimensions.get("window").height / 1.5,
   },
   callout: {
     backgroundColor: "white",
