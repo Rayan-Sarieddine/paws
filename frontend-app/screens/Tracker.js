@@ -2,8 +2,16 @@ import { View, Text, StyleSheet, Dimensions } from "react-native";
 import React from "react";
 import Nav from "../components/Nav";
 import MapView from "react-native-maps";
+import * as Location from "expo-location";
 
 const Tracker = () => {
+  async function getLocationPermission() {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
+      console.error("Permission to access location was denied");
+      return;
+    }
+  }
   return (
     <View style={styles.tracker}>
       <MapView
@@ -26,7 +34,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    height: Dimensions.get("window").height / 1.3,
   },
 });
 export default Tracker;
