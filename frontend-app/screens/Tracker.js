@@ -7,9 +7,11 @@ import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "../constants";
 import { useSelector } from "react-redux";
 import { trackerDataSource } from "../core/dataSource/remoteDataSource/tracker";
+import Button from "../components/Button";
 
 const Tracker = () => {
   const navigation = useNavigation();
+  const mapRef = React.useRef(null);
   const user = useSelector((state) => {
     return state.User;
   });
@@ -17,8 +19,10 @@ const Tracker = () => {
     return state.Pet;
   });
   console.log("here", pet);
-  const [userLong, setuserLong] = useState(0);
-  const [userLat, setuserLat] = useState(0);
+  const [userLong, setuserLong] = useState(null);
+  const [userLat, setuserLat] = useState(null);
+  const [petLong, setpetLong] = useState(null);
+  const [petLat, setpetLat] = useState(null);
   async function getLocationPermission() {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -32,10 +36,18 @@ const Tracker = () => {
         pet_id: pet.pets.id,
       });
       if (response.message === "success") {
+        setpetLat(parseFloat(response.location.lat));
+        setpetLong(parseFloat(response.location.long));
+        mapRef.current?.animateToRegion(
+          {
+            latitude: petLat,
+            longitude: petLong,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          },
+          1000
+        );
       }
-      console.log("====================================");
-      console.log(response);
-      console.log("===================================");
     } catch (err) {
       console.log(err);
     }
@@ -45,13 +57,14 @@ const Tracker = () => {
       await getLocationPermission();
 
       let location = await Location.getCurrentPositionAsync({});
-      setuserLat(location.coords.latitude);
-      setuserLong(location.coords.longitude);
+      setuserLat(parseFloat(location.coords.latitude));
+      setuserLong(parseFloat(location.coords.longitude));
       console.log(location);
     } catch (error) {
       console.error(error);
     }
   }
+  function getDistance() {}
   useEffect(() => {
     getUserLocation();
     getPetLocation();
@@ -59,24 +72,48 @@ const Tracker = () => {
   return (
     <View style={styles.tracker}>
       <MapView
+        ref={mapRef}
         style={styles.map}
         region={{
-          latitude: 33.88863,
-          longitude: 35.49548,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitude: 33.8938,
+          longitude: 35.5018,
+          latitudeDelta: 1,
+          longitudeDelta: 1,
         }}
         provider="google"
       >
-        <Marker
-          coordinate={{ latitude: userLat, longitude: userLong }}
-          pinColor={COLORS.primary}
-        >
-          <Callout style={styles.callout}>
-            <Text>{user.name}</Text>
-          </Callout>
-        </Marker>
+        {userLat && userLong && (
+          <Marker
+            coordinate={{ latitude: userLat, longitude: userLong }}
+            pinColor={COLORS.primary}
+          >
+            <Callout style={styles.callout}>
+              <Text>{user.name}</Text>
+            </Callout>
+          </Marker>
+        )}
+        {petLat && petLong && (
+          <Marker
+            coordinate={{ latitude: petLat, longitude: petLong }}
+            pinColor={COLORS.secondary}
+          >
+            <Callout style={styles.callout}>
+              <Text>{pet.pets.name}</Text>
+            </Callout>
+          </Marker>
+        )}
       </MapView>
+      <View style={styles.actions}>
+        <Button
+          title="Refresh"
+          style={styles.refreshBtn}
+          filled
+          onPress={() => {
+            getUserLocation();
+            getPetLocation();
+          }}
+        />
+      </View>
       <Nav />
     </View>
   );
@@ -92,6 +129,14 @@ const styles = StyleSheet.create({
   callout: {
     backgroundColor: "white",
     borderRadius: 10,
+  },
+  actions: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginVertical: 20,
+  },
+  refreshBtn: {
+    width: 150,
   },
 });
 export default Tracker;
