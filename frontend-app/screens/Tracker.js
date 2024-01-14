@@ -42,8 +42,8 @@ const Tracker = () => {
         setpetLong(parseFloat(response.location.long));
         mapRef.current?.animateToRegion(
           {
-            latitude: petLat,
-            longitude: petLong,
+            latitude: parseFloat(response.location.lat),
+            longitude: parseFloat(response.location.long),
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           },
@@ -151,7 +151,7 @@ const Tracker = () => {
           {pet.pets.name} is {distance} away from you
         </Text>
       ) : (
-        <text style={styles.distance}>{distance}</text>
+        <Text style={styles.distance}>{distance}</Text>
       )}
       <View style={styles.actions}>
         <Button
