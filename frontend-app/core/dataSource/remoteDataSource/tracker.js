@@ -1,10 +1,19 @@
 import { sendRequest } from "../../helpers/request";
 
 export const trackerDataSource = {
-  getTracker: async (trackerID) => {
+  getTracker: async (secret) => {
     const response = await sendRequest({
-      body: trackerID,
+      body: secret,
       route: "/tracker/geo",
+      method: "POST",
+    });
+
+    return response;
+  },
+  getTrackerById: async (id) => {
+    const response = await sendRequest({
+      body: id,
+      route: "/tracker/geoId",
       method: "POST",
     });
 
