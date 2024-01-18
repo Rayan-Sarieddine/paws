@@ -18,6 +18,6 @@ const char *gpsStream =
   int streamIndex = 0;// Index to keep track of the current position in the stream
 
   void setup() {
+Serial.begin(115200);
 
-    
   }
