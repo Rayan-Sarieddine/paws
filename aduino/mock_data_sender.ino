@@ -55,3 +55,5 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
     } else {
         Serial.println(F("INVALID GPS data"));
     }}
+
+    void sendToServer(float lat, float lng) {}
