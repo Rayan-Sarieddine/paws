@@ -1,72 +1,57 @@
 #include <ESP8266WiFi.h>       
-#include <TinyGPSPlus.h>
+#include <TinyGPS++.h>
+#include <SoftwareSerial.h>
 #include <WiFiClient.h>
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
 
-
 const char* ssid     = "Rayan";       
-const char* password = "brazillife2";     
-const char *gpsStream =
- "$GPRMC,045103.000,A,3535.5350,N,3340.2650,E,0.67,161.46,030913,,,A*56\r\n"
-  "$GPRMC,045103.000,A,3535.58084,N,3340.28808,E,0.67,161.46,030913,,,A*5F\r\n"
-  "$GPRMC,045103.000,A,3535.5194,N,3340.28136,E,0.67,161.46,030913,,,A*63\r\n";
+const char* password = "brazillife2";   
 
 TinyGPSPlus gps;
-unsigned long lastTime = 0; // Variable to keep track of the last time an item was processed
-int streamIndex = 0; // Index to keep track of the current position in the stream
+SoftwareSerial ss(D1, D2);
+
+unsigned long lastTime = 0;  // Track the last time data was sent
+unsigned long interval = 15000;  // Interval at which to send data (15 seconds)
+
 void setup() {
   Serial.begin(115200);
-    delay(5000);
-    
+  delay(5000);
+  ss.begin(9600);
 
-    WiFi.begin(ssid, password);
-
-   
-    while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
-        delay(1000);
-     
-    }
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi");
+  Serial.println("GPS Tracker Initialized");
 }
 
 void loop() {
   unsigned long currentTime = millis();
-  if (currentTime - lastTime >= 15000) { // Check if 15 seconds have passed
-    lastTime = currentTime; // Update the last time an item was processed
-    
-    // Process one line from the stream
-    bool isNewLine = true;
-    while (gpsStream[streamIndex] && gpsStream[streamIndex] != '\n') {
-        gps.encode(gpsStream[streamIndex]);
-        streamIndex++;
-        isNewLine = false;
-    }
+  if (currentTime - lastTime >= interval) {
+    while (ss.available() > 0) {
+      char c = ss.read();  // Read a char from the GPS
+      if (gps.encode(c)) {  // Did a new valid sentence come in?
+        if (gps.location.isValid()) {
+          double latitude = gps.location.lat();
+          double longitude = gps.location.lng();
 
-    if (gpsStream[streamIndex] == '\n') { // End of line
-        streamIndex++; // Skip the newline character for the next read
-        isNewLine = true;
-    }
-
-    if (!gpsStream[streamIndex]) {
-        // Reset the index if we've reached the end of the stream
-        streamIndex = 0;
-    }
-
-    if (isNewLine) {
-        displayInfo(); // Display the info after processing a full line
+          Serial.print("Latitude: ");
+          Serial.println(latitude, 6);
+          Serial.print("Longitude: ");
+          Serial.println(longitude, 6);
+          
+          // Send the latitude and longitude to the server
+          sendToServer(latitude, longitude);
+          lastTime = currentTime;  // Update the last time data was sent
+        } else {
+          Serial.println("Waiting for valid GPS signal...");
+        }
+      }
     }
   }
-}
-
-
-void displayInfo() {
-    if (gps.location.isValid()) {
-        float latitude = gps.location.lat();
-        float longitude = gps.location.lng();
-        sendToServer(latitude, longitude);
-    } else {
-        Serial.println(F("INVALID GPS data"));
-    }
 }
 
 void sendToServer(float lat, float lng) {
@@ -80,7 +65,6 @@ void sendToServer(float lat, float lng) {
     jsonDoc["long"] = lng;
     String requestBody;
     serializeJson(jsonDoc, requestBody);
-
 
     http.begin(client, "http://192.168.0.104:8000/tracker/");  
     http.addHeader("Content-Type", "application/json");
