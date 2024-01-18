@@ -21,4 +21,8 @@ const char *gpsStream =
 Serial.begin(115200);
 delay(5000);
 WiFi.begin(ssid, password);
+while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
+        delay(1000);
+     
+    }
   }
