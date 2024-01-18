@@ -31,4 +31,11 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
  if (currentTime - lastTime >= 15000) {
    lastTime = currentTime; // Update the last time an item was processed
   }// Check if 15 seconds have passed
+  // Process one line from the stream
+    bool isNewLine = true;
+    while (gpsStream[streamIndex] && gpsStream[streamIndex] != '\n') {
+        gps.encode(gpsStream[streamIndex]);
+        streamIndex++;
+        isNewLine = false;
+    }
   }
