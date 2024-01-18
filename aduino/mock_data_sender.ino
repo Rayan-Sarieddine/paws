@@ -28,5 +28,5 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
   }
   void loop() {
  unsigned long currentTime = millis();
-
+ if (currentTime - lastTime >= 15000) { }// Check if 15 seconds have passed
   }
