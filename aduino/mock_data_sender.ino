@@ -57,5 +57,8 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
     }}
 
     void sendToServer(float lat, float lng) {
-      if(WiFi.status() == WL_CONNECTED) {}
+      if(WiFi.status() == WL_CONNECTED) {
+        WiFiClient client;
+    HTTPClient http;
+      }
     }
