@@ -15,3 +15,4 @@ const char *gpsStream =
   TinyGPSPlus gps;
 
   unsigned long lastTime = 0;
+  int streamIndex = 0;
