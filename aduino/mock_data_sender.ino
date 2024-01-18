@@ -13,3 +13,5 @@ const char *gpsStream =
   "$GPRMC,045103.000,A,3535.5194,N,3340.28136,E,0.67,161.46,030913,,,A*63\r\n";
 
   TinyGPSPlus gps;
+
+  unsigned long lastTime = 0;
