@@ -14,5 +14,5 @@ const char *gpsStream =
 
   TinyGPSPlus gps;
 
-  unsigned long lastTime = 0;
-  int streamIndex = 0;
+  unsigned long lastTime = 0; // Variable to keep track of the last time an item was processed
+  int streamIndex = 0;// Index to keep track of the current position in the stream
