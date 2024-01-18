@@ -75,5 +75,9 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
       Serial.println(httpResponseCode);
       Serial.println(response);
     }
+    else {
+      Serial.print("Error on sending POST: ");
+      Serial.println(httpResponseCode);
+    }
       }
     }
