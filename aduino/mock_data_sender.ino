@@ -19,5 +19,5 @@ const char *gpsStream =
 
   void setup() {
 Serial.begin(115200);
-
+delay(5000);
   }
