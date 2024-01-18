@@ -60,5 +60,11 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
       if(WiFi.status() == WL_CONNECTED) {
         WiFiClient client;
     HTTPClient http;
+    StaticJsonDocument<200> jsonDoc;
+    jsonDoc["secret"] = "123";
+    jsonDoc["lat"] = lat;
+    jsonDoc["long"] = lng;
+    String requestBody;
+    serializeJson(jsonDoc, requestBody);
       }
     }
