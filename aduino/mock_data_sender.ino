@@ -46,3 +46,12 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
         displayInfo(); // Display the info after processing a full line
     }
   }
+
+  void displayInfo() {
+    if (gps.location.isValid()) {
+        float latitude = gps.location.lat();
+        float longitude = gps.location.lng();
+        sendToServer(latitude, longitude);
+    } else {
+        Serial.println(F("INVALID GPS data"));
+    }}
