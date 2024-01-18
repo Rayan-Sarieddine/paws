@@ -42,4 +42,7 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
         streamIndex++; // Skip the newline character for the next read
         isNewLine = true;
     }
+    if (isNewLine) {
+        displayInfo(); // Display the info after processing a full line
+    }
   }
