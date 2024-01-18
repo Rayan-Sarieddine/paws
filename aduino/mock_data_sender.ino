@@ -26,3 +26,4 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
      
     }
   }
+  void loop() {}
