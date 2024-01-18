@@ -68,5 +68,6 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
     serializeJson(jsonDoc, requestBody);
    
     http.begin(client, "http://192.168.0.104:8000/tracker/");  
+     http.addHeader("Content-Type", "application/json");
       }
     }
