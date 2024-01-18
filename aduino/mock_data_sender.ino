@@ -16,3 +16,8 @@ const char *gpsStream =
 
   unsigned long lastTime = 0; // Variable to keep track of the last time an item was processed
   int streamIndex = 0;// Index to keep track of the current position in the stream
+
+  void setup() {
+
+    
+  }
