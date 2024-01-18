@@ -38,4 +38,8 @@ while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
         streamIndex++;
         isNewLine = false;
     }
+     if (gpsStream[streamIndex] == '\n') { // End of line
+        streamIndex++; // Skip the newline character for the next read
+        isNewLine = true;
+    }
   }
