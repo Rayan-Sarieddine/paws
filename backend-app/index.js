@@ -1,4 +1,6 @@
 const express = require("express");
+const http = require("http");
+const socketIo = require("socket.io");
 const app = express();
 const relationships = require("./models/relationships.models");
 const { authMiddleware } = require("./middlewares/auth.middleware");
@@ -29,7 +31,7 @@ app.use("/auth", authRoutes);
 
 //Tracker Routes
 const trackerRoutes = require("./routes/tracker.routes");
-app.use("/tracker", authMiddleware, trackerRoutes);
+app.use("/tracker", trackerRoutes);
 
 //Pet Routes
 const petRoutes = require("./routes/pet.routes");
@@ -40,7 +42,7 @@ const appointmentRoutes = require("./routes/appointment.routes");
 app.use("/appointment", authMiddleware, appointmentRoutes);
 
 const sequelize = require("./configs/db.configs");
-sequelize.sync().then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(8000, () => {
     console.log("LIVE");
   });
