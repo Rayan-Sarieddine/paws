@@ -118,7 +118,7 @@ const LogIn = () => {
       <div className="signin">
         <div className="content">
           <img src="./favicon.png" alt="logo" />
-          <h2 className="log-cart-title">log in</h2>
+          <h2 className="log-cart-title">Log In</h2>
 
           <div className="sign-up-part">
             <p>New Member?</p>
@@ -135,7 +135,7 @@ const LogIn = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <i>email</i>
+              <i>Email</i>
             </div>
             <div className="inputBox">
               <input

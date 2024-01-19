@@ -131,7 +131,7 @@
 .signin .content .form .inputBox input:focus ~ i,
 .signin .content .form .inputBox input:valid ~ i {
   transform: translateY(-7.5px);
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #fff;
 }
 .forgot-password_link {

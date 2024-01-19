@@ -93,7 +93,6 @@
 .login-section .signin .content h2 {
   font-size: 2.5rem;
   color: #1a96e3;
-  text-transform: uppercase;
 }
 .login-section .signin .content .form {
   width: 100%;
@@ -126,12 +125,12 @@
   color: #aaa;
   transition: 0.5s;
   pointer-events: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 .signin .content .form .inputBox input:focus ~ i,
 .signin .content .form .inputBox input:valid ~ i {
   transform: translateY(-7.5px);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #fff;
 }
 .forgot-password_link {
