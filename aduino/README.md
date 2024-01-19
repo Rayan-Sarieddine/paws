@@ -51,3 +51,6 @@ V. Code explanation:
 6-Error Handling and Status Updates:
 .The system continuously monitors the status of the Wi-Fi connection and GPS signal.
 .Any issues or errors encountered during the Wi-Fi connection process or data transmission are logged to the serial console, allowing for real-time troubleshooting and ensuring the reliability of the tracker.
+
+VI. Results:
+The result of this experiment was a successful integration of hardware components and software logic, which resulted in the effective transmission of valid GPS data (latitude and longitude) to the Node.js server API. Upon receiving the coordinates, the server performed its intended function by updating the "trackers" database table with the received location data. This seamless interaction between the ESP8266, the GPS module, and the backend server ensures that the pet's location is accurately tracked and continuously updated. Consequently, this real-time location data is readily available for representation and monitoring through the mobile application's map, providing pet owners with a reliable and up-to-date tracking solution to ensure their pet's safety and well-being.
