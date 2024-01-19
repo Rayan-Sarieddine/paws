@@ -71,7 +71,7 @@ function AdoptPet() {
           ([petType, count]) => (
             <div className="pet-type-card" key={petType}>
               <p className="adopt-pet-footer_value">{`${count}`}</p>
-              <p>{`${petType}s`}</p>
+              <p>{`${petType}`}</p>
             </div>
           )
         )}

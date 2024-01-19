@@ -57,7 +57,6 @@
 .adopt-pet-main-right {
   display: flex;
   width: 70%;
-
   justify-content: center;
   align-items: center;
 }
@@ -70,12 +69,12 @@
 
 .adopt-pet-main-right_content {
   background-color: var(--primary);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   height: 100%;
   color: #fff;
   text-align: left;
   padding: 20px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
 }
 
 .adopt-pet-main-right_content p {
@@ -118,5 +117,5 @@
   color: white;
 }
 .adopt-pet-footer_value {
-  color: var(--secondary);
+  color: #fff;
 }

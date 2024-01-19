@@ -87,7 +87,7 @@ function SignUp() {
             <div className="content">
               <img src="./favicon.png" alt="logo" />
 
-              <h2>sign up</h2>
+              <h2>Sign Up</h2>
 
               <div className="sign-up-part">
                 <p>Already have an account?</p>
@@ -112,7 +112,7 @@ function SignUp() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <i>email</i>
+                  <i>Email</i>
                 </div>
                 <div className="sign-up_password">
                   <div className="inputBox">
