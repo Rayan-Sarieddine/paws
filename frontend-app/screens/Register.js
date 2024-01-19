@@ -80,7 +80,7 @@ const Register = ({ navigation }) => {
         <View style={styles.registerMain}>
           <Image source={images.logo} style={styles.registerLogo} />
           {message && <Text style={styles.message}>{message}</Text>}
-          <Text style={[FONTS.body4, styles.welcome]}>Welcome!</Text>
+
           <TextInput
             placeholder="Enter your full name"
             style={styles.input}
@@ -97,7 +97,7 @@ const Register = ({ navigation }) => {
 
           <TextInput
             secureTextEntry={true}
-            placeholder="Enter your Password"
+            placeholder="Enter your password"
             style={styles.input}
             value={password}
             onChangeText={(value) => handleInputChange("password", value)}
