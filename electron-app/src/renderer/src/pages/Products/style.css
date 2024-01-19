@@ -1,6 +1,6 @@
 .products {
   display: flex;
-  margin-left: 25rem;
+  margin-left: 15rem;
 }
 .products-show-container {
   display: flex;
@@ -75,7 +75,7 @@
 
 .product-details p {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .btn-adopt {

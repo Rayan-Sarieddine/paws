@@ -3,6 +3,7 @@ import "./style.css";
 import { useNavigate } from "react-router";
 import { cleanData } from "../../../core/dataSource/localDataSource/user";
 import { useDispatch } from "react-redux";
+
 function Nav() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
