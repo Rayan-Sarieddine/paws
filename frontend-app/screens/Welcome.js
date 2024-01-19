@@ -13,7 +13,7 @@ const Welcome = ({ navigation }) => {
       <PageContainer>
         <View style={styles.main}>
           <Image source={images.screen2} style={styles.imgHeader} />
-          <Text style={[FONTS.h4, styles.textIntro]}>Hey! Welcome</Text>
+          <Text style={[FONTS.h4, styles.textIntro]}>Welcome</Text>
           <Text style={[FONTS.body4, styles.textSlogan]}>
             To the home of pets!
           </Text>
