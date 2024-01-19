@@ -42,7 +42,7 @@ const appointmentRoutes = require("./routes/appointment.routes");
 app.use("/appointment", authMiddleware, appointmentRoutes);
 
 const sequelize = require("./configs/db.configs");
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync().then(() => {
   app.listen(8000, () => {
     console.log("LIVE");
   });

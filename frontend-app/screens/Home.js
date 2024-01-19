@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
   },
   cards: {},
   card: {
+    marginHorizontal: 40,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
