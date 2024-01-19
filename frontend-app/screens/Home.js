@@ -77,9 +77,9 @@ const styles = StyleSheet.create({
   home: {
     flex: 1,
   },
-  cards: {},
+  cards: { marginTop: 20 },
   card: {
-    marginHorizontal: 40,
+    marginHorizontal: 30,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
