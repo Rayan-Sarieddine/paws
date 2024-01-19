@@ -186,7 +186,7 @@ const AddPet = () => {
             isLoading={isLoading}
             filled
             style={{
-              width: SIZES.width - 44,
+              width: 300,
               marginBottom: SIZES.padding,
               marginVertical: 8,
             }}
