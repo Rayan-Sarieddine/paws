@@ -42,8 +42,7 @@
 }
 
 .pet-pagination-card {
-  min-width: 25rem;
-  max-width: 25rem;
+  max-width: 30rem;
   border-radius: 8px;
 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -54,6 +53,7 @@
 
 .pet-pagination-card img {
   width: 100%;
+  padding: 1rem;
   height: auto;
 }
 
