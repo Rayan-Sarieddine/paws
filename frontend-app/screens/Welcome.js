@@ -13,7 +13,6 @@ const Welcome = ({ navigation }) => {
       <PageContainer>
         <View style={styles.main}>
           <Image source={images.screen2} style={styles.imgHeader} />
-          <Image source={images.logo} style={styles.imgLogo} />
           <Text style={[FONTS.h4, styles.textIntro]}>Hey! Welcome</Text>
           <Text style={[FONTS.body4, styles.textSlogan]}>
             To the home of pets!
@@ -54,15 +53,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
   },
-  imgLogo: {
-    height: 120,
-    width: 120,
-    marginBottom: 22,
-  },
+
   imgHeader: {
     height: 320,
     width: screenWidth,
-    marginBottom: 22,
+    marginBottom: 100,
   },
   textIntro: {
     marginBottom: 10,
