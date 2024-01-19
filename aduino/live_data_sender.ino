@@ -9,18 +9,18 @@ const char* ssid     = "Rayan";
 const char* password = "brazillife2";   
 
 TinyGPSPlus gps; // Create a GPS object
-SoftwareSerial ss(D1, D2); //define the serial pins of the esp8266
+SoftwareSerial ss(D1, D2); // Define the serial pins of the ESP8266
 
 unsigned long lastTime = 0;  // Track the last time data was sent
 unsigned long interval = 15000;  // Interval at which to send data (15 seconds)
 
 void setup() {
-  Serial.begin(115200);// Setting the serial baud to match the esp8266 baud rate
-  delay(5000);// to give the esp8266 processing time
-  ss.begin(9600);  // Set baud rate for gps module
+  Serial.begin(115200);  // Setting the serial baud to match the 8266 baud rate
+  delay(5000);  // To give the ESP8266 processing time
+  ss.begin(9600);  // Set baud rate for GPS module
 
   WiFi.begin(ssid, password);  // Connect to Wi-Fi network
-  while (WiFi.status() != WL_CONNECTED) { // wait for the Wi-Fi to connect
+  while (WiFi.status() != WL_CONNECTED) {  // Wait for the WiFi to connect
     delay(1000);
     Serial.println("Connecting to WiFi...");
   }
