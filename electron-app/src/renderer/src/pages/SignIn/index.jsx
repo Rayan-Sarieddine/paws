@@ -90,7 +90,7 @@ const LogIn = () => {
         <div className="content">
           <img src="./src/assets/images/favicon.png" alt="logo" />
 
-          <h2 className="log-cart-title">log in</h2>
+          <h2 className="log-cart-title">Log In</h2>
 
           <form className="form" onSubmit={handleSubmit}>
             <div className="inputBox">
@@ -100,7 +100,7 @@ const LogIn = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <i>email</i>
+              <i>Email</i>
             </div>
             <div className="inputBox">
               <input
