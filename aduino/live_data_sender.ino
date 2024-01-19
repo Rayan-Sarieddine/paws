@@ -5,8 +5,8 @@
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid     = "Rayan";       
-const char* password = "brazillife2";   
+const char* ssid     = "wifiName";       
+const char* password = "wifiPass";   
 
 TinyGPSPlus gps; // Create a GPS object
 SoftwareSerial ss(D1, D2); // Define the serial pins of the ESP8266
@@ -20,7 +20,7 @@ void setup() {
   ss.begin(9600);  // Set baud rate for GPS module
 
   WiFi.begin(ssid, password);  // Connect to Wi-Fi network
-  while (WiFi.status() != WL_CONNECTED) {  // Wait for the WiFi to connect
+  while (WiFi.status() != WL_CONNECTED) {  // Wait for the Wifi to connect
     delay(1000);
     Serial.println("Connecting to WiFi...");
   }
@@ -66,7 +66,7 @@ void sendToServer(float lat, float lng) {
     String requestBody;
     serializeJson(jsonDoc, requestBody);
 
-    http.begin(client, "http://192.168.0.104:8000/tracker/");  
+    http.begin(client, "api_url");  
     http.addHeader("Content-Type", "application/json");
     int httpResponseCode = http.PUT(requestBody);
 

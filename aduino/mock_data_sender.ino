@@ -5,8 +5,8 @@
 #include <ArduinoJson.h>
 
 
-const char* ssid     = "Rayan";       
-const char* password = "brazillife2";     
+const char* ssid     = "wifiName";       
+const char* password = "wifiPass";     
 const char *gpsStream =
  "$GPRMC,045103.000,A,3535.5350,N,3340.2650,E,0.67,161.46,030913,,,A*56\r\n"
   "$GPRMC,045103.000,A,3535.58084,N,3340.28808,E,0.67,161.46,030913,,,A*5F\r\n"
@@ -23,7 +23,7 @@ void setup() {
     WiFi.begin(ssid, password);
 
    
-    while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
+    while (WiFi.status() != WL_CONNECTED) { // Wait for the Wifi to connect
         delay(1000);
      
     }
@@ -82,7 +82,7 @@ void sendToServer(float lat, float lng) {
     serializeJson(jsonDoc, requestBody);
 
 
-    http.begin(client, "http://192.168.0.104:8000/tracker/");  
+     http.begin(client, "api_url");  
     http.addHeader("Content-Type", "application/json");
     int httpResponseCode = http.PUT(requestBody);
 
