@@ -22,7 +22,7 @@ const Nav = () => {
         <View style={styles.navItem}>
           <AntDesign
             name="home"
-            size={24}
+            size={18}
             color="white"
             style={styles.navLogo}
           />
@@ -37,7 +37,7 @@ const Nav = () => {
         <View style={styles.navItem}>
           <Entypo
             name="location"
-            size={24}
+            size={18}
             color="white"
             style={styles.navLogo}
           />
@@ -52,7 +52,7 @@ const Nav = () => {
         <View style={styles.navItem}>
           <Fontisto
             name="hipchat"
-            size={24}
+            size={18}
             color="white"
             style={styles.navLogo}
           />
@@ -67,7 +67,7 @@ const Nav = () => {
         <View style={styles.navItem}>
           <Ionicons
             name="paw-outline"
-            size={24}
+            size={18}
             color="white"
             style={styles.navLogo}
           />
@@ -80,7 +80,7 @@ const Nav = () => {
 const styles = StyleSheet.create({
   nav: {
     width: screenWidth,
-    height: 100,
+    height: 67,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
   },
   navTitle: {
     color: "white",
+    fontSize: 10,
   },
 });
 export default Nav;
