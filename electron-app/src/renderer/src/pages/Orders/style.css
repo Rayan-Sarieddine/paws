@@ -1,5 +1,6 @@
 .orders {
   display: flex;
+  margin-left: 25rem;
 }
 .orders-table {
   width: 100%;

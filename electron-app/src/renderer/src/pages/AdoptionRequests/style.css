@@ -1,5 +1,6 @@
 .get-requests {
   display: flex;
+  margin-left: 25rem;
 }
 .requests-table {
   width: 100%;

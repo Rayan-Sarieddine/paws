@@ -1,5 +1,6 @@
 .edit-pet {
   display: flex;
+  margin-left: 25rem;
 }
 .file-upload-container img {
   max-width: 10rem;

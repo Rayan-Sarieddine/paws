@@ -1,5 +1,6 @@
 .edit-product {
   display: flex;
+  margin-left: 25rem;
 }
 .status-group-category {
   gap: 10rem;

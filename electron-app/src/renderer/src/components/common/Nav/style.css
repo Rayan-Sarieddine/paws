@@ -4,6 +4,9 @@
   max-width: 25rem;
   min-width: 25rem;
   padding-top: 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .list li img {

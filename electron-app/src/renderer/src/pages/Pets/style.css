@@ -1,5 +1,6 @@
 .pets {
   display: flex;
+  margin-left: 25rem;
 }
 .pets-show-container {
   display: flex;

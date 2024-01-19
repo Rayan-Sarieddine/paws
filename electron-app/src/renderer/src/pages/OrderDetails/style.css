@@ -1,5 +1,6 @@
 .order-details {
   display: flex;
+  margin-left: 25rem;
 }
 .order-details-content {
   width: 80%;

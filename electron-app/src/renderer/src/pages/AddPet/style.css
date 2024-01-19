@@ -1,5 +1,6 @@
 .add-pet {
   display: flex;
+  margin-left: 25rem;
 }
 .add-pet-form {
   display: flex;

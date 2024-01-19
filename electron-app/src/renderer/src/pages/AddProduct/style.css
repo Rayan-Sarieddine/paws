@@ -1,5 +1,6 @@
 .add-product {
   display: flex;
+  margin-left: 10rem;
 }
 .add-product-form {
   display: flex;
