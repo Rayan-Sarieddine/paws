@@ -86,7 +86,7 @@ function Dashboard() {
               <p>Products</p>
             </div>
             <div className="dashboard-stat-card">
-              <h4>{productStats?.averagePrice?.toFixed(2)}</h4>
+              <h4>${productStats?.averagePrice?.toFixed(2)}</h4>
               <p>Average product price</p>
             </div>
           </div>
@@ -111,15 +111,15 @@ function Dashboard() {
               <p>Total Orders this Month</p>
             </div>
             <div className="dashboard-stat-card">
-              <h4>{orderStats?.totalRevenueToday?.toFixed(2) || 0}</h4>
+              <h4>${orderStats?.totalRevenueToday?.toFixed(2) || 0}</h4>
               <p>Total Revenue Today</p>
             </div>
             <div className="dashboard-stat-card">
-              <h4>{orderStats?.totalRevenueThisWeek?.toFixed(2) || 0}</h4>
+              <h4>${orderStats?.totalRevenueThisWeek?.toFixed(2) || 0}</h4>
               <p>Total Revenue this Week</p>
             </div>
             <div className="dashboard-stat-card">
-              <h4>{orderStats?.totalRevenueThisMonth || 0}</h4>
+              <h4>${orderStats?.totalRevenueThisMonth || 0}</h4>
               <p>Total Revenue this Month</p>
             </div>
           </div>
