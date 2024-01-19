@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   card: {
+    marginBottom: 50,
     backgroundColor: "#ffffff",
     borderRadius: 20,
     padding: 20,
@@ -59,8 +60,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   profileImg: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
     borderRadius: 75,
     marginBottom: 20,
   },
