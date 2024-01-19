@@ -58,6 +58,7 @@
 .pet-pagination-card img {
   width: 100%;
   height: auto;
+  padding: 1rem;
 }
 
 .pet-details {
