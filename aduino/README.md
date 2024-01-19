@@ -7,3 +7,7 @@ II. Equipment used with role of each:
 -Breadboard: used for prototyping and building circuits on it.
 -Wires: used to set up and configure printed circuit boards.
 -USB Wire: used to power the board and upload the program via a Micro USB port.
+
+III. Procedure:
+
+1-Attach the ESP8266 and the GPS module to the breadboard. Carefully insert the pins of the ESP8266 and the Neo-6M-GPS module into separate rows on the breadboard, ensuring that each pin has a firm and secure connection. This setup allows for an organized and modular approach to building the circuit.
