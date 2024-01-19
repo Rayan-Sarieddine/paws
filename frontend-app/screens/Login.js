@@ -78,7 +78,6 @@ const Login = ({ navigation }) => {
         <View style={styles.loginMain}>
           <Image source={images.logo} style={styles.loginLogo} />
           {message && <Text style={styles.message}>{message}</Text>}
-          <Text style={[FONTS.body4, styles.welcome]}>Welcome!</Text>
 
           <TextInput
             placeholder="Enter your email"
