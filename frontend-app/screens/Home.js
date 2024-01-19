@@ -76,14 +76,15 @@ const Home = () => {
 const styles = StyleSheet.create({
   home: {
     flex: 1,
+    justifyContent: "center",
   },
-  cards: { marginTop: 40 },
+  cards: { marginBottom: 90 },
   card: {
     marginHorizontal: 30,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 20,
+    marginTop: 40,
     padding: 20,
     backgroundColor: "#fff",
     borderRadius: 10,
