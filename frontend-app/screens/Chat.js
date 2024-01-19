@@ -73,7 +73,7 @@ const Chat = ({ navigation }) => {
             }}
             textStyle={{
               left: {
-                color: COLORS.white,
+                color: "#fff",
               },
             }}
           />
@@ -162,7 +162,7 @@ const Chat = ({ navigation }) => {
           alignItems: "center",
           justifyContent: "flex-start",
           flexDirection: "row",
-          paddingHorizontal: 22,
+
           width: SIZES.width,
           zIndex: 9999,
         }}
