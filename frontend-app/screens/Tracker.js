@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   },
   distance: {
     textAlign: "center",
-    marginTop: 10,
+    marginTop: 40,
   },
 });
 export default Tracker;
