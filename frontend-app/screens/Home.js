@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   home: {
     flex: 1,
   },
-  cards: { marginTop: 20 },
+  cards: { marginTop: 40 },
   card: {
     marginHorizontal: 30,
     flexDirection: "row",
