@@ -211,6 +211,8 @@ const styles = StyleSheet.create({
   distance: {
     textAlign: "center",
     marginTop: 40,
+    fontWeight: "700",
+    fontSize: 18,
   },
 });
 export default Tracker;
