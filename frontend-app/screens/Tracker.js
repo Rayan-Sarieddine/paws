@@ -13,17 +13,23 @@ import haversine from "haversine";
 const Tracker = () => {
   const navigation = useNavigation();
   const mapRef = React.useRef(null);
+
+  // Getting user and pet information from redux
   const user = useSelector((state) => {
     return state.User;
   });
   const pet = useSelector((state) => {
     return state.Pet;
   });
+
+  // Map location states
   const [userLong, setuserLong] = useState(null);
   const [userLat, setuserLat] = useState(null);
   const [petLong, setpetLong] = useState(null);
   const [petLat, setpetLat] = useState(null);
   const [distance, setDistance] = useState(null);
+
+  // Function to ask permission to use location services on user's phone
   async function getLocationPermission() {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -31,12 +37,16 @@ const Tracker = () => {
       return;
     }
   }
+
+  // Function to get pet location from DB
   async function getPetLocation() {
     try {
+      // Send request
       const response = await trackerDataSource.getTrackerById({
         pet_id: pet.pets.id,
       });
       if (response.message === "success") {
+        // Set pet location on map and fly to it
         setpetLat(parseFloat(response.location.lat));
         setpetLong(parseFloat(response.location.long));
         mapRef.current?.animateToRegion(
@@ -53,6 +63,8 @@ const Tracker = () => {
       console.log(err);
     }
   }
+
+  // Function to get user's location
   async function getUserLocation() {
     try {
       await getLocationPermission();
@@ -64,6 +76,8 @@ const Tracker = () => {
       console.error(error);
     }
   }
+
+  // Function to calculate the distance between the user and the pet using haversine formula
   function getDistance() {
     const start = {
       latitude: userLat,
@@ -96,10 +110,13 @@ const Tracker = () => {
     setDistance(distanceStr);
   }
 
+  // Get user and pet location on load of the screen
   useEffect(() => {
     getUserLocation();
     getPetLocation();
   }, []);
+
+  // Calculate the distance only if all locations are set (all location states contain values)
   useEffect(() => {
     if (
       userLat !== null &&
@@ -110,6 +127,7 @@ const Tracker = () => {
       getDistance();
     }
   }, [userLat, userLong, petLat, petLong]);
+
   return (
     <View style={styles.tracker}>
       <MapView
@@ -168,6 +186,8 @@ const Tracker = () => {
     </View>
   );
 };
+
+// Styles
 const styles = StyleSheet.create({
   tracker: {
     flex: 1,

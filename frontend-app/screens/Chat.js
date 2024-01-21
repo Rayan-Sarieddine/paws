@@ -9,13 +9,17 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { OPENAI_API_KEY } from "@env";
 const Chat = ({ navigation }) => {
+  // Get user information from redux
   const user = useSelector((state) => {
     return state.User;
   });
+
+  // Chat states
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([]);
 
+  // Function to render the message in a specific style based on if the message was sent or received
   const renderMessage = (props) => {
     const { currentMessage } = props;
 
@@ -82,8 +86,10 @@ const Chat = ({ navigation }) => {
     }
   };
 
+  // Function to get a response from ai based on user message
   const generateText = () => {
     setIsTyping(true);
+    // Set the message parameters for the Bubble component
     const message = {
       _id: Math.random().toString(36).substring(7),
       text: inputMessage,
@@ -95,6 +101,7 @@ const Chat = ({ navigation }) => {
       GiftedChat.append(previousMessage, [message])
     );
 
+    // Send request to open ai
     axios
       .post(
         "https://api.openai.com/v1/chat/completions",
@@ -115,9 +122,11 @@ const Chat = ({ navigation }) => {
         }
       )
       .then((response) => {
+        // Get response
         const content = response.data.choices[0].message.content;
         setInputMessage("");
 
+        // Set response
         const responseMessage = {
           _id: Math.random().toString(36).substring(7),
           text: content.trim(),
@@ -130,6 +139,7 @@ const Chat = ({ navigation }) => {
           GiftedChat.append(previousMessage, [responseMessage])
         );
       })
+      // Error handling
       .catch((error) => {
         console.error("Error fetching data: ", error);
         setIsTyping(false);

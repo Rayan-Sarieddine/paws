@@ -5,7 +5,9 @@ import { StatusBar } from "expo-status-bar";
 import PageContainer from "../components/PageContainer";
 import { COLORS, FONTS, SIZES, images } from "../constants";
 import Button from "../components/Button";
+
 const screenWidth = Dimensions.get("window").width;
+
 const Welcome = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -43,6 +45,7 @@ const Welcome = ({ navigation }) => {
   );
 };
 
+// Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
