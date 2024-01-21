@@ -25,7 +25,7 @@ The project utilizes two distinct code files, each serving a specific purpose in
 
 V. Code explanation:
 1-Initialization and Configuration:
-.Essential libraries for handling GPS data (TinyGPS++), serial communication (SoftwareSerial), wifi capabilities (ESP8266WiFi), HTTP requests .(ESP8266HTTPClient), and JSON formatting (ArduinoJson) are included.
+.Essential libraries for handling GPS data (TinyGPS++), serial communication (SoftwareSerial), wifi capabilities (ESP8266WiFi), HTTP requests (ESP8266HTTPClient), and JSON formatting (ArduinoJson) are included.
 .wifi credentials are set with ssid and password.
 .GPS data is managed using TinyGPSPlus, and a SoftwareSerial object is instantiated for communication with the GPS module through pins D1 and D2.
 .Variables to manage the timing of data sending (lastTime, interval) are initialized.
