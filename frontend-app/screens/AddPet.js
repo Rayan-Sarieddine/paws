@@ -16,18 +16,23 @@ import { loadTracker } from "../core/dataSource/localDataSource/tracker";
 const AddPet = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setisLoading] = useState(false);
 
+  // User data states
   const [name, setName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [type, setType] = useState("");
   const [tracker, setTracker] = useState("");
 
-  const [isLoading, setisLoading] = useState(false);
+  // Img states
   const [localUri, setLocalUri] = useState("");
   const [filename, setFilename] = useState("");
   const [typeImg, setTypeImg] = useState("");
+
+  // Function to handle input change
   const handleInputChange = (name, value) => {
     if (name === "name") {
       setName(value);
@@ -39,7 +44,10 @@ const AddPet = () => {
       setTracker(value);
     }
   };
+
+  // Function to handle submit adding a new pet
   const addHandle = async () => {
+    // Input empty check
     if (
       name === "" ||
       dateOfBirth === "" ||
@@ -50,6 +58,8 @@ const AddPet = () => {
       setError("All field are required");
       return;
     }
+
+    //Date validation
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
     if (!dateRegex.test(dateOfBirth)) {
@@ -64,6 +74,7 @@ const AddPet = () => {
       return;
     }
     try {
+      //Sending Data
       let data = {
         secret: tracker,
       };
@@ -74,6 +85,7 @@ const AddPet = () => {
           Authorization: `Bearer ${token}`,
         };
 
+        // sending image
         const formData = new FormData();
 
         formData.append("image", {
@@ -92,11 +104,13 @@ const AddPet = () => {
         });
         const responseData = await response.json();
         if (responseData.status === "success") {
+          // Setting the tracker of the pet in backend and redux
           const response2 = await trackerDataSource.setTrackerPet({
             pet_id: responseData.pet.id,
             secret: tracker,
           });
           dispatch(loadTracker({ secret: tracker }));
+          // resetting states
           setName("");
           setDateOfBirth("");
           setType("");
@@ -105,11 +119,13 @@ const AddPet = () => {
           setFilename("");
           setTypeImg("");
           setMessage("Success");
+          // Navigation to home screen
           setTimeout(() => {
             navigation.navigate("Home");
           }, 2000);
         }
       }
+      // Error handling
     } catch (err) {
       if (err.response && err.response.data && err.response.data.message) {
         setError(err.response.data.message);
@@ -119,6 +135,8 @@ const AddPet = () => {
       }
     }
   };
+
+  // Function to allow user to choose image of his pet
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -134,12 +152,15 @@ const AddPet = () => {
     let match = /\.(\w+)$/.exec(result.assets[0].uri);
     setTypeImg(match ? `image/${match[1]}` : `image`);
   };
+
+  // Reseting the error amd message states after 3 seconds from setting them
   useEffect(() => {
     setTimeout(() => {
       setError("");
       setMessage("");
     }, 3000);
   }, [error, message]);
+
   return (
     <SafeAreaView style={styles.addPet}>
       <PageContainer>
