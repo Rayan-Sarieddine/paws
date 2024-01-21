@@ -17,11 +17,16 @@ import { loggedIn } from "../core/dataSource/localDataSource/user";
 
 const Login = ({ navigation }) => {
   const dispatch = useDispatch();
+
+  // User input states
   const [email, setEmail] = useState("");
   const [password, setPassworde] = useState("");
+
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  // Function to set the input states
   const handleInputChange = (name, value) => {
     if (name === "email") {
       setEmail(value);
@@ -29,21 +34,25 @@ const Login = ({ navigation }) => {
       setPassworde(value);
     }
   };
+
+  // Function to login the user
   const loginHandle = async () => {
+    // Credentials empty check
     if (email === "" || password === "") {
       setError("All field are required");
       return;
     }
-
     setIsLoading(true);
     let data = {
       email: email,
       password: password,
     };
     try {
+      // Sending request
       const response = await authDataSource.login(data);
 
       if (response.status === "success") {
+        // Updatting the async storage and redux
         local("token", response.token);
         dispatch(
           loggedIn({
@@ -53,25 +62,31 @@ const Login = ({ navigation }) => {
             token: response.token,
           })
         );
+        // Resetting the states
         setEmail("");
         setPassworde("");
         setIsLoading(false);
         setMessage("Success");
+        //Navigation to home screen
         setTimeout(() => {
           navigation.navigate("Home");
         }, 3000);
       }
+      // Error handling
     } catch (err) {
       setIsLoading(false);
       setError(err.response.data.message || "An error occurred");
     }
   };
+
+  // Reseting the error amd message states after 3 seconds from setting them
   useEffect(() => {
     setTimeout(() => {
       setError("");
       setMessage("");
     }, 3000);
   }, [error, message]);
+
   return (
     <SafeAreaView style={styles.login}>
       <PageContainer>
@@ -120,6 +135,7 @@ const Login = ({ navigation }) => {
   );
 };
 
+// Styles
 const styles = StyleSheet.create({
   login: {
     flex: 1,
