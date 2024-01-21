@@ -10,7 +10,6 @@ import AdoptRequest from "./domain/pages/AdoptRequest";
 import Chat from "./domain/pages/Chat";
 import CheckoutSuccess from "./domain/pages/CheckoutSuccess";
 import Error from "./domain/pages/Error";
-import ForgotPassword from "./domain/pages/ForgotPassword";
 import FoundReporting from "./domain/pages/FoundReporting";
 import Home from "./domain/pages/Home";
 import LogIn from "./domain/pages/LogIn";
@@ -31,7 +30,6 @@ import Terms from "./domain/pages/Terms";
 import { Provider } from "react-redux";
 import { store } from "./core/dataSource/localDataSource/store";
 
-
 function App() {
   return (
     <div className="app">
@@ -45,7 +43,6 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout-success" element={<CheckoutSuccess />} />
           <Route path="/error" element={<Error />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/found-reporting" element={<FoundReporting />} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
