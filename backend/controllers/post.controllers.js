@@ -1,11 +1,11 @@
 const Post = require("../models/post.model");
 const path = require("path");
 
-//Function to create a new post for a found or lost pet
 const axios = require("axios");
 const FormData = require("form-data");
 const fs = require("fs");
 
+//Function to create a new post for a found or lost pet
 const addPost = async (req, res) => {
   const added_by = req.user._id;
   let { description, location, type = "FOUND" } = req.body;
@@ -220,7 +220,7 @@ const filterDescription = (description) => {
     .split(" ") // Split by space
     .filter((word) => word.length > 1 && !commonWords.includes(word));
 };
-//Functio to find a lost pet
+//Function to find a lost pet
 const findPets = async (req, res) => {
   const { description, location } = req.body;
 
