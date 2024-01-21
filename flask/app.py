@@ -12,10 +12,7 @@ model = tf.keras.Sequential([
     hub.KerasLayer("https://www.kaggle.com/models/google/resnet-v2/frameworks/TensorFlow2/variations/50-classification/versions/2")
 ])
 model.build([None, 224, 224, 3]) 
-
-# model = tf.keras.Sequential([
-#     hub.KerasLayer('https://tfhub.dev/google/imagenet/resnet_v2_50/classification/4', trainable=False)])
-# model.build([None, 224, 224, 3])
+#https://tfhub.dev/google/imagenet/resnet_v2_50/classification/4'
 
 # for labels
 labels_response = requests.get('https://storage.googleapis.com/download.tensorflow.org/data/ImageNetLabels.txt')
