@@ -31,9 +31,11 @@ const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 
 const Chat = () => {
+  // Get user information from redux
   const user = useSelector((state) => {
     return state.User;
   });
+
   const userId = user.user_id;
   const adminId = "65925d9872539764b4d1af31";
   const [formValue, setFormValue] = useState("");
@@ -74,6 +76,7 @@ const Chat = () => {
       setFormValue("");
     }
   };
+
   // Function to format the timestamp
   const formatTimestamp = (timestamp) => {
     if (!timestamp) return "";
@@ -90,6 +93,7 @@ const Chat = () => {
       date.getMonth() + 1
     }/${date.getFullYear()}`;
   };
+
   return (
     <div className="chat-section">
       <Nav />
