@@ -1,5 +1,8 @@
 const User = require("../models/user.model");
-
+const crypto = require("crypto");
+function generateRandomPassword(length) {
+  return crypto.randomBytes(length).toString("hex");
+}
 //JWT dependencies
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -110,14 +113,14 @@ const googleAuth = async (req, res) => {
     const payload = ticket.getPayload();
 
     let user = await User.findOne({ email: payload.email });
-
+    const password = generateRandomPassword(8);
     if (!user) {
       user = new User({
         email: payload.email,
         name: payload.name,
         phone: "0000000000",
         address: "Not provided",
-        password: "12345",
+        password: password,
       });
       await user.save();
     }
