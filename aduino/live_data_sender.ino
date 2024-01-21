@@ -55,23 +55,23 @@ void loop() {
 }
 
 void sendToServer(float lat, float lng) {
-  if(WiFi.status() == WL_CONNECTED) {
+  if(WiFi.status() == WL_CONNECTED) { // Check if the wifi is connected
     WiFiClient client;
     HTTPClient http;
 
-    StaticJsonDocument<200> jsonDoc;
+    StaticJsonDocument<200> jsonDoc; // Create a JSON document and set the parameters
     jsonDoc["secret"] = "123";
     jsonDoc["lat"] = lat;
     jsonDoc["long"] = lng;
     String requestBody;
-    serializeJson(jsonDoc, requestBody);
+    serializeJson(jsonDoc, requestBody);  // Serialize the JSON document to a string
 
-    http.begin(client, "api_url");  
+    http.begin(client, "api_url");  // Begin an HTTP request
     http.addHeader("Content-Type", "application/json");
-    int httpResponseCode = http.PUT(requestBody);
+    int httpResponseCode = http.PUT(requestBody); // Send the request
 
     if(httpResponseCode > 0) {
-      String response = http.getString();
+      String response = http.getString(); // Get the response
       Serial.println(httpResponseCode);
       Serial.println(response);
     } else {
