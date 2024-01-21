@@ -5,16 +5,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { local } from "../../../core/helpers/localstorage";
 import { userDataSource } from "../../../core/dataSource/remoteDataSource/users";
 import { loggedIn } from "../../../core/dataSource/localDataSource/user";
+
 function Editprofile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  // Getting user information from redux
   const user = useSelector((state) => {
     return state.User;
   });
+
+  // User info states
   const [newName, setNewName] = useState("");
   const [newAddress, setNewAddress] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [newPicture, setNewPicture] = useState(null);
+
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
@@ -46,7 +52,7 @@ function Editprofile() {
       const formData = new FormData();
 
       formData.append("image", newPicture);
-    
+
       const response = await fetch("http://127.0.0.1:8000/users/", {
         method: "PUT",
         body: formData,
@@ -63,6 +69,7 @@ function Editprofile() {
     }
   };
 
+  // Function to update user name
   const updateName = async () => {
     const trimmedName = newName.trim();
     const hasValidName = /^\S(.*\s+.*)*\S$/.test(trimmedName);
@@ -86,7 +93,7 @@ function Editprofile() {
     }
   };
 
-
+  // Function to update user address
   const updateaddress = async () => {
     if (newAddress.length < 10) {
       setError("Address must be more detailed");
@@ -105,7 +112,7 @@ function Editprofile() {
     }
   };
 
-
+  // Function to update user phone
   const updatephone = async () => {
     if (newPhone.length < 8) {
       setError("Please Enter a valid phone number");
