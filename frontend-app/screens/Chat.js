@@ -8,6 +8,7 @@ import { Bubble, GiftedChat } from "react-native-gifted-chat";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { OPENAI_API_KEY } from "@env";
+
 const Chat = ({ navigation }) => {
   // Get user information from redux
   const user = useSelector((state) => {
@@ -86,7 +87,7 @@ const Chat = ({ navigation }) => {
     }
   };
 
-  // Function to get a response from ai based on user message
+  // Function to get a response from ai for user's message
   const generateText = () => {
     setIsTyping(true);
     // Set the message parameters for the Bubble component
@@ -124,6 +125,7 @@ const Chat = ({ navigation }) => {
       .then((response) => {
         // Get response
         const content = response.data.choices[0].message.content;
+        //Reset state
         setInputMessage("");
 
         // Set response
