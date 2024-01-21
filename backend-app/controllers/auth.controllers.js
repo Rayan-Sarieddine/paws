@@ -3,6 +3,8 @@ const User = require("../models/user.model");
 //JWT dependencies
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+
+//Function to login user
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -29,6 +31,8 @@ const login = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to register a new user
 const register = async (req, res) => {
   let { email, password, name } = req.body;
 
