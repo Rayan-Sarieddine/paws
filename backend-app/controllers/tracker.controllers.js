@@ -1,6 +1,7 @@
 const Tracker = require("../models/tracker.model");
 const Pet = require("../models/pet.model");
 
+//Function to create a new tracker
 const addTracker = async (req, res) => {
   const { secret } = req.body;
   try {
@@ -18,6 +19,8 @@ const addTracker = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to assign a pet to the tracker
 const addPetToTracker = async (req, res) => {
   const { pet_id, secret } = req.body;
   try {
@@ -31,6 +34,8 @@ const addPetToTracker = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to change the location (long and lat) in a specified tracker
 const setLocation = async (req, res) => {
   const { secret, long, lat } = req.body;
   if (!secret || !long || !lat) {
@@ -51,6 +56,8 @@ const setLocation = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to delete a tracker
 const deleteTracker = async (req, res) => {
   const { tracker_id } = req.body;
   try {
@@ -64,6 +71,8 @@ const deleteTracker = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to retrieve the location (long and lat) of a specified tracker
 const getLocation = async (req, res) => {
   const { secret } = req.body;
   try {
@@ -82,6 +91,8 @@ const getLocation = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to retrieve the location (long and lat) of a specified pet
 const getLocationById = async (req, res) => {
   const { pet_id } = req.body;
   try {
