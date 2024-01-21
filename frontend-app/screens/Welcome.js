@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
 
   imgHeader: {
-    height: 320,
+    height: 350,
     width: screenWidth,
     marginBottom: 100,
   },
