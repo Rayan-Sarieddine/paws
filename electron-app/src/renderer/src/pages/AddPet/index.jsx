@@ -47,6 +47,7 @@ function AddPet() {
     };
 
     try {
+      //Form data to be sent
       const formData = new FormData();
       //Set Form data
       formData.append("image", petImage);
