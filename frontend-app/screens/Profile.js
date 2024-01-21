@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import React from "react";
 import Nav from "../components/Nav";
 import { useSelector } from "react-redux";
-
+const screenWidth = Dimensions.get("window").width;
 const Profile = () => {
   // Getting pet info from redux
   const pet = useSelector((state) => {
@@ -11,14 +11,14 @@ const Profile = () => {
 
   return (
     <View style={styles.profile}>
+      <Image
+        source={{
+          uri: `http://192.168.0.104:8000/images/pets/${pet.pets.image}`,
+        }}
+        style={styles.imgHeader}
+        onError={(e) => console.log(e.nativeEvent.error)}
+      />
       <View style={styles.card}>
-        <Image
-          source={{
-            uri: `http://192.168.0.104:8000/images/pets/${pet.pets.image}`,
-          }}
-          style={styles.profileImg}
-          onError={(e) => console.log(e.nativeEvent.error)}
-        />
         <View style={styles.petInfo}>
           <Text style={styles.petInfoTitle}>Name:</Text>
           <Text style={styles.petInfoValue}>{pet.pets.name}</Text>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f0f0f0",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   card: {
     marginBottom: 50,
@@ -62,11 +62,10 @@ const styles = StyleSheet.create({
     elevation: 5,
     alignItems: "center",
   },
-  profileImg: {
-    width: 200,
-    height: 200,
-    borderRadius: 75,
-    marginBottom: 20,
+  imgHeader: {
+    height: 350,
+    width: screenWidth,
+    marginBottom: 100,
   },
   petInfo: {
     flexDirection: "row",
