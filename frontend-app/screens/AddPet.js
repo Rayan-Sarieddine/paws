@@ -220,6 +220,7 @@ const AddPet = () => {
   );
 };
 
+// Styles
 const styles = StyleSheet.create({
   addPet: {
     flex: 1,

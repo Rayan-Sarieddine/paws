@@ -7,12 +7,17 @@ import { useNavigation } from "@react-navigation/native";
 import { loadPet } from "../core/dataSource/localDataSource/pet";
 import Button from "../components/Button";
 import { images } from "../constants";
+
 const Home = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
+
+  // Getting user information from redux
   const user = useSelector((state) => {
     return state.User;
   });
+
+  // Getting pet information from db
   const getUserPet = async () => {
     try {
       const response = await petDataSource.getPet(user.user_id);
@@ -25,13 +30,15 @@ const Home = () => {
       console.log(err);
     }
   };
+
+  // Calling function once the screen is loaded
   useEffect(() => {
     const unsubscribe = navigation.addListener("focus", () => {
       getUserPet();
     });
-
     return unsubscribe;
   }, [navigation]);
+
   return (
     <View style={styles.home}>
       <View style={styles.cards}>
@@ -73,6 +80,8 @@ const Home = () => {
     </View>
   );
 };
+
+// Styles
 const styles = StyleSheet.create({
   home: {
     flex: 1,
