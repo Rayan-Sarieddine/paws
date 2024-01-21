@@ -6,6 +6,7 @@ import ShopItems from "../../components/page components/Shop/ShopItems";
 import { useDispatch } from "react-redux";
 import { productDataSource } from "../../../core/dataSource/remoteDataSource/products";
 import { loadProducts } from "../../../core/dataSource/localDataSource/product";
+
 function Shop() {
   const dispatch = useDispatch();
 
@@ -21,6 +22,7 @@ function Shop() {
   useEffect(() => {
     loadproducts();
   }, []);
+
   return (
     <div>
       <Nav />

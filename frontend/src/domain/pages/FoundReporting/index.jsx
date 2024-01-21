@@ -3,6 +3,7 @@ import Nav from "../../components/common/Nav";
 import HeaderImg from "../../components/common/HeaderImg";
 import Footer from "../../components/common/Footer";
 import FoundReport from "../../components/page components/FoundReporting/FoundReport";
+
 function FoundReporting() {
   return (
     <div>

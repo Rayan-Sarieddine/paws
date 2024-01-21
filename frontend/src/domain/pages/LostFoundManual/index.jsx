@@ -6,6 +6,7 @@ import HeaderImg from "../../components/common/HeaderImg";
 import Footer from "../../components/common/Footer";
 import { loadPosts } from "../../../core/dataSource/localDataSource/post";
 import AllPosts from "../../components/page components/LostFoundManual/AllPosts";
+
 function LostFoundManual() {
   const dispatch = useDispatch();
 

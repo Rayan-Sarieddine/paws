@@ -64,7 +64,7 @@ function SignUp() {
       address: address,
     };
     try {
-      //acios request
+      //axios request
       const response = await authDataSource.register(data);
       setSuccess(true);
       setTimeout(() => {

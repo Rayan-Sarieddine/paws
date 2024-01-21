@@ -3,6 +3,7 @@ import Nav from "../../components/common/Nav";
 import Footer from "../../components/common/Footer";
 import HeaderImg from "../../components/common/HeaderImg";
 import Result from "../../components/page components/LostFoundMatch/Result";
+
 function LostFoundMatch() {
   return (
     <div>

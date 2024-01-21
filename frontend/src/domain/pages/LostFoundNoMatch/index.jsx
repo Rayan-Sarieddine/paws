@@ -4,6 +4,7 @@ import Nav from "../../components/common/Nav";
 import Footer from "../../components/common/Footer";
 import NoMatch from "../../components/page components/LostFoundNoMatch/NoMatch";
 import HeaderImg from "../../components/common/HeaderImg";
+
 function LostFoundNoMatch() {
   return (
     <div>
