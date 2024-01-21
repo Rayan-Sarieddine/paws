@@ -144,7 +144,7 @@ function Nav() {
         <ul className="user-nav-buttons">
           <li>
             <div className="cart-pic" onClick={handleOnClickCart}>
-              <img src={"./images/icons/cart.png"} alt="" />
+              <img src={"./images/categories/icons/cart.svg"} alt="" />
             </div>
             <CartButton
               isCartMenuHidden={isCartMenuHidden}
