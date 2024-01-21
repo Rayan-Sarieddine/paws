@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function RelatedItems() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const selectedProduct = useSelector((state) => {
     return state.Product.curerntSelected;
   });
@@ -21,6 +22,7 @@ function RelatedItems() {
       .sort((a, b) => b.price - a.price)
       .slice(0, 4)
   );
+
   const handleViewClick = (product) => {
     dispatch(selectProduct(product));
     window.scrollTo(0, 0);

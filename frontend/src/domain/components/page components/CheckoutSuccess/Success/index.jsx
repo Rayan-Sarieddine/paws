@@ -1,8 +1,10 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+
 function Success() {
   const navigate = useNavigate();
+
   return (
     <div className="success">
       <div className="success-img">

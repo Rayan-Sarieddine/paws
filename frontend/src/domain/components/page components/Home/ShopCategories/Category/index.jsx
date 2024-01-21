@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+
 function Category({ name, image, icon }) {
   return (
     <div className="container-card">

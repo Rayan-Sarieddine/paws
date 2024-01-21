@@ -1,8 +1,10 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+
 function RequestConfirmation() {
   const navigate = useNavigate();
+
   return (
     <div className="request-confirmation">
       <div className="request-confirmation_content">

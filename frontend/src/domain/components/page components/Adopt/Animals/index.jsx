@@ -2,13 +2,16 @@ import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 function Animals() {
   const navigate = useNavigate();
+
   const petsData = useSelector((state) => {
     return state.Pet;
   });
+
   const length = 4;
-  console.log(petsData, "wsjiwjs");
+
   return (
     <div className="animals-section">
       <div className="animals-section_header">

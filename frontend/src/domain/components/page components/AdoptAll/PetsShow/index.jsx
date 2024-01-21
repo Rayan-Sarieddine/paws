@@ -7,13 +7,15 @@ import { useNavigate } from "react-router-dom";
 function PetsShow() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleViewClick = (pet) => {
     dispatch(selectPet(pet));
     navigate("/adopt-details");
   };
-  const petData = useSelector((state) => state.Pet);
-  const [age, setAge] = useState(5);
 
+  const petData = useSelector((state) => state.Pet);
+
+  const [age, setAge] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const petsPerPage = 9;
   const [filter, setFilter] = useState({ type: "all", age: "", status: "" });

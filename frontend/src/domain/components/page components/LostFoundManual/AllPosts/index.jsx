@@ -3,11 +3,13 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectPost } from "../../../../../core/dataSource/localDataSource/post";
+
 function AllPosts() {
   const postsData = useSelector((state) => state.Post.resultPosts);
-  console.log(postsData);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleViewClick = (post) => {
     dispatch(selectPost(post));
     navigate("/lost-found-manual-claim");

@@ -21,6 +21,7 @@ function FoundReport() {
     const headers = {
       Authorization: `${type} ${token}`,
     };
+
     try {
       const formData = new FormData();
       formData.append("description", description);
@@ -43,12 +44,14 @@ function FoundReport() {
       setError(err);
     }
   };
+
   useEffect(() => {
     setTimeout(() => {
       setError("");
       setMessage("");
     }, 2000);
   }, [error, message]);
+
   return (
     <div className="found-report">
       <p className="found-report-title">LOST & FOUND</p>

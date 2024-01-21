@@ -2,8 +2,10 @@ import React from "react";
 import "./style.css";
 import Category from "./Category";
 import { useNavigate } from "react-router-dom";
+
 function ShopCategories() {
   const navigate = useNavigate();
+
   return (
     <div className="shop-by">
       <div className="grid-header">

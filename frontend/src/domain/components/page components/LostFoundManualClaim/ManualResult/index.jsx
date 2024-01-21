@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useSelector } from "react-redux";
+
 function ManualResult() {
   const selectedPost = useSelector((state) => state.Post.curerntSelected);
+
   const [showYesModal, setShowYesModal] = useState(false);
   const [showNoModal, setShowNoModal] = useState(false);
+
   const resultyes = () => {
     setShowYesModal(true);
   };
+
   const resultno = () => {
     setShowNoModal(true);
   };
+
   const navigate = useNavigate();
+  
   return (
     <div className="manual-result">
       <div className="manual-result-comparison">

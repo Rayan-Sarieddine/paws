@@ -35,6 +35,7 @@ function Productinfo() {
       setError(error);
     }
   };
+
   useEffect(() => {
     setTimeout(() => {
       setError("");
@@ -43,6 +44,7 @@ function Productinfo() {
       setMessage("");
     }, 2000);
   }, [error, message]);
+
   return (
     <div className="product-info">
       {!Object.keys(selectedProduct)?.length === 0 ? (

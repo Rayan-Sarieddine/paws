@@ -33,6 +33,7 @@ function CheckoutDetails() {
   useEffect(() => {
     getCartData();
   }, []);
+
   useEffect(() => {
     setTimeout(() => {
       setMessage("");

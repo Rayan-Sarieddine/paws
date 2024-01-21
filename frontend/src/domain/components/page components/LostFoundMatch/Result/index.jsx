@@ -2,20 +2,25 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useSelector } from "react-redux";
+
 function Result() {
   const [showYesModal, setShowYesModal] = useState(false);
   const [showNoModal, setShowNoModal] = useState(false);
+
   const resultyes = () => {
     setShowYesModal(true);
   };
+
   const resultno = () => {
     setShowNoModal(true);
   };
+
   const navigate = useNavigate();
+
   const matchPet = useSelector((state) => {
     return state.Post.resultPosts[0];
   });
-  console.log(matchPet);
+
   return (
     <div className="result">
       <h3>Match Result Found!</h3>

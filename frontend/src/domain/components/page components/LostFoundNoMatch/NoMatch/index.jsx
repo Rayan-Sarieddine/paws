@@ -1,9 +1,10 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+
 function NoMatch() {
   const navigate = useNavigate();
-  const tryagain = () => {};
+
   return (
     <div className="nomatch">
       <h3 className="nomatch-text">Sorry! No results found</h3>

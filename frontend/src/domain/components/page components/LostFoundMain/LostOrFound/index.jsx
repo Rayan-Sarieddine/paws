@@ -1,8 +1,10 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+
 function LostOrFound() {
   const navigate = useNavigate();
+
   return (
     <div className="lostorfound">
       <p className="lostorfound-title">Lost & Found?</p>

@@ -1,8 +1,10 @@
 import React from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+
 function ImageGrid() {
   const navigate = useNavigate();
+
   return (
     <div
       className="grid-gallery"

@@ -7,8 +7,10 @@ import "swiper/css/effect-cards";
 import "./style.css";
 import { postsDataSource } from "../../../../../core/dataSource/remoteDataSource/posts";
 import { useNavigate } from "react-router-dom";
+
 function LostFound() {
   const [posts, setPosts] = useState([]);
+
   const getPosts = async () => {
     try {
       const response = await postsDataSource.getPosts();
@@ -19,13 +21,16 @@ function LostFound() {
       console.log(error);
     }
   };
+
   const navigateTo = useNavigate();
   const navigatoTolostPage = () => {
     navigateTo("/lost-found-main");
   };
+
   useEffect(() => {
     getPosts();
   }, []);
+
   return (
     <>
       <div className="grid-header">

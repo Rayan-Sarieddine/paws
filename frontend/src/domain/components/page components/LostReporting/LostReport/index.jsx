@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./style.css";
 import { resultPosts } from "../../../../../core/dataSource/localDataSource/post";
+
 function LostReport() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [region, setRegion] = useState("OTHER");
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
@@ -58,11 +60,13 @@ function LostReport() {
       setError(err);
     }
   };
+
   useEffect(() => {
     setTimeout(() => {
       setError("");
     }, 2000);
   }, [error]);
+
   return (
     <div className="lost-report">
       <p className="lost-report-title">LOST & FOUND</p>

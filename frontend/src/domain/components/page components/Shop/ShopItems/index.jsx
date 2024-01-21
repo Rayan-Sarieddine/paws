@@ -7,10 +7,12 @@ import { useNavigate } from "react-router-dom";
 function ShopItems() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleViewClick = (product) => {
     dispatch(selectProduct(product));
     navigate("/product-details");
   };
+
   const productData = useSelector((state) => state.Product);
   const [price, setPrice] = useState(10);
 

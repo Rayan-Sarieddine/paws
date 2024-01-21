@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import "./style.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 function Searching() {
   const navigate = useNavigate();
+
   const result = useSelector((state) => {
     return state.Post.resultPosts;
   });
-  console.log(result);
+
   useEffect(() => {
     setTimeout(() => {
       if (result?.length === 1) {
@@ -19,6 +21,7 @@ function Searching() {
       }
     }, 5000);
   }, []);
+
   return (
     <div className="searching">
       <div class="loader"></div>
