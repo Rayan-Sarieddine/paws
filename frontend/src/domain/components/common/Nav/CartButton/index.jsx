@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const CartButton = ({ isCartMenuHidden, setIsCartMenuHidden }) => {
   const navigate = useNavigate();
+
   const [cartItems, setCartItems] = useState([]);
   let cartTotal = 0;
 
@@ -17,9 +18,11 @@ const CartButton = ({ isCartMenuHidden, setIsCartMenuHidden }) => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getCartData();
   }, [isCartMenuHidden]);
+
   return (
     <div
       className={

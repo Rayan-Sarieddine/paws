@@ -3,6 +3,7 @@ import "./style.css";
 import Button from "../Button";
 import Downloadbtn from "../DownloadBtn";
 import { useNavigate } from "react-router-dom";
+
 function Footer() {
   const navigate = useNavigate();
   //year for copyrights
@@ -12,6 +13,7 @@ function Footer() {
   const handleclick = () => {
     navigate("/adopt");
   };
+
   return (
     <div className="footer">
       <div className="footer-wrapper">

@@ -28,6 +28,7 @@ const UserProfileBtn = ({
     //toggle the state of the hook loggedIn
     setLogoutTrigger((prev) => prev + 1);
   };
+  
   return (
     <div
       className={

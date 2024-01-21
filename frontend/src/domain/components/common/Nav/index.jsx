@@ -11,10 +11,13 @@ import { useSelector } from "react-redux";
 function Nav() {
   const navigate = useNavigate();
   const location = useLocation();
+
   const userData = useSelector((state) => state.User);
+
   const [logoutTrigger, setLogoutTrigger] = useState(0);
   const [isLoggedIn, token] = useLogin(logoutTrigger);
   const [activePage, setActivePage] = useState("Home");
+
   const prevIsLoggedIn = useRef(isLoggedIn);
 
   //Check is user is already logged in or not and handle accordingly

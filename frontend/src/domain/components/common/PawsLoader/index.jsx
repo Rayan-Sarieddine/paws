@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
+
 function PawsLoader() {
   const [show, setShow] = useState(true);
+
   useEffect(() => {
     setTimeout(() => {
       setShow(false);
-      document.body.style.overflow = "auto"; // Re-enable scrolling after hiding the loader
+      document.body.style.overflow = "auto"; // Reenable scrolling after hiding the loader
     }, 3000);
     document.body.style.overflow = "hidden"; // Disable scrolling when the loader is shown
   }, []);
+
   return (
     <>
       {show && (
