@@ -47,9 +47,10 @@
   justify-content: flex-end;
   max-width: 30rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(68, 67, 67, 0.184);
   overflow: hidden;
-  background-color: var(--primary);
-  color: white;
+
+  color: var(--black);
 }
 .product-img-container {
   height: 20rem;
