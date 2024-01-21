@@ -65,11 +65,11 @@ for file in os.listdir(directory2):
     data,labels0=zip(*dataset)
 
 
-#transforming your categorical labels into a format that's more suitable for use in training classification models, especially neural networks.
+#transforming the categorical labels into a format that's more suitable for use in training classification models, especially neural networks.
 labels1=to_categorical(labels0)
 labels=np.array(labels1)
 
-#converting the lists data and test into NumPy arrays which helps in effeciency, functionality (NumPy provides a wide array of mathematical functions) and framework compatibility (Machine learning frameworks like TensorFlow and Keras typically expect data in the form of NumPy arrays)
+#converting the lists data and test into NumPy arrays which helps in effeciency
 data=np.array(data)
 test=np.array(test)
 
@@ -93,6 +93,7 @@ datagen = ImageDataGenerator(horizontal_flip=True,vertical_flip=True,rotation_ra
                         width_shift_range=0.2,height_shift_range=0.2,shear_range=0.1,fill_mode="nearest")
 pretrained_model3 = tf.keras.applications.DenseNet121(input_shape=(180,180,3),include_top=False,weights='imagenet',pooling='avg')
 pretrained_model3.trainable = False
+
 #continuation of setting up a convolutional neural network for image classification using transfer learning with TensorFlow's Keras API.
 inputs3 = pretrained_model3.input
 x3 = tf.keras.layers.Dense(128, activation='relu')(pretrained_model3.output)
