@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 function AdoptionRequests() {
   const navigate = useNavigate();
   const [requests, setRequests] = useState([]);
+
   //Function to load all adoption requests
   const getRequests = async () => {
     try {
@@ -16,10 +17,11 @@ function AdoptionRequests() {
       console.log(err);
     }
   };
+
   useEffect(() => {
     getRequests();
   }, []);
-  
+
   return (
     <div className="get-requests">
       <Nav />

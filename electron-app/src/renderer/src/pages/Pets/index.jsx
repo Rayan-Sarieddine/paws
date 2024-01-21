@@ -9,7 +9,9 @@ import Nav from "../../components/common/Nav";
 function Pets() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [petData, setpetData] = useState();
+
   //Set selected pet in redux on click of a pet card
   const handleViewClick = (pet) => {
     dispatch(selectPet(pet));
@@ -69,6 +71,7 @@ function Pets() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {}, [currentPets]);
+
   return (
     <div className="pets">
       <Nav />

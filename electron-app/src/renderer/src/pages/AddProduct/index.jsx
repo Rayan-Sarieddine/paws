@@ -3,6 +3,7 @@ import "./style.css";
 import { productDataSource } from "../../core/dataSource/remoteDataSource/products";
 import { local } from "../../core/helpers/localstorage";
 import Nav from "../../components/common/Nav";
+
 function AddProduct() {
   //Product Data
   const [productData, setproductData] = useState({
@@ -96,6 +97,7 @@ function AddProduct() {
       setError(err);
     }
   };
+
   //Reset for error and message
   useEffect(() => {
     setTimeout(() => {
