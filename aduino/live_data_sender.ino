@@ -15,16 +15,16 @@ unsigned long lastTime = 0;  // Track the last time data was sent
 unsigned long interval = 15000;  // Interval at which to send data (15 seconds)
 
 void setup() {
-  Serial.begin(115200);  // Setting the serial baud to match the 8266 baud rate
+  Serial.begin(115200);  // Setting the serial baud to match the ESP8266 baud rate
   delay(5000);  // To give the ESP8266 processing time
   ss.begin(9600);  // Set baud rate for GPS module
 
-  WiFi.begin(ssid, password);  // Connect to Wi-Fi network
+  WiFi.begin(ssid, password);  // Connect to wifi network
   while (WiFi.status() != WL_CONNECTED) {  // Wait for the Wifi to connect
     delay(1000);
-    Serial.println("Connecting to WiFi...");
+    Serial.println("Connecting to wifi...");
   }
-  Serial.println("Connected to WiFi");
+  Serial.println("Connected to wifi");
   Serial.println("GPS Tracker Initialized");
 }
 
@@ -81,6 +81,6 @@ void sendToServer(float lat, float lng) {
 
     http.end();    // Close the HTTP connection
   } else {
-    Serial.println("Error in WiFi connection");
+    Serial.println("Error in wifi connection");
   }
 }

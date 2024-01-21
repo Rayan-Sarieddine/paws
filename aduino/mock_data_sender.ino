@@ -7,6 +7,8 @@
 
 const char* ssid     = "wifiName";       
 const char* password = "wifiPass";     
+
+// Stream data that is in the same form as the data sent by the gps module (mock data)
 const char *gpsStream =
  "$GPRMC,045103.000,A,3535.5350,N,3340.2650,E,0.67,161.46,030913,,,A*56\r\n"
   "$GPRMC,045103.000,A,3535.58084,N,3340.28808,E,0.67,161.46,030913,,,A*5F\r\n"
@@ -23,7 +25,7 @@ void setup() {
     WiFi.begin(ssid, password);
 
    
-    while (WiFi.status() != WL_CONNECTED) { // Wait for the Wifi to connect
+    while (WiFi.status() != WL_CONNECTED) { // Wait for the wifi to connect
         delay(1000);
      
     }
@@ -48,7 +50,7 @@ void loop() {
     }
 
     if (!gpsStream[streamIndex]) {
-        // Reset the index if we've reached the end of the stream
+        // Reset the index if reached the end of the stream
         streamIndex = 0;
     }
 
@@ -65,7 +67,7 @@ void displayInfo() {
         float longitude = gps.location.lng();
         sendToServer(latitude, longitude);
     } else {
-        Serial.println(F("INVALID GPS data"));
+        Serial.println(F("Invalid GPS data"));
     }
 }
 
@@ -97,6 +99,6 @@ void sendToServer(float lat, float lng) {
 
     http.end();
   } else {
-    Serial.println("Error in WiFi connection");
+    Serial.println("Error in wifi connection");
   }
 }
