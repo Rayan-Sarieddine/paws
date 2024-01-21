@@ -227,10 +227,11 @@ const Chat = ({ navigation }) => {
             marginLeft: 10,
             backgroundColor: COLORS.white,
             paddingVertical: 8,
-            marginHorizontal: 12,
-            borderRadius: 12,
+            marginHorizontal: 15,
+            borderRadius: 20,
             borderColor: "#333",
             borderWidth: 0.2,
+            marginBottom: 10,
           }}
         >
           <TextInput
