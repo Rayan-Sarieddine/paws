@@ -5,9 +5,11 @@ import { useSelector } from "react-redux";
 import { images } from "../constants";
 
 const Profile = () => {
+  // Getting pet info from redux
   const pet = useSelector((state) => {
     return state.Pet;
   });
+
   return (
     <View style={styles.profile}>
       <View style={styles.card}>
@@ -39,6 +41,8 @@ const Profile = () => {
     </View>
   );
 };
+
+// Styles
 const styles = StyleSheet.create({
   profile: {
     flex: 1,
