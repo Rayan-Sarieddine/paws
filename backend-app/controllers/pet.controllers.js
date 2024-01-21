@@ -6,6 +6,7 @@ const FormData = require("form-data");
 const fs = require("fs");
 const { response } = require("express");
 
+//Function to add a new pet to a the user
 const addPet = async (req, res) => {
   const belongs_to = req.user.id;
   let { name, type, date_of_birth } = req.body;
@@ -73,6 +74,8 @@ const addPet = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to edit the pet information of the user
 const editPet = async (req, res) => {
   const { name, date_of_birth, image, id } = req.body;
   if (!id) {
@@ -129,6 +132,8 @@ const editPet = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to delete a specified pet
 const deletePet = async (req, res) => {
   const { id } = req.body;
   try {
@@ -142,6 +147,8 @@ const deletePet = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 };
+
+//Function to get pets of the user
 const getPetofUser = async (req, res) => {
   const user_id = req.params.id;
   try {
