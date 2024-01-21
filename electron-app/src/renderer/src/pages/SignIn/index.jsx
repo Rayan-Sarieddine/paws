@@ -48,8 +48,9 @@ const LogIn = () => {
     //data to be send of body of request
     let data = { email: email, password: password };
     try {
-      //acios request
+      //axios request
       const response = await authDataSource.login(data);
+
       //setting local storage data
       local("token", response.token);
       local("type", response.user.userType);
