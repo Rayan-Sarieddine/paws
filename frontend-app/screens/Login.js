@@ -93,7 +93,7 @@ const Login = ({ navigation }) => {
         <View style={styles.loginMain}>
           <Image source={images.logo} style={styles.loginLogo} />
           {message && <Text style={styles.message}>{message}</Text>}
-
+          <Text style={styles.loginTitle}>Login</Text>
           <TextInput
             placeholder="Enter your email"
             style={styles.input}
@@ -140,6 +140,10 @@ const styles = StyleSheet.create({
   login: {
     flex: 1,
     backgroundColor: COLORS.white,
+  },
+  loginTitle: {
+    fontSize: 29,
+    fontWeight: "800",
   },
   loginMain: {
     flex: 1,
