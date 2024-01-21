@@ -97,7 +97,7 @@ const Register = ({ navigation }) => {
         <View style={styles.registerMain}>
           <Image source={images.logo} style={styles.registerLogo} />
           {message && <Text style={styles.message}>{message}</Text>}
-
+          <Text style={styles.registerTitle}>Register</Text>
           <TextInput
             placeholder="Enter your full name"
             style={styles.input}
@@ -151,6 +151,11 @@ const styles = StyleSheet.create({
   register: {
     flex: 1,
     backgroundColor: COLORS.white,
+  },
+  registerTitle: {
+    fontSize: 29,
+    fontWeight: "800",
+    marginBottom: 10,
   },
   registerMain: {
     flex: 1,

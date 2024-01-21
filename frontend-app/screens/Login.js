@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
   loginTitle: {
     fontSize: 29,
     fontWeight: "800",
+    marginBottom: 10,
   },
   loginMain: {
     flex: 1,
