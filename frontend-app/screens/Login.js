@@ -26,7 +26,7 @@ const Login = ({ navigation }) => {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Function to set the input states
+  // Function to handle input change and set the state accordingly
   const handleInputChange = (name, value) => {
     if (name === "email") {
       setEmail(value);

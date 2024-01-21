@@ -32,7 +32,7 @@ const AddPet = () => {
   const [filename, setFilename] = useState("");
   const [typeImg, setTypeImg] = useState("");
 
-  // Function to handle input change
+  // Function to handle input change and set the state accordingly
   const handleInputChange = (name, value) => {
     if (name === "name") {
       setName(value);

@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import Nav from "../components/Nav";
 import { useSelector } from "react-redux";
-import { images } from "../constants";
 
 const Profile = () => {
   // Getting pet info from redux
