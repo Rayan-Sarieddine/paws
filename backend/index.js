@@ -1,6 +1,5 @@
 //Express
 const express = require("express");
-// app.use(express.static("public"));
 const app = express();
 
 //DB connection
