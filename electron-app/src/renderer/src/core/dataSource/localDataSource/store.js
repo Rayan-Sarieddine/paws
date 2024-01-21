@@ -4,7 +4,6 @@ import petReducer, { petSliceName } from "./pet";
 import productReducer, { productSliceName } from "./product";
 import postReducer, { postSliceName } from "./post";
 import orderReducer, { orderSliceName } from "./order";
-//redux persistent
 
 export const store = configureStore({
   reducer: {

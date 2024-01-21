@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-//Invoking the relationships
+//Invoking the defined relationships
 const relationships = require("./models/relationships.models");
 
 //Middleware
