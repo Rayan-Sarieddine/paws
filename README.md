@@ -15,7 +15,7 @@ Users:
 -As a person looking to adopt a pet I want a platform where I can browse all the pets available for adoption so that I can choose my preference.  
 -As a pet owner I want a platform where I can shop for my pet’s food and toys and get them delivered to me so that I can save time.  
 -As a pet owner I want to be able to chat with someone who will be able to answer questions about my pet 24/7 so that I can keep my pet healthy and happy.  
--As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if he gets lost.  
+-As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if it gets lost.  
 -As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.
 
 Admin:  
