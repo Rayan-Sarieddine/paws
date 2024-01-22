@@ -7,25 +7,22 @@
 
 > HOME OF PETS!
 >
-> One platform where you can Adopt, Care, Chat, Date,Meet, Play, Report,Shop, Socialize, Track, and more!
+> Paws is a group of innovative platforms revolutionizing pet care with advanced features like a Live Tracker device, AI-driven and live chat, machine learning model to locate lost pets, pet adoption, a dedicated pet shop and more!
 
 ### User Stories
 
 Users:  
--As a person looking to adopt a dog I want a platform where I can browse all the dogs in Lebanon available for adoption so that I can choose my preference.  
+-As a person looking to adopt a pet I want a platform where I can browse all the pets available for adoption so that I can choose my preference.  
 -As a pet owner I want a platform where I can shop for my pet’s food and toys and get them delivered to me so that I can save time.  
--As a pet owner I want a system to remind me with notifications about my pet’s vet visits and baths so that I won’t miss any.  
 -As a pet owner I want to be able to chat with someone who will be able to answer questions about my pet 24/7 so that I can keep my pet healthy and happy.  
 -As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if he gets lost.  
--As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.  
--As a cat owner who is looking to marry her cat, I want a pet dating platform so that I can find my cat a match.  
--As a pet loving person I want a platform where I can share my pet’s pictures and see other pet owner’s pets and interact with them.  
--As a person who likes to go on walks with my dog,  I want a platform to see other people that are walking their dogs (and if they want a companion) so that my dog and I can have company.
+-As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.
 
 Admin:  
 -As an admin I want to be able to manage inventory so that I can keep track of the products.  
 -As an admin I want to be able to add pets and list them for adoption so that users can see them.  
 -As an admin I want to approve or reject adoption requests so that I can make sure the pets are going to a safe place.  
+-As an admin I want to be able to chat with the users of the website in real-time.  
 <br><br>
 
 <!-- Prototyping -->
