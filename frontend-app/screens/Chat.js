@@ -101,19 +101,30 @@ const Chat = ({ navigation }) => {
     setMessages((previousMessage) =>
       GiftedChat.append(previousMessage, [message])
     );
+    const conversationHistory = messages.map((msg) => ({
+      role: msg.user._id === user.id ? "user" : "assistant",
+      content: msg.text,
+    }));
 
+    // Add the current user message to the conversation history
+    conversationHistory.push({
+      role: "user",
+      content: inputMessage,
+    });
+
+    // to ensure the system message is at the beginning of the conversation history
+    conversationHistory.unshift({
+      role: "system",
+      content:
+        "You are an AI Doctor working for the Paws application to answer questions only related to pets and animals.",
+    });
     // Send request to open ai
     axios
       .post(
         "https://api.openai.com/v1/chat/completions",
         {
           model: "gpt-3.5-turbo",
-          messages: [
-            {
-              role: "user",
-              content: inputMessage,
-            },
-          ],
+          messages: conversationHistory,
         },
         {
           headers: {
