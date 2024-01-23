@@ -7,7 +7,7 @@
 
 > HOME OF PETS!
 >
-> Paws is a group of innovative platforms revolutionizing pet care with advanced features like a Live Tracker device, AI-driven and live chat, machine learning model to locate lost pets, pet adoption, a dedicated pet shop and more!
+> Paws, an ensemble of innovative platforms, revolutionizes pet care by integrating a Live Tracker device, infusing AI-driven dialogue and real-time chat, crafting machine learning searches for lost companions, nurturing pet adoption, and curating a dedicated shop for pet essentials and beyond.
 
 ### User Stories
 
