@@ -113,8 +113,9 @@ const googleAuth = async (req, res) => {
     const payload = ticket.getPayload();
 
     let user = await User.findOne({ email: payload.email });
-    const password = generateRandomPassword(8);
+
     if (!user) {
+      const password = generateRandomPassword(8);
       user = new User({
         email: payload.email,
         name: payload.name,
