@@ -12,6 +12,7 @@ import Products from "./pages/Products";
 import SignIn from "./pages/SignIn";
 import "./styles/index.css";
 import { Route, Routes } from "react-router";
+
 function App() {
   return (
     <div className="page">
