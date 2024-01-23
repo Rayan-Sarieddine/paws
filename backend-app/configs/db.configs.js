@@ -1,7 +1,7 @@
-const Sequalize = require("sequelize");
-const sequalize = new Sequalize("db_paws_app", "root", "", {
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize("db_paws_app", "root", "", {
   host: "localhost",
   dialect: "mysql",
 });
 
-module.exports = sequalize;
+module.exports = sequelize;
