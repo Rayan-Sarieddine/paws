@@ -48,6 +48,7 @@
   max-width: 30rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(68, 67, 67, 0.184);
+  border-radius: 10px;
   overflow: hidden;
 
   color: var(--black);
@@ -91,6 +92,8 @@
   border: none;
   background-color: var(--secondary);
   border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
   cursor: pointer;
   font-size: 1.5rem;
 }
