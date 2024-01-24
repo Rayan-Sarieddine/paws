@@ -53,3 +53,12 @@
   text-transform: lowercase;
   margin-top: 1rem;
 }
+.btn-No {
+  background-color: transparent;
+  color: var(--black);
+  text-decoration: underline;
+  font-size: 2rem;
+}
+.btn-No:hover {
+  opacity: 0.9;
+}

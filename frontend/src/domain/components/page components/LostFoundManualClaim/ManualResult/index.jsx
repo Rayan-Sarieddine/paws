@@ -18,7 +18,7 @@ function ManualResult() {
   };
 
   const navigate = useNavigate();
-  
+
   return (
     <div className="manual-result">
       <div className="manual-result-comparison">
@@ -68,7 +68,7 @@ function ManualResult() {
       {showNoModal && (
         <div className="manual-no-modal">
           <button
-            className="btn"
+            className="btn btn-No"
             onClick={() => {
               navigate("/lost-found-manual");
             }}
