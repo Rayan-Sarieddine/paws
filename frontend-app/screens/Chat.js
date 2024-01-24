@@ -102,7 +102,7 @@ const Chat = ({ navigation }) => {
       GiftedChat.append(previousMessage, [message])
     );
     const conversationHistory = messages.map((msg) => ({
-      role: msg.user._id === user.id ? "user" : "assistant",
+      role: msg.user._id === user.id ? "user" : "system",
       content: msg.text,
     }));
 

@@ -16,9 +16,6 @@ function PawsLoader() {
     <>
       {show && (
         <div className="paws-loader">
-          <div className="paws-loader-img">
-            <img src="./favicon.png" alt="logo" />
-          </div>
           <svg id="svg-sprite">
             <symbol id="paw" viewBox="0 0 249 209.32">
               <ellipse

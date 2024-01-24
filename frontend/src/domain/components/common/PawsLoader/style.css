@@ -7,19 +7,10 @@
   background-color: var(--white);
   z-index: 10000000;
 }
-.paws-loader-img {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 2rem;
-}
-.paws-loader-img img {
-  width: 25rem;
-}
 
 .ajax-loader {
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 55%;
   transform-origin: 50% 50%;
   transform: rotate(90deg) translate(-50%, 0%);
