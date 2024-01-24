@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+// Helper
 export const local = async (key, value = undefined) => {
   try {
     if (value !== undefined) {
