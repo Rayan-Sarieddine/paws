@@ -13,7 +13,7 @@ const Profile = () => {
     <View style={styles.profile}>
       <Image
         source={{
-          uri: `http://192.168.0.104:8000/images/pets/${pet.pets.image}`,
+          uri: `http://192.168.210.16:8000/images/pets/${pet.pets.image}`,
         }}
         style={styles.imgHeader}
         onError={(e) => console.log(e.nativeEvent.error)}

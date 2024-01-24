@@ -18,11 +18,11 @@ const Tracker = sequelize.define("tracker", {
   },
   long: {
     type: Sequelize.DECIMAL(15, 10),
-    defaultValue: 33.8547,
+    defaultValue: 35.495436,
   },
   lat: {
     type: Sequelize.DECIMAL(15, 10),
-    defaultValue: 35.8623,
+    defaultValue: 33.896899,
   },
 });
 

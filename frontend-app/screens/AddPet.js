@@ -97,7 +97,7 @@ const AddPet = () => {
         formData.append("type", type);
         formData.append("name", name);
 
-        const response = await fetch("http://192.168.0.104:8000/pets/", {
+        const response = await fetch("http://192.168.210.16:8000/pets/", {
           method: "POST",
           body: formData,
           headers: { ...headers },

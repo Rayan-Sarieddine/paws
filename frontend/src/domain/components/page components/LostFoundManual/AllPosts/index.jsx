@@ -15,12 +15,6 @@ function AllPosts() {
     navigate("/lost-found-manual-claim");
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 9;
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   useEffect(() => {}, [postsData]);
   return (
     <div className="posts-show-container">
@@ -28,25 +22,7 @@ function AllPosts() {
         <div className="post-pagination-header">
           <p>LOST & FOUND</p>
         </div>
-        <div className="post-pagination-controls">
-          <button
-            className="btn btn-pagination-left"
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            &lt;
-          </button>
-          <span>{currentPage}</span>
-          <button
-            className="btn btn-pagination-right"
-            onClick={() => paginate(currentPage + 1)}
-            disabled={
-              currentPage === Math.ceil(postsData?.posts?.length / postsPerPage)
-            }
-          >
-            &gt;
-          </button>
-        </div>
+
         {postsData?.length === 0 ? (
           <div className="no-posts-to-show">
             <p>No POSTS Found</p>
@@ -73,26 +49,6 @@ function AllPosts() {
             ))}
           </div>
         )}
-
-        <div className="post-pagination-controls">
-          <button
-            className="btn btn-pagination-left"
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            &lt;
-          </button>
-          <span>{currentPage}</span>
-          <button
-            className="btn btn-pagination-right"
-            onClick={() => paginate(currentPage + 1)}
-            disabled={
-              currentPage === Math.ceil(postsData?.posts?.length / postsPerPage)
-            }
-          >
-            &gt;
-          </button>
-        </div>
       </div>
     </div>
   );

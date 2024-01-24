@@ -25,8 +25,8 @@ const Tracker = () => {
   // Map location states
   const [userLong, setuserLong] = useState(null);
   const [userLat, setuserLat] = useState(null);
-  const [petLong, setpetLong] = useState(null);
-  const [petLat, setpetLat] = useState(null);
+  const [petLong, setpetLong] = useState();
+  const [petLat, setpetLat] = useState();
   const [distance, setDistance] = useState(null);
 
   // Function to ask permission to use location services on user's phone
@@ -49,6 +49,9 @@ const Tracker = () => {
         // Set pet location on map and fly to it
         setpetLat(parseFloat(response.location.lat));
         setpetLong(parseFloat(response.location.long));
+        console.log("====================================");
+        console.log(petLat, petLong);
+        console.log("====================================");
         mapRef.current?.animateToRegion(
           {
             latitude: parseFloat(response.location.lat),

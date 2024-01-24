@@ -8,6 +8,7 @@ const { response } = require("express");
 
 //Function to add a new pet to a the user
 const addPet = async (req, res) => {
+  console.log("pk");
   const belongs_to = req.user.id;
   let { name, type, date_of_birth } = req.body;
   if (!name || !type || !date_of_birth || !req.files || !req.files.image) {
