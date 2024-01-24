@@ -50,7 +50,7 @@ function Dashboard() {
       <Nav />
       <div className="dashboard-stats">
         <div className="dashboard-stat">
-          <h3>Pet Stats</h3>
+          <h3>Pet Statistics:</h3>
           <div className="dashboard-stat-cards">
             <div className="dashboard-stat-card">
               <h4>{petStats?.totalNumberOfPetsByType?.DOGS}</h4>
@@ -79,7 +79,7 @@ function Dashboard() {
           </div>
         </div>
         <div className="dashboard-stat">
-          <h3>Product Stats</h3>
+          <h3>Product Statistics:</h3>
           <div className="dashboard-stat-cards">
             <div className="dashboard-stat-card">
               <h4>{productStats?.totalNumberOfProducts}</h4>
@@ -92,7 +92,7 @@ function Dashboard() {
           </div>
         </div>
         <div className="dashboard-stat">
-          <h3>Order Stats</h3>
+          <h3>Order Statistics:</h3>
           <div className="dashboard-stat-cards">
             <div className="dashboard-stat-card">
               <h4>{orderStats?.averageOrderTotal?.toFixed(2) || 0}</h4>
