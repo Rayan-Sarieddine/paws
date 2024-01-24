@@ -13,7 +13,7 @@ function Shop() {
   const loadproducts = async () => {
     try {
       const response = await productDataSource.getProducts();
-      console.log("the products", response);
+
       dispatch(loadProducts(response.products));
     } catch (error) {
       console.log(error);

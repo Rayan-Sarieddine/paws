@@ -19,7 +19,6 @@ function AdoptPet() {
       stats.totalNumberOfPetsByType[pet.type] = 1;
     }
   });
-  console.log(stats);
   return (
     <div className="adopt-pet">
       <div className="adopt-pet-main">

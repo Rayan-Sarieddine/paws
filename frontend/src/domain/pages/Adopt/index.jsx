@@ -8,17 +8,19 @@ import Footer from "../../components/common/Footer";
 import { useDispatch } from "react-redux";
 import { petsDataSource } from "../../../core/dataSource/remoteDataSource/pets";
 import { loadPets } from "../../../core/dataSource/localDataSource/pet";
+import { useNavigate } from "react-router-dom";
 function Adopt() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   //Function to load all pets from backend
   const loadpets = async () => {
     try {
       const response = await petsDataSource.getPets();
-      console.log(response);
+
       dispatch(loadPets(response.pets));
     } catch (error) {
-      console.log(error);
+      navigate("/error");
     }
   };
 

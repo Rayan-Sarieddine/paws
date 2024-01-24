@@ -13,7 +13,7 @@ function LostFoundManual() {
   const loadposts = async () => {
     try {
       const response = await postsDataSource.getPosts();
-      console.log("new posts", response);
+
       dispatch(loadPosts(response.posts));
     } catch (error) {
       console.log(error);

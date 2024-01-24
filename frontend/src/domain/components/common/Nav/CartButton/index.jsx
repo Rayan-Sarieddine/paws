@@ -15,7 +15,7 @@ const CartButton = ({ isCartMenuHidden, setIsCartMenuHidden }) => {
       const response = await userDataSource.getCart();
       setCartItems(response.cartItems || []);
     } catch (error) {
-      console.log(error);
+      navigate("/error");
     }
   };
 

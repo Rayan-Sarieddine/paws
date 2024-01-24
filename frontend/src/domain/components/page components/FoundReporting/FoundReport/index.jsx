@@ -27,7 +27,6 @@ function FoundReport() {
       formData.append("description", description);
       formData.append("location", region);
       formData.append("image", file);
-      console.log(formData);
       const response = await fetch("http://127.0.0.1:8000/posts", {
         method: "POST",
         body: formData,

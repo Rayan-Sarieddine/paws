@@ -40,7 +40,6 @@ function LostReport() {
       formData.append("location", region);
       formData.append("image", file);
 
-      console.log(formData);
       const response = await fetch("http://127.0.0.1:8000/posts/find", {
         method: "POST",
         body: formData,
@@ -53,8 +52,6 @@ function LostReport() {
 
       dispatch(resultPosts(data.result));
       navigate("/lost-found-searching");
-
-      console.log(data);
     } catch (err) {
       console.log(err);
       setError(err);
