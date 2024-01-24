@@ -82,9 +82,16 @@ function AddPet() {
 
       if (response.status === 200) {
         setMessage("Success");
-      }
-      if (response.status === 409) {
-        setError("Pet Name already exists");
+        setPetData({
+          petName: "",
+          petBreed: "",
+          petType: "",
+          petAge: "",
+          petStory: "",
+          petDescription: "",
+          breedDescription: "",
+          status: "AVAILABLE"
+        });
       } else {
         setError(response.message);
       }

@@ -33,11 +33,6 @@ const addPet = async (req, res) => {
     //Pet already exists validation
     const existingPet = await Pet.findOne({ name });
 
-    if (existingPet !== null) {
-      console.log("hello");
-      return res.status(409).send({ message: "pet name already exists" });
-    }
-
     //Description validation
     if (
       breed_description.length < 5 ||

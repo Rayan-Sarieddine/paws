@@ -15,8 +15,6 @@ function LostFound() {
     try {
       const response = await postsDataSource.getPosts();
       setPosts(response.posts);
-
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
