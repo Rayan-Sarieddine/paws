@@ -60,10 +60,16 @@
   font-weight: 700;
   font-size: 2.5rem;
 }
-.petCard-StoryInfo {
+.petCard-StoryInfo p {
   font-size: 2rem;
+  width: 70%;
+  text-align: center;
 }
 .petCard-btn {
   margin-top: 2rem;
   font-size: 1rem;
+}
+.animals-section_petCard {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }

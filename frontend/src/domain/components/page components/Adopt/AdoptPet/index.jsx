@@ -27,12 +27,12 @@ function AdoptPet() {
           <h2>Your new best friend is just a tail wag away!"</h2>
           <h3>
             Help yourself find a new bestfriend and help an animal find a new
-            forever home
+            forever home.
           </h3>
           <ul>
             <li>
               <img src="./images/Adopt-Page/check-mark.png" alt="check-mark" />
-              <p>All pets Vaccinated</p>
+              <p>All pets are vaccinated</p>
             </li>
             <li>
               <img src="./images/Adopt-Page/check-mark.png" alt="check-mark" />
@@ -60,7 +60,7 @@ function AdoptPet() {
                 navigate("/adopt-all");
               }}
             >
-              browse pets
+              Browse Pets
             </button>
           </div>
         </div>

@@ -24,15 +24,15 @@ function Faq() {
           {
             question: "How to adopt a pet?",
             answer:
-              "The adoption process is very easy and straightforward, all you have to do is choose the pet you want to adopt and submit a request. After that a representative from paws will contact you via phone or email in a period of 3 days",
+              "The adoption process is very easy and straightforward, all you have to do is choose the pet you want to adopt and submit a request. After that a representative from paws will contact you via phone or email in a period of 3 days.",
           },
           {
             question: "What do I need to adopt a pet?",
-            answer: "A kind heart and a ball throwing hand ⚽",
+            answer: "A kind heart and a ball throwing hand ⚽.",
           },
           {
             question: "What type of pet should I adopt?",
-            answer: "The one that makes you happy 😋",
+            answer: "The one that makes you happy 😋.",
           },
         ].map((faq, index) => (
           <div

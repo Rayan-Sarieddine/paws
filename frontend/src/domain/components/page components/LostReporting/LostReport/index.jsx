@@ -73,7 +73,7 @@ function LostReport() {
       </p>
       <form onSubmit={onFormSubmit}>
         <div className="input-group">
-          <label>Upload a clear picture of your pet:</label>
+          <p>Upload a clear picture of your pet:</p>
           <input type="file" onChange={handleFileChange} required />
         </div>
         <div className="input-group">

@@ -199,7 +199,7 @@ function Editprofile() {
             </button>
           </div>
           <div className="edit-profile-value">
-            <p>Change Phone number:</p>
+            <p>Change phone number:</p>
             <input
               type="text"
               value={newPhone}
