@@ -96,7 +96,7 @@ const updateUser = async (req, res) => {
     const trimmedName = name.trim();
     const hasValidName = /^\S(.*\s+.*)*\S$/.test(trimmedName);
     if (!hasValidName) {
-      return res.status(400).send({ message: "incomplete name" });
+      return res.status(400).send({ message: "Incomplete name" });
     }
 
     const nameParts = trimmedName.split(" ");
