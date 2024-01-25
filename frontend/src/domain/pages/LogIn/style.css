@@ -133,15 +133,6 @@
   font-size: 0.9rem;
   color: #fff;
 }
-.forgot-password_link {
-  color: #fff;
-  font-size: 1.3rem;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.forgot-password_link:hover {
-  opacity: 0.8;
-}
 
 .signin .content .form .inputBox input[type="submit"] {
   padding: 1rem;

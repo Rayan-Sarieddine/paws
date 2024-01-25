@@ -17,11 +17,11 @@ const login = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).send({ message: "invalid credentials" });
+    if (!user) return res.status(400).send({ message: "Invalid credentials" });
 
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword)
-      return res.status(401).send({ message: "invalid credentials" });
+      return res.status(401).send({ message: "Invalid credentials" });
 
     //No need to include the password in sent data to frontend
     const { password: hashedPassword, ...userDetails } = user.toJSON();
@@ -65,7 +65,7 @@ const register = async (req, res) => {
 
     //phone validation
     if (phone.length < 8) {
-      return res.status(400).send({ message: "invalid phone number" });
+      return res.status(400).send({ message: "Invalid phone number" });
     }
 
     //address validation

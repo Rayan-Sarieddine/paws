@@ -107,7 +107,7 @@ const LogIn = () => {
       setError("Please enter your email first");
       return;
     }
-    setMessage("Password Reset link is sent");
+    setMessage("Password reset link is sent");
   };
 
   return (
@@ -147,9 +147,6 @@ const LogIn = () => {
               <i>Password</i>
             </div>
 
-            <p className="forgot-password_link" onClick={forgotPassword}>
-              Forgot Password
-            </p>
             <div className="inputBox google-sign-in">
               <p>-------- or sign in with --------</p>
               <div className="google-button" onClick={handleGoogleLogin}>

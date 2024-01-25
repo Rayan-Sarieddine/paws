@@ -52,7 +52,7 @@ function SignUp() {
       return;
     }
     if (address.length < 10) {
-      setError("address not detailed enough");
+      setError("Address not detailed enough");
       return;
     }
     //data to be send of body of request
