@@ -82,6 +82,24 @@
 | -----------------------------------------
 | ![Regsiter](./readme/user-screens-web/)
 
+### User Screens (App)
+
+> | Onboarding Screen                                           | Login Screen                                         |
+> | ----------------------------------------------------------- | ---------------------------------------------------- |
+> | ![Onboarding Screen](./readme/user-screens-app/Welcome.jpg) | ![Login Screen](./readme/user-screens-app/Login.jpg) |
+
+> | Register Screen                                            | Add Pet Screen                                           |
+> | ---------------------------------------------------------- | -------------------------------------------------------- |
+> | ![Register Screen](./readme/user-screens-app/Register.jpg) | ![Add Pet Screen](./readme/user-screens-app/Add_Pet.jpg) |
+
+> | Home Screen                                        | Tracker Screen                                           |
+> | -------------------------------------------------- | -------------------------------------------------------- |
+> | ![Home Screen](./readme/user-screens-app/Home.jpg) | ![Tracker Screen](./readme/user-screens-app/Tracker.gif) |
+
+> | Chat Screen                                        | Profile Screen                                           |
+> | -------------------------------------------------- | -------------------------------------------------------- |
+> | ![Chat Screen](./readme/user-screens-app/Chat.gif) | ![Profile Screen](./readme/user-screens-app/Profile.jpg) |
+
 ### Admin Pages (Desktop)
 
 | Login Page  
