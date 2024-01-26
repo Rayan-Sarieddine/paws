@@ -62,9 +62,9 @@
 > | ![onboarding_screen](./readme/mockups/onboarding.png) | ![tracker_screen](./readme/mockups/Tracker.png) | ![chat_screen](./readme/mockups/Chat.png) |
 
 > Desktop Application
-> | Dashboard Page| Order Details Page | Add Pet Page |
+> | Products Page| Adoption Requests Page | Login Page |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![dashboard_page](./readme/mockups/dashboard.png) | ![order_details_page](./readme/mockups/order-details.png) | ![add_pet_page](./readme/mockups/add-pet.png) |
+> | ![products_page](./readme/mockups/products.png) | ![adoption_requests_page](./readme/mockups/adoption-requests.png) | ![login_page](./readme/mockups/login.png) |
 
 <br><br>
 
