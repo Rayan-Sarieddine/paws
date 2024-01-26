@@ -5,20 +5,21 @@
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> HOME OF PETS!
->
+> HOME OF PETS!  
 > Paws, an ensemble of innovative platforms, revolutionizes pet care by integrating a Live Tracker device, infusing AI-driven dialogue and real-time chat, crafting machine learning searches for lost companions, nurturing pet adoption, and curating a dedicated shop for pet essentials and beyond.
 
 ### User Stories
 
-Users:  
 -As a person looking to adopt a pet I want a platform where I can browse all the pets available for adoption so that I can choose my preference.  
 -As a pet owner I want a platform where I can shop for my pet’s food and toys and get them delivered to me so that I can save time.  
+-As a shoper I want to be able to chat with someone to help me with my inquires so that I can choose the products I need for my pet.  
 -As a pet owner I want to be able to chat with someone who will be able to answer questions about my pet 24/7 so that I can keep my pet healthy and happy.  
 -As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if it gets lost.  
 -As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.
+-As a person who found a lost pet I want a portal where I can report it so that It can be found
 
-Admin:  
+### Admin Stories
+
 -As an admin I want to be able to manage inventory so that I can keep track of the products.  
 -As an admin I want to be able to add pets and list them for adoption so that users can see them.  
 -As an admin I want to approve or reject adoption requests so that I can make sure the pets are going to a safe place.  
@@ -28,19 +29,42 @@ Admin:
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 
-> We designed Coffee Express using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
+> The design process for Paws began with meticulous planning, utilizing Excalidraw for initial structuring of the project. This foundational step ensured a cohesive and well-organized structure. Subsequently, the project transitioned to Figma, where detailed wireframes and sophisticated mockups were meticulously crafted, laying the groundwork for a visually compelling and user-friendly design.  
+> Below is a collection of some of the wireframes and mockups.
 
 ### Wireframes
 
-| Login screen                            | Register screen                       | Landing screen                        |
-| --------------------------------------- | ------------------------------------- | ------------------------------------- |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+> Website
+> | Adopt- Main Page | Adopt- All Pets Page| Adopt- Pet Page |
+> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
+> | ![adopt_main_page](./readme/demowireframes/Adopt-main_page.png) | ![adopt_all_pets_page](./readme/wireframes/Adopt-all_pets_page.png) | ![adopt_pet_page](./readme/wireframes/ADOPT-pet_page.png) |
+
+> Mobile Application
+> | Login screen | Register screen | Landing screen |
+> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
+> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+
+> Desktop Application
+> | Login screen | Register screen | Landing screen |
+> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
+> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 ### Mockups
 
-| Home screen                             | Menu Screen                           | Order Screen                          |
-| --------------------------------------- | ------------------------------------- | ------------------------------------- |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+> Website
+> | Login screen | Register screen | Landing screen |
+> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
+> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+
+> Mobile Application
+> | Login screen | Register screen | Landing screen |
+> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
+> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+
+> Desktop Application
+> | Login screen | Register screen | Landing screen |
+> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
+> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 <br><br>
 
