@@ -59,7 +59,7 @@
 > Mobile Application
 > | OnBoarding Screen | Tracker Screen | Chat Screen |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![onboarding_screen](./readme/mockups/onboarding.png) | ![tracker_screen](./readme/mockups/Tracker.png) | ![chat_screen](./readme/mockups/Chat.png) |
+> | ![onboarding_screen](./readme/mockups/screen1.png) | ![tracker_screen](./readme/mockups/Tracker.png) | ![chat_screen](./readme/mockups/Chat.png) |
 
 > Desktop Application
 > | Products Page| Adoption Requests Page | Login Page |
