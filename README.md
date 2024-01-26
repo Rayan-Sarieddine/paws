@@ -35,19 +35,19 @@
 ### Wireframes
 
 > Website
-> | Adopt- Main Page | Adopt- All Pets Page| Adopt- Pet Page |
+> | Adopt Main Page | Adopt All Pets Page| Adopt Pet Page |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
 > | ![adopt_main_page](./readme/wireframes/Adopt-main_page.png) | ![adopt_all_pets_page](./readme/wireframes/Adopt-all_pets_page.png) | ![adopt_pet_page](./readme/wireframes/ADOPT-pet_page.png) |
 
 > Mobile Application
-> | Login screen | Register screen | Landing screen |
+> | OnBoarding Screen | Tracker Screen | Chat Screen |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+> | ![onboarding_screen](./readme/wireframes/onboarding.png) | ![tracker_screen](./readme/wireframes/tracker.png) | ![chat_screen](./readme/wireframes/chat.png) |
 
 > Desktop Application
-> | Login screen | Register screen | Landing screen |
+> | Dashboard Page| Order Details Page | Add Pet Page |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+> | ![dashboard_page](./readme/wireframes/dashboard.png) | ![order_details_page](./readme/wireframes/order_details.png) | ![add_pet_page](./readme/wireframes/add-pet.png) |
 
 ### Mockups
 
