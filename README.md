@@ -71,24 +71,66 @@
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
 
-> Using the wireframes and mockups as a guide, we implemented the Coffee Express app with the following features:
+> Guided by the meticulously designed wireframes and mockups, we developed the Paws website and desktop application, equipping them with an array of features. These enhancements were strategically integrated to ensure a seamless and enriched user experience, on the web, mobile and on the desktop platforms:
 
-### User Screens (Mobile)
+### User Screens (Web)
 
-| Login screen                              | Register screen                         | Landing screen                          | Loading screen                          |
-| ----------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-| Home screen                               | Menu Screen                             | Order Screen                            | Checkout Screen                         |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
+| Login screen  
+| -----------------------------------------
+| ![Login Page](./readme/user-screens-web/)
+| Register screen  
+| -----------------------------------------
+| ![Regsiter](./readme/user-screens-web/)
 
-### Admin Screens (Web)
+### Admin Screens (Desktop)
 
-| Login screen                            | Register screen                       | Landing screen                        |
-| --------------------------------------- | ------------------------------------- | ------------------------------------- |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-| Home screen                             | Menu Screen                           | Order Screen                          |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| Login screen  
+| -----------------------------------------
+| ![Login Page](./readme/admin-screens-desktop/login.gif)
 
+| Dashboard screen  
+| -----------------------------------------
+| ![Dashboard](./readme/admin-screens-desktop/dashboard.png)
+
+| All Pets screen  
+| -----------------------------------------
+| ![All Pets](./readme/admin-screens-desktop/all-pets.png)
+
+| Edit Pet screen
+| -----------------------------------------
+| ![Edit Pet](./readme/admin-screens-desktop/edit-pet.png)
+
+| Add Pet screen  
+| -----------------------------------------
+| ![Add Pet](./readme/admin-screens-desktop/add-pet.png)
+
+| All Products screen  
+| -----------------------------------------
+| ![All Products](./readme/admin-screens-desktop/all-products.png)
+
+| Edit Product screen
+| -----------------------------------------
+| ![Edit Product](./readme/admin-screens-desktop/edit-product.png)
+
+| Add Product screen  
+| -----------------------------------------
+| ![Add Product](./readme/admin-screens-desktop/add-product.png)
+
+| All Orders screen
+| -----------------------------------------
+| ![All Orders](./readme/admin-screens-desktop/all-orders.png)
+
+| Order screen  
+| -----------------------------------------
+| ![Order](./readme/admin-screens-desktop/order.png)
+
+| Adoption Requests screen  
+| -----------------------------------------
+| ![Adoption Requests](./readme/admin-screens-desktop/adoption-requests.png)
+
+| Chat screen  
+| -----------------------------------------
+| ![Chat](./readme/admin-screens-desktop/chat.png)
 <br><br>
 
 <!-- Tech stack -->
