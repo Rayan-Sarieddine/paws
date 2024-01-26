@@ -37,7 +37,7 @@
 > Website
 > | Adopt- Main Page | Adopt- All Pets Page| Adopt- Pet Page |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![adopt_main_page](./readme/demowireframes/Adopt-main_page.png) | ![adopt_all_pets_page](./readme/wireframes/Adopt-all_pets_page.png) | ![adopt_pet_page](./readme/wireframes/ADOPT-pet_page.png) |
+> | ![adopt_main_page](./readme/wireframes/Adopt-main_page.png) | ![adopt_all_pets_page](./readme/wireframes/Adopt-all_pets_page.png) | ![adopt_pet_page](./readme/wireframes/ADOPT-pet_page.png) |
 
 > Mobile Application
 > | Login screen | Register screen | Landing screen |
