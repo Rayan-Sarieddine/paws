@@ -42,12 +42,12 @@
 > Mobile Application
 > | OnBoarding Screen | Tracker Screen | Chat Screen |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![onboarding_screen](./readme/wireframes/onboarding.png) | ![tracker_screen](./readme/wireframes/tracker.png) | ![chat_screen](./readme/wireframes/chat.png) |
+> | ![onboarding_screen](./readme/wireframes/onboarding.png) | ![tracker_screen](./readme/wireframes/Tracker.png) | ![chat_screen](./readme/wireframes/Chat.png) |
 
 > Desktop Application
 > | Dashboard Page| Order Details Page | Add Pet Page |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![dashboard_page](./readme/wireframes/dashboard.png) | ![order_details_page](./readme/wireframes/order_details.png) | ![add_pet_page](./readme/wireframes/add-pet.png) |
+> | ![dashboard_page](./readme/wireframes/dashboard.png) | ![order_details_page](./readme/wireframes/order-details.png) | ![add_pet_page](./readme/wireframes/add-pet.png) |
 
 ### Mockups
 
