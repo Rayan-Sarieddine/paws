@@ -52,19 +52,19 @@
 ### Mockups
 
 > Website
-> | Login screen | Register screen | Landing screen |
+> | Home Page | Lost reporting Page| Shop Item Page |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+> | ![home_page](./readme/mockups/Home.png) | ![lost_reporting_page](./readme/mockups/lost-reporting.png) | ![shop_item_page](./readme/mockups/Shop-Item.png) |
 
 > Mobile Application
-> | Login screen | Register screen | Landing screen |
+> | OnBoarding Screen | Tracker Screen | Chat Screen |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+> | ![onboarding_screen](./readme/mockups/onboarding.png) | ![tracker_screen](./readme/mockups/Tracker.png) | ![chat_screen](./readme/mockups/Chat.png) |
 
 > Desktop Application
-> | Login screen | Register screen | Landing screen |
+> | Dashboard Page| Order Details Page | Add Pet Page |
 > | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+> | ![dashboard_page](./readme/mockups/dashboard.png) | ![order_details_page](./readme/mockups/order-details.png) | ![add_pet_page](./readme/mockups/add-pet.png) |
 
 <br><br>
 
