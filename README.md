@@ -154,13 +154,29 @@
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 
-### Coffee Express is built using the following technologies:
+### Paws harnesses a diverse range of technologies, each playing a crucial role in delivering a robust and versatile application:
 
-- This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) package which supports Android, iOS, and macOS.
-  - 🚨 Currently, notifications aren't working on macOS. This is a known issue that we are working to resolve!
-- The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
+Core Technologies:  
+-React: Employs React for building the website's user interface, offering a dynamic and responsive experience.  
+-Node.js: Serves as the backbone for the backend operations of both the website and mobile application, ensuring efficient data handling and server-side functionality.  
+-Express.js: Integrated with Node.js, Express.js streamlines the development of web applications by providing a robust set of features for web and mobile applications.  
+-Electron.js: Utilized for crafting the desktop application, Electron.js enables the creation of native desktop applications using web technologies.  
+-React Native: Adopted for developing the mobile application, React Native allows for a seamless cross-platform mobile experience.  
+-MongoDB: Acts as the primary database for the website and desktop application, offering a scalable, high-performance data storage solution.  
+-MySQL: Used for the mobile application's database, ensuring reliable data management and storage.  
+-Python: The backbone of my machine learning model, providing the necessary computational power and flexibility for complex data analysis.  
+-Flask: Works in tandem with Python to host the machine learning model, making it accessible from the website and mobile application through TensorFlow and TensorFlow Hub.  
+-C++: Employed for programming the ESP8266, enabling the integration and control of hardware components.
+
+Hardware Integration:  
+-ESP8266: A core component of my hardware setup, used for building a tracker in conjunction with a GPS module, offering real-time tracking capabilities and IoT functionality.  
+-NEO-6M GPS Module: Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of our hardware solution.
+
+Third-party Integrations:  
+-Firebase: for real-time live chat functionality, enhancing user engagement and support.  
+-OpenAI: for AI-driven chat capabilities, offering intelligent and responsive user interactions.  
+-TensorFlow.js: for executing the machine learning model in the browser and mobile application, harnessing the power of machine learning directly in the user interface.  
+-Google Maps: for displaying pet locations, providing users with intuitive and accurate geolocation services.
 
 <br><br>
 
