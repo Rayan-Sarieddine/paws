@@ -73,7 +73,7 @@
 
 > Guided by the meticulously designed wireframes and mockups, we developed the Paws website and desktop application, equipping them with an array of features. These enhancements were strategically integrated to ensure a seamless and enriched user experience, on the web, mobile and on the desktop platforms:
 
-### User Screens (Web)
+### User Pages (Web)
 
 | Login screen  
 | -----------------------------------------
@@ -82,55 +82,55 @@
 | -----------------------------------------
 | ![Regsiter](./readme/user-screens-web/)
 
-### Admin Screens (Desktop)
+### Admin Pages (Desktop)
 
-| Login screen  
+| Login Page  
 | -----------------------------------------
 | ![Login Page](./readme/admin-screens-desktop/login.gif)
 
-| Dashboard screen  
+| Dashboard Page  
 | -----------------------------------------
-| ![Dashboard](./readme/admin-screens-desktop/dashboard.png)
+| ![Dashboard](./readme/admin-screens-desktop/dashboard.jpg)
 
-| All Pets screen  
+| All Pets Page  
 | -----------------------------------------
-| ![All Pets](./readme/admin-screens-desktop/all-pets.png)
+| ![All Pets](./readme/admin-screens-desktop/all-pets.jpg)
 
-| Edit Pet screen
+| Edit Pet Page
 | -----------------------------------------
-| ![Edit Pet](./readme/admin-screens-desktop/edit-pet.png)
+| ![Edit Pet](./readme/admin-screens-desktop/edit-pet.jpg)
 
-| Add Pet screen  
+| Add Pet Page  
 | -----------------------------------------
-| ![Add Pet](./readme/admin-screens-desktop/add-pet.png)
+| ![Add Pet](./readme/admin-screens-desktop/add-pet.jpg)
 
-| All Products screen  
+| All Products Page  
 | -----------------------------------------
-| ![All Products](./readme/admin-screens-desktop/all-products.png)
+| ![All Products](./readme/admin-screens-desktop/all-products.jpg)
 
-| Edit Product screen
+| Edit Product Page
 | -----------------------------------------
-| ![Edit Product](./readme/admin-screens-desktop/edit-product.png)
+| ![Edit Product](./readme/admin-screens-desktop/edit-product.jpg)
 
-| Add Product screen  
+| Add Product Page  
 | -----------------------------------------
-| ![Add Product](./readme/admin-screens-desktop/add-product.png)
+| ![Add Product](./readme/admin-screens-desktop/add-product.jpg)
 
-| All Orders screen
+| All Orders Page
 | -----------------------------------------
-| ![All Orders](./readme/admin-screens-desktop/all-orders.png)
+| ![All Orders](./readme/admin-screens-desktop/all-orders.jpg)
 
-| Order screen  
+| Order Page  
 | -----------------------------------------
-| ![Order](./readme/admin-screens-desktop/order.png)
+| ![Order](./readme/admin-screens-desktop/order.jpg)
 
-| Adoption Requests screen  
+| Adoption Requests Page  
 | -----------------------------------------
-| ![Adoption Requests](./readme/admin-screens-desktop/adoption-requests.png)
+| ![Adoption Requests](./readme/admin-screens-desktop/adoption-requests.jpg)
 
-| Chat screen  
+| Chat Page  
 | -----------------------------------------
-| ![Chat](./readme/admin-screens-desktop/chat.png)
+| ![Chat](./readme/admin-screens-desktop/chat.jpg)
 <br><br>
 
 <!-- Tech stack -->
