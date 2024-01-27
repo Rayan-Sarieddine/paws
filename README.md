@@ -50,31 +50,81 @@
 </table>
 
 > Mobile Application
-> | OnBoarding Screen | Tracker Screen | Chat Screen |
-> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![onboarding_screen](./readme/wireframes/onboarding.png) | ![tracker_screen](./readme/wireframes/Tracker.png) | ![chat_screen](./readme/wireframes/Chat.png) |
+
+<table>
+  <tr>
+    <th>OnBoarding Screen</th>
+    <th>Tracker Screen</th>
+    <th>Chat Screen</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/wireframes/onboarding.png" alt="onboarding_screen" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/Tracker.png" alt="tracker_screen" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/Chat.png" alt="chat_screen" width="300" height="600"/></td>
+  </tr>
+</table>
 
 > Desktop Application
-> | Dashboard Page| Order Details Page | Add Pet Page |
-> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![dashboard_page](./readme/wireframes/dashboard.png) | ![order_details_page](./readme/wireframes/order-details.png) | ![add_pet_page](./readme/wireframes/add-pet.png) |
+
+<table>
+  <tr>
+    <th>Dashboard Page</th>
+    <th>Order Details Page</th>
+    <th>Add Pet Page</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/wireframes/dashboard.png" alt="dashboard_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/order-details.png" alt="order_details_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/add-pet.png" alt="add_pet_page" width="300" height="600"/></td>
+  </tr>
+</table>
 
 ### Mockups
 
 > Website
-> | Home Page | Lost reporting Page| Shop Item Page |
-> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![home_page](./readme/mockups/Home.png) | ![lost_reporting_page](./readme/mockups/lost-reporting.png) | ![shop_item_page](./readme/mockups/Shop-Item.png) |
+
+<table>
+  <tr>
+    <th>Home Page</th>
+    <th>Lost reporting Page</th>
+    <th>Shop Item Page</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/mockups/Home.png" alt="home_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/lost-reporting.png" alt="lost_reporting_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/Shop-Item.png" alt="shop_item_page" width="300" height="600"/></td>
+  </tr>
+</table>
 
 > Mobile Application
-> | OnBoarding Screen | Tracker Screen | Chat Screen |
-> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![onboarding_screen](./readme/mockups/screen1.png) | ![tracker_screen](./readme/mockups/Tracker.png) | ![chat_screen](./readme/mockups/Chat.png) |
+
+<table>
+  <tr>
+    <th>OnBoarding Screen</th>
+    <th>Tracker Screen</th>
+    <th>Chat Screen</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/mockups/screen1.png" alt="onboarding_screen" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/Tracker.png" alt="tracker_screen" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/Chat.png" alt="chat_screen" width="300" height="600"/></td>
+  </tr>
+</table>
 
 > Desktop Application
-> | Products Page| Adoption Requests Page | Login Page |
-> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![products_page](./readme/mockups/products.png) | ![adoption_requests_page](./readme/mockups/adoption-requests.png) | ![login_page](./readme/mockups/login.png) |
+
+<table>
+  <tr>
+    <th>Products Page</th>
+    <th>Adoption Requests Page</th>
+    <th>Login Page</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/mockups/products.png" alt="products_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/adoption-requests.png" alt="adoption_requests_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/login.png" alt="login_page" width="300" height="600"/></td>
+  </tr>
+</table>
 
 <br><br>
 
