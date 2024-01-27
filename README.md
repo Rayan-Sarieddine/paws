@@ -73,9 +73,9 @@
     <th>Add Pet Page</th>
   </tr>
   <tr>
-    <td><img src="./readme/wireframes/dashboard.png" alt="dashboard_page" width="900" height="200"/></td>
-    <td><img src="./readme/wireframes/order-details.png" alt="order_details_page" width="900" height="200"/></td>
-    <td><img src="./readme/wireframes/add-pet.png" alt="add_pet_page" width="900" height="200"/></td>
+    <td><img src="./readme/wireframes/dashboard.png" alt="dashboard_page" /></td>
+    <td><img src="./readme/wireframes/order-details.png" alt="order_details_page" /></td>
+    <td><img src="./readme/wireframes/add-pet.png" alt="add_pet_page" /></td>
   </tr>
 </table>
 
