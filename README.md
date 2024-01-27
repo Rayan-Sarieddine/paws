@@ -12,11 +12,11 @@
 
 -As a person looking to adopt a pet I want a platform where I can browse all the pets available for adoption so that I can choose my preference.  
 -As a pet owner I want a platform where I can shop for my pet’s food and toys and get them delivered to me so that I can save time.  
--As a shoper I want to be able to chat with someone to help me with my inquires so that I can choose the products I need for my pet.  
+-As a shopper I want to be able to chat with someone to help me with my inquiries so that I can choose the products I need for my pet.  
 -As a pet owner I want to be able to chat with someone who will be able to answer questions about my pet 24/7 so that I can keep my pet healthy and happy.  
 -As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if it gets lost.  
 -As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.
--As a person who found a lost pet I want a portal where I can report it so that It can be found
+-As a person who found a lost pet I want a portal where I can report it so that it can be found
 
 ### Admin Stories
 
@@ -131,7 +131,7 @@
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
 
-> Guided by the meticulously designed wireframes and mockups, we developed the Paws website and desktop application, equipping them with an array of features. These enhancements were strategically integrated to ensure a seamless and enriched user experience, on the web, mobile and on the desktop platforms:
+> Guided by the meticulously designed wireframes and mockups, I developed the Paws website and desktop application, equipping them with an array of features. These enhancements were strategically integrated to ensure a seamless and enriched user experience, on the web, mobile and on the desktop platforms:
 
 ### User Pages (Web)
 
@@ -244,7 +244,7 @@
     <th>Profile Screen</th>
   </tr>
   <tr>
-    <td><img src="./readme/user-screens-app/chat.gif" alt="Chat Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/chat.jpg" alt="Chat Screen" width="300" height="600"/></td>
     <td><img src="./readme/user-screens-app/Profile.jpg" alt="Profile Screen" width="300" height="600"/></td>
   </tr>
 </table>
@@ -319,7 +319,7 @@ Core Technologies:
 
 Hardware Integration:  
 -ESP8266: A core component of my hardware setup, used for building a tracker in conjunction with a GPS module, offering real-time tracking capabilities and IoT functionality.  
--NEO-6M GPS Module: Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of our hardware solution.
+-NEO-6M GPS Module: Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of my hardware solution.
 
 Third-party Integrations:  
 -Firebase: for real-time live chat functionality, enhancing user engagement and support.  
@@ -359,7 +359,7 @@ Before you begin, ensure you have met the following requirements:
 
 Follow these steps to install and set up Paws on your local environment. The setup is divided into sections for the web platform, mobile app, and Arduino.
 
-Clone the repo
+Clone the repo:
 
 ```sh
 git clone https://github.com/Rayan-Sarieddine/paws
@@ -413,15 +413,15 @@ cd frontend-app
 npx expo start
 ```
 
-Note: Run ipconfig to verify the IP address matches the one set in the request file.
+Note: Run ipconfig to verify the IP address matches the one set in the request file.  
 Install Expo on your phone and scan the QR code (ensure the phone and desktop are connected to the same Wi-Fi).
 
 Arduino:
 
-1- If not already done, complete step 2 from the Mobile App section.
-2- Connect the Arduino (ESP8266) to your computer.
-3- Update the Wi-Fi credentials and API endpoint in the Arduino IDE code.
-4- Confirm the API in the Arduino code is targeting the correct IP address (use ipconfig).
+1- If not already done, complete step 2 from the Mobile App section.  
+2- Connect the Arduino (ESP8266) to your computer.  
+3- Update the Wi-Fi credentials and API endpoint in the Arduino IDE code.  
+4- Confirm the API in the Arduino code is targeting the correct IP address (use ipconfig).  
 5- Upload the code.
 
 Now, you should be able to run Paws locally and explore its features.
