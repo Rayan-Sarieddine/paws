@@ -212,33 +212,96 @@ Third-party Integrations:
 <!-- How to run -->
 <img src="./readme/title6.svg"/>
 
-> To set up Coffee Express locally, follow these steps:
+> To set up Paws locally, follow these steps:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Before you begin, ensure you have met the following requirements:
 
-- npm
+- Node.js and npm:
   ```sh
   npm install npm@latest -g
   ```
+- Python for the Flask server:
+  ```sh
+  Install Python from the official website.
+  ```
+- XAMPP for the MySQL database:
+  ```sh
+  Install XAMPP from the official website.
+  ```
+- Arduino IDE for ESP8266
+  ```sh
+  Install Arduino IDE from the official website.
+  ```
 
-### Installation
+### Installation & Setup
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Follow these steps to install and set up Paws on your local environment. The setup is divided into sections for the web platform, mobile app, and Arduino.
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
+
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+   git clone https://github.com/Rayan-Sarieddine/paws
    ```
 
-Now, you should be able to run Coffee Express locally and explore its features.
+   Web:
+
+1- Start the Flask server for pet breed prediction:
+
+```sh
+cd flask
+python app.py
+```
+
+2- Run the Node.js server (Ensure MongoDB Compass is open):
+
+```sh
+cd backend
+nodemon .
+```
+
+3- Start the React app:
+
+```sh
+cd frontend
+npm start
+```
+
+4- Launch the desktop app with Electron:
+
+```sh
+cd electron-app
+npm run dev
+```
+
+Mobile App:
+
+1- Start XAMPP and MySQL.
+
+2- Run the Node.js server for the mobile app:
+
+```sh
+cd backend-app
+nodemon .
+```
+
+3- Start the mobile application with Expo:
+
+```sh
+cd frontend-app
+npx expo start
+```
+
+Note: Run ipconfig to verify the IP address matches the one set in the request file.
+Install Expo on your phone and scan the QR code (ensure the phone and desktop are connected to the same Wi-Fi).
+
+Arduino:
+
+1- If not already done, complete step 2 from the Mobile App section.
+2- Connect the Arduino (ESP8266) to your computer.
+3- Update the Wi-Fi credentials and API endpoint in the Arduino IDE code.
+4- Confirm the API in the Arduino code is targeting the correct IP address (use ipconfig).
+5- Upload the code.
+
+Now, you should be able to run Paws locally and explore its features.
