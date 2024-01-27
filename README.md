@@ -35,9 +35,19 @@
 ### Wireframes
 
 > Website
-> | Adopt Main Page | Adopt All Pets Page| Adopt Pet Page |
-> | --------------------------------------- | ------------------------------------- | ------------------------------------- |
-> | ![adopt_main_page](./readme/wireframes/Adopt-main_page.png) | ![adopt_all_pets_page](./readme/wireframes/Adopt-all_pets_page.png) | ![adopt_pet_page](./readme/wireframes/ADOPT-pet_page.png) |
+
+<table>
+  <tr>
+    <th>Adopt Main Page</th>
+    <th>Adopt All Pets Page</th>
+    <th>Adopt Pet Page</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/wireframes/Adopt-main_page.png" alt="adopt_main_page" width="300"/></td>
+    <td><img src="./readme/wireframes/Adopt-all_pets_page.png" alt="adopt_all_pets_page" width="300"/></td>
+    <td><img src="./readme/wireframes/ADOPT-pet_page.png" alt="adopt_pet_page" width="300"/></td>
+  </tr>
+</table>
 
 > Mobile Application
 > | OnBoarding Screen | Tracker Screen | Chat Screen |
@@ -271,13 +281,13 @@ Before you begin, ensure you have met the following requirements:
 
 Follow these steps to install and set up Paws on your local environment. The setup is divided into sections for the web platform, mobile app, and Arduino.
 
-1. Clone the repo
+Clone the repo
 
-   ```sh
-   git clone https://github.com/Rayan-Sarieddine/paws
-   ```
+```sh
+git clone https://github.com/Rayan-Sarieddine/paws
+```
 
-   Web:
+Web:
 
 1- Start the Flask server for pet breed prediction:
 
