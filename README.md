@@ -75,41 +75,73 @@
 
 ### User Pages (Web)
 
-> | Register Page                                            | Login Page                                         |
-> | -------------------------------------------------------- | -------------------------------------------------- |
-> | ![Register Page](./readme/user-screens-web/register.gif) | ![Login Page](./readme/user-screens-web/login.gif) |
+| Register Page  
+| --------------------------------------------------------
+| ![Register Page](./readme/user-screens-web/register.gif)
 
-> | Google Login                                                | Terms & Conditions Page                                         |
-> | ----------------------------------------------------------- | --------------------------------------------------------------- |
-> | ![Google Login](./readme/user-screens-web/google-login.gif) | ![Terms & Conditions Page](./readme/user-screens-web/terms.gif) |
+| Login Page  
+| --------------------------------------------------
+| ![Login Page](./readme/user-screens-web/login.gif)
 
-> | Home Page                                        | Adopt Main                                                   |
-> | ------------------------------------------------ | ------------------------------------------------------------ |
-> | ![Home Page](./readme/user-screens-web/home.gif) | ![Adopt Main Page](./readme/user-screens-web/adopt-main.gif) |
+| Google Login  
+| -----------------------------------------------------------
+| ![Google Login](./readme/user-screens-web/google-login.gif)
 
-> | Adopt Pets Page                                         | Adopt Process                                                    |
-> | ------------------------------------------------------- | ---------------------------------------------------------------- |
-> | ![Adopt Pets Page](./readme/user-screens-web/adopt.gif) | ![Adopt Process](./readme/user-screens-web/adoption-process.gif) |
+| Terms & Conditions Page  
+| ---------------------------------------------------------------
+| ![Terms & Conditions Page](./readme/user-screens-web/terms.gif)
 
-> | Shop Page                                   | Shop Process                                                |
-> | ------------------------------------------- | ----------------------------------------------------------- |
-> | ![Shop](./readme/user-screens-web/shop.gif) | ![Shop Process](./readme/user-screens-web/shop-process.gif) |
+| Home Page  
+| ------------------------------------------------
+| ![Home Page](./readme/user-screens-web/home.gif)
 
-> | Found Reporting                                         | Lost Reporting 1                                              |
-> | ------------------------------------------------------- | ------------------------------------------------------------- |
-> | ![Found Reporting](./readme/user-screens-web/found.gif) | ![Lost Reporting 1](./readme/user-screens-web/lost-match.gif) |
+| Adopt Main  
+| ------------------------------------------------------------
+| ![Adopt Main Page](./readme/user-screens-web/adopt-main.gif)
 
-> | Lost Reporting 2                                               | Lost Reporting 3                                                  |
-> | -------------------------------------------------------------- | ----------------------------------------------------------------- |
-> | ![Lost Reporting 2](./readme/user-screens-web/lost-1match.gif) | ![Lost Reporting 3](./readme/user-screens-web/lost-noresults.gif) |
+| Adopt Pets Page  
+| -------------------------------------------------------
+| ![Adopt Pets Page](./readme/user-screens-web/adopt.gif)
 
-> | Chat Page                                        | Edit Profile Page                                                |
-> | ------------------------------------------------ | ---------------------------------------------------------------- |
-> | ![Chat Page](./readme/user-screens-web/chat.gif) | ![Edit Profile Page](./readme/user-screens-web/edit-profile.gif) |
+| Adopt Process  
+| ----------------------------------------------------------------
+| ![Adopt Process](./readme/user-screens-web/adoption-process.gif)
 
-> | Error Page  
-> | ------------------------------------------------
-> | ![Error Page](./readme/user-screens-web/Chat.gif)
+| Shop Page  
+| -------------------------------------------
+| ![Shop](./readme/user-screens-web/shop.gif)
+
+| Shop Process  
+| -----------------------------------------------------------
+| ![Shop Process](./readme/user-screens-web/shop-process.gif)
+
+| Found Reporting  
+| -------------------------------------------------------
+| ![Found Reporting](./readme/user-screens-web/found.gif)
+
+| Lost Reporting 1  
+| -------------------------------------------------------------
+| ![Lost Reporting 1](./readme/user-screens-web/lost-match.gif)
+
+| Lost Reporting 2  
+| --------------------------------------------------------------
+| ![Lost Reporting 2](./readme/user-screens-web/lost-1match.gif)
+
+| Lost Reporting 3  
+| -----------------------------------------------------------------
+| ![Lost Reporting 3](./readme/user-screens-web/lost-noresults.gif)
+
+| Chat Page  
+| ------------------------------------------------
+| ![Chat Page](./readme/user-screens-web/chat.gif)
+
+| Edit Profile Page  
+| ----------------------------------------------------------------
+| ![Edit Profile Page](./readme/user-screens-web/edit-profile.gif)
+
+| Error Page  
+| ------------------------------------------------
+| ![Error Page](./readme/user-screens-web/error.gif)
 
 ### User Screens (App)
 
