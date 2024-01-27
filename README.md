@@ -43,9 +43,9 @@
     <th>Adopt Pet Page</th>
   </tr>
   <tr>
-    <td><img src="./readme/wireframes/Adopt-main_page.png" alt="adopt_main_page" width="300"/></td>
-    <td><img src="./readme/wireframes/Adopt-all_pets_page.png" alt="adopt_all_pets_page" width="300"/></td>
-    <td><img src="./readme/wireframes/ADOPT-pet_page.png" alt="adopt_pet_page" width="300"/></td>
+    <td><img src="./readme/wireframes/Adopt-main_page.png" alt="adopt_main_page" width="300"  height="600"/></td>
+    <td><img src="./readme/wireframes/Adopt-all_pets_page.png" alt="adopt_all_pets_page" width="300" height="600"/></td>
+    <td><img src="./readme/wireframes/ADOPT-pet_page.png" alt="adopt_pet_page" width="300" height="600"/></td>
   </tr>
 </table>
 
