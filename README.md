@@ -120,9 +120,9 @@
     <th>Login Page</th>
   </tr>
   <tr>
-    <td><img src="./readme/mockups/products.png" alt="products_page" width="300" height="600"/></td>
-    <td><img src="./readme/mockups/adoption-requests.png" alt="adoption_requests_page" width="300" height="600"/></td>
-    <td><img src="./readme/mockups/login.png" alt="login_page" width="300" height="600"/></td>
+    <td><img src="./readme/mockups/products.png" alt="products_page" /></td>
+    <td><img src="./readme/mockups/adoption-requests.png" alt="adoption_requests_page" /></td>
+    <td><img src="./readme/mockups/login.png" alt="login_page" /></td>
   </tr>
 </table>
 
@@ -205,21 +205,49 @@
 
 ### User Screens (App)
 
-> | Onboarding Screen                                           | Login Screen                                         |
-> | ----------------------------------------------------------- | ---------------------------------------------------- |
-> | ![Onboarding Screen](./readme/user-screens-app/Welcome.jpg) | ![Login Screen](./readme/user-screens-app/Login.jpg) |
+<table>
+  <tr>
+    <th>Onboarding Screen</th>
+    <th>Login Screen</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/user-screens-app/Welcome.jpg" alt="Onboarding Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/Login.jpg" alt="Login Screen" width="300" height="600"/></td>
+  </tr>
+</table>
 
-> | Register Screen                                            | Add Pet Screen                                           |
-> | ---------------------------------------------------------- | -------------------------------------------------------- |
-> | ![Register Screen](./readme/user-screens-app/Register.jpg) | ![Add Pet Screen](./readme/user-screens-app/Add_Pet.jpg) |
+<table>
+  <tr>
+    <th>Register Screen</th>
+    <th>Add Pet Screen</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/user-screens-app/Register.jpg" alt="Register Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/Add_Pet.jpg" alt="Add Pet Screen" width="300" height="600"/></td>
+  </tr>
+</table>
 
-> | Home Screen                                        | Tracker Screen                                       |
-> | -------------------------------------------------- | ---------------------------------------------------- |
-> | ![Home Screen](./readme/user-screens-app/Home.jpg) | ![Tracker Screen](./readme/user-screens-app/map.gif) |
+<table>
+  <tr>
+    <th>Home Screen</th>
+    <th>Tracker Screen</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/user-screens-app/Home.jpg" alt="Home Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/map.gif" alt="Tracker Screen" width="300" height="600"/></td>
+  </tr>
+</table>
 
-> | Chat Screen                                        | Profile Screen                                           |
-> | -------------------------------------------------- | -------------------------------------------------------- |
-> | ![Chat Screen](./readme/user-screens-app/chat.gif) | ![Profile Screen](./readme/user-screens-app/Profile.jpg) |
+<table>
+  <tr>
+    <th>Chat Screen</th>
+    <th>Profile Screen</th>
+  </tr>
+  <tr>
+    <td><img src="./readme/user-screens-app/chat.gif" alt="Chat Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/Profile.jpg" alt="Profile Screen" width="300" height="600"/></td>
+  </tr>
+</table>
 
 ### Admin Pages (Desktop)
 
