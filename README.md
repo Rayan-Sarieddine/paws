@@ -377,6 +377,9 @@ This project not only emphasizes the meticulous crafting of code but also ensure
 
 ### Precision in Development: Harnessing the Power of Unit Testing:
 
+Throughout the development of Paws, The testing strategy was structured to incorporate thorough input validation and extensive API testing through Postman. This method offered immediate insights into the functionality and reliability of our endpoints. Further enhancing the robustness of our application, I integrated a deeper, automated layer of validation with comprehensive unit testing. This blend of manual and automated testing procedures fortified the foundation of Paws, ensuring the system's integrity and reliability of the tested endpoints.
+
+<img src="./readme/testing/testing.jpg" alt="Testing Results"/>
 <br><br>
 
 <!-- How to run -->
