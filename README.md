@@ -35,28 +35,28 @@
 
 Core Technologies:
 
-- React: Employs React for building the website's user interface, offering a dynamic and responsive experience.
-- Node.js: Serves as the backbone for the backend operations of both the website and mobile application, ensuring efficient data handling and server-side functionality.
-- Express.js: Integrated with Node.js, Express.js streamlines the development of web applications by providing a robust set of features for web and mobile applications.
-- Electron.js: Utilized for crafting the desktop application, Electron.js enables the creation of native desktop applications using web technologies.
-- React Native: Adopted for developing the mobile application, React Native allows for a seamless cross-platform mobile experience.  
-  -MongoDB: Acts as the primary database for the website and desktop application, offering a scalable, high-performance data storage solution.
-- MySQL: Used for the mobile application's database, ensuring reliable data management and storage.
-- Python: The backbone of my machine learning model, providing the necessary computational power and flexibility for complex data analysis.
-- Flask: Works in tandem with Python to host the machine learning model, making it accessible from the website and mobile application through TensorFlow and TensorFlow Hub.
-- C++: Employed for programming the ESP8266, enabling the integration and control of hardware components.
+- [React](https://react.dev/): Employed React for building the website's user interface, offering a dynamic and responsive experience.
+- [Node.js](https://nodejs.org/en): Serves as the backbone for the backend operations of both the website and mobile application, ensuring efficient data handling and server-side functionality.
+- [Express.js](https://expressjs.com/): Integrated with Node.js, Express.js streamlines the development of web applications by providing a robust set of features for web and mobile applications.
+- [Electron.js](https://www.electronjs.org/): Utilized for crafting the desktop application, Electron.js enables the creation of native desktop applications using web technologies.
+- [React Native](https://reactnative.dev/): Adopted for developing the mobile application, React Native allows for a seamless cross-platform mobile experience.
+- [MongoDB](https://www.mongodb.com/): Acts as the primary database for the website and desktop application, offering a scalable, high-performance data storage solution.
+- [MySQL](https://www.mysql.com/): Used for the mobile application's database, ensuring reliable data management and storage.
+- [Python](https://www.python.org/): The backbone of my machine learning model, providing the necessary computational power and flexibility for complex data analysis.
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/): Works in tandem with Python to host the machine learning model, making it accessible from the website and mobile application through TensorFlow and TensorFlow Hub.
+- [C++](https://cplusplus.com/): Employed for programming the ESP8266, enabling the integration and control of hardware components.
 
 Hardware Integration:
 
-- ESP8266: A core component of my hardware setup, used for building a tracker in conjunction with a GPS module, offering real-time tracking capabilities and IoT functionality.
-- NEO-6M GPS Module: Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of my hardware solution.
+- [ESP8266](https://en.wikipedia.org/wiki/ESP8266#:~:text=The%20ESP8266%20is%20a%20low,Espressif%20Systems): A core component of my hardware setup, used for building a tracker in conjunction with a GPS module, offering real-time tracking capabilities and IoT functionality.
+- [NEO-6M GPS Module](https://randomnerdtutorials.com/guide-to-neo-6m-gps-module-with-arduino/): Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of my hardware solution.
 
 Third-party Integrations:
 
-- Firebase: for real-time live chat functionality, enhancing user engagement and support.
-- OpenAI: for AI-driven chat capabilities, offering intelligent and responsive user interactions.
-- TensorFlow.js: for executing the machine learning model in the browser and mobile application, harnessing the power of machine learning directly in the user interface.
-- Google Maps: for displaying pet locations, providing users with intuitive and accurate geolocation services.
+- [Firebase](https://firebase.google.com/): for real-time live chat functionality, enhancing user engagement and support.
+- [OpenAI](https://openai.com/): for AI-driven chat capabilities, offering intelligent and responsive user interactions.
+- [TensorFlow.js](https://www.tensorflow.org/js): for executing the machine learning model in the browser and mobile application, harnessing the power of machine learning directly in the user interface.
+- [Google Maps](https://developers.google.com/maps): for displaying pet locations, providing users with intuitive and accurate geolocation services.
 
 <br><br>
 
