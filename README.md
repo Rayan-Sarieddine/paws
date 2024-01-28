@@ -125,7 +125,9 @@ MongoDB: I employ MongoDB, a powerful NoSQL database, for my web platforms. This
 
 MySQL: For my mobile app platform, I rely on MySQL, a renowned open-source relational database management system. MySQL stands out for its reliability and is widely recognized for its performance and strong data protection features. By using MySQL for my mobile platform, I ensure that data is structured, consistent, and securely managed. Below is the ER diagram:
 
-<img src="./readme/database/MySQL.png" alt="ER Diagram / MySQL" />    
+<img src="./readme/database/MySQL.png" alt="ER Diagram / MySQL" />
+
+Together, these databases form the backbone of Paws, supporting my mission to deliver a seamless and efficient experience across both web and mobile platforms. Whether it's handling dynamic content on the web or ensuring data integrity in mobile applications, my dual-database architecture is designed to meet the diverse and evolving needs of my users.  
 <br><br>
 
 <!-- Implementation -->
@@ -300,12 +302,35 @@ MySQL: For my mobile app platform, I rely on MySQL, a renowned open-source relat
 | ![Chat](./readme/admin-screens-desktop/chat.jpg)
 <br><br>
 
+### Machine Learning (Breed Classification)
+
+My machine learning model stands at the core of the Paws Project, adeptly categorizing 37 breeds of dogs and cats using a dataset specifically crafted for this purpose. It's a Convolutional Neural Network (CNN) employing transfer learning, with DenseNet121 as the base, finely tuned for my classification task. The model, trained through supervised learning on a labeled dataset, undergoes rigorous training and validation, incorporating data augmentation to enhance its robustness. It distinguishes itself by accurately predicting pet breeds, pivotal for identifying lost pets or reporting found ones on the web platform, and recognizing user pet breeds in the mobile app. This model is not just a component; it's the intelligence that powers the Paws Project.
+
+- For more detailed information and a deeper dive into the model, its architecture, and its functionalities, please refer to: [Paws Machine Learning Process](./machine-learning/README.md).
+
+| Training VS validation Accuracy Graph  
+| -----------------------------------------
+| ![Login Page](./readme/admin-screens-desktop/login.gif)
+
+| Training VS Validation Loss Graph  
+| -----------------------------------------
+| ![Dashboard](./readme/admin-screens-desktop/dashboard.jpg)
+
+### Arduino (Live Tracker)
+
+The Arduino-based pet tracker plays a pivotal role, as it employs an ESP8266 chip for WiFi connectivity and a Neo-6M-GPS module to fetch real-time location data. By interfacing these modules on a breadboard and programming them through Arduino IDE, we've crafted a seamless tracker. The system periodically transmits the pet's coordinates to my backend, ensuring each pet's location is meticulously logged in the "trackers" table of my database.  
+For a more comprehensive understanding of the Arduino process and the code's intricacies, please refer to the detailed documentation: [Paws Live Tracker](./arduino/README.md).
+
+| Live Tracker  
+| -----------------------------------------
+| ![Dashboard](./readme/arduino/Tracker.jpg)
+
 <!-- Prompt Engineering -->
 <img src="./readme/title7.svg"/>
 
 ### Mastering AI Interaction: Unveiling the Power of Prompt Engineering:
 
-In this project, I harness the power of advanced prompt engineering to fine-tune the interactions with our natural language processing models, particularly within our Chat screen. Prompt engineering is not just about sending requests to the AI; it's an art and science that involves crafting well-structured and contextually rich input instructions to guide the model's responses more effectively and predictably.
+In this project, I harness the power of advanced prompt engineering to fine-tune the interactions with my natural language processing model, particularly within the Chat screen. Prompt engineering is not just about sending requests to the AI; it's an art and science that involves crafting well-structured and contextually rich input instructions to guide the model's responses more effectively and predictably.
 
 The Chat screen integrates this concept by constructing detailed prompts that encapsulate user intent, conversational history, and specific instructions about the AI's role – in this case, functioning as an AI Doctor specialized in pet and animal inquiries. These prompts are then sent to OpenAI's GPT model, ensuring that the AI's responses are not only relevant and informative but also adhere to the predefined role and context of the conversation.
 
@@ -328,19 +353,19 @@ By leveraging these techniques, my Chat screen offers users a sophisticated and 
 
 ### Efficient AI Deployment: Unleashing the Potential with AWS Integration:
 
-This project not only emphasizes the meticulous crafting of code but also ensures its seamless deployment using AWS (Amazon Web Services). The deployment process involves a series of well-orchestrated steps, ensuring that the backend of our application is securely and efficiently hosted on an AWS EC2 instance. Here's a brief overview of the deployment process:
+This project not only emphasizes the meticulous crafting of code but also ensures its seamless deployment using AWS (Amazon Web Services). The deployment process involves a series of well-orchestrated steps, ensuring that the backend of my application is securely and efficiently hosted on an AWS EC2 instance. Here's a brief overview of the deployment process:
 
-1- EC2 Instance Initialization: An EC2 instance is set up on AWS, configured with the necessary compute resources and operating system to match our application's demands.
+1- EC2 Instance Initialization: An EC2 instance is set up on AWS, configured with the necessary compute resources and operating system to match my application's demands.
 
 2- Secure SSH Configuration with PuTTY:  
- .PuTTY Configuration: PuTTY, an SSH and Telnet client, is prepared for secure access to the EC2 instance. The .ppk file, which is the private key of the key pair, is loaded into PuTTY. This step ensures that our connection to the EC2 instance is both secure and authenticated.  
+ .PuTTY Configuration: PuTTY, an SSH and Telnet client, is prepared for secure access to the EC2 instance. The .ppk file, which is the private key of the key pair, is loaded into PuTTY. This step ensures that my connection to the EC2 instance is both secure and authenticated.  
  .Connection Establishment:I establish an SSH connection to the EC2 instance using PuTTY, utilizing the .ppk file for authentication. The session is configured with the instance's public IP address, and the connection is authenticated using the private key.
 
 3- Backend File Transfer Using SCP:  
  .With the secure SSH connection in place, I use SCP, a method for securely transferring files over SSH, to upload the backend files to the EC2 instance. SCP ensures that the files are encrypted over the network, providing both security and integrity for the data in transit.
 
 4- Server Environment Setup for Node.js:  
- .The server environment on the EC2 instance is meticulously prepared, specifically tailored for a Node.js application working with a MongoDB database. This detailed setup process ensures that the server is optimally configured and fully equipped to host our Node.js application.
+ .The server environment on the EC2 instance is meticulously prepared, specifically tailored for a Node.js application working with a MongoDB database. This detailed setup process ensures that the server is optimally configured and fully equipped to host my Node.js application.
 
 5- Application Deployment and Integration: (172.31.37.4)  
  .The backend code is deployed on the EC2 instance. This phase includes running the deployment scripts, initiating backend services, and verifying that all components of the backend are properly integrated and operational.
