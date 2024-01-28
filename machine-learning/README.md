@@ -68,6 +68,6 @@ This model demonstrates the capabilities of CNNs (Convolutional Neural Networks)
 # Project Use:
 
 The model is used throughout the project to:
--Search for a lost pet by uploading its image (+ additional information to refine the search) in the website.
+-Search for a lost pet by uploading its image (plus additional information to refine the search) in the website.
 -Report a found pet by uploading its image in the website.
 -Identify the breed of the user's pet in the mobile application.
