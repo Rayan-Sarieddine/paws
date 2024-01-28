@@ -217,9 +217,9 @@ Together, these databases form the backbone of Paws, supporting my mission to de
      <th>Register Screen</th>
   </tr>
   <tr>
-    <td><img src="./readme/user-screens-app/Welcome.jpg" alt="Onboarding Screen" width="300" height="600"/></td>
-    <td><img src="./readme/user-screens-app/Login.jpg" alt="Login Screen" width="300" height="600"/></td>
-     <td><img src="./readme/user-screens-app/Register.jpg" alt="Register Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/Welcome.jpg" alt="Onboarding Screen"  height="600"/></td>
+    <td><img src="./readme/user-screens-app/Login.jpg" alt="Login Screen"  height="600"/></td>
+     <td><img src="./readme/user-screens-app/Register.jpg" alt="Register Screen"  height="600"/></td>
   </tr>
 </table>
 
