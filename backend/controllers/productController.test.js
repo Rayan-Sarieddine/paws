@@ -79,4 +79,45 @@ describe("Product Controller", () => {
       );
     });
   });
+  describe("deleteProduct Endpoint", () => {
+    let createdProductId;
+
+    beforeEach(async () => {
+      const productData = {
+        barcode: "12345680",
+        name: "Delete Test Product",
+        price: 150,
+        description: "This is a product for delete testing",
+        details: "More details about the delete test product",
+        stock: 5,
+      };
+
+      const response = await request
+        .post("/products/")
+        .set("Authorization", `Bearer ${token}`)
+        .send(productData);
+
+      createdProductId = response.body.product._id;
+    });
+
+    it("should delete a product and return status 200", async () => {
+      const response = await request
+        .delete(`/products/${createdProductId}`)
+        .set("Authorization", `Bearer ${token}`);
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toHaveProperty(
+        "message",
+        "Product deleted successfully"
+      );
+    });
+
+    it("should return status 404 when attempting to delete a non-existing product", async () => {
+      const response = await request
+        .delete(`/products/00000000`)
+        .set("Authorization", `Bearer ${token}`);
+
+      expect(response.body).toHaveProperty("message", "product not found");
+    });
+  });
 });
