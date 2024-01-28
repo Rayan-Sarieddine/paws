@@ -249,21 +249,21 @@ Together, these databases form the backbone of Paws, supporting my mission to de
 
 ### Admin Pages (Desktop)
 
-| Login Page                                              | Dashboard Page                                             |
-| ------------------------------------------------------- | ---------------------------------------------------------- |
-| ![Login Page](./readme/admin-screens-desktop/login.gif) | ![Dashboard](./readme/admin-screens-desktop/dashboard.jpg) |
+| Login Page                                              |
+| ------------------------------------------------------- |
+| ![Login Page](./readme/admin-screens-desktop/login.gif) |
 
-| All Pets Page                                            | Edit Pet Page                                            |
-| -------------------------------------------------------- | -------------------------------------------------------- |
-| ![All Pets](./readme/admin-screens-desktop/all-pets.jpg) | ![Edit Pet](./readme/admin-screens-desktop/edit-pet.jpg) |
+| Dashboard Page                                             | All Pets Page                                            |
+| ---------------------------------------------------------- | -------------------------------------------------------- |
+| ![Dashboard](./readme/admin-screens-desktop/dashboard.jpg) | ![All Pets](./readme/admin-screens-desktop/all-pets.jpg) |
 
-| Add Pet Page                                           | All Products Page                                                |
-| ------------------------------------------------------ | ---------------------------------------------------------------- |
-| ![Add Pet](./readme/admin-screens-desktop/add-pet.jpg) | ![All Products](./readme/admin-screens-desktop/all-products.jpg) |
+| Edit Pet Page                                            | Add Pet Page                                           |
+| -------------------------------------------------------- | ------------------------------------------------------ |
+| ![Edit Pet](./readme/admin-screens-desktop/edit-pet.jpg) | ![Add Pet](./readme/admin-screens-desktop/add-pet.jpg) |
 
-| Edit Product Page                                                | Add Product Page                                               |
+| All Products Page                                                | Add Product Page                                               |
 | ---------------------------------------------------------------- | -------------------------------------------------------------- |
-| ![Edit Product](./readme/admin-screens-desktop/edit-product.jpg) | ![Add Product](./readme/admin-screens-desktop/add-product.jpg) |
+| ![All Products](./readme/admin-screens-desktop/all-products.jpg) | ![Add Product](./readme/admin-screens-desktop/add-product.jpg) |
 
 | All Orders Page                                              | Order Page                                         |
 | ------------------------------------------------------------ | -------------------------------------------------- |
