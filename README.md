@@ -8,76 +8,61 @@
 > HOME OF PETS!  
 > Paws, an ensemble of innovative platforms, revolutionizes pet care by integrating a Live Tracker device, infusing AI-driven dialogue and real-time chat, crafting machine learning searches for lost companions, nurturing pet adoption, and curating a dedicated shop for pet essentials and beyond.
 
-### User Stories
+### User (Regular) Stories
 
--As a person looking to adopt a pet I want a platform where I can browse all the pets available for adoption so that I can choose my preference.  
--As a pet owner I want a platform where I can shop for my pet’s food and toys and get them delivered to me so that I can save time.  
+-As a prospective pet owner, I want a comprehensive platform that allows me to explore all available pets for adoption and also provides a shopping section for pet-related items, so that I can both welcome a new pet into my home and adequately provide for its needs.  
 -As a shopper I want to be able to chat with someone to help me with my inquiries so that I can choose the products I need for my pet.  
--As a pet owner I want to be able to chat with someone who will be able to answer questions about my pet 24/7 so that I can keep my pet healthy and happy.  
--As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if it gets lost.  
--As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.
 -As a person who found a lost pet I want a portal where I can report it so that it can be found
+
+### User (Pet Owner) Stories
+
+-As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if it gets lost.  
+-As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.  
+-As a pet owner I want to be able to chat with someone who will be able to answer questions about my pet 24/7 so that I can keep my pet healthy and happy.
 
 ### Admin Stories
 
--As an admin I want to be able to manage inventory so that I can keep track of the products.  
--As an admin I want to be able to add pets and list them for adoption so that users can see them.  
+-As an admin, I want the capability to manage the inventory of products and add pets for listing on the adoption platform, so that I can efficiently track product availability and provide users with an updated and accessible selection of pets for adoption.  
 -As an admin I want to approve or reject adoption requests so that I can make sure the pets are going to a safe place.  
--As an admin I want to be able to chat with the users of the website in real-time.  
+-As an admin I want to be able to chat with the users of the website in real-time.
+
 <br><br>
 
-<!-- Prototyping -->
+<!-- Tech stack -->
 <img src="./readme/title3.svg"/>
 
-> The design process for Paws began with meticulous planning, utilizing Excalidraw for initial structuring of the project. This foundational step ensured a cohesive and well-organized structure. Subsequently, the project transitioned to Figma, where detailed wireframes and sophisticated mockups were meticulously crafted, laying the groundwork for a visually compelling and user-friendly design.  
-> Below is a collection of some of the wireframes and mockups.
+### Paws harnesses a diverse range of technologies, each playing a crucial role in delivering a robust and versatile application:
 
-### Wireframes
+Core Technologies:  
+-React: Employs React for building the website's user interface, offering a dynamic and responsive experience.  
+-Node.js: Serves as the backbone for the backend operations of both the website and mobile application, ensuring efficient data handling and server-side functionality.  
+-Express.js: Integrated with Node.js, Express.js streamlines the development of web applications by providing a robust set of features for web and mobile applications.  
+-Electron.js: Utilized for crafting the desktop application, Electron.js enables the creation of native desktop applications using web technologies.  
+-React Native: Adopted for developing the mobile application, React Native allows for a seamless cross-platform mobile experience.  
+-MongoDB: Acts as the primary database for the website and desktop application, offering a scalable, high-performance data storage solution.  
+-MySQL: Used for the mobile application's database, ensuring reliable data management and storage.  
+-Python: The backbone of my machine learning model, providing the necessary computational power and flexibility for complex data analysis.  
+-Flask: Works in tandem with Python to host the machine learning model, making it accessible from the website and mobile application through TensorFlow and TensorFlow Hub.  
+-C++: Employed for programming the ESP8266, enabling the integration and control of hardware components.
 
-> Website
+Hardware Integration:  
+-ESP8266: A core component of my hardware setup, used for building a tracker in conjunction with a GPS module, offering real-time tracking capabilities and IoT functionality.  
+-NEO-6M GPS Module: Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of my hardware solution.
 
-<table>
-  <tr>
-    <th>Adopt Main Page</th>
-    <th>Adopt All Pets Page</th>
-    <th>Adopt Pet Page</th>
-  </tr>
-  <tr>
-    <td><img src="./readme/wireframes/Adopt-main_page.png" alt="adopt_main_page" width="300"  height="600"/></td>
-    <td><img src="./readme/wireframes/Adopt-all_pets_page.png" alt="adopt_all_pets_page" width="300" height="600"/></td>
-    <td><img src="./readme/wireframes/ADOPT-pet_page.png" alt="adopt_pet_page" width="300" height="600"/></td>
-  </tr>
-</table>
+Third-party Integrations:  
+-Firebase: for real-time live chat functionality, enhancing user engagement and support.  
+-OpenAI: for AI-driven chat capabilities, offering intelligent and responsive user interactions.  
+-TensorFlow.js: for executing the machine learning model in the browser and mobile application, harnessing the power of machine learning directly in the user interface.  
+-Google Maps: for displaying pet locations, providing users with intuitive and accurate geolocation services.
 
-> Mobile Application
+<br><br>
 
-<table>
-  <tr>
-    <th>OnBoarding Screen</th>
-    <th>Tracker Screen</th>
-    <th>Chat Screen</th>
-  </tr>
-  <tr>
-    <td><img src="./readme/wireframes/onboarding.png" alt="onboarding_screen" width="300" height="600"/></td>
-    <td><img src="./readme/wireframes/Tracker.png" alt="tracker_screen" width="300" height="600"/></td>
-    <td><img src="./readme/wireframes/Chat.png" alt="chat_screen" width="300" height="600"/></td>
-  </tr>
-</table>
+<!-- UI UX -->
+<img src="./readme/title4.svg"/>
 
-> Desktop Application
+> The design process for Paws began with meticulous planning, utilizing Excalidraw for initial structuring of the project. This foundational step ensured a cohesive and well-organized structure. Subsequently, the project transitioned to Figma, where detailed wireframes and sophisticated mockups were meticulously crafted, laying the groundwork for a visually compelling and user-friendly design.
 
-<table>
-  <tr>
-    <th>Dashboard Page</th>
-    <th>Order Details Page</th>
-    <th>Add Pet Page</th>
-  </tr>
-  <tr>
-    <td><img src="./readme/wireframes/dashboard.png" alt="dashboard_page" /></td>
-    <td><img src="./readme/wireframes/order-details.png" alt="order_details_page" /></td>
-    <td><img src="./readme/wireframes/add-pet.png" alt="add_pet_page" /></td>
-  </tr>
-</table>
+- Project Figma design [figma](https://www.figma.com/file/Xro58VJPn7fgCsy8AM4sIU/Paws?type=design&node-id=1-3&mode=design&t=fGyvVWXXr1PSm0Ga-0)
 
 ### Mockups
 
@@ -125,11 +110,19 @@
     <td><img src="./readme/mockups/login.png" alt="login_page" /></td>
   </tr>
 </table>
+<br><br>
+
+<!-- Database Design -->
+<img src="./readme/title5.svg"/>
+
+### Architecting Data Excellence: Innovative Database Design Strategies:
+
+- Insert ER Diagram here
 
 <br><br>
 
 <!-- Implementation -->
-<img src="./readme/title4.svg"/>
+<img src="./readme/title6.svg"/>
 
 > Guided by the meticulously designed wireframes and mockups, I developed the Paws website and desktop application, equipping them with an array of features. These enhancements were strategically integrated to ensure a seamless and enriched user experience, on the web, mobile and on the desktop platforms:
 
@@ -300,37 +293,35 @@
 | ![Chat](./readme/admin-screens-desktop/chat.jpg)
 <br><br>
 
-<!-- Tech stack -->
-<img src="./readme/title5.svg"/>
+<!-- Prompt Engineering -->
+<img src="./readme/title7.svg"/>
 
-### Paws harnesses a diverse range of technologies, each playing a crucial role in delivering a robust and versatile application:
+### Mastering AI Interaction: Unveiling the Power of Prompt Engineering:
 
-Core Technologies:  
--React: Employs React for building the website's user interface, offering a dynamic and responsive experience.  
--Node.js: Serves as the backbone for the backend operations of both the website and mobile application, ensuring efficient data handling and server-side functionality.  
--Express.js: Integrated with Node.js, Express.js streamlines the development of web applications by providing a robust set of features for web and mobile applications.  
--Electron.js: Utilized for crafting the desktop application, Electron.js enables the creation of native desktop applications using web technologies.  
--React Native: Adopted for developing the mobile application, React Native allows for a seamless cross-platform mobile experience.  
--MongoDB: Acts as the primary database for the website and desktop application, offering a scalable, high-performance data storage solution.  
--MySQL: Used for the mobile application's database, ensuring reliable data management and storage.  
--Python: The backbone of my machine learning model, providing the necessary computational power and flexibility for complex data analysis.  
--Flask: Works in tandem with Python to host the machine learning model, making it accessible from the website and mobile application through TensorFlow and TensorFlow Hub.  
--C++: Employed for programming the ESP8266, enabling the integration and control of hardware components.
+- This project uses advanced prompt engineering techniques to optimize the interaction with natural language processing models. By skillfully crafting input instructions, we tailor the behavior of the models to achieve precise and efficient language understanding and generation for various tasks and preferences.
 
-Hardware Integration:  
--ESP8266: A core component of my hardware setup, used for building a tracker in conjunction with a GPS module, offering real-time tracking capabilities and IoT functionality.  
--NEO-6M GPS Module: Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of my hardware solution.
+<br><br>
 
-Third-party Integrations:  
--Firebase: for real-time live chat functionality, enhancing user engagement and support.  
--OpenAI: for AI-driven chat capabilities, offering intelligent and responsive user interactions.  
--TensorFlow.js: for executing the machine learning model in the browser and mobile application, harnessing the power of machine learning directly in the user interface.  
--Google Maps: for displaying pet locations, providing users with intuitive and accurate geolocation services.
+<!-- AWS Deployment -->
+<img src="./readme/title8.svg"/>
+
+### Efficient AI Deployment: Unleashing the Potential with AWS Integration:
+
+- This project leverages AWS deployment strategies to seamlessly integrate and deploy natural language processing models. With a focus on scalability, reliability, and performance, we ensure that AI applications powered by these models deliver robust and responsive solutions for diverse use cases.
+
+<br><br>
+
+<!-- Unit Testing -->
+<img src="./readme/title9.svg"/>
+
+### Precision in Development: Harnessing the Power of Unit Testing:
+
+- This project employs rigorous unit testing methodologies to ensure the reliability and accuracy of code components. By systematically evaluating individual units of the software, we guarantee a robust foundation, identifying and addressing potential issues early in the development process.
 
 <br><br>
 
 <!-- How to run -->
-<img src="./readme/title6.svg"/>
+<img src="./readme/title10.svg"/>
 
 > To set up Paws locally, follow these steps:
 
