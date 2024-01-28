@@ -159,4 +159,43 @@ describe("Product Controller", () => {
       });
     });
   });
+  describe("filterProducts Endpoint", () => {
+    it("should filter products by category and return status 200", async () => {
+      const response = await request
+        .post("/products/filter")
+        .set("Authorization", `Bearer ${token}`)
+        .send({ filter: "category", value: "DOG SUPPLIES" });
+
+      expect(response.statusCode).toBe(200);
+      expect(Array.isArray(response.body.filteredProducts)).toBe(true);
+    });
+
+    it("should filter products by price and return status 200", async () => {
+      const maxPrice = 200;
+      const response = await request
+        .post("/products/filter")
+        .set("Authorization", `Bearer ${token}`)
+        .send({ filter: "price", value: maxPrice });
+
+      expect(response.statusCode).toBe(200);
+      expect(Array.isArray(response.body.filteredProducts)).toBe(true);
+      response.body.filteredProducts.forEach((product) => {
+        expect(product.price).toBeLessThanOrEqual(maxPrice);
+      });
+    });
+
+    it("should filter products by name and return status 200", async () => {
+      const productName = "Test Product";
+      const response = await request
+        .post("/products/filter")
+        .set("Authorization", `Bearer ${token}`)
+        .send({ filter: "name", value: productName });
+
+      expect(response.statusCode).toBe(200);
+      expect(Array.isArray(response.body.filteredProducts)).toBe(true);
+      response.body.filteredProducts.forEach((product) => {
+        expect(product.name).toContain(productName);
+      });
+    });
+  });
 });
