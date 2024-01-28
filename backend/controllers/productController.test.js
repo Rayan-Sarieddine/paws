@@ -35,4 +35,48 @@ describe("Product Controller", () => {
       expect(response.body).toHaveProperty("product");
     });
   });
+  describe("getAllProducts Endpoint", () => {
+    it("should retrieve all products and return status 200", async () => {
+      const response = await request
+        .get("/products/")
+        .set("Authorization", `Bearer ${token}`);
+
+      expect(response.statusCode).toBe(200);
+      expect(Array.isArray(response.body.products)).toBe(true);
+    });
+  });
+
+  describe("getProduct Endpoint", () => {
+    let createdProductBarcode;
+
+    beforeEach(async () => {
+      const productData = {
+        barcode: "12345679",
+        name: "Get Test Product",
+        price: 150,
+        description: "This is a product for get testing",
+        details: "More details about the get test product",
+        stock: 5,
+      };
+
+      const response = await request
+        .post("/products/")
+        .set("Authorization", `Bearer ${token}`)
+        .send(productData);
+
+      createdProductBarcode = productData.barcode;
+    });
+
+    it("should retrieve a single product by barcode and return status 200", async () => {
+      const response = await request
+        .get(`/products/${createdProductBarcode}`)
+        .set("Authorization", `Bearer ${token}`);
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body.product).toHaveProperty(
+        "barcode",
+        createdProductBarcode
+      );
+    });
+  });
 });
