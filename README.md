@@ -214,31 +214,24 @@ Together, these databases form the backbone of Paws, supporting my mission to de
   <tr>
     <th>Onboarding Screen</th>
     <th>Login Screen</th>
+     <th>Register Screen</th>
   </tr>
   <tr>
     <td><img src="./readme/user-screens-app/Welcome.jpg" alt="Onboarding Screen" width="300" height="600"/></td>
     <td><img src="./readme/user-screens-app/Login.jpg" alt="Login Screen" width="300" height="600"/></td>
+     <td><img src="./readme/user-screens-app/Register.jpg" alt="Register Screen" width="300" height="600"/></td>
   </tr>
 </table>
 
 <table>
   <tr>
-    <th>Register Screen</th>
     <th>Add Pet Screen</th>
-  </tr>
-  <tr>
-    <td><img src="./readme/user-screens-app/Register.jpg" alt="Register Screen" width="300" height="600"/></td>
-    <td><img src="./readme/user-screens-app/Add_Pet.jpg" alt="Add Pet Screen" width="300" height="600"/></td>
-  </tr>
-</table>
-
-<table>
-  <tr>
     <th>Home Screen</th>
     <th>Tracker Screen</th>
   </tr>
   <tr>
-    <td><img src="./readme/user-screens-app/Home.jpg" alt="Home Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/Add_Pet.jpg" alt="Add Pet Screen" width="300" height="600"/></td>
+     <td><img src="./readme/user-screens-app/Home.jpg" alt="Home Screen" width="300" height="600"/></td>
     <td><img src="./readme/user-screens-app/map.gif" alt="Tracker Screen" width="300" height="600"/></td>
   </tr>
 </table>
