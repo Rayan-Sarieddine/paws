@@ -117,8 +117,15 @@ Third-party Integrations:
 
 ### Architecting Data Excellence: Innovative Database Design Strategies:
 
-- Insert ER Diagram here
+Paws is uniquely structured with a dual-database architecture to cater to the diverse needs of the platform. The project intelligently integrates two types of databases: MongoDB and MySQL, ensuring a robust and versatile data management system.
 
+MongoDB: I employ MongoDB, a powerful NoSQL database, for my web platforms. This choice allows us to handle complex data structures with ease, providing high performance, high availability, and easy scalability. The flexible schema of MongoDB is perfectly suited for my web applications, allowing for rapid development and the ability to handle large volumes of unstructured data. Below is the ER diagram:
+
+<img src="./readme/database/mongo.png" alt="ER Diagram / MongoDB" />
+
+MySQL: For my mobile app platform, I rely on MySQL, a renowned open-source relational database management system. MySQL stands out for its reliability and is widely recognized for its performance and strong data protection features. By using MySQL for my mobile platform, I ensure that data is structured, consistent, and securely managed. Below is the ER diagram:
+
+<img src="./readme/database/MySQL.png" alt="ER Diagram / MySQL" />    
 <br><br>
 
 <!-- Implementation -->
