@@ -217,9 +217,9 @@ Together, these databases form the backbone of Paws, supporting my mission to de
      <th>Register Screen</th>
   </tr>
   <tr>
-    <td><img src="./readme/user-screens-app/Welcome.jpg" alt="Onboarding Screen"  height="600"/></td>
-    <td><img src="./readme/user-screens-app/Login.jpg" alt="Login Screen"  height="600"/></td>
-     <td><img src="./readme/user-screens-app/Register.jpg" alt="Register Screen"  height="600"/></td>
+    <td><img src="./readme/user-screens-app/Welcome.jpg" alt="Onboarding Screen" /></td>
+    <td><img src="./readme/user-screens-app/Login.jpg" alt="Login Screen" /></td>
+     <td><img src="./readme/user-screens-app/Register.jpg" alt="Register Screen" /></td>
   </tr>
 </table>
 
@@ -230,9 +230,9 @@ Together, these databases form the backbone of Paws, supporting my mission to de
     <th>Tracker Screen</th>
   </tr>
   <tr>
-    <td><img src="./readme/user-screens-app/Add_Pet.jpg" alt="Add Pet Screen" width="300" height="600"/></td>
-     <td><img src="./readme/user-screens-app/Home.jpg" alt="Home Screen" width="300" height="600"/></td>
-    <td><img src="./readme/user-screens-app/map.gif" alt="Tracker Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/Add_Pet.jpg" alt="Add Pet Screen" /></td>
+     <td><img src="./readme/user-screens-app/Home.jpg" alt="Home Screen" /></td>
+    <td><img src="./readme/user-screens-app/map.gif" alt="Tracker Screen"/></td>
   </tr>
 </table>
 
@@ -242,8 +242,8 @@ Together, these databases form the backbone of Paws, supporting my mission to de
     <th>Profile Screen</th>
   </tr>
   <tr>
-    <td><img src="./readme/user-screens-app/chat.jpg" alt="Chat Screen" width="300" height="600"/></td>
-    <td><img src="./readme/user-screens-app/Profile.jpg" alt="Profile Screen" width="300" height="600"/></td>
+    <td><img src="./readme/user-screens-app/chat.jpg" alt="Chat Screen" /></td>
+    <td><img src="./readme/user-screens-app/Profile.jpg" alt="Profile Screen" /></td>
   </tr>
 </table>
 
