@@ -249,53 +249,30 @@ Together, these databases form the backbone of Paws, supporting my mission to de
 
 ### Admin Pages (Desktop)
 
-| Login Page  
-| -----------------------------------------
-| ![Login Page](./readme/admin-screens-desktop/login.gif)
+| Login Page                                              | Dashboard Page                                             |
+| ------------------------------------------------------- | ---------------------------------------------------------- |
+| ![Login Page](./readme/admin-screens-desktop/login.gif) | ![Dashboard](./readme/admin-screens-desktop/dashboard.jpg) |
 
-| Dashboard Page  
-| -----------------------------------------
-| ![Dashboard](./readme/admin-screens-desktop/dashboard.jpg)
+| All Pets Page                                            | Edit Pet Page                                            |
+| -------------------------------------------------------- | -------------------------------------------------------- |
+| ![All Pets](./readme/admin-screens-desktop/all-pets.jpg) | ![Edit Pet](./readme/admin-screens-desktop/edit-pet.jpg) |
 
-| All Pets Page  
-| -----------------------------------------
-| ![All Pets](./readme/admin-screens-desktop/all-pets.jpg)
+| Add Pet Page                                           | All Products Page                                                |
+| ------------------------------------------------------ | ---------------------------------------------------------------- |
+| ![Add Pet](./readme/admin-screens-desktop/add-pet.jpg) | ![All Products](./readme/admin-screens-desktop/all-products.jpg) |
 
-| Edit Pet Page
-| -----------------------------------------
-| ![Edit Pet](./readme/admin-screens-desktop/edit-pet.jpg)
+| Edit Product Page                                                | Add Product Page                                               |
+| ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| ![Edit Product](./readme/admin-screens-desktop/edit-product.jpg) | ![Add Product](./readme/admin-screens-desktop/add-product.jpg) |
 
-| Add Pet Page  
-| -----------------------------------------
-| ![Add Pet](./readme/admin-screens-desktop/add-pet.jpg)
+| All Orders Page                                              | Order Page                                         |
+| ------------------------------------------------------------ | -------------------------------------------------- |
+| ![All Orders](./readme/admin-screens-desktop/all-orders.jpg) | ![Order](./readme/admin-screens-desktop/order.jpg) |
 
-| All Products Page  
-| -----------------------------------------
-| ![All Products](./readme/admin-screens-desktop/all-products.jpg)
+| Adoption Requests Page                                                     | Chat Page                                        |
+| -------------------------------------------------------------------------- | ------------------------------------------------ |
+| ![Adoption Requests](./readme/admin-screens-desktop/adoption-requests.jpg) | ![Chat](./readme/admin-screens-desktop/chat.jpg) |
 
-| Edit Product Page
-| -----------------------------------------
-| ![Edit Product](./readme/admin-screens-desktop/edit-product.jpg)
-
-| Add Product Page  
-| -----------------------------------------
-| ![Add Product](./readme/admin-screens-desktop/add-product.jpg)
-
-| All Orders Page
-| -----------------------------------------
-| ![All Orders](./readme/admin-screens-desktop/all-orders.jpg)
-
-| Order Page  
-| -----------------------------------------
-| ![Order](./readme/admin-screens-desktop/order.jpg)
-
-| Adoption Requests Page  
-| -----------------------------------------
-| ![Adoption Requests](./readme/admin-screens-desktop/adoption-requests.jpg)
-
-| Chat Page  
-| -----------------------------------------
-| ![Chat](./readme/admin-screens-desktop/chat.jpg)
 <br><br>
 
 ### Machine Learning (Breed Classification)
