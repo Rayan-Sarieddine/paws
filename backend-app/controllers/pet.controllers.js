@@ -8,11 +8,9 @@ const { response } = require("express");
 
 //Function to add a new pet to a the user
 const addPet = async (req, res) => {
-  console.log("pk");
   const belongs_to = req.user.id;
   let { name, type, date_of_birth } = req.body;
   if (!name || !type || !date_of_birth || !req.files || !req.files.image) {
-    console.log(req.body);
     return res.status(400).send({ message: "all fields are required" });
   }
   const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
@@ -122,7 +120,6 @@ const editPet = async (req, res) => {
 
       const imageDir = path.join(__dirname, "../public/images/pets", imageName);
       await imageFile.mv(imageDir).catch((err) => {
-        console.error(err);
         return res.status(500).send({ message: "Error uploading image" });
       });
       updatedValues.image = imageName;
