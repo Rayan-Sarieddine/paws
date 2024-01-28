@@ -8,23 +8,23 @@
 > HOME OF PETS!  
 > Paws, an ensemble of innovative platforms, revolutionizes pet care by integrating a Live Tracker device, infusing AI-driven dialogue and real-time chat, crafting machine learning searches for lost companions, nurturing pet adoption, and curating a dedicated shop for pet essentials and beyond.
 
-### User (Regular) Stories
+### User Stories
 
--As a prospective pet owner, I want a comprehensive platform that allows me to explore all available pets for adoption and also provides a shopping section for pet-related items, so that I can both welcome a new pet into my home and adequately provide for its needs.  
--As a shopper I want to be able to chat with someone to help me with my inquiries so that I can choose the products I need for my pet.  
--As a person who found a lost pet I want a portal where I can report it so that it can be found
+- As a prospective pet owner, I want a comprehensive platform that allows me to explore all available pets for adoption and also provides a shopping section for pet-related items, so that I can both welcome a new pet into my home and adequately provide for its needs.
+- As a shopper I want to be able to chat with someone to help me with my inquiries so that I can choose the products I need for my pet.
+- As a person who found a lost pet I want a portal where I can report it so that it can be found
 
-### User (Pet Owner) Stories
+### Pet Owner Stories
 
--As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if it gets lost.  
--As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.  
--As a pet owner I want to be able to chat with someone who will be able to answer questions about my pet 24/7 so that I can keep my pet healthy and happy.
+- As a pet owner I want a tracker device to put on my dog’s collar so that I can track him on a portal if it gets lost.
+- As a pet owner who lost a pet I want a portal where I can search for my pet by uploading its image so that I can find it.
+- As a pet owner I want to be able to chat with someone who will be able to answer questions about my pet 24/7 so that I can keep my pet healthy and happy.
 
 ### Admin Stories
 
--As an admin, I want the capability to manage the inventory of products and add pets for listing on the adoption platform, so that I can efficiently track product availability and provide users with an updated and accessible selection of pets for adoption.  
--As an admin I want to approve or reject adoption requests so that I can make sure the pets are going to a safe place.  
--As an admin I want to be able to chat with the users of the website in real-time.
+- As an admin, I want the capability to manage the inventory of products and add pets for listing on the adoption platform, so that I can efficiently track product availability and provide users with an updated and accessible selection of pets for adoption.
+- As an admin I want to approve or reject adoption requests so that I can make sure the pets are going to a safe place.
+- As an admin I want to be able to chat with the users of the website in real-time.
 
 <br><br>
 
@@ -33,27 +33,30 @@
 
 ### Paws harnesses a diverse range of technologies, each playing a crucial role in delivering a robust and versatile application:
 
-Core Technologies:  
--React: Employs React for building the website's user interface, offering a dynamic and responsive experience.  
--Node.js: Serves as the backbone for the backend operations of both the website and mobile application, ensuring efficient data handling and server-side functionality.  
--Express.js: Integrated with Node.js, Express.js streamlines the development of web applications by providing a robust set of features for web and mobile applications.  
--Electron.js: Utilized for crafting the desktop application, Electron.js enables the creation of native desktop applications using web technologies.  
--React Native: Adopted for developing the mobile application, React Native allows for a seamless cross-platform mobile experience.  
--MongoDB: Acts as the primary database for the website and desktop application, offering a scalable, high-performance data storage solution.  
--MySQL: Used for the mobile application's database, ensuring reliable data management and storage.  
--Python: The backbone of my machine learning model, providing the necessary computational power and flexibility for complex data analysis.  
--Flask: Works in tandem with Python to host the machine learning model, making it accessible from the website and mobile application through TensorFlow and TensorFlow Hub.  
--C++: Employed for programming the ESP8266, enabling the integration and control of hardware components.
+Core Technologies:
 
-Hardware Integration:  
--ESP8266: A core component of my hardware setup, used for building a tracker in conjunction with a GPS module, offering real-time tracking capabilities and IoT functionality.  
--NEO-6M GPS Module: Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of my hardware solution.
+- React: Employs React for building the website's user interface, offering a dynamic and responsive experience.
+- Node.js: Serves as the backbone for the backend operations of both the website and mobile application, ensuring efficient data handling and server-side functionality.
+- Express.js: Integrated with Node.js, Express.js streamlines the development of web applications by providing a robust set of features for web and mobile applications.
+- Electron.js: Utilized for crafting the desktop application, Electron.js enables the creation of native desktop applications using web technologies.
+- React Native: Adopted for developing the mobile application, React Native allows for a seamless cross-platform mobile experience.  
+  -MongoDB: Acts as the primary database for the website and desktop application, offering a scalable, high-performance data storage solution.
+- MySQL: Used for the mobile application's database, ensuring reliable data management and storage.
+- Python: The backbone of my machine learning model, providing the necessary computational power and flexibility for complex data analysis.
+- Flask: Works in tandem with Python to host the machine learning model, making it accessible from the website and mobile application through TensorFlow and TensorFlow Hub.
+- C++: Employed for programming the ESP8266, enabling the integration and control of hardware components.
 
-Third-party Integrations:  
--Firebase: for real-time live chat functionality, enhancing user engagement and support.  
--OpenAI: for AI-driven chat capabilities, offering intelligent and responsive user interactions.  
--TensorFlow.js: for executing the machine learning model in the browser and mobile application, harnessing the power of machine learning directly in the user interface.  
--Google Maps: for displaying pet locations, providing users with intuitive and accurate geolocation services.
+Hardware Integration:
+
+- ESP8266: A core component of my hardware setup, used for building a tracker in conjunction with a GPS module, offering real-time tracking capabilities and IoT functionality.
+- NEO-6M GPS Module: Paired with the ESP8266, this GPS module is essential for providing precise location tracking capabilities, enhancing the functionality of my hardware solution.
+
+Third-party Integrations:
+
+- Firebase: for real-time live chat functionality, enhancing user engagement and support.
+- OpenAI: for AI-driven chat capabilities, offering intelligent and responsive user interactions.
+- TensorFlow.js: for executing the machine learning model in the browser and mobile application, harnessing the power of machine learning directly in the user interface.
+- Google Maps: for displaying pet locations, providing users with intuitive and accurate geolocation services.
 
 <br><br>
 
@@ -379,7 +382,7 @@ This project not only emphasizes the meticulous crafting of code but also ensure
 
 Throughout the development of Paws, The testing strategy was structured to incorporate thorough input validation and extensive API testing through Postman. This method offered immediate insights into the functionality and reliability of our endpoints. Further enhancing the robustness of our application, I integrated a deeper, automated layer of validation with comprehensive unit testing. This blend of manual and automated testing procedures fortified the foundation of Paws, ensuring the system's integrity and reliability of the tested endpoints.
 
-<img src="./readme/testing/testing.jpg" alt="Testing Results"/>
+<img src="./readme/testing/testing.png" alt="Testing Results"/>
 <br><br>
 
 <!-- How to run -->
