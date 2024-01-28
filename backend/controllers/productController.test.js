@@ -9,4 +9,30 @@ async function loginAndGetToken() {
 
   return loginResponse.body.token;
 }
-describe("Product Controller", () => {});
+describe("Product Controller", () => {
+  let token;
+  beforeAll(async () => {
+    token = await loginAndGetToken();
+  });
+  describe("addProduct Endpoint", () => {
+    it("should create a product and return status 200", async () => {
+      const productData = {
+        barcode: "123456",
+        name: "Test Product",
+        price: 100,
+        description: "This is a test product",
+        details: "More details about the product",
+        stock: 10,
+      };
+
+      const response = await request
+        .post("/products/")
+        .set("Authorization", `Bearer ${token}`)
+        .send(productData);
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toHaveProperty("status", "success");
+      expect(response.body).toHaveProperty("product");
+    });
+  });
+});
