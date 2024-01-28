@@ -310,11 +310,11 @@ My machine learning model stands at the core of the Paws Project, adeptly catego
 
 | Training VS validation Accuracy Graph  
 | -----------------------------------------
-| ![Login Page](./readme/admin-screens-desktop/login.gif)
+| ![Training VS validation Accuracy Graph ](./readme/machine-learning/figure1.png)
 
 | Training VS Validation Loss Graph  
 | -----------------------------------------
-| ![Dashboard](./readme/admin-screens-desktop/dashboard.jpg)
+| ![Training VS Validation Loss Graph](./readme/machine-learning/figure2.png)
 
 ### Arduino (Live Tracker)
 
@@ -323,7 +323,7 @@ For a more comprehensive understanding of the Arduino process and the code's int
 
 | Live Tracker  
 | -----------------------------------------
-| ![Dashboard](./readme/arduino/Tracker.jpg)
+| ![Live Tracker ](./readme/arduino/Tracker.jpg)
 
 <!-- Prompt Engineering -->
 <img src="./readme/title7.svg"/>
