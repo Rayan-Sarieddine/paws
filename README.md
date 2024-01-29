@@ -118,7 +118,7 @@ Third-party Integrations:
 <!-- Database Design -->
 <img src="./readme/title5.svg"/>
 
-### Architecting Data Excellence: Innovative Database Design Strategies:
+### Database Design:
 
 Paws is uniquely structured with a dual-database architecture to cater to the diverse needs of the platform. The project intelligently integrates two types of databases: MongoDB and MySQL, ensuring a robust and versatile data management system.
 
@@ -301,7 +301,7 @@ For a more comprehensive understanding of the Arduino process and the code's int
 <!-- Prompt Engineering -->
 <img src="./readme/title7.svg"/>
 
-### Mastering AI Interaction: Unveiling the Power of Prompt Engineering:
+### Prompt Engineering:
 
 In this project, I harness the power of advanced prompt engineering to fine-tune the interactions with my natural language processing model, particularly within the Chat screen. Prompt engineering is not just about sending requests to the AI; it's an art and science that involves crafting well-structured and contextually rich input instructions to guide the model's responses more effectively and predictably.
 
@@ -324,7 +324,7 @@ By leveraging these techniques, my Chat screen offers users a sophisticated and 
 <!-- AWS Deployment -->
 <img src="./readme/title8.svg"/>
 
-### Efficient AI Deployment: Unleashing the Potential with AWS Integration:
+### AWS Integration:
 
 This project not only emphasizes the meticulous crafting of code but also ensures its seamless deployment using AWS (Amazon Web Services). The deployment process involves a series of well-orchestrated steps, ensuring that the backend of my application is securely and efficiently hosted on an AWS EC2 instance. Here's a brief overview of the deployment process:
 
@@ -348,7 +348,7 @@ This project not only emphasizes the meticulous crafting of code but also ensure
 <!-- Unit Testing -->
 <img src="./readme/title9.svg"/>
 
-### Precision in Development: Harnessing the Power of Unit Testing:
+### Unit Testing:
 
 Throughout the development of Paws, The testing strategy was structured to incorporate thorough input validation and extensive API testing through Postman. This method offered immediate insights into the functionality and reliability of our endpoints. Further enhancing the robustness of our application, I integrated a deeper, automated layer of validation with comprehensive unit testing. This blend of manual and automated testing procedures fortified the foundation of Paws, ensuring the system's integrity and reliability of the tested endpoints.
 
