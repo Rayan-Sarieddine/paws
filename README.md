@@ -257,7 +257,7 @@ For a more comprehensive understanding of the Arduino process and the code's int
 | ![Live Tracker ](./readme/arduino/Tracker.jpg)
 
 <!-- Prompt Engineering -->
-<img src="./readme/title7.svg"/>
+<img src="./readme/title7.svg" width="600" height="600"/>
 
 ### Prompt Engineering:
 
