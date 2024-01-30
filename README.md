@@ -252,12 +252,18 @@ My machine learning model stands at the core of the Paws Project, adeptly catego
 The Arduino-based pet tracker plays a pivotal role, as it employs an ESP8266 chip for WiFi connectivity and a Neo-6M-GPS module to fetch real-time location data. By interfacing these modules on a breadboard and programming them through Arduino IDE, we've crafted a seamless tracker. The system periodically transmits the pet's coordinates to my backend, ensuring each pet's location is meticulously logged in the "trackers" table of my database.  
 For a more comprehensive understanding of the Arduino process and the code's intricacies, please refer to the detailed documentation: [Paws Live Tracker](./arduino/README.md).
 
-| Live Tracker  
-| -----------------------------------------
-| ![Live Tracker ](./readme/arduino/Tracker.jpg)
+<table>
+  <tr>
+    <th>Live Tracker</th>
+ 
+  </tr>
+  <tr>
+    <td><img src="./readme/arduino/Tracker.jpg"/  width="600" height="600"></td>
+  </tr>
+</table>
 
 <!-- Prompt Engineering -->
-<img src="./readme/title7.svg" width="600" height="600"/>
+<img src="./readme/title7.svg"/>
 
 ### Prompt Engineering:
 
