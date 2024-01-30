@@ -298,10 +298,12 @@ This project not only emphasizes the meticulous crafting of code but also ensure
 
 - Secure SSH Configuration with PuTTY
 
-- Backend File Transfer Using SCP  
+- Backend File Transfer Using SCP
+
   <img src="./readme/aws/upload.jpg" width="600" height="600"/>
 
-- Server Environment Setup for backend  
+- Server Environment Setup for backend
+
   <img src="./readme/aws/packages.jpg" width="600" height="600"/>
 
 <br><br>
