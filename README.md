@@ -292,7 +292,7 @@ By leveraging these techniques, my Chat screen offers users a sophisticated and 
 
 ### AWS Integration:
 
-This project not only emphasizes the meticulous crafting of code but also ensures its seamless deployment using AWS (Amazon Web Services). The deployment process involves a series of well-orchestrated steps, ensuring that the backend of my application is securely and efficiently hosted on an AWS EC2 instance. The steps to achieve this is through:
+This project not only emphasizes the meticulous crafting of code but also ensures its seamless deployment using AWS (Amazon Web Services). The deployment process involves a series of well-orchestrated steps, ensuring that the backend of my application is securely and efficiently hosted on an AWS EC2 instance:
 
 - EC2 Instance Initialization
 
