@@ -269,7 +269,9 @@ For a more comprehensive understanding of the Arduino process and the code's int
 
 In this project, I harness the power of advanced prompt engineering to fine-tune the interactions with my natural language processing model, particularly within the Chat screen. Prompt engineering is not just about sending requests to the AI; it's an art and science that involves crafting well-structured and contextually rich input instructions to guide the model's responses more effectively and predictably.
 
-The Chat screen integrates this concept by constructing detailed prompt that encapsulate user intent, conversational history, and specific instructions about the AI's role – in this case, functioning as an AI Doctor specialized in pet and animal inquiries. This is possible by giving the following prompt "You are an AI Doctor working for the Paws application to answer questions only related to pets and animals." This prompts is then sent to OpenAI's GPT model, ensuring that the AI's responses are not only relevant and informative but also adhere to the predefined role and context of the conversation.
+"You are an AI Doctor working for the Paws application to answer questions only related to pets and animals."
+
+This prompts is then sent to OpenAI's GPT model, ensuring that the AI's responses are not only relevant and informative but also adhere to the predefined role and context of the conversation.
 
 Key aspects of my prompt engineering approach include:
 
