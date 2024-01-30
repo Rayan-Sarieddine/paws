@@ -65,8 +65,6 @@ Third-party Integrations:
 
 > The design process for Paws began with meticulous planning, utilizing Excalidraw for initial structuring of the project. This foundational step ensured a cohesive and well-organized structure. Subsequently, the project transitioned to Figma, where detailed wireframes and sophisticated mockups were meticulously crafted, laying the groundwork for a visually compelling and user-friendly design.
 
-- Project Figma design [figma](https://www.figma.com/file/Xro58VJPn7fgCsy8AM4sIU/Paws?type=design&node-id=1-3&mode=design&t=fGyvVWXXr1PSm0Ga-0)
-
 ### Mockups
 
 > Website
@@ -84,36 +82,8 @@ Third-party Integrations:
   </tr>
 </table>
 
-> Mobile Application
-
-<table>
-  <tr>
-    <th>OnBoarding Screen</th>
-    <th>Tracker Screen</th>
-    <th>Chat Screen</th>
-  </tr>
-  <tr>
-    <td><img src="./readme/mockups/screen1.png" alt="onboarding_screen" width="300" height="600"/></td>
-    <td><img src="./readme/mockups/Tracker.png" alt="tracker_screen" width="300" height="600"/></td>
-    <td><img src="./readme/mockups/Chat.png" alt="chat_screen" width="300" height="600"/></td>
-  </tr>
-</table>
-
-> Desktop Application
-
-<table>
-  <tr>
-    <th>Products Page</th>
-    <th>Adoption Requests Page</th>
-    <th>Login Page</th>
-  </tr>
-  <tr>
-    <td><img src="./readme/mockups/products.png" alt="products_page" /></td>
-    <td><img src="./readme/mockups/adoption-requests.png" alt="adoption_requests_page" /></td>
-    <td><img src="./readme/mockups/login.png" alt="login_page" /></td>
-  </tr>
-</table>
-<br><br>
+- For more Figma designs: [figma](https://www.figma.com/file/Xro58VJPn7fgCsy8AM4sIU/Paws?type=design&node-id=1-3&mode=design&t=fGyvVWXXr1PSm0Ga-0)
+  <br><br>
 
 <!-- Database Design -->
 <img src="./readme/title5.svg"/>
@@ -124,11 +94,11 @@ Paws is uniquely structured with a dual-database architecture to cater to the di
 
 MongoDB: I employ MongoDB, a powerful NoSQL database, for my web platforms. This choice allows us to handle complex data structures with ease, providing high performance, high availability, and easy scalability. The flexible schema of MongoDB is perfectly suited for my web applications, allowing for rapid development and the ability to handle large volumes of unstructured data. Below is the ER diagram:
 
-<img src="./readme/database/mongo.png" alt="ER Diagram / MongoDB" />
+<img src="./readme/database/mongo.png" alt="ER Diagram / MongoDB" width="600" height="600"/>
 
 MySQL: For my mobile app platform, I rely on MySQL, a renowned open-source relational database management system. MySQL stands out for its reliability and is widely recognized for its performance and strong data protection features. By using MySQL for my mobile platform, I ensure that data is structured, consistent, and securely managed. Below is the ER diagram:
 
-<img src="./readme/database/MySQL.png" alt="ER Diagram / MySQL" />
+<img src="./readme/database/MySQL.png" alt="ER Diagram / MySQL" width="600" height="600"/>
 
 Together, these databases form the backbone of Paws, supporting my mission to deliver a seamless and efficient experience across both web and mobile platforms. Whether it's handling dynamic content on the web or ensuring data integrity in mobile applications, my dual-database architecture is designed to meet the diverse and evolving needs of my users.  
 <br><br>
@@ -144,17 +114,9 @@ Together, these databases form the backbone of Paws, supporting my mission to de
 | --------------------------------------------------------
 | ![Register Page](./readme/user-screens-web/register.gif)
 
-| Login Page  
-| --------------------------------------------------
-| ![Login Page](./readme/user-screens-web/login.gif)
-
 | Google Login  
 | -----------------------------------------------------------
 | ![Google Login](./readme/user-screens-web/google-login.gif)
-
-| Terms & Conditions Page  
-| ---------------------------------------------------------------
-| ![Terms & Conditions Page](./readme/user-screens-web/terms.gif)
 
 | Home Page  
 | ------------------------------------------------
@@ -199,10 +161,6 @@ Together, these databases form the backbone of Paws, supporting my mission to de
 | Chat Page  
 | ------------------------------------------------
 | ![Chat Page](./readme/user-screens-web/chat.gif)
-
-| Edit Profile Page  
-| ----------------------------------------------------------------
-| ![Edit Profile Page](./readme/user-screens-web/edit-profile.gif)
 
 | Error Page  
 | ------------------------------------------------
